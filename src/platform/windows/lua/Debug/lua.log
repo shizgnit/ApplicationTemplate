@@ -1,0 +1,138 @@
+﻿Build started 4/11/2015 5:52:47 PM.
+     1>Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\third_party\lua\lapi.c ..\..\..\third_party\lua\lauxlib.c ..\..\..\third_party\lua\lbaselib.c ..\..\..\third_party\lua\lbitlib.c ..\..\..\third_party\lua\lcode.c ..\..\..\third_party\lua\lcorolib.c ..\..\..\third_party\lua\lctype.c ..\..\..\third_party\lua\ldblib.c ..\..\..\third_party\lua\ldebug.c ..\..\..\third_party\lua\ldo.c ..\..\..\third_party\lua\ldump.c ..\..\..\third_party\lua\lfunc.c ..\..\..\third_party\lua\lgc.c ..\..\..\third_party\lua\linit.c ..\..\..\third_party\lua\liolib.c ..\..\..\third_party\lua\llex.c ..\..\..\third_party\lua\lmathlib.c ..\..\..\third_party\lua\lmem.c ..\..\..\third_party\lua\loadlib.c ..\..\..\third_party\lua\lobject.c ..\..\..\third_party\lua\lopcodes.c ..\..\..\third_party\lua\loslib.c ..\..\..\third_party\lua\lparser.c ..\..\..\third_party\lua\lstate.c ..\..\..\third_party\lua\lstring.c ..\..\..\third_party\lua\lstrlib.c ..\..\..\third_party\lua\ltable.c ..\..\..\third_party\lua\ltablib.c ..\..\..\third_party\lua\ltm.c ..\..\..\third_party\lua\luac.c ..\..\..\third_party\lua\lundump.c ..\..\..\third_party\lua\lvm.c ..\..\..\third_party\lua\lzio.c
+         lzio.c
+         lvm.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lvm.c(53): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+         lundump.c
+         luac.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\luac.c(43): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(168) : see declaration of 'strerror'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\luac.c(178): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         ltm.c
+         ltablib.c
+         ltable.c
+         lstrlib.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(845): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(847): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(886): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(914): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(924): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(934): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(943): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lstrlib.c(960): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+         lstring.c
+         lstate.c
+         lparser.c
+         loslib.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loslib.c(108): warning C4996: 'tmpnam': This function or variable may be unsafe. Consider using tmpnam_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(323) : see declaration of 'tmpnam'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loslib.c(117): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(462) : see declaration of 'getenv'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loslib.c(200): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(99) : see declaration of 'gmtime'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loslib.c(204): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\time.inl(112) : see declaration of 'localtime'
+         lopcodes.c
+         lobject.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lobject.c(209): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+         loadlib.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loadlib.c(331): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loadlib.c(639): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(462) : see declaration of 'getenv'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\loadlib.c(641): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(462) : see declaration of 'getenv'
+         lmem.c
+         lmathlib.c
+         llex.c
+         liolib.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\liolib.c(220): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\liolib.c(222): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(168) : see declaration of 'strerror'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\liolib.c(232): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\liolib.c(258): warning C4996: 'tmpfile': This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(317) : see declaration of 'tmpfile'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\liolib.c(352): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : see declaration of 'fscanf'
+         linit.c
+         Generating Code...
+         Compiling...
+         lgc.c
+         lfunc.c
+         ldump.c
+         ldo.c
+         ldebug.c
+         ldblib.c
+         lctype.c
+         lcorolib.c
+         lcode.c
+         lbitlib.c
+         lbaselib.c
+         lauxlib.c
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lauxlib.c(216): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(168) : see declaration of 'strerror'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lauxlib.c(218): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(168) : see declaration of 'strerror'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lauxlib.c(588): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(168) : see declaration of 'strerror'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lauxlib.c(642): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\lua\lauxlib.c(648): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(226) : see declaration of 'freopen'
+         lapi.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\lua.lib" /NOLOGO Debug\lapi.obj
+         Debug\lauxlib.obj
+         Debug\lbaselib.obj
+         Debug\lbitlib.obj
+         Debug\lcode.obj
+         Debug\lcorolib.obj
+         Debug\lctype.obj
+         Debug\ldblib.obj
+         Debug\ldebug.obj
+         Debug\ldo.obj
+         Debug\ldump.obj
+         Debug\lfunc.obj
+         Debug\lgc.obj
+         Debug\linit.obj
+         Debug\liolib.obj
+         Debug\llex.obj
+         Debug\lmathlib.obj
+         Debug\lmem.obj
+         Debug\loadlib.obj
+         Debug\lobject.obj
+         Debug\lopcodes.obj
+         Debug\loslib.obj
+         Debug\lparser.obj
+         Debug\lstate.obj
+         Debug\lstring.obj
+         Debug\lstrlib.obj
+         Debug\ltable.obj
+         Debug\ltablib.obj
+         Debug\ltm.obj
+         Debug\luac.obj
+         Debug\lundump.obj
+         Debug\lvm.obj
+         Debug\lzio.obj
+         lua.vcxproj -> C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\lua.lib
+     1>Done Building Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.18

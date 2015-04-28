@@ -1,0 +1,23 @@
+#include "mylo.hpp"
+
+#ifndef __VERT_HPP
+#define __VERT_HPP
+
+__MYLO_NAMESPACE_BEGIN
+
+class __MYLO_DLL_EXPORT vert: public shader {
+public:
+  vert() {
+    callback_write("VSH", write);
+  }
+
+  static off_t write(shader *context, unsigned char *buffer, off_t bytes) {
+    context->text.write(buffer, bytes);
+    return(bytes);
+  }
+
+};
+
+__MYLO_NAMESPACE_END
+
+#endif

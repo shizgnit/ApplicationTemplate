@@ -1,0 +1,134 @@
+﻿Build started 11/4/2014 7:50:24 PM.
+     1>Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\project\project.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\common\mylo /IC:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png /IC:\Users\codeneko\Dropbox\Development\dependencies\include /IC:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt ..\..\..\common\mylo\network.cpp
+         network.cpp
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\common\mylo\png.hpp(19): warning C4267: 'argument' : conversion from 'size_t' to 'off_t', possible loss of data
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2039: '_Is_numeric' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(82): error C2039: '_Is_numeric' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(82): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(83): error C2039: '_Common_float_type' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(83): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(91): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(92): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(93): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2039: '_Is_numeric' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2039: '_Common_float_type' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(94): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(95): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(96): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(97): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(98): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2039: 'is_integral' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(100): error C2039: 'type' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2039: 'enable_if' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2143: syntax error : missing ';' before '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2433: 'enable_if' : 'inline' not permitted on data declarations
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2374: 'my::enable_if' : redefinition; multiple initialization
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(81) : see declaration of 'my::enable_if'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2988: unrecognizable template declaration/definition
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2059: syntax error : '<'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2039: '_Is_numeric' : is not a member of 'std'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): error C2039: 'value' : is not a member of '`global namespace''
+     1>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xtgmath.h(101): fatal error C1003: error count exceeds 100; stopping compilation
+     1>Done Building Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\project\project.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.84

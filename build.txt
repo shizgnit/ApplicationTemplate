@@ -1,0 +1,37 @@
+http://www.cygwin.com/
+https://ant.apache.org/bindownload.cgi
+
+Add the following to Path:
+
+  C:\Tools\cygwin64\adt\ndk
+
+  C:\Tools\cygwin64\bin
+  C:\Tools\adt\ndk\ndk-build
+  C:\Tools\adt\sdk\tools
+  C:\Tools\adt\sdk\platform-tools
+  C:\Tools\apache-ant-1.9.4\bin
+
+  C:\Tools\cygwin64\bin;C:\Tools\adt\ndk\ndk-build;C:\Tools\adt\sdk\tools;C:\Tools\adt\sdk\platform-tools;C:\Tools\apache-ant-1.9.4\bin;
+  
+Copy over the following:
+
+  C:\Users\codeneko\Dropbox\find_java.bat -> C:\cygwin\adt\sdk\tools\lib\
+  C:\Windows\System32\java*.exe -> C:\Windows\SysWOW64\
+
+The build:
+
+  android update project --name ApplicationTemplate --path . --target "android-10" --subprojects
+  cd jni; ndk-build; cd ..
+  copy obj\local\armeabi\libApplicationTemplate.so libs\armeabi\
+  ant debug
+  adb install -r bin/ApplicationTemplate-debug.apk
+ 
+The make.bat:
+
+  set curr_dir=%cd%
+  cd jni & ndk-build & cd %curr_dir% & copy /y obj\local\armeabi\libApplicationTemplate.so libs\armeabi\ & ant debug & adb install -r bin/ApplicationTemplate-debug.apk
+  
+Logs:
+
+  adb logcat -c
+  adb logcat -v long > log.txt
