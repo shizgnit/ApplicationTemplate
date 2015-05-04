@@ -236,5 +236,8 @@
     <ClInclude Include="..\..\..\common\mylo\primitives.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\common\mylo\program.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

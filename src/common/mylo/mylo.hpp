@@ -196,6 +196,7 @@ __MYLO_NAMESPACE_END
 #include "obj.hpp"
 #include "vert.hpp"
 #include "frag.hpp"
+#include "program.hpp"
 #include "fnt.hpp"
 
 #endif

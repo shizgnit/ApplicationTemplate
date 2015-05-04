@@ -22,48 +22,9 @@
 
 #include "linmath.h"
 
-typedef struct {
-  GLuint program;
-
-  GLint a_position_location;
-  GLint a_texture_coordinates_location;
-  GLint u_mvp_matrix_location;
-  GLint u_texture_unit_location;
-} TextureProgram;
-
-typedef struct {
-  GLuint program;
-
-  GLint a_position_location;
-  GLint u_mvp_matrix_location;
-  GLint u_color_location;
-} ColorProgram;
 
 static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
-}
-
-TextureProgram get_texture_program(GLuint program)
-{
-  TextureProgram temp = {
-    program,
-    glGetAttribLocation(program, "a_Position"),
-    glGetAttribLocation(program, "a_TextureCoordinates"),
-    glGetUniformLocation(program, "u_MvpMatrix"),
-    glGetUniformLocation(program, "u_TextureUnit")
-  };
-  return(temp);
-}
-
-ColorProgram get_color_program(GLuint program)
-{
-  ColorProgram color =  {
-    program,
-    glGetAttribLocation(program, "a_Position"),
-    glGetUniformLocation(program, "u_MvpMatrix"),
-    glGetUniformLocation(program, "u_Color")
-  };
-  return(color);
 }
 
 
@@ -103,113 +64,6 @@ static void printDebug(const char* szFormat, ...)
 }
 #endif
 
-static const char gVertexShader[] =
-  "attribute vec4 vPosition;\n"
-  "void main() {\n"
-  "  gl_Position = vPosition;\n"
-  "}\n";
-
-static const char gFragmentShader[] =
-  "precision mediump float;\n"
-  "void main() {\n"
-  "  gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n"
-  "}\n";
-
-static const char gTextureVertexShader[] =
-  "uniform mat4 u_MvpMatrix;\n"
-  "attribute vec4 a_Position;\n"
-  "attribute vec4 a_ActualPosition;\n"
-  "varying vec4 v_ActualPosition;\n"
-  "attribute vec2 a_TextureCoordinates;\n"
-  "varying vec2 v_TextureCoordinates;\n"
-  "void main()\n"
-  "{\n"
-  "  v_ActualPosition = u_MvpMatrix * a_ActualPosition;\n"
-  "  v_TextureCoordinates = a_TextureCoordinates;\n"
-  "  gl_Position = u_MvpMatrix * a_Position;\n"
-  "}\n";
-
-static const char gTextureFragmentShader[] =
-  "precision mediump float;\n"
-  "uniform sampler2D u_TextureUnit;\n"
-  "uniform sampler2D u_FakeDepthUnit;\n"
-  "varying vec4 v_ActualPosition;\n"
-  "varying vec2 v_TextureCoordinates;\n"
-  "void main()\n"
-  "{\n"
-  "  gl_FragColor = gl_FragColor + texture2D(u_TextureUnit, v_TextureCoordinates) * vec4(texture2D(u_TextureUnit, v_TextureCoordinates).a);\n"
-  "}\n";
-
-GLuint loadShader(GLenum shaderType, const char* pSource) {
-  GLuint shader = glCreateShader(shaderType);
-  if (shader) {
-    LOGI("Shader loaded\n");
-    glShaderSource(shader, 1, &pSource, NULL);
-    glCompileShader(shader);
-    GLint compiled = 0;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-    if (!compiled) {
-      GLint infoLen = 0;
-      glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
-      if (infoLen) {
-        char* buf = (char*) malloc(infoLen);
-        if (buf) {
-          glGetShaderInfoLog(shader, infoLen, NULL, buf);
-          LOGE("Could not compile shader %d:\n%s\n", shaderType, buf);
-          free(buf);
-        }
-        glDeleteShader(shader);
-        shader = 0;
-      }
-    }
-  }
-  else {
-    LOGI("Shader failed to load\n");
-  }
-  return shader;
-}
-
-GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
-  LOGI("vertex shader\n");
-  GLuint vertexShader = loadShader(GL_VERTEX_SHADER, pVertexSource);
-  if (!vertexShader) {
-    return 0;
-  }
-
-  LOGI("pixel shader\n");
-  GLuint pixelShader = loadShader(GL_FRAGMENT_SHADER, pFragmentSource);
-  if (!pixelShader) {
-    return 0;
-  }
-
-  GLuint program = glCreateProgram();
-  if (program) {
-    glAttachShader(program, vertexShader);
-    checkGlError("glAttachShader");
-    glAttachShader(program, pixelShader);
-    checkGlError("glAttachShader");
-    glLinkProgram(program);
-    GLint linkStatus = GL_FALSE;
-    glGetProgramiv(program, GL_LINK_STATUS, &linkStatus);
-    if (linkStatus != GL_TRUE) {
-      GLint bufLength = 0;
-      glGetProgramiv(program, GL_INFO_LOG_LENGTH, &bufLength);
-      if (bufLength) {
-        char* buf = (char*) malloc(bufLength);
-        if (buf) {
-          glGetProgramInfoLog(program, bufLength, NULL, buf);
-          LOGE("Could not link program:\n%s\n", buf);
-          free(buf);
-        }
-      }
-      glDeleteProgram(program);
-      program = 0;
-    }
-  }
-  return program;
-}
-
-GLuint gProgram;
 GLuint gvPositionHandle;
 
 GLuint gTextureProgram;
@@ -234,39 +88,106 @@ static mat4x4 background_projection_matrix;
 
 my::fnt font;
 
+GLuint compile(my::shader *shader, GLuint type) {
+  shader->context = glCreateShader(type);
+  if (!shader->context) {
+    return 0;
+  }
 
-void compile(my::shared_ptr<my::object> obj) {
-  glGenBuffers(1, &obj->context);
-  glBindBuffer(GL_ARRAY_BUFFER, obj->context);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(my::object::vertex) * obj->vertices.size(), obj->vertices.pointer, GL_STATIC_DRAW);
+  GLchar *text = shader->text.c_str();
+  glShaderSource(shader->context, 1, (const GLchar **)&text, NULL);
+
+  glCompileShader(shader->context);
+
+  GLint compiled = 0;
+  glGetShaderiv(shader->context, GL_COMPILE_STATUS, &compiled);
+  if (!compiled) {
+    GLint length = 0;
+    glGetShaderiv(shader->context, GL_INFO_LOG_LENGTH, &length);
+    if (length) {
+      char *info = (char*)malloc(length);
+      glGetShaderInfoLog(shader->context, length, NULL, info);
+      LOGE("Could not compile shader %d:\n%s\n", type, info);
+      free(info);
+      glDeleteShader(shader->context);
+      shader->context = 0;
+    }
+  }
+
+  return shader->context;
+}
+
+GLuint compile(my::program &program) {
+  if (!compile(program.vertex, GL_VERTEX_SHADER)) {
+    return 0;
+  }
+
+  if (!compile(program.fragment, GL_FRAGMENT_SHADER)) {
+    return 0;
+  }
+
+  program.context = glCreateProgram();
+  if (!program.context) {
+    return 0;
+  }
+
+  glAttachShader(program.context, program.vertex->context);
+  checkGlError("glAttachShader");
+
+  glAttachShader(program.context, program.fragment->context);
+  checkGlError("glAttachShader");
+
+  glLinkProgram(program.context);
+
+  GLint linkStatus = GL_FALSE;
+  glGetProgramiv(program.context, GL_LINK_STATUS, &linkStatus);
+  if (linkStatus != GL_TRUE) {
+    GLint length = 0;
+    glGetProgramiv(program.context, GL_INFO_LOG_LENGTH, &length);
+    if (length) {
+      char *info = (char*)malloc(length);
+      glGetProgramInfoLog(program.context, length, NULL, info);
+      LOGE("Could not link program:\n%s\n", info);
+      free(info);
+    }
+    glDeleteProgram(program.context);
+    program.context = 0;
+  }
+
+  return program.context;
+}
+
+void compile(my::shared_ptr<my::object> object) {
+  glGenBuffers(1, &object->context);
+  glBindBuffer(GL_ARRAY_BUFFER, object->context);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(my::object::vertex) * object->vertices.size(), object->vertices.pointer, GL_STATIC_DRAW);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-  glGenTextures(1, &obj->texture->context);
-  glBindTexture(GL_TEXTURE_2D, obj->texture->context);
+  glGenTextures(1, &object->texture->context);
+  glBindTexture(GL_TEXTURE_2D, object->texture->context);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, obj->texture->map->header.width, obj->texture->map->header.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, obj->texture->map->raster);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, object->texture->map->header.width, object->texture->map->header.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, object->texture->map->raster);
   glGenerateMipmap(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-
-void draw(my::shared_ptr<my::object> obj, mat4x4 matrix) {
+void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glUseProgram(gTextureProgram);
 
   glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, obj->texture->context);
+  glBindTexture(GL_TEXTURE_2D, object->texture->context);
 
   glUniformMatrix4fv(u_mvp_matrix_location, 1, GL_FALSE, (GLfloat*)matrix);
   glUniform1i(u_texture_unit_location, 0);
 
-  glBindBuffer(GL_ARRAY_BUFFER, obj->context);
+  glBindBuffer(GL_ARRAY_BUFFER, object->context);
   glVertexAttribPointer(a_position_location, 2, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(0));
   glVertexAttribPointer(a_texture_coordinates_location, 2, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
   glEnableVertexAttribArray(a_position_location);
   glEnableVertexAttribArray(a_texture_coordinates_location);
 
-  glDrawArrays(GL_TRIANGLE_FAN, 0, obj->vertices.size());
+  glDrawArrays(GL_TRIANGLE_FAN, 0, object->vertices.size());
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -299,26 +220,35 @@ void on_startup(void *asset_manager) {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  gProgram = createProgram(gVertexShader, gFragmentShader);
-	if (!gProgram) {
-    LOGE("Could not link program\n");
-		return;
-	}
-	gvPositionHandle = glGetAttribLocation(gProgram, "vPosition");
+  my::asset::manager(asset_manager);
+
+  my::program color_program;
+  my::frag color_fragment;
+  my::vert color_vertex;
+
+  color_program << color_fragment << my::asset("shaders/color_shader.fsh");
+  color_program << color_vertex << my::asset("shaders/color_shader.vsh");
+
+  compile(color_program);
+
+  gvPositionHandle = glGetAttribLocation(color_program.context, "vPosition");
 	checkGlError("glGetAttribLocation");
 
   LOGI("Attempting to create the draw surface\n");
-  gTextureProgram = createProgram(gTextureVertexShader, gTextureFragmentShader);
-  if (!gProgram) {
-    LOGE("Could not link program\n");
-    return;
-  }
-  a_position_location = glGetAttribLocation(gTextureProgram, "a_Position");
-  a_texture_coordinates_location = glGetAttribLocation(gTextureProgram, "a_TextureCoordinates");
-  u_mvp_matrix_location = glGetUniformLocation(gTextureProgram, "u_MvpMatrix");
-  u_texture_unit_location = glGetUniformLocation(gTextureProgram, "u_TextureUnit");
 
-  my::asset::manager(asset_manager); 
+  my::program texture_alpha_program;
+  my::frag texture_alpha_fragment;
+  my::vert texture_alpha_vertex;
+
+  texture_alpha_program << texture_alpha_fragment << my::asset("shaders/texture_alpha_shader.frag");
+  texture_alpha_program << texture_alpha_vertex << my::asset("shaders/texture_alpha_shader.vert");
+
+  compile(texture_alpha_program);
+
+  a_position_location = glGetAttribLocation(texture_alpha_program.context, "a_Position");
+  a_texture_coordinates_location = glGetAttribLocation(texture_alpha_program.context, "a_TextureCoordinates");
+  u_mvp_matrix_location = glGetUniformLocation(texture_alpha_program.context, "u_MvpMatrix");
+  u_texture_unit_location = glGetUniformLocation(texture_alpha_program.context, "u_TextureUnit");
 
   LOGI("pwd: %s\n", my::pwd().c_str());
 

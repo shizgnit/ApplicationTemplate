@@ -7,8 +7,10 @@ __MYLO_NAMESPACE_BEGIN
 
 class __MYLO_DLL_EXPORT shader: public datatype<shader> {
 public:
-  my::buffer text;
+  my::buffer buffer;
+  my::string text;
 
+  unsigned int context;
 };
 
 __MYLO_NAMESPACE_END

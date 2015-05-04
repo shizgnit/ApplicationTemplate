@@ -1,4 +1,4 @@
-﻿Build started 4/24/2015 9:35:36 PM.
+﻿Build started 5/4/2015 12:35:19 AM.
      1>Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\project\project.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
@@ -12,9 +12,9 @@
      1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\linmath\linmath.h(45): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\linmath\linmath.h(46): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\third_party\linmath\linmath.h(325): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\applicationtemplate.cpp(100): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\applicationtemplate.cpp(61): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(346) : see declaration of '_vsnprintf'
-     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\applicationtemplate.cpp(333): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\codeneko\dropbox\development\projects\applicationtemplate\src\applicationtemplate.cpp(263): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\ApplicationTemplate.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug /LIBPATH:C:\Users\codeneko\Dropbox\Development\dependencies\lib /LIBPATH:"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86" /LIBPATH:"C:\Program Files\Microsoft DirectX SDK (June 2010)\Lib\x86" lua.lib rpcrt4.lib ws2_32.lib zlib.lib opengl32.lib glu32.lib glew32s.lib openal32.lib alut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\ApplicationTemplate.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\ApplicationTemplate.lib" /MACHINE:X86 Debug\ApplicationTemplate.obj
          Debug\asset.obj
@@ -45,9 +45,10 @@
          Debug\pngwtran.obj
          Debug\pngwutil.obj
          Debug\windows.obj
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
          project.vcxproj -> C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\ApplicationTemplate.exe
      1>Done Building Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\project\project.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.95
+Time Elapsed 00:00:02.40

@@ -1,5 +1,5 @@
-﻿Build started 4/11/2015 5:52:47 PM.
-     1>Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 5/3/2015 11:21:53 PM.
+     1>Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\third_party\lua\lapi.c ..\..\..\third_party\lua\lauxlib.c ..\..\..\third_party\lua\lbaselib.c ..\..\..\third_party\lua\lbitlib.c ..\..\..\third_party\lua\lcode.c ..\..\..\third_party\lua\lcorolib.c ..\..\..\third_party\lua\lctype.c ..\..\..\third_party\lua\ldblib.c ..\..\..\third_party\lua\ldebug.c ..\..\..\third_party\lua\ldo.c ..\..\..\third_party\lua\ldump.c ..\..\..\third_party\lua\lfunc.c ..\..\..\third_party\lua\lgc.c ..\..\..\third_party\lua\linit.c ..\..\..\third_party\lua\liolib.c ..\..\..\third_party\lua\llex.c ..\..\..\third_party\lua\lmathlib.c ..\..\..\third_party\lua\lmem.c ..\..\..\third_party\lua\loadlib.c ..\..\..\third_party\lua\lobject.c ..\..\..\third_party\lua\lopcodes.c ..\..\..\third_party\lua\loslib.c ..\..\..\third_party\lua\lparser.c ..\..\..\third_party\lua\lstate.c ..\..\..\third_party\lua\lstring.c ..\..\..\third_party\lua\lstrlib.c ..\..\..\third_party\lua\ltable.c ..\..\..\third_party\lua\ltablib.c ..\..\..\third_party\lua\ltm.c ..\..\..\third_party\lua\luac.c ..\..\..\third_party\lua\lundump.c ..\..\..\third_party\lua\lvm.c ..\..\..\third_party\lua\lzio.c
          lzio.c
@@ -131,8 +131,8 @@
          Debug\lvm.obj
          Debug\lzio.obj
          lua.vcxproj -> C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug\lua.lib
-     1>Done Building Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\lua\lua.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.18
+Time Elapsed 00:00:04.08

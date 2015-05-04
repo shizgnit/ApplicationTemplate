@@ -203,6 +203,7 @@
     <ClInclude Include="..\..\..\common\mylo\pair.hpp" />
     <ClInclude Include="..\..\..\common\mylo\png.hpp" />
     <ClInclude Include="..\..\..\common\mylo\primitives.hpp" />
+    <ClInclude Include="..\..\..\common\mylo\program.hpp" />
     <ClInclude Include="..\..\..\common\mylo\regex.hpp" />
     <ClInclude Include="..\..\..\common\mylo\shader.hpp" />
     <ClInclude Include="..\..\..\common\mylo\shared_ptr.hpp" />
