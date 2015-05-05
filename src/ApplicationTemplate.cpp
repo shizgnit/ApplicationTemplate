@@ -88,21 +88,35 @@ static mat4x4 background_projection_matrix;
 
 my::fnt font;
 
+my::program color_program;
+my::frag color_fragment;
+my::vert color_vertex;
+
+my::program texture_alpha_program;
+my::frag texture_alpha_fragment;
+my::vert texture_alpha_vertex;
+
+my::shared_ptr<my::object> gbackground;
+
+my::png gtexture;
+
+
+
 GLuint compile(my::shader *shader, GLuint type) {
   shader->context = glCreateShader(type);
   if (!shader->context) {
     return 0;
   }
 
+  GLint length;
   GLchar *text = shader->text.c_str();
-  glShaderSource(shader->context, 1, (const GLchar **)&text, NULL);
+  glShaderSource(shader->context, 1, (const GLchar **)&text, &length);
 
   glCompileShader(shader->context);
 
   GLint compiled = 0;
   glGetShaderiv(shader->context, GL_COMPILE_STATUS, &compiled);
   if (!compiled) {
-    GLint length = 0;
     glGetShaderiv(shader->context, GL_INFO_LOG_LENGTH, &length);
     if (length) {
       char *info = (char*)malloc(length);
@@ -173,7 +187,7 @@ void compile(my::shared_ptr<my::object> object) {
 }
 
 void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
-  glUseProgram(gTextureProgram);
+  glUseProgram(texture_alpha_program.context);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, object->texture->context);
@@ -192,27 +206,14 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-my::shared_ptr<my::object> gbackground;
-
-my::png gtexture;
-
 void on_startup(void *asset_manager) {
   LOGI("Attempting to create the draw surface\n");
 
 #ifdef _WIN32
   AllocConsole();
-
-  HANDLE handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
-  int hCrt = _open_osfhandle((long)handle_out, _O_TEXT);
-  FILE* hf_out = _fdopen(hCrt, "w");
-  setvbuf(hf_out, NULL, _IONBF, 1);
-  *stdout = *hf_out;
-
-  HANDLE handle_in = GetStdHandle(STD_INPUT_HANDLE);
-  hCrt = _open_osfhandle((long)handle_in, _O_TEXT);
-  FILE* hf_in = _fdopen(hCrt, "r");
-  setvbuf(hf_in, NULL, _IONBF, 128);
-  *stdin = *hf_in;
+  freopen("CONIN$", "r", stdin);
+  freopen("CONOUT$", "w", stdout);
+  freopen("CONOUT$", "w", stderr);
 #endif
 
   glDisable(GL_DEPTH_TEST);
@@ -221,10 +222,6 @@ void on_startup(void *asset_manager) {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   my::asset::manager(asset_manager);
-
-  my::program color_program;
-  my::frag color_fragment;
-  my::vert color_vertex;
 
   color_program << color_fragment << my::asset("shaders/color_shader.fsh");
   color_program << color_vertex << my::asset("shaders/color_shader.vsh");
@@ -235,10 +232,6 @@ void on_startup(void *asset_manager) {
 	checkGlError("glGetAttribLocation");
 
   LOGI("Attempting to create the draw surface\n");
-
-  my::program texture_alpha_program;
-  my::frag texture_alpha_fragment;
-  my::vert texture_alpha_vertex;
 
   texture_alpha_program << texture_alpha_fragment << my::asset("shaders/texture_alpha_shader.frag");
   texture_alpha_program << texture_alpha_vertex << my::asset("shaders/texture_alpha_shader.vert");
@@ -368,7 +361,7 @@ void on_draw() {
   scale[3][3] = 1.0f;
   mat4x4_translate_in_place( scale, -100.0f, -100.0f, -1.0f );
 
-  pprint(scale);
+  //pprint(scale);
 
   //int x = getchar();
 
