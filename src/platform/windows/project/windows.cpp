@@ -7,6 +7,8 @@
 #include <windows.h>
 #include <shellapi.h>
 
+#include <iostream>
+
 #include "ApplicationTemplate.hpp"
 
 #define ID_TRAY_APP_ICON                5000
@@ -159,28 +161,36 @@ bool Window::Create(WNDPROC WndProc) {
   _notifyIconData.uCallbackMessage = WM_TRAYICON;
   _notifyIconData.hIcon = (HICON)LoadImage(NULL, TEXT("icon.ico"), IMAGE_ICON, 0, 0, LR_LOADFROMFILE);
 
-  //strcpy_s(_notifyIconData.szTip, TEXT("Green man.. here's looking at ya!"));
-
-  //PIXELFORMATDESCRIPTOR to PFD_SWAP_COPY
+  //strcpy_s(_notifyIconData.szTip, TEXT("Set icon tooltip text"));
 
   static PIXELFORMATDESCRIPTOR _PFD = {
-  sizeof(PIXELFORMATDESCRIPTOR),
-  1,                     // nVersion should be set to 1
-  PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, // buffer can draw to window // buffer supports OpenGL drawing // buffer is double buffered
-  PFD_TYPE_RGBA,         // rgba pixels
-  24,                    // 24-bit color depth
-  0, 0, 0, 0, 0, 0,      // look up rest at MSDN, color bits ignored
-  0,                     // no alpha buffer
-  0,                     // shift bit ignored
-  1,                     // no accumulation buffer
-  16, 16, 16, 16,        // accumulation bits
-  16,                    // 16 bit z buffer
-  0,                     // no stencil buffer
-  0,                     // no auxiliary buffer
-  PFD_MAIN_PLANE,        // main drawing layer
-  0,                     // reserved
-  0, 0, 0                // layer mask ignored
-  };
+    sizeof(PIXELFORMATDESCRIPTOR),                                // nSize;
+    1,                                                            // nVersion;
+    PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,   // dwFlags;
+    PFD_TYPE_RGBA,                                                // iPixelType;
+    24,                                                           // cColorBits;
+    0,                                                            // cRedBits;
+    0,                                                            // cRedShift;
+    0,                                                            // cGreenBits;
+    0,                                                            // cGreenShift;
+    0,                                                            // cBlueBits;
+    0,                                                            // cBlueShift;
+    0,                                                            // cAlphaBits;
+    0,                                                            // cAlphaShift;
+    1,                                                            // cAccumBits;
+    16,                                                           // cAccumRedBits;
+    16,                                                           // cAccumGreenBits;
+    16,                                                           // cAccumBlueBits;
+    16,                                                           // cAccumAlphaBits;
+    16,                                                           // cDepthBits;
+    0,                                                            // cStencilBits;
+    0,                                                            // cAuxBuffers;
+    PFD_MAIN_PLANE,                                               // iLayerType;
+    0,                                                            // bReserved;
+    0,                                                            // dwLayerMask;
+    0,                                                            // dwVisibleMask;
+    0                                                             // dwDamageMask;
+  };  
 
   int i = ChoosePixelFormat(_HDC, &_PFD);
 
@@ -248,12 +258,133 @@ void OnTimer() {
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-  switch (uMsg) {
-//    case WM_CREATE:
-//      _HMENU = CreatePopupMenu();
-//      AppendMenu(_HMENU, MF_STRING, ID_TRAY_EXIT_CONTEXT_MENU_ITEM, TEXT("Exit"));
-//      break;
 
+  int nNoOfDevices = 0;
+  POINT p, q;
+
+  RAWINPUT input;
+  UINT szData = sizeof(input), szHeader = sizeof(RAWINPUTHEADER);
+  HRAWINPUT handle;
+
+	switch (uMsg) {
+	  case WM_CREATE:
+
+      AllocConsole();
+
+      freopen("CONIN$", "r", stdin);
+      freopen("CONOUT$", "w", stdout);
+      freopen("CONOUT$", "w", stderr);
+
+      UINT nDevices;
+      PRAWINPUTDEVICELIST pRawInputDeviceList;
+      GetRawInputDeviceList(NULL, &nDevices, sizeof(RAWINPUTDEVICELIST));
+
+      pRawInputDeviceList = (PRAWINPUTDEVICELIST)malloc(sizeof(RAWINPUTDEVICELIST)* nDevices);
+
+      nNoOfDevices = GetRawInputDeviceList(pRawInputDeviceList, &nDevices, sizeof(RAWINPUTDEVICELIST));
+
+      RID_DEVICE_INFO rdi;
+      rdi.cbSize = sizeof(RID_DEVICE_INFO);
+
+      for (int i = 0; i < nNoOfDevices; i++) {
+        TCHAR device[256];
+        GetRawInputDeviceInfo(pRawInputDeviceList[i].hDevice, RIDI_DEVICENAME, device, 0);
+
+        UINT cbSize = rdi.cbSize;
+        GetRawInputDeviceInfo(pRawInputDeviceList[i].hDevice, RIDI_DEVICEINFO, &rdi, &cbSize);
+
+        std::wcout << L"Device Name: " << device << std::endl;
+        std::cout << "rdi.dwType ............................ " << rdi.dwType << std::endl;
+
+        if (rdi.dwType == RIM_TYPEMOUSE)
+        {
+          std::cout << "rdi.mouse.dwId ........................ " << rdi.mouse.dwId << std::endl;
+          std::cout << "rdi.mouse.dwNumberOfButtons ........... " << rdi.mouse.dwNumberOfButtons << std::endl;
+          std::cout << "rdi.mouse.dwSampleRate ................ " << rdi.mouse.dwSampleRate << std::endl;
+        }
+
+        if (rdi.dwType == RIM_TYPEKEYBOARD)
+        {
+          std::cout << "rdi.keyboard.dwKeyboardMode ........... " << rdi.keyboard.dwKeyboardMode << std::endl;
+          std::cout << "rdi.keyboard.dwNumberOfFunctionKeys ... " << rdi.keyboard.dwNumberOfFunctionKeys << std::endl;
+          std::cout << "rdi.keyboard.dwNumberOfIndicators ..... " << rdi.keyboard.dwNumberOfIndicators << std::endl;
+          std::cout << "rdi.keyboard.dwNumberOfKeysTotal ...... " << rdi.keyboard.dwNumberOfKeysTotal << std::endl;
+          std::cout << "rdi.keyboard.dwType ................... " << rdi.keyboard.dwType << std::endl;
+          std::cout << "rdi.keyboard.dwSubType ................ " << rdi.keyboard.dwSubType << std::endl;
+        }
+
+        if (rdi.dwType == RIM_TYPEHID)
+        {
+          std::cout << "rdi.hid.dwVendorId .................... " << rdi.hid.dwVendorId << std::endl;
+          std::cout << "rdi.hid.dwProductId ................... " << rdi.hid.dwProductId << std::endl;
+          std::cout << "rdi.hid.dwVersionNumber ............... " << rdi.hid.dwVersionNumber << std::endl;
+          std::cout << "rdi.hid.usUsage ....................... " << rdi.hid.usUsage << std::endl;
+          std::cout << "rdi.hid.usUsagePage ................... " << rdi.hid.usUsagePage << std::endl;
+        }
+      }
+
+      free(pRawInputDeviceList);
+
+      // https://msdn.microsoft.com/en-us/library/windows/desktop/ms645565(v=vs.85).aspx
+      RAWINPUTDEVICE rid;
+      rid.usUsagePage = 0x01;
+      rid.dwFlags = RIDEV_INPUTSINK; //RIDEV_NOLEGACY
+      rid.hwndTarget = hWnd;
+
+      rid.usUsage = 0x02; // Mouse
+      RegisterRawInputDevices(&rid, 1, sizeof(rid));
+
+      rid.usUsage = 0x06; // Keyboard
+      RegisterRawInputDevices(&rid, 1, sizeof(rid));
+
+      rid.usUsage = 0x04; // Joystick
+      RegisterRawInputDevices(&rid, 1, sizeof(rid));
+
+      rid.usUsage = 0x05; // Gamepad
+      RegisterRawInputDevices(&rid, 1, sizeof(rid));
+
+      // _HMENU = CreatePopupMenu();
+      // AppendMenu(_HMENU, MF_STRING, ID_TRAY_EXIT_CONTEXT_MENU_ITEM, TEXT("Exit"));
+      
+      break;
+
+	case WM_INPUT:
+    // https://msdn.microsoft.com/en-us/library/windows/desktop/ms645546(v=vs.85).aspx
+
+    handle = reinterpret_cast<HRAWINPUT>(lParam);
+    //RAWINPUT input;
+    //UINT szData = sizeof(input), szHeader = sizeof(RAWINPUTHEADER);
+    //HRAWINPUT handle = reinterpret_cast<HRAWINPUT>(lParam);
+
+    GetRawInputData(handle, RID_INPUT, &input, &szData, szHeader);
+
+    if (0 && input.header.dwType == RIM_TYPEKEYBOARD)
+    {
+      std::cout << "Keyboard - ";
+      std::cout << " MakeCode:" << input.data.keyboard.MakeCode;
+      std::cout << " Flags:" << input.data.keyboard.Flags;
+      std::cout << " Reserved:" << input.data.keyboard.Reserved;
+      std::cout << " ExtraInformation:" << input.data.keyboard.ExtraInformation;
+      std::cout << " Message:" << input.data.keyboard.Message;
+      std::cout << " VKey:" << input.data.keyboard.VKey;
+      std::cout << std::endl;
+    }
+
+    if (0 && input.header.dwType == RIM_TYPEMOUSE)
+    {
+      std::cout << "Mouse - ";
+      std::cout << " usFlags:" << input.data.mouse.usFlags;
+      std::cout << " ulButtons:" << input.data.mouse.ulButtons;
+      std::cout << " usButtonFlags:" << input.data.mouse.usButtonFlags;
+      std::cout << " usButtonData:" << input.data.mouse.usButtonData;
+      std::cout << " ulRawButtons:" << input.data.mouse.ulRawButtons;
+      std::cout << " lLastX:" << input.data.mouse.lLastX;
+      std::cout << " lLastY:" << input.data.mouse.lLastY;
+      std::cout << " ulExtraInformation:" << input.data.mouse.ulExtraInformation;
+      std::cout << std::endl;
+    }
+    break;
+	  
     case WM_ACTIVATE: {
       if ((LOWORD(wParam) != WA_INACTIVE) && !((BOOL)HIWORD(wParam))) {
         SetTimer(hWnd, 1, 10, NULL);
@@ -293,29 +424,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     }
 
     case WM_TRAYICON:	{
-      printf("Tray icon notification, from %d\n", wParam);
       switch (wParam)	{
-      case ID_TRAY_APP_ICON:
-        printf("Its the ID_TRAY_APP_ICON.. one app can have several tray icons, ya know..\n");
-        break;
+        case ID_TRAY_APP_ICON:
+          break;
       }
 
       if (lParam == WM_LBUTTONUP) {
-        printf("You have restored me!\n");
         window->Restore();
       }
       else if (lParam == WM_RBUTTONDOWN) {
-        printf("Mmm.  Let's get contextual.  I'm showing you my context menu.\n");
-        POINT curPoint;
-        GetCursorPos(&curPoint);
+        GetCursorPos(&p);
+        //ScreenToClient(hWnd, &p)
 //        SetForegroundWindow(_HWND);
-        printf("calling track\n");
         /*
         UINT clicked = TrackPopupMenu(
           _HMENU,
           TPM_RETURNCMD | TPM_NONOTIFY,
-          curPoint.x,
-          curPoint.y,
+          p.x,
+          p.y,
           0,
           _HWND,
           NULL
@@ -325,7 +451,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
         SendMessage(_HWND, WM_NULL, 0, 0);
         if (clicked == ID_TRAY_EXIT_CONTEXT_MENU_ITEM) {
-          printf("I have posted the quit message, biatch\n");
           PostQuitMessage(0);
         }
         */

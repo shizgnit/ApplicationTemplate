@@ -209,13 +209,6 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
 void on_startup(void *asset_manager) {
   LOGI("Attempting to create the draw surface\n");
 
-#ifdef _WIN32
-  AllocConsole();
-  freopen("CONIN$", "r", stdin);
-  freopen("CONOUT$", "w", stdout);
-  freopen("CONOUT$", "w", stderr);
-#endif
-
   glDisable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
   glEnable(GL_BLEND);
