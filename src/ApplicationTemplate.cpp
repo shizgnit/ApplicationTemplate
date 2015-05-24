@@ -206,6 +206,25 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
+void draw(my::string text, mat4x4 matrix) {
+
+  int prior = 0;
+
+  for (int i = 0; i < text.length(); i++) {
+    mat4x4_translate_in_place(matrix, font.kern(prior, text[i]), 0.0f, 0.0f);
+    mat4x4 temporary;
+    mat4x4_dup(temporary, matrix);
+    mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, 0.0f, 0.0f);
+    //mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, font.glyphs[text[i]]->yoffset, 0.0f);
+    draw(font.glyphs[text[i]]->quad, temporary);
+    mat4x4_translate_in_place(matrix, font.glyphs[text[i]]->xadvance, 0.0f, 0.0f);
+    prior = text[i];
+  }
+
+}
+
+
+
 void on_startup(void *asset_manager) {
   LOGI("Attempting to create the draw surface\n");
 
@@ -276,42 +295,6 @@ void on_resize(int width, int height) {
   mat4x4_look_at(view_matrix, eye, center, up);
 }
 
-
-/*
-
-int current_x = this.x;
-int current_y = this.y;
-
-switch(this.hAlign) {
-  case LEFT:   current_x = this.x;                   break;
-  case RIGHT:  current_x = this.x - this.width;      break;
-  case CENTER: current_x = this.x - (this.width/2);  break;
-}
-
-switch(this.vAlign) {
-  case TOP:    current_y = this.y;                   break;
-  case BOTTOM: current_y = this.y - this.height;     break;
-  case CENTER: current_y = this.y - (this.height/2); break;
-}
-
-for(int i=0; i<length; i++) {
-  this.font.glyphs.get(characters[i]).quad.setScale(this.scale[0], this.scale[1], this.scale[2]);
-
-  if(prior != 0 && this.kerning) {
-    FontKerning kerning = this.font.getKerning(prior, characters[i]);
-    if(kerning != null) {
-      current_x += (kerning.getAmount() * this.scale[0]);
-    }
-  }
-
-  this.font.glyphs.get(characters[i]).draw(current_x + (int)(this.font.glyphs.get(characters[i]).xOffset * this.scale[0]), current_y + (int)(this.font.glyphs.get(characters[i]).yOffset * this.scale[1]), this.depth);
-
-  current_x += (this.font.glyphs.get(characters[i]).xAdvance * this.scale[0]);
-
-  prior = characters[i];
-}
-
-*/
 
 static mat4x4 identity;
 
@@ -391,7 +374,9 @@ void on_draw() {
   mat4x4_translate_in_place(letter, 0.0f, 0.0f, -2.0f);
 
   //model_view_projection_matrix
-  draw(font.glyphs[66]->quad, letter);
+  //draw(font.glyphs[66]->quad, letter);
+
+  draw("Testing", letter);
 
 }
 

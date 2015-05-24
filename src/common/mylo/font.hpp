@@ -56,6 +56,16 @@ public:
   my::vector< my::shared_ptr<glyph> > glyphs;
   my::vector< my::shared_ptr<kerning> > kernings;
 
+  int kern(int left, int right) {
+    my::vector< my::shared_ptr<kerning> >::iterator it = kernings.begin();
+    for (; it != kernings.end(); it++) {
+      if (it->second->first == left && it->second->second == right) {
+        return(it->second->amount);
+      }
+    }
+    return(0);
+  }
+
   my::buffer buffer;
 };
 
