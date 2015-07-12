@@ -9,6 +9,18 @@ class serializable;
 
 //template class __MYLO_DLL_EXPORT my::shared_ptr< my::vector<my::serializable *> >;
 
+class __MYLO_DLL_EXPORT manipulator {
+public:
+  manipulator() {}
+};
+
+class __MYLO_DLL_EXPORT end_of_line : public manipulator {
+public:
+  end_of_line() {}
+};
+
+static end_of_line endl;
+
 class __MYLO_DLL_EXPORT stream {
 public:
   static const size_t alloc = 65536;

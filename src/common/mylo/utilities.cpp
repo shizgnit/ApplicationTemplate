@@ -353,7 +353,7 @@ my::string hostname() {
   char hostname[128];
 
   if(gethostname(reinterpret_cast<char *>(hostname), 128)) { 
-    //std::cerr<<"error getting hostname"<<std::endl; 
+    DEBUG("Failed to obtain host name");
   }
 
   return(my::string(hostname));
@@ -362,10 +362,13 @@ my::string hostname() {
 
 my::string ip(my::string hostname) {
   hostent *resolv = gethostbyname(hostname.c_str());
+  if (resolv == NULL) {
+    DEBUG("Failed to resolve host IP, %s", hostname);
+  }
 
   char addr[16];
   if(inet_ntop((*resolv).h_addrtype, (*resolv).h_addr_list[0], reinterpret_cast<char *>(addr), 16) <= 0) {
-    //std::cerr<<"ERROR: unable to convert address."<<std::endl;
+    DEBUG("Failed to convert address, %s", hostname);
   }
 
   return(my::string(addr));

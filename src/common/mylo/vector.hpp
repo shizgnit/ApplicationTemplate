@@ -139,6 +139,9 @@ public:
     (*this)[m_storage_size?m_relative_back+1:0] = value;
   }
   
+  basic_iterator< pair<S, T> > pop_back() {
+    return(pop());
+  }
   basic_iterator< pair<S, T> > pop() {
     if(m_relative_front > m_relative_back) {
       return(basic_iterator< pair<S, T> >::terminator);

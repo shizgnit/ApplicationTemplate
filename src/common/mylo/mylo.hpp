@@ -162,6 +162,9 @@ __MYLO_NAMESPACE_END
 #include "stream.hpp"
 #include "buffer.hpp"
 #include "typecast.hpp"
+#include "trace.hpp"
+#include "debug.hpp"
+
 #include "variant.hpp"
 #include "regex.hpp"
 #include "utilities.hpp"

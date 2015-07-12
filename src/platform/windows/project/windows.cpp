@@ -419,8 +419,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       return 0;
     }
 
-    case WM_LBUTTONUP: {
+    case WM_LBUTTONDOWN: {
       // Focus
+      GetCursorPos(&p);
+      ScreenToClient(hWnd, &p);
+
+      on_touch_press(p.x, p.y);
     }
 
     case WM_TRAYICON:	{
@@ -433,8 +437,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         window->Restore();
       }
       else if (lParam == WM_RBUTTONDOWN) {
-        GetCursorPos(&p);
-        //ScreenToClient(hWnd, &p)
+
 //        SetForegroundWindow(_HWND);
         /*
         UINT clicked = TrackPopupMenu(

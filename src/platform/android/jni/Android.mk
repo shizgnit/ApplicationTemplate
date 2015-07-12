@@ -53,6 +53,7 @@ include $(CLEAR_VARS)
 LOCAL_CFLAGS := -fpermissive
 LOCAL_C_INCLUDES += $(COMMON_PATH)/mylo
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
+LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/linmath
 LOCAL_CPP_FEATURES := rtti exceptions
 
 LOCAL_MODULE    := libmylo
@@ -65,6 +66,7 @@ LOCAL_SRC_FILES := \
   $(COMMON_PATH)/mylo/identity.cpp \
   $(COMMON_PATH)/mylo/regex.cpp \
   $(COMMON_PATH)/mylo/stream.cpp \
+  $(COMMON_PATH)/mylo/trace.cpp \
   $(COMMON_PATH)/mylo/timer.cpp \
   $(COMMON_PATH)/mylo/utilities.cpp \
   $(COMMON_PATH)/mylo/xml.cpp \
@@ -81,6 +83,7 @@ LOCAL_CFLAGS := -fpermissive
 LOCAL_C_INCLUDES += $(TOP_PATH)
 LOCAL_C_INCLUDES += $(COMMON_PATH)/mylo
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
+LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/linmath
 LOCAL_STATIC_LIBRARIES := libmylo libpng libz
 
 #LOCAL_LDLIBS := -lz

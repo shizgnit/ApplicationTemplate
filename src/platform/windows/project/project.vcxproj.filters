@@ -99,6 +99,9 @@
     <ClCompile Include="..\..\..\common\mylo\asset.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\common\mylo\trace.cpp">
+      <Filter>mylo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\common\mylo\buffer.hpp">
@@ -237,6 +240,12 @@
       <Filter>mylo</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\mylo\program.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\mylo\debug.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\mylo\trace.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
   </ItemGroup>

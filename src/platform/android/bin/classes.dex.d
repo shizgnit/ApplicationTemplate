@@ -8,4 +8,4 @@ c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\classes\com\android\ApplicationTemplate\R$attr.class \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\classes\com\android\ApplicationTemplate\R$string.class \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\classes\com\android\ApplicationTemplate\R.class \
-c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\dexedLibs\annotations-98ebf3c1e98c57c510149e3e9fc59a80.jar \
+c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\dexedLibs\annotations-c71fc5373a6afdbe22c323638e27bb8d.jar \

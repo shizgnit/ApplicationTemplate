@@ -1,1320 +1,815 @@
---------- beginning of /dev/log/main
-[ 08-13 15:04:08.214  1105: 1141 W/com.amazon.dcp.settings.SettingsCache ]
-Permission to read device settings doesn't exist. This is normal on third-party devices.
+--------- beginning of system
+[ 06-14 23:51:30.610   843: 1348 I/ActivityManager ]
+Killing 2886:com.aide.ui/u0a105 (adj 15): empty #17
 
-[ 08-13 15:04:08.214  1105: 1141 I/com.amazon.dcp.settings.SettingsCache ]
-Always use default values for settings
+[ 06-14 23:51:30.703   843: 1002 I/PowerManagerService ]
+Waking up from dozing (uid 1000)...
 
-[ 08-13 15:04:08.308  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.accounts.MultipleAccountPluginHolder ]
-Returning Default multiple profile settings
+[ 06-14 23:51:30.704   843:  923 I/DisplayPowerController ]
+Blocking screen on until initial contents have been drawn.
 
-[ 08-13 15:04:08.604  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 311K, 4% free 9373K/9712K, paused 11ms+4ms, total 40ms
+--------- beginning of main
+[ 06-14 23:51:30.708   259:  259 D/SurfaceFlinger ]
+Set power mode=2, type=0 flinger=0xb6482000
 
-[ 08-13 15:04:09.019  1069: 1089 I/com.amazon.mp3/com.amazon.identity.auth.device.storage.DistributedDataStorage ]
-Am not the latest application. Not creating alarm to clean database
+[ 06-14 23:51:30.708   259:  259 D/qdhwcomposer ]
+hwc_setPowerMode: Setting mode 2 on display: 0
 
-[ 08-13 15:04:09.183  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 298K, 4% free 9507K/9836K, paused 7ms+4ms, total 31ms
+[ 06-14 23:51:30.714   843:  921 I/DisplayManagerService ]
+Display device changed: DisplayDeviceInfo{"Built-in Screen": uniqueId="local:0", 1440 x 2560, 60.0 fps, supportedRefreshRates [60.0], density 560, 494.27 x 492.606 dpi, appVsyncOff 7500000, presDeadline 12666667, touch INTERNAL, rotation 0, type BUILT_IN, state ON, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
 
-[ 08-13 15:04:09.315  1069: 1069 I/AmazonMP3_RequestDispatcher ]
-ensureFordSyncConnection
+[ 06-14 23:51:30.817   843:  843 V/KeyguardServiceDelegate ]
+onScreenTurnedOn(showListener = com.android.internal.policy.impl.PhoneWindowManager$2@fb8399a)
 
---------- beginning of /dev/log/system
-[ 08-13 15:04:09.323   380: 4654 I/ActivityManager ]
-Start proc com.google.android.apps.docs for broadcast com.google.android.apps.docs/.receivers.AppPackageAddRemoveReceiver: pid=1160 uid=10099 gids={50099, 1006, 3003, 1015, 1028}
+[ 06-14 23:51:30.818   843:  843 V/ActivityManager ]
+Display changed displayId=0
 
-[ 08-13 15:04:09.347   380:  765 I/ActivityManager ]
-Process com.google.android.gallery3d (pid 1019) has died.
+[ 06-14 23:51:30.842   357: 1025 D/audio_hw_primary ]
+adev_set_parameters: enter: screen_state=on
 
-[ 08-13 15:04:09.386  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 460K, 5% free 9557K/10048K, paused 26ms+52ms, total 111ms
+[ 06-14 23:51:30.842   357: 1025 D/mot_vr_audio_hw ]
+adev_set_parameters: screen_state=on
 
-[ 08-13 15:04:09.386  1069: 1097 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 79ms
+[ 06-14 23:51:30.845   843: 1010 E/WifiStateMachine ]
+cancelDelayedScan -> 1120
 
-[ 08-13 15:04:09.386  1069: 1090 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 74ms
+[ 06-14 23:51:30.849   843: 1010 E/native   ]
+do suspend false
 
-[ 08-13 15:04:09.386  1069: 1159 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 72ms
+[ 06-14 23:51:30.945   259:  319 I/qdhwcomposer ]
+handle_blank_event: dpy:0 panel power state: 1
 
-[ 08-13 15:04:09.448  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 509K, 6% free 9556K/10096K, paused 4ms+2ms, total 28ms
+[ 06-14 23:51:30.946   259:  259 D/qdhwcomposer ]
+hwc_setPowerMode: Done setting mode 2 on display 0
 
-[ 08-13 15:04:09.448  1069: 1090 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 14ms
+[ 06-14 23:51:30.947   843: 1044 D/SurfaceControl ]
+Excessive delay in setPowerMode(): 239ms
 
-[ 08-13 15:04:09.456  1069: 1159 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 11ms
+[ 06-14 23:51:30.959  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_SET_TECH_CFG_EVT; status=0x0
 
-[ 08-13 15:04:09.456  1069: 1097 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 15ms
+[ 06-14 23:51:30.960  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_SET_PROTO_CFG_EVT; status=0x0
 
-[ 08-13 15:04:09.456  1069: 1158 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 11ms
+[ 06-14 23:51:30.960  1396: 3334 D/BrcmNfcJni ]
+RoutingManager::commitRouting
 
-[ 08-13 15:04:09.550  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 481K, 6% free 9579K/10096K, paused 15ms+4ms, total 47ms
+[ 06-14 23:51:30.962   843: 1767 V/KeyguardServiceDelegate ]
+**** SHOWN CALLED ****
 
-[ 08-13 15:04:09.550  1069: 1090 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 27ms
+[ 06-14 23:51:30.964   843:  923 I/DisplayPowerController ]
+Unblocked screen on after 260 ms
 
-[ 08-13 15:04:09.550  1069: 1097 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 19ms
+[ 06-14 23:51:30.973   843:  923 I/DreamManagerService ]
+Gently waking up from dream.
 
-[ 08-13 15:04:09.597  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 412K, 6% free 9575K/10116K, paused 3ms+4ms, total 28ms
+[ 06-14 23:51:30.974   843: 1767 I/DreamManagerService ]
+Leaving dreamland.
 
-[ 08-13 15:04:09.597  1069: 1097 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 16ms
+[ 06-14 23:51:30.978   843:  918 I/DreamController ]
+Stopping dream: name=ComponentInfo{com.android.systemui/com.android.systemui.doze.DozeService}, isTest=false, canDoze=true, userId=0
 
-[ 08-13 15:04:09.597  1069: 1090 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 15ms
+[ 06-14 23:51:30.983  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_UPDATED_EVT
 
-[ 08-13 15:04:09.597  1069: 1097 I/AmazonMP3_Configuration ]
-active endpoint = remote
+[ 06-14 23:51:31.346   843: 1010 E/WifiStateMachine ]
+WifiStateMachine CMD_START_SCAN source -2 txSuccessRate=10.88 rxSuccessRate=62.25 targetRoamBSSID=any RSSI=-66
 
-[ 08-13 15:04:09.612   380:  765 I/ActivityManager ]
-Process com.google.android.talk (pid 659) has died.
+[ 06-14 23:51:31.346   843: 1010 E/WifiStateMachine ]
+WifiStateMachine starting scan for "NRA73"WPA_PSK with 5220
 
-[ 08-13 15:04:09.847  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 192K, 3% free 8893K/9112K, paused 4ms+4ms, total 32ms
+[ 06-14 23:51:31.557  3431: 3457 I/GAV4     ]
+Thread[GAThread,5,main]: No campaign data found.
 
-[ 08-13 15:04:09.878   380: 4655 I/ActivityManager ]
-START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.ApplicationTemplate/.ApplicationTemplateActivity} from pid 26185
+[ 06-14 23:51:31.753  1082: 1082 D/PhoneStatusBar ]
+disable: < expand ICONS alerts SYSTEM_INFO back HOME RECENT clock SEARCH >
 
-[ 08-13 15:04:09.995  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 326K, 4% free 9027K/9352K, paused 6ms+3ms, total 42ms
+[ 06-14 23:51:31.795   357: 1011 D/audio_hw_primary ]
+out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
 
-[ 08-13 15:04:09.995  1174: 1174 D/dalvikvm ]
-Late-enabling CheckJNI
+[ 06-14 23:51:31.796  1082: 1082 D/PhoneStatusBar ]
+disable: < expand icons* alerts system_info* back HOME RECENT clock SEARCH >
 
-[ 08-13 15:04:09.995   380:  380 I/ActivityManager ]
-Start proc com.android.ApplicationTemplate for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity: pid=1174 uid=10075 gids={50075, 1015, 1028}
+[ 06-14 23:51:31.808   357:  840 D/audio_hw_primary ]
+select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
 
-[ 08-13 15:04:10.034  1174: 1174 I/dalvikvm ]
-Turning on JNI app bug workarounds for target SDK version 10...
+[ 06-14 23:51:31.808   357:  840 D/msm8974_platform ]
+platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
 
-[ 08-13 15:04:10.151  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 393K, 5% free 9141K/9564K, paused 9ms+19ms, total 74ms
+[ 06-14 23:51:31.808   357:  840 E/ACDB-LOADER ]
+Error: ACDB AFE returned = -19
 
-[ 08-13 15:04:10.183  1174: 1174 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x42634390
 
-[ 08-13 15:04:10.190  1174: 1174 D/dalvikvm ]
-Added shared lib /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x42634390
+[ 06-14 23:51:31.808   357:  840 D/audio_hw_primary ]
+enable_snd_device: snd_device(2: speaker)
 
-[ 08-13 15:04:10.190  1174: 1174 D/dalvikvm ]
-No JNI_OnLoad found in /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x42634390, skipping init
+[ 06-14 23:51:31.810   357:  840 D/audio_hw_primary ]
+enable_audio_route: apply and update mixer path: low-latency-playback speaker
 
-[ 08-13 15:04:10.253  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 397K, 5% free 9268K/9668K, paused 2ms+4ms, total 35ms
+[ 06-14 23:51:31.821  1082: 1082 D/PhoneStatusBar ]
+disable: < expand icons alerts system_info back home* recent* clock search* >
 
-[ 08-13 15:04:10.323   578:  578 V/PhoneStatusBar ]
+[ 06-14 23:51:31.840  2340: 2340 V/UserPresentBroadcastReceiver ]
+Received Intent { act=android.intent.action.USER_PRESENT flg=0x24000010 cmp=com.google.android.gms/.auth.trustagent.UserPresentBroadcastReceiver }.
+
+[ 06-14 23:51:31.843  1396: 1597 E/BrcmNfcJni ]
+nfaConnectionCallback: unknown event ????
+
+[ 06-14 23:51:31.843  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_SET_TECH_CFG_EVT; status=0x0
+
+[ 06-14 23:51:31.843  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_SET_PROTO_CFG_EVT; status=0x0
+
+[ 06-14 23:51:31.843  1396: 4948 D/BrcmNfcJni ]
+RoutingManager::commitRouting
+
+[ 06-14 23:51:31.850  1396: 1597 D/BrcmNfcJni ]
+RoutingManager::nfaEeCallback: NFA_EE_UPDATED_EVT
+
+[ 06-14 23:51:31.873   843:  862 I/ActivityManager ]
+Start proc 3575:com.google.android.apps.fitness/u0a58 for broadcast com.google.android.apps.fitness/.widget.TodayStatusWidgetProvider
+
+[ 06-14 23:51:31.898  2340: 2340 I/art      ]
+Explicit concurrent mark sweep GC freed 18759(847KB) AllocSpace objects, 0(0B) LOS objects, 36% free, 28MB/44MB, paused 1.089ms total 43.635ms
+
+[ 06-14 23:51:31.993   843: 3637 I/art      ]
+Explicit concurrent mark sweep GC freed 23097(1165KB) AllocSpace objects, 0(0B) LOS objects, 25% free, 45MB/61MB, paused 2.174ms total 89.747ms
+
+[ 06-14 23:51:32.013   843: 1348 W/InputMethodManagerService ]
+Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@14bbbed4 attribute=android.view.inputmethod.EditorInfo@340d087d, token = android.os.BinderProxy@e956afc
+
+[ 06-14 23:51:32.014  1268: 1268 I/Keyboard.Facilitator ]
+onFinishInput()
+
+[ 06-14 23:51:32.068  3697: 3596 I/HotwordRecognitionRnr ]
+Starting hotword detection.
+
+[ 06-14 23:51:32.071  3697: 3597 I/MicrophoneInputStream ]
+mic_starting com.google.android.apps.gsa.speech.audio.w@26f240ca
+
+[ 06-14 23:51:32.073   357: 3600 I/AudioFlinger ]
+AudioFlinger's thread 0xb411b000 ready to run
+
+[ 06-14 23:51:32.077   357: 1024 I/SoundTriggerHwService::Module ]
+void android::SoundTriggerHwService::Module::onCallbackEvent(const android::sp<android::SoundTriggerHwService::CallbackEvent>&) mClient == 0
+
+[ 06-14 23:51:32.080  3697: 3597 I/MicrophoneInputStream ]
+mic_started com.google.android.apps.gsa.speech.audio.w@26f240ca
+
+[ 06-14 23:51:32.090   357: 3600 D/audio_hw_primary ]
+select_devices: out_snd_device(0: none) in_snd_device(55: voice-rec-mic)
+
+[ 06-14 23:51:32.090   357: 3600 D/msm8974_platform ]
+platform_send_audio_calibration: sending audio calibration for snd_device(55) acdb_id(62)
+
+[ 06-14 23:51:32.090   357: 3600 E/ACDB-LOADER ]
+Error: ACDB AudProc vol returned = -19
+
+
+[ 06-14 23:51:32.090   357: 3600 D/audio_hw_primary ]
+enable_snd_device: snd_device(55: voice-rec-mic)
+
+[ 06-14 23:51:32.098   357: 3600 D/audio_hw_primary ]
+enable_audio_route: apply and update mixer path: audio-record
+
+[ 06-14 23:51:32.109  3575: 3575 I/FitnessApp ]
+Initializers took 0 milliseconds
+
+[ 06-14 23:51:32.143   843: 1766 I/ActivityManager ]
+Start proc 3603:com.aide.ui/u0a105 for broadcast com.aide.ui/com.appfour.common.gcm.GcmUserPresentBroadcastReceiver
+
+[ 06-14 23:51:32.145   843: 1766 I/ActivityManager ]
+Killing 3012:com.google.android.apps.photos/u0a78 (adj 15): empty #17
+
+[ 06-14 23:51:32.169  3697: 3697 I/HotwordWorker ]
+onReady
+
+[ 06-14 23:51:32.294   843: 1256 I/ActivityManager ]
+Killing 3128:com.android.defcontainer/u0a9 (adj 15): empty #17
+
+[ 06-14 23:51:32.350  1552: 2745 D/GCM      ]
+GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
+
+[ 06-14 23:51:32.891  3697: 6164 I/MicrophoneInputStream ]
+mic_close com.google.android.apps.gsa.speech.audio.w@26f240ca
+
+[ 06-14 23:51:32.900   357: 1011 D/audio_hw_primary ]
+out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+
+[ 06-14 23:51:32.951   357: 3600 D/audio_hw_primary ]
+disable_audio_route: reset and update mixer path: audio-record
+
+[ 06-14 23:51:32.952   357: 3600 D/audio_hw_primary ]
+disable_snd_device: snd_device(55: voice-rec-mic)
+
+[ 06-14 23:51:32.957   357: 1024 I/SoundTriggerHwService::Module ]
+void android::SoundTriggerHwService::Module::onCallbackEvent(const android::sp<android::SoundTriggerHwService::CallbackEvent>&) mClient == 0
+
+[ 06-14 23:51:32.960  3697: 6185 I/HotwordRecognitionRnr ]
+Stopping hotword detection.
+
+[ 06-14 23:51:32.960  3697: 3596 I/HotwordRecognitionRnr ]
+Hotword detection finished
+
+[ 06-14 23:51:33.557  3603: 3621 D/A4GCM    ]
+GCM id: APA91bEJOC_OSVIbhfvAEMtKbtPTHcK_HwpsC5WkqslYfRaJBI291qJE4NOOq6zgghZi5wGsMz9cvVC-JkOJQsk4Cc51ScSw3lJhQoDsQV6WMW1LJoON_cGufl7mjq-Edo1yhJuBy-9p
+
+[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
+updateNetworkScore for NetworkAgentInfo [WIFI () - 117] to 60
+
+[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
+rematching NetworkAgentInfo [WIFI () - 117]
+
+[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
+Network NetworkAgentInfo [WIFI () - 117] was already satisfying request 1. No change.
+
+[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
+notifyType AVAILABLE for NetworkAgentInfo [WIFI () - 117]
+
+[ 06-14 23:51:33.869  1082: 1537 D/ConnectivityManager.CallbackHandler ]
+CM callback handler got msg 524290
+
+[ 06-14 23:51:35.427  1855: 3331 V/ConfigFetchTask ]
+ConfigFetchTask getDeviceDataVersionInfo(): ABFEt1XXgf6PDXRr1ak31Szhwx37DuVmifoNfRI9-4pFTDiRaSIwTzyL7cZEohc3Is0VJ2Viv_B4uB6EoathCio-PSYNy8v03gYIn3T14x6vRnZk07QrFUgosW1Qcr2LvIZe8uCJTLB3YP9ouZyaJ3cRfKbPx1f9Mo5yaELF1vmfJuCG0dOHY5bAuRpta4ihff_AW0kwBgM8
+
+[ 06-14 23:51:35.430  1855: 3331 I/GoogleURLConnFactory ]
+Using platform SSLCertificateSocketFactory
+
+[ 06-14 23:51:35.612  1855: 1855 I/ConfigFetchService ]
+fetch service done; releasing wakelock
+
+[ 06-14 23:51:35.614  1855: 1855 I/ConfigFetchService ]
+stopping self
+
+[ 06-14 23:51:36.115   357: 1011 D/audio_hw_primary ]
+disable_audio_route: reset and update mixer path: low-latency-playback speaker
+
+[ 06-14 23:51:36.116   357: 1011 D/audio_hw_primary ]
+disable_snd_device: snd_device(2: speaker)
+
+[ 06-14 23:51:36.933   843: 1447 I/ActivityManager ]
+START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.ApplicationTemplate/.ApplicationTemplateActivity (has extras)} from uid 10034 on display 0
+
+[ 06-14 23:51:36.941   357: 1011 D/audio_hw_primary ]
+out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+
+[ 06-14 23:51:36.948   843: 1447 V/WindowManager ]
+addAppToken: AppWindowToken{36560aed token=Token{23b68504 ActivityRecord{3778cd17 u0 com.android.ApplicationTemplate/.ApplicationTemplateActivity t58}}} to stack=1 task=58 at 0
+
+[ 06-14 23:51:36.952   843:  921 V/WindowManager ]
+Adding window Window{214ad96e u0 Starting com.android.ApplicationTemplate} at 6 of 13 (after Window{3c60eede u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.legacyui.VelvetActivity})
+
+[ 06-14 23:51:36.955   357:  840 D/audio_hw_primary ]
+select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+
+[ 06-14 23:51:36.955   357:  840 D/msm8974_platform ]
+platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
+
+[ 06-14 23:51:36.955   357:  840 E/ACDB-LOADER ]
+Error: ACDB AFE returned = -19
+
+
+[ 06-14 23:51:36.955   357:  840 D/audio_hw_primary ]
+enable_snd_device: snd_device(2: speaker)
+
+[ 06-14 23:51:36.957   357:  840 D/audio_hw_primary ]
+enable_audio_route: apply and update mixer path: low-latency-playback speaker
+
+[ 06-14 23:51:37.014  3639: 3639 I/art      ]
+Late-enabling -Xcheck:jni
+
+[ 06-14 23:51:37.015   843:12029 I/ActivityManager ]
+Start proc 3639:com.android.ApplicationTemplate/u0a158 for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity
+
+[ 06-14 23:51:37.052  1082: 1082 V/PhoneStatusBar ]
 setLightsOn(true)
 
-[ 08-13 15:04:10.347  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.storage.DistributedDataStorage ]
-Am the latest application. Setting up alarm to clean database
+[ 06-14 23:51:37.096   843: 1256 V/WindowManager ]
+Adding window Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity} at 6 of 14 (before Window{214ad96e u0 Starting com.android.ApplicationTemplate})
 
-[ 08-13 15:04:10.370  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 400K, 5% free 9315K/9748K, paused 4ms+5ms, total 45ms
+[ 06-14 23:51:37.106   843: 1348 V/WindowManager ]
+Adding window Window{33567a1e u0 SurfaceView} at 6 of 15 (before Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity})
 
-[ 08-13 15:04:10.464  1174: 1187 D/libEGL   ]
-loaded /vendor/lib/egl/libEGL_POWERVR_SGX540_120.so
+[ 06-14 23:51:37.112  3639: 3658 I/Adreno   ]
+EGLInit: QTI Build: 01/29/15, 1bccc5d, I0ba6dce82d
 
-[ 08-13 15:04:10.479   380:  395 I/ActivityManager ]
-Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +499ms
+[ 06-14 23:51:37.153   843:  921 I/ActivityManager ]
+Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +170ms
 
-[ 08-13 15:04:10.519  1174: 1187 D/libEGL   ]
-loaded /vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so
+[ 06-14 23:51:37.157  1268: 1268 I/Keyboard.Facilitator ]
+onFinishInput()
 
-[ 08-13 15:04:10.526  1174: 1187 D/libEGL   ]
-loaded /vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so
-
-[ 08-13 15:04:10.558  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 652K, 7% free 9793K/10488K, paused 8ms+2ms, total 144ms
-
-[ 08-13 15:04:10.581  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Starting to enable manifest components required for this platform
-
-[ 08-13 15:04:10.612  1174: 1187 I/ApplicationTemplate ]
-attempting to list assets
-
-[ 08-13 15:04:10.636  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Enable Component Class ChangeTimestampsBroadcastReceiver since it is needed on this platform
-
-[ 08-13 15:04:10.644  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Finished enabling manifest components required on this platform
-
-[ 08-13 15:04:10.644  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Starting to disable unneeded manifest components
-
-[ 08-13 15:04:10.651  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Disabling Component Class SessionUserChangedToAccountForPackageChangedAdpater since it is not needed on this platform
-
-[ 08-13 15:04:10.651  1105: 1139 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Finished to disable unneeded manifest components
-
-[ 08-13 15:04:10.706  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 248K, 3% free 9476K/9752K, paused 8ms+2ms, total 45ms
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-images
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-shaders
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-sounds
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-textures
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-webkit
-
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
 Attempting to create the draw surface
 
 
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-vertex shader
+[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
+Attempting to find resource: shaders/color_shader.fsh
+
+[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
+Found resource 84 bytes
+
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Contents: precision mediump float;
+void main() {
+  gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+}
+_image 
+
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Contents length: 91
+
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Attempting to find resource: shaders/color_shader.vsh
+
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Found resource 69 bytes
+
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Contents: attribute vec4 vPosition;
+void main() {
+  gl_Position = vPosition;
+}
 
 
-[ 08-13 15:04:10.706  1174: 1187 I/ApplicationTemplate ]
-Shader loaded
+[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
+Contents length: 69
+
+[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
+Attempting to create the draw surface
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-pixel shader
+[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
+Attempting to find resource: shaders/texture_alpha_shader.frag
+
+[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
+Found resource 246 bytes
+
+[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
+Contents: precision mediump float;
+uniform sampler2D u_TextureUnit;
+varying vec2 v_TextureCoordinates;
+void main()
+{
+  gl_FragColor = gl_FragColor + texture2D(u_TextureUnit, v_TextureCoordinates) * vec4(texture2D(u_TextureUnit, v_TextureCoordinates).a);
+}
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-Shader loaded
+[ 06-14 23:51:37.189  3639: 3658 I/ApplicationTemplate ]
+Contents length: 246
+
+[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
+Attempting to find resource: shaders/texture_alpha_shader.vert
+
+[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
+Found resource 230 bytes
+
+[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
+Contents: uniform mat4 u_MvpMatrix;
+attribute vec4 a_Position;
+attribute vec2 a_TextureCoordinates;
+varying vec2 v_TextureCoordinates;
+void main()
+{
+  v_TextureCoordinates = a_TextureCoordinates;
+  gl_Position = u_MvpMatrix * a_Position;
+}
+rdinates).a);
+}
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
+Contents length: 246
+
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
 pwd: /
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
 contents: .
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
 contents: ..
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: factory
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
+contents: tmp-mksh
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
+contents: fsg
+
+
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
 contents: sdcard
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
+contents: persist
+
+
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
+contents: oem
+
+
+[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
 contents: storage
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: config
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: cache
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: acct
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: vendor
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: d
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: etc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: tombstones
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: firmware
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: mnt
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: ueventd.tuna.rc
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: verity_key
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: ueventd.shamu.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: ueventd.rc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: ueventd.goldfish.rc
-
-
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: system
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: sys
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: service_contexts
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: sepolicy
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: selinux_version
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: seapp_contexts
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: sbin
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: res
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: property_contexts
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: proc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.zygote32.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: init.usb.rc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: init.tuna.usb.rc
-
-
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: init.tuna.rc
-
-
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: init.trace.rc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.shamu.usb.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.shamu.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.shamu.power.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.shamu.diag.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: init.rc
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: init.goldfish.rc
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.mmi.touch.sh
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: init.environ.rc
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: init
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-contents: fstab.tuna
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: fstab.shamu
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+contents: file_contexts
+
+
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: default.prop
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: data
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: charger
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: root
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
 contents: dev
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: uniform mat4 u_MvpMatrix;
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+Attempting to find resource: fonts/arial.fnt
 
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+Found resource 27658 bytes
 
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+Contents: <font>
+  <info face="Arial" size="32" bold="0" italic="0" charset="" unicode="1" stretchH="100" smooth="1" aa="1" padding="0,0,0,0" spacing="1,1" outline="0"/>
+  <common lineHeight="32" base="26" scaleW="256" scaleH="256" pages="1" packed="0" alphaChnl="0" redChnl="3" greenChnl="3" blueChnl="3"/>
+  <pages>
+    <page id="0" file="fonts/arial_1.png" />
+  </pages>
+  <chars count="191">
+    <char id="32" x="72" y="77" width="1" height="1" xoffset="0" yoffset="26" xadvance="8" page="0" chnl="15" />
+    <char id="33" x="100" y="161" width="2" height="20" xoffset="3" yoffset="6" xadvance="8" page="0" chnl="15" />
+    <char id="34" x="134" y="196" width="7" height="7" xoffset="1" yoffset="6" xadvance="10" page="0" chnl="15" />
+    <char id="35" x="241" y="74" width="14" height="20" xoffset="0" yoffset="6" xadvance="15" page="0" chnl="15" />
+    <char id="36" x="87" y="53" width="13" height="23" xoffset="1" yoffset="5" xadvance="15" page="0" chnl="15" />
+    <char id="37" x="0" y="79" width="20"
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: attribute vec4 a_Position;
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+Contents length: 27658
 
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+host is empty
 
+[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
+Hostname: localhost
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: attribute vec2 a_TextureCoordinates;
+--------- beginning of crash
+[ 06-14 23:51:37.207  3639: 3658 F/libc     ]
+Fatal signal 11 (SIGSEGV), code 1, fault addr 0x10 in tid 3658 (GLThread 5157)
 
+[ 06-14 23:51:37.308   354:  354 I/DEBUG    ]
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: varying vec2 v_TextureCoordinates;
+[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
+Build fingerprint: 'google/shamu/shamu:5.1/LMY47D/1743759:user/release-keys'
 
 
+[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
+Revision: '33696'
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: void main()
 
+[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
+ABI: 'arm'
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: {
+[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
+pid: 3639, tid: 3658, name: GLThread 5157  >>> com.android.ApplicationTemplate <<<
 
 
+[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x10
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader:     v_TextureCoordinates = a_TextureCoordinates;
 
+[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
+    r0 00000000  r1 00000000  r2 8cbed564  r3 00000000
 
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader:     gl_Position = u_MvpMatrix * a_Position;
+[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
+    r4 b6e98df4  r5 b362d460  r6 b362d414  r7 b362d468
 
 
+[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
+    r8 12ce7090  r9 b4a36c00  sl 00000001  fp 00000000
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-shader: }
 
+[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
+    ip b6e98df4  sp b362d410  lr b6e462d1  pc b3660e6a  cpsr 40000030
 
-[ 08-13 15:04:10.753  1174: 1187 I/ApplicationTemplate ]
-Draw surface changed
 
+[ 06-14 23:51:37.318   354:  354 I/DEBUG    ]
 
-[ 08-13 15:04:10.800  1160: 1160 I/dalvikvm ]
-Could not find method android.provider.DocumentsContract.buildDocumentUri, referenced from method ajZ.a
+backtrace:
 
-[ 08-13 15:04:10.800  1160: 1160 W/dalvikvm ]
-VFY: unable to resolve static method 15685: Landroid/provider/DocumentsContract;.buildDocumentUri (Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
-[ 08-13 15:04:10.800  1160: 1160 D/dalvikvm ]
-VFY: replacing opcode 0x71 at 0x002b
+[ 06-14 23:51:37.321   354:  354 I/DEBUG    ]
+    #00 pc 00022e6a  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::ip(my::string)+25)
 
-[ 08-13 15:04:10.800  1160: 1160 I/dalvikvm ]
-Could not find method android.content.ContentResolver.getOutgoingPersistedUriPermissions, referenced from method ajZ.a
 
-[ 08-13 15:04:10.800  1160: 1160 W/dalvikvm ]
-VFY: unable to resolve virtual method 14878: Landroid/content/ContentResolver;.getOutgoingPersistedUriPermissions ()Ljava/util/List;
+[ 06-14 23:51:37.322   354:  354 I/DEBUG    ]
+    #01 pc 00021b47  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::guid()+310)
 
-[ 08-13 15:04:10.800  1160: 1160 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x0013
 
-[ 08-13 15:04:10.847   380:  391 I/ActivityManager ]
-Start proc org.mozilla.firefox for broadcast org.mozilla.firefox/org.mozilla.gecko.webapp.UninstallListener: pid=1194 uid=10219 gids={50219, 3003, 1015, 1006, 1028}
+[ 06-14 23:51:37.323   354:  354 I/DEBUG    ]
+    #02 pc 00021f41  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::uuid()+20)
 
-[ 08-13 15:04:10.862  1160: 1160 W/GAV2     ]
-Thread[main,5,main]: Need to call initialize() and be in fallback mode to start dispatch.
 
-[ 08-13 15:04:10.901  1160: 1164 D/dalvikvm ]
-GC_CONCURRENT freed 262K, 3% free 9647K/9936K, paused 3ms+5ms, total 47ms
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #03 pc 0001f187  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::xml::dom::document::document()+74)
 
-[ 08-13 15:04:10.956  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 384K, 7% free 9832K/10488K, paused 13ms+4ms, total 42ms
 
-[ 08-13 15:04:11.019  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 523K, 7% free 9821K/10488K, paused 2ms+2ms, total 25ms
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #04 pc 0001f359  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::fnt::write(my::font*, unsigned char*, long)+44)
 
-[ 08-13 15:04:11.019  1105: 1141 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 13ms
 
-[ 08-13 15:04:11.081  1194: 1194 D/dalvikvm ]
-Trying to load lib /data/app-lib/org.mozilla.firefox-1/libmozglue.so 0x426380c8
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #05 pc 0001af85  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::datatype<my::font>::write(unsigned char*, long)+10)
 
-[ 08-13 15:04:11.081  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 507K, 7% free 9825K/10488K, paused 4ms+2ms, total 28ms
 
-[ 08-13 15:04:11.081  1105: 1141 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 17ms
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #06 pc 0002263b  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::stream::~stream()+262)
 
-[ 08-13 15:04:11.097  1194: 1194 D/dalvikvm ]
-Added shared lib /data/app-lib/org.mozilla.firefox-1/libmozglue.so 0x426380c8
 
-[ 08-13 15:04:11.097  1194: 1194 D/dalvikvm ]
-No JNI_OnLoad found in /data/app-lib/org.mozilla.firefox-1/libmozglue.so 0x426380c8, skipping init
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #07 pc 0001e629  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (on_startup(void*)+568)
 
-[ 08-13 15:04:11.097  1194: 1194 I/GeckoWebappUninstallListener ]
-Package is being replaced; ignoring removal intent
 
-[ 08-13 15:04:11.112   380:  380 I/ActivityManager ]
-Start proc com.facebook.katana:dash for broadcast com.facebook.katana/com.facebook.dash.receivers.DashPackageUninstallReceiver: pid=1213 uid=10162 gids={50162, 1006, 1015, 1028, 3003}
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #08 pc 0001ab25  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1startup+8)
 
-[ 08-13 15:04:11.136   380:  763 I/ActivityManager ]
-Process com.google.android.googlequicksearchbox:search (pid 31097) has died.
 
-[ 08-13 15:04:11.159  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 426K, 6% free 9858K/10488K, paused 4ms+3ms, total 45ms
+[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
+    #09 pc 00000979  /data/dalvik-cache/arm/data@app@com.android.ApplicationTemplate-1@base.apk@classes.dex
 
-[ 08-13 15:04:11.222  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
 
-[ 08-13 15:04:11.940  1213: 1213 D/CatchMeIfYouCan ]
-Process (dash) ca: '/data/data/com.facebook.katana/app_cmiyc/0C66B38F48468E96F8008B6D5A2AE33B4A60265E01'
+[ 06-14 23:51:37.640   354:  354 I/DEBUG    ]
 
-[ 08-13 15:04:11.940  1213: 1213 D/CatchMeIfYouCan ]
-Process (dash) fc: '/data/data/com.facebook.katana/app_cmiyc/0C66B38F48468E96F8008B6D5A2AE33B4A60265E02'
+Tombstone written to: /data/tombstones/tombstone_01
 
-[ 08-13 15:04:11.940  1213: 1213 D/CatchMeIfYouCan ]
-Process (dash) cp: '('dash', 6, 60000, silent [true], restart [true], logout [true])'
 
-[ 08-13 15:04:12.026  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 365K, 6% free 9879K/10488K, paused 33ms+10ms, total 70ms
+[ 06-14 23:51:37.640   843: 3660 W/ActivityManager ]
+  Force finishing activity 1 com.android.ApplicationTemplate/.ApplicationTemplateActivity
 
-[ 08-13 15:04:12.081  1213: 1213 I/dalvikvm ]
-Could not find method android.app.ActivityManager.isLowRamDevice, referenced from method com.facebook.acra.ErrorReporter.getConstantDeviceData
+[ 06-14 23:51:37.642   843:  917 I/BootReceiver ]
+Copying /data/tombstones/tombstone_01 to DropBox (SYSTEM_TOMBSTONE)
 
-[ 08-13 15:04:12.081  1213: 1213 W/dalvikvm ]
-VFY: unable to resolve virtual method 80: Landroid/app/ActivityManager;.isLowRamDevice ()Z
+[ 06-14 23:51:37.661   843: 1001 W/InputDispatcher ]
+channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
 
-[ 08-13 15:04:12.081  1213: 1213 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x00c1
+[ 06-14 23:51:37.661   843: 1001 E/InputDispatcher ]
+channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
 
-[ 08-13 15:04:12.128  1213: 1213 D/ACRA     ]
-ACRA is enabled for com.facebook.katana, intializing...
+[ 06-14 23:51:37.667   843: 3647 I/WindowState ]
+WIN DEATH: Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
 
-[ 08-13 15:04:12.128   305:  309 D/dalvikvm ]
-GC_CONCURRENT freed 187K, 3% free 9828K/10044K, paused 5ms+5ms, total 56ms
+[ 06-14 23:51:37.667   843: 3647 W/InputDispatcher ]
+Attempted to unregister already unregistered input channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)'
 
-[ 08-13 15:04:12.128   305:  338 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 11ms
+[ 06-14 23:51:37.671   843: 1449 I/WindowState ]
+WIN DEATH: Window{33567a1e u0 SurfaceView}
 
-[ 08-13 15:04:12.167  1213: 1213 D/ACRA     ]
-Looking for error files in /data/data/com.facebook.katana/app_acra-reports
+[ 06-14 23:51:37.673   843: 3660 W/ActivityManager ]
+Exception thrown during pause
+android.os.DeadObjectException
+	at android.os.BinderProxy.transactNative(Native Method)
+	at android.os.BinderProxy.transact(Binder.java:496)
+	at android.app.ApplicationThreadProxy.schedulePauseActivity(ApplicationThreadNative.java:704)
+	at com.android.server.am.ActivityStack.startPausingLocked(ActivityStack.java:825)
+	at com.android.server.am.ActivityStack.finishActivityLocked(ActivityStack.java:2726)
+	at com.android.server.am.ActivityStack.finishTopRunningActivityLocked(ActivityStack.java:2583)
+	at com.android.server.am.ActivityStackSupervisor.finishTopRunningActivityLocked(ActivityStackSupervisor.java:2497)
+	at com.android.server.am.ActivityManagerService.handleAppCrashLocked(ActivityManagerService.java:11500)
+	at com.android.server.am.ActivityManagerService.makeAppCrashingLocked(ActivityManagerService.java:11397)
+	at com.android.server.am.ActivityManagerService.crashApplication(ActivityManagerService.java:12081)
+	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:11592)
+	at com.android.server.am.NativeCrashListener$NativeCrashReporter.run(NativeCrashListener.java:86)
 
-[ 08-13 15:04:12.175  1213: 1213 D/ACRA     ]
-Looking for error files in /data/data/com.facebook.katana/app_minidumps
 
-[ 08-13 15:04:12.284  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb_stl_shared.so 0x426371e8
+[ 06-14 23:51:37.675   256:  256 E/lowmemorykiller ]
+Error writing /proc/3639/oom_score_adj; errno=22
 
-[ 08-13 15:04:12.300   305:  309 D/dalvikvm ]
-GC_CONCURRENT freed 165K, 2% free 10084K/10284K, paused 5ms+2ms, total 36ms
+[ 06-14 23:51:37.736   368:  368 I/Zygote   ]
+Process 3639 exited due to signal (11)
 
-[ 08-13 15:04:12.394  1069: 1073 D/dalvikvm ]
-GC_CONCURRENT freed 387K, 6% free 9576K/10116K, paused 9ms+6ms, total 38ms
+[ 06-14 23:51:37.782   843: 1071 I/ActivityManager ]
+Process com.android.ApplicationTemplate (pid 3639) has died
 
-[ 08-13 15:04:12.667  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libfb_stl_shared.so 0x426371e8
+[ 06-14 23:51:37.823   843:32210 I/OpenGLRenderer ]
+Initialized EGL, version 1.4
 
-[ 08-13 15:04:12.667  1213: 1213 D/dalvikvm ]
-No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libfb_stl_shared.so 0x426371e8, skipping init
+[ 06-14 23:51:37.897   843: 1455 I/ActivityManager ]
+Killing 3156:com.android.keychain/1000 (adj 15): empty #17
 
-[ 08-13 15:04:12.675  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb_breakpad_client.so 0x426371e8
+[ 06-14 23:51:38.029  1082: 1082 W/ResourceType ]
+No package identifier when getting value for resource number 0x00000000
 
-[ 08-13 15:04:12.675  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libfb_breakpad_client.so 0x426371e8
+[ 06-14 23:51:38.029  1082: 1082 W/PackageManager ]
+Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
 
-[ 08-13 15:04:12.745  1069: 1230 I/AmazonMP3_NowPlayingCollectionHandler ]
-No Now Playing State to restore
+[ 06-14 23:51:38.029  1082: 1082 W/ResourceType ]
+No package identifier when getting value for resource number 0x00000000
 
-[ 08-13 15:04:12.839  1069: 1069 I/AmazonMP3_PlaybackService ]
-Binding to service with private interface
+[ 06-14 23:51:38.029  1082: 1082 W/PackageManager ]
+Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
 
-[ 08-13 15:04:12.894  1213: 1213 V/DexLibLoader ]
-Preparing secondary program dexes from null
+[ 06-14 23:51:40.165   357: 1011 D/audio_hw_primary ]
+disable_audio_route: reset and update mixer path: low-latency-playback speaker
 
-[ 08-13 15:04:12.901  1213: 1213 V/DexLibLoader ]
-Loaded 4 raw lines of metadata.
+[ 06-14 23:51:40.166   357: 1011 D/audio_hw_primary ]
+disable_snd_device: snd_device(2: speaker)
 
-[ 08-13 15:04:12.901  1213: 1213 V/DexLibLoader ]
-Secondary program dex metadata: secondary-1.dex.jar.xz 5595d4408b9345fc0a4a51c1e8fb705883ddeec4 secondary.dex01.Canary
+[ 06-14 23:51:40.230 31699:31742 D/Finsky   ]
+[4730] AppStatesReplicator.handleContentSyncResponse: Completed 0 account content syncs with 0 successful.
 
-[ 08-13 15:04:12.901  1213: 1213 V/DexLibLoader ]
-Secondary program dex metadata: secondary-2.dex.jar.xz f46ea935954ac96af6d7e4740204ff745d4e868a secondary.dex02.Canary
-
-[ 08-13 15:04:12.901  1213: 1213 V/DexLibLoader ]
-Secondary program dex metadata: secondary-3.dex.jar.xz 85d140195bb8a9c4f5f6d8f17750f9518674057a secondary.dex03.Canary
-
-[ 08-13 15:04:12.901  1213: 1213 V/DexLibLoader ]
-Secondary program dex metadata: secondary-4.dex.jar.xz 8c5bb527a7beb3f5fcfcd0477466f44aa7654330 secondary.dex04.Canary
-
-[ 08-13 15:04:12.964   305:  305 D/Finsky   ]
+[ 06-14 23:51:40.231 31699:31699 D/Finsky   ]
 [1] 5.onFinished: Installation state replication succeeded.
 
-[ 08-13 15:04:12.987   380:  855 I/AudioService ]
- AudioFocus  abandonAudioFocus() from android.media.AudioManager@426666a8com.amazon.mp3.playback.service.AudioFocusWrapper$1@426d24d0
+[ 06-14 23:51:40.368   843: 1449 W/InputMethodManagerService ]
+Got RemoteException sending setActive(false) notification to pid 3639 uid 10158
 
-[ 08-13 15:04:13.019  1213: 1213 W/DexLibLoader ]
-Unexpected file in program dex directory: /data/data/com.facebook.katana/app_secondary_program_dex/temp_dex_lock
+[ 06-14 23:51:40.370  1268: 1268 I/Keyboard.Facilitator ]
+onFinishInput()
 
-[ 08-13 15:04:13.026  1213: 1213 V/DexLibLoader ]
-Preparing to extract secondary-1.dex.jar.xz to /data/data/com.facebook.katana/app_secondary_program_dex/program-5595d4408b9345fc0a4a51c1e8fb705883ddeec44361f2b2.dex.jar
+[ 06-14 23:51:40.371   357: 1011 D/audio_hw_primary ]
+out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
 
-[ 08-13 15:04:13.026  1213: 1213 V/DexLibLoader ]
-Dex already copied
+[ 06-14 23:51:40.382   357:  840 D/audio_hw_primary ]
+select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
 
-[ 08-13 15:04:13.042  1213: 1213 D/OdexVerifier ]
-Odex verification is skipped.
+[ 06-14 23:51:40.382   357:  840 D/msm8974_platform ]
+platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
 
-[ 08-13 15:04:13.042  1213: 1213 V/DexLibLoader ]
-Creating class loader
+[ 06-14 23:51:40.382   357:  840 E/ACDB-LOADER ]
+Error: ACDB AFE returned = -19
 
-[ 08-13 15:04:13.073  1213: 1213 V/DexLibLoader ]
-Finished creating class loader
 
-[ 08-13 15:04:13.073  1213: 1213 V/DexLibLoader ]
-Preparing to extract secondary-2.dex.jar.xz to /data/data/com.facebook.katana/app_secondary_program_dex/program-f46ea935954ac96af6d7e4740204ff745d4e868a4361f2b2.dex.jar
+[ 06-14 23:51:40.382   357:  840 D/audio_hw_primary ]
+enable_snd_device: snd_device(2: speaker)
 
-[ 08-13 15:04:13.073  1213: 1213 V/DexLibLoader ]
-Dex already copied
+[ 06-14 23:51:40.386   357:  840 D/audio_hw_primary ]
+enable_audio_route: apply and update mixer path: low-latency-playback speaker
 
-[ 08-13 15:04:13.073  1213: 1213 D/OdexVerifier ]
-Odex verification is skipped.
+[ 06-14 23:51:40.626  1552: 1552 I/ConfigService ]
+onDestroy
 
-[ 08-13 15:04:13.073  1213: 1213 V/DexLibLoader ]
-Creating class loader
+[ 06-14 23:51:41.572   843: 1045 D/TaskPersister ]
+removeObsoleteFile: deleting file=57_task.xml
 
-[ 08-13 15:04:13.167   380: 1701 I/AudioService ]
-  Remote Control   registerMediaButtonIntent() for PendingIntent{42d8b918: PendingIntentRecord{430c0cd8 com.amazon.mp3 broadcastIntent}}
-
-[ 08-13 15:04:13.183  1213: 1213 V/DexLibLoader ]
-Finished creating class loader
-
-[ 08-13 15:04:13.183  1213: 1213 V/DexLibLoader ]
-Preparing to extract secondary-3.dex.jar.xz to /data/data/com.facebook.katana/app_secondary_program_dex/program-85d140195bb8a9c4f5f6d8f17750f9518674057a4361f2b2.dex.jar
-
-[ 08-13 15:04:13.183  1213: 1213 V/DexLibLoader ]
-Dex already copied
-
-[ 08-13 15:04:13.183  1213: 1213 D/OdexVerifier ]
-Odex verification is skipped.
-
-[ 08-13 15:04:13.183  1213: 1213 V/DexLibLoader ]
-Creating class loader
-
-[ 08-13 15:04:13.214  1213: 1213 V/DexLibLoader ]
-Finished creating class loader
-
-[ 08-13 15:04:13.214  1213: 1213 V/DexLibLoader ]
-Preparing to extract secondary-4.dex.jar.xz to /data/data/com.facebook.katana/app_secondary_program_dex/program-8c5bb527a7beb3f5fcfcd0477466f44aa76543304361f2b2.dex.jar
-
-[ 08-13 15:04:13.214  1213: 1213 V/DexLibLoader ]
-Dex already copied
-
-[ 08-13 15:04:13.214  1213: 1213 D/OdexVerifier ]
-Odex verification is skipped.
-
-[ 08-13 15:04:13.214  1213: 1213 V/DexLibLoader ]
-Creating class loader
-
-[ 08-13 15:04:13.261  1213: 1213 V/DexLibLoader ]
-Finished creating class loader
-
-[ 08-13 15:04:13.261  1213: 1213 V/DexLibLoader ]
-Verifying classes from secondary dexes.
-
-[ 08-13 15:04:13.331  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:13.464  1213: 1213 D/DexLibLoader ]
-DexLibLoader.ensureDexLoaded took 757 ms
-
-[ 08-13 15:04:13.526  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb_dalvik-internals.so 0x426371e8
-
-[ 08-13 15:04:13.526  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libfb_dalvik-internals.so 0x426371e8
-
-[ 08-13 15:04:13.589  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 264K, 4% free 8834K/9128K, paused 3ms+34ms, total 59ms
-
-[ 08-13 15:04:13.651  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 258K, 5% free 10011K/10488K, paused 8ms+5ms, total 42ms
-
-[ 08-13 15:04:13.690  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:13.690  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:13.706  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:13.714  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:13.753  1213: 1213 I/dalvik-internals ]
-Successfully looked up JNI_GetCreatedJavaVMs
-
-[ 08-13 15:04:13.753  1213: 1213 I/dalvik-internals ]
-Successfully looked up gDvm
-
-[ 08-13 15:04:13.753  1213: 1213 E/dalvik-internals ]
-Failed to look up ladDumpProfiles
-
-[ 08-13 15:04:13.753  1213: 1213 E/dalvik-internals ]
-Failed to look up ladResetProfiles
-
-[ 08-13 15:04:13.753  1213: 1213 E/dalvik-internals ]
-Failed to look up ladPrintHeaderInfo
-
-[ 08-13 15:04:13.753  1213: 1213 I/dalvik-internals ]
-gDvm has value 0x408981b0.  Searching for vmList (initial offset in [704,1480]).
-
-[ 08-13 15:04:13.753  1213: 1213 I/dalvik-internals ]
-Beginning search.  Actual offset in [704,1468].
-
-[ 08-13 15:04:13.753  1213: 1213 E/dalvik-internals ]
-Failed to find vmList in gDvm.  Going to brute-force search for LinearAllocHdr.
-
-[ 08-13 15:04:13.753  1213: 1213 D/dalvik-internals ]
-Evaluating LinearAllocHdr candidate at 0x41db4f40.
-
-[ 08-13 15:04:13.753  1213: 1213 I/dalvik-internals ]
-Found LinearAllocHdr (with no vmList) at offset 948.
-
-[ 08-13 15:04:14.581  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 229K, 3% free 10175K/10488K, paused 25ms+112ms, total 170ms
-
-[ 08-13 15:04:14.901  1160: 1160 W/GAV2     ]
-Thread[main,5,main]: dispatch call queued.  Need to call GAServiceManager.getInstance().initialize().
-
-[ 08-13 15:04:14.972  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 320K, 4% free 8899K/9248K, paused 2ms+253ms, total 281ms
-
-[ 08-13 15:04:15.026   380:  762 I/ActivityManager ]
-Process com.google.android.apps.plus (pid 32648) has died.
-
-[ 08-13 15:04:15.331  1105: 1141 D/com.audible.android.kcp.AirApplicationPlugin ]
-Initializing com.audible.android.kcp.AirApplicationPlugin plugin
-
-[ 08-13 15:04:15.339  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Inject retry policy
-
-[ 08-13 15:04:15.354  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Inject download on wifi or wan policy
-
-[ 08-13 15:04:15.362  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering ContentTypeStorageLocationStrategy
-
-[ 08-13 15:04:15.362  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering CoverArtTypeFactory
-
-[ 08-13 15:04:15.370  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering NotificationFactoryProvider
-
-[ 08-13 15:04:15.370  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering IdentityManager
-
-[ 08-13 15:04:15.370  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering DownloadManager
-
-[ 08-13 15:04:15.370  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering DownloaderFactory
-
-[ 08-13 15:04:15.370  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering MediaButtonManager
-
-[ 08-13 15:04:15.378  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering ActivationDataRepository
-
-[ 08-13 15:04:15.378  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering ActivationManager
-
-[ 08-13 15:04:15.378  1105: 1141 I/com.amazon.kindle.AapConfiguration ]
-Registering HeadsetPolicy
-
-[ 08-13 15:04:15.394  1105: 1141 D/com.audible.android.kcp.AiRBasePlugin ]
-AiR plugin [com.audible.android.kcp.AiRLeftNavPlugin] gets initialized ...
-
-[ 08-13 15:04:15.417  1105: 1141 W/com.audible.hushpuppy.network.PfmEndpointFactory ]
-iLogger has not yet been set, falling back to Android Log for message: getEndpoints: userAccount pfm is not set
-
-[ 08-13 15:04:15.448  1105: 1141 I/com.audible.hushpuppy.network.PfmEndpointFactory ]
-iLogger has not yet been set, falling back to Android Log for message: getEndpoints: pfm null not in database
-
-[ 08-13 15:04:15.448  1105: 1141 I/com.audible.hushpuppy.ApplicationPlugin ]
-iLogger has not yet been set, falling back to Android Log for message: Initializing Hushpuppy for KRX
-
-[ 08-13 15:04:15.448  1105: 1251 I/com.audible.hushpuppy.network.pfm.PfmEndpointManager ]
-iLogger has not yet been set, falling back to Android Log for message: updatePFM: starting, checking database
-
-[ 08-13 15:04:15.448  1105: 1251 I/com.audible.hushpuppy.db.HushpuppyStorage ]
-iLogger has not yet been set, falling back to Android Log for message: getPfmDeviceType: reading device type pfms
-
-[ 08-13 15:04:15.503  1105: 1141 V/com.audible.android.kcp.hushpuppy.extension.ReddingHushpuppyExtension ]
-Registering Redding components for Hushpuppy
-
-[ 08-13 15:04:15.503  1105: 1141 D/com.audible.android.kcp.AiRBasePlugin ]
-AiR plugin [com.audible.android.kcp.AiRLibraryPlugin] gets initialized ...
-
-[ 08-13 15:04:15.526  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 264K, 3% free 10356K/10652K, paused 41ms+4ms, total 71ms
-
-[ 08-13 15:04:15.558   695:  695 W/CellInfoLte ]
-getCellIdentity: LteCellIdentitiy:android.telephony.CellIdentityLte@80005f6c mMcc=311 mMnc=480 mCi=2147483647 mPci=2147483647 mTac=2147483647
-
-[ 08-13 15:04:15.558   695:  695 W/CellInfoLte ]
-writeToParcel(Parcel, int): CellInfoLte: mRegistered=YES mTimeStampType=java_ril mTimeStamp=162137366000ns, LteCellIdentitiy:android.telephony.CellIdentityLte@80005f6c mMcc=311 mMnc=480 mCi=2147483647 mPci=2147483647 mTac=2147483647, CellSignalStrengthLte: ss=15 rsrp=-111 rsrq=-13 rssnr=10 cqi=6 ta=2147483647
-
-[ 08-13 15:04:15.558   380: 1768 W/CellInfoLte ]
-CellInfoLte(Parcel): CellInfoLte: mRegistered=YES mTimeStampType=java_ril mTimeStamp=162137366000ns, LteCellIdentitiy:android.telephony.CellIdentityLte@80005f6c mMcc=311 mMnc=480 mCi=2147483647 mPci=2147483647 mTac=2147483647, CellSignalStrengthLte: ss=15 rsrp=-111 rsrq=-13 rssnr=10 cqi=6 ta=2147483647
-
-[ 08-13 15:04:15.636  1105: 1141 I/System.out ]
-INFO: com.amazon.ea.EndActionsPlugin Initializing EA Plugin
-
-[ 08-13 15:04:15.644   380: 1768 W/CellInfoLte ]
-writeToParcel(Parcel, int): CellInfoLte: mRegistered=YES mTimeStampType=java_ril mTimeStamp=162137366000ns, LteCellIdentitiy:android.telephony.CellIdentityLte@80005f6c mMcc=311 mMnc=480 mCi=2147483647 mPci=2147483647 mTac=2147483647, CellSignalStrengthLte: ss=15 rsrp=-111 rsrq=-13 rssnr=10 cqi=6 ta=2147483647
-
-[ 08-13 15:04:15.644   829: 1364 W/CellInfoLte ]
-CellInfoLte(Parcel): CellInfoLte: mRegistered=YES mTimeStampType=java_ril mTimeStamp=162137366000ns, LteCellIdentitiy:android.telephony.CellIdentityLte@80005f6c mMcc=311 mMnc=480 mCi=2147483647 mPci=2147483647 mTac=2147483647, CellSignalStrengthLte: ss=15 rsrp=-111 rsrq=-13 rssnr=10 cqi=6 ta=2147483647
-
-[ 08-13 15:04:15.792  1160: 1189 I/GAV2     ]
-Thread[GAThread,5,main]: No campaign data found.
-
-[ 08-13 15:04:15.964  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 375K, 5% free 8923K/9328K, paused 4ms+9ms, total 28ms
-
-[ 08-13 15:04:16.104  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 418K, 5% free 10451K/10900K, paused 16ms+4ms, total 50ms
-
-[ 08-13 15:04:16.104  1105: 1141 D/com.audible.android.kcp.AiRBasePlugin ]
-AiR plugin [com.audible.android.kcp.AiRReaderPlugin] gets initialized ...
-
-[ 08-13 15:04:16.308  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:16.362  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: CrashDescriptorStorageUtil, truncated name: CrashDescriptorStorageU
-
-[ 08-13 15:04:16.495  1105: 1141 I/CrashDescriptorStorageU ]
-loadFromSharedPreferences - No keys retrieved from shared preferences.;
-
-[ 08-13 15:04:16.495  1105: 1141 I/com.amazon.device.crashmanager.CrashDetectionHelper ]
-Installing crash detector as default exception handler.
-
-[ 08-13 15:04:16.511  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 159K, 2% free 9166K/9352K, paused 4ms+2ms, total 28ms
-
-[ 08-13 15:04:17.323  1105: 1263 I/com.amazon.device.crashmanager.CrashDetectionHelper ]
-Skipping crash report upload. WiFi is not connected.
-
-[ 08-13 15:04:17.362  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: BaseMetricsServiceFactory, truncated name: BaseMetricsServiceFacto
-
-[ 08-13 15:04:17.456  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: MetricsConfigurationParser, truncated name: MetricsConfigurationPar
-
-[ 08-13 15:04:17.487  1105: 1141 I/MetricsConfigurationPar ]
-MetricsConfigurationParser - Picking configuration; Domain: prod, Build: user, isDebuggable: false
-
-[ 08-13 15:04:17.620  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: TComm.HttpClientSrrManager, truncated name: TComm.HttpClientSrrMana
-
-[ 08-13 15:04:17.675  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 392K, 5% free 10559K/11040K, paused 14ms+6ms, total 72ms
-
-[ 08-13 15:04:17.683  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: AndroidDeviceInfoManager, truncated name: AndroidDeviceInfoManage
-
-[ 08-13 15:04:17.683  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BoundedByteArrayQueue, truncated name: Metrics:BoundedByteArra
-
-[ 08-13 15:04:17.683  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:NonVolatileBoundedByteArrayQueue, truncated name: Metrics:NonVolatileBoun
-
-[ 08-13 15:04:17.729  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BatchTransmitter, truncated name: Metrics:BatchTransmitte
-
-[ 08-13 15:04:17.729  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:ThreadPoolBatchTransmitter, truncated name: Metrics:ThreadPoolBatch
-
-[ 08-13 15:04:17.729  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: PeriodicBatchTransmitter, truncated name: PeriodicBatchTransmitte
-
-[ 08-13 15:04:17.745  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:UrgentBatchTransmitter, truncated name: Metrics:UrgentBatchTran
-
-[ 08-13 15:04:17.745  1105: 1141 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_LOCATION_SERVICE:  because no configuration is provided.
-
-[ 08-13 15:04:17.745  1105: 1141 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_NON_ANONYMOUS_METRICS:  because no configuration is provided.
-
-[ 08-13 15:04:17.745  1105: 1279 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of batches sent: 0
-
-[ 08-13 15:04:17.753  1105: 1280 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of batches sent: 0
-
-[ 08-13 15:04:17.753  1105: 1141 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: MetricsBroadcastReceiver, truncated name: MetricsBroadcastReceive
-
-[ 08-13 15:04:17.761  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:17.870  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 181K, 2% free 9437K/9628K, paused 4ms+10ms, total 54ms
-
-[ 08-13 15:04:17.878  1105: 1282 W/com.amazon.whispersync.dcp.settings.SettingsCache ]
-Permission to read device settings doesn't exist. This is normal on third-party devices.
-
-[ 08-13 15:04:17.878  1105: 1282 I/com.amazon.whispersync.dcp.settings.SettingsCache ]
-Always use default values for settings
-
-[ 08-13 15:04:17.948  1105: 1282 E/com.amazon.whispersync.dcp.framework.ClassConfigurationParser ]
-Could not find class configuration file dcp_class_configuration.xml
-
-[ 08-13 15:04:17.948  1105: 1282 E/com.amazon.whispersync.dcp.framework.ClassConfigurationParser ]
-The configuration file does not have a key for DeviceInfo
-
-[ 08-13 15:04:17.956  1105: 1282 I/com.amazon.whispersync.dcp.framework.ClassConfigurationParser ]
-Attempting to create class com.amazon.whispersync.dcp.framework.AmazonDeviceInfo with android.content.Context constructor.
-
-[ 08-13 15:04:17.979  1105: 1282 W/com.amazon.whispersync.dcp.framework.DeviceInfo ]
-Build Number  could not be parsed to an integer. Using default value
-
-[ 08-13 15:04:18.034  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:18.159  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/AbstractListView;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.159  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/GalleryViewAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.167  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/HorizontalScrollViewAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.167  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/ImageViewAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.183  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/ViewPagerAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.183  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/ScrollViewAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.190  1213: 1213 W/dalvikvm ]
-method Lcom/facebook/reflex/view/FrameLayoutAutoReflex;.invalidate incorrectly overrides package-private method with same name in Landroid/view/View;
-
-[ 08-13 15:04:18.276  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 342K, 4% free 10863K/11232K, paused 30ms+7ms, total 112ms
-
-[ 08-13 15:04:18.284  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 22ms
-
-[ 08-13 15:04:18.284  1105: 1276 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 18ms
-
-[ 08-13 15:04:18.284  1105: 1141 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 18ms
-
-[ 08-13 15:04:18.370  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 190K, 3% free 9684K/9904K, paused 4ms+9ms, total 48ms
-
-[ 08-13 15:04:18.675  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 645K, 6% free 10964K/11636K, paused 12ms+60ms, total 109ms
-
-[ 08-13 15:04:18.675  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 69ms
-
-[ 08-13 15:04:18.675  1105: 1285 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 69ms
-
-[ 08-13 15:04:18.675  1105: 1141 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 66ms
-
-[ 08-13 15:04:18.878  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 161K, 2% free 9926K/10116K, paused 2ms+4ms, total 37ms
-
-[ 08-13 15:04:18.909  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:18.940  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 724K, 7% free 11021K/11772K, paused 15ms+4ms, total 74ms
-
-[ 08-13 15:04:18.940  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 17ms
-
-[ 08-13 15:04:18.940  1105: 1141 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 11ms
-
-[ 08-13 15:04:18.940  1105: 1285 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 19ms
-
-[ 08-13 15:04:18.948  1105: 1141 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:19.065  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 729K, 7% free 11091K/11848K, paused 7ms+2ms, total 38ms
-
-[ 08-13 15:04:19.065  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 25ms
-
-[ 08-13 15:04:19.081  1105: 1289 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 37ms
-
-[ 08-13 15:04:19.128  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 153K, 2% free 10200K/10380K, paused 3ms+3ms, total 37ms
-
-[ 08-13 15:04:19.198  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 775K, 7% free 11138K/11940K, paused 6ms+4ms, total 36ms
-
-[ 08-13 15:04:19.198  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 4ms
-
-[ 08-13 15:04:19.292  1105: 1282 D//Ln.java:218 ]
-Thread-8369 Configuring Logging, minimum log level is INFO
-
-[ 08-13 15:04:19.323  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 223K, 3% free 10419K/10672K, paused 8ms+3ms, total 53ms
-
-[ 08-13 15:04:19.362  1105: 1109 D/dalvikvm ]
-GC_CONCURRENT freed 846K, 8% free 11127K/12004K, paused 11ms+2ms, total 64ms
-
-[ 08-13 15:04:19.362  1105: 1285 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 37ms
-
-[ 08-13 15:04:19.362  1105: 1282 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 39ms
-
-[ 08-13 15:04:19.370  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: BaseMetricsServiceFactory, truncated name: BaseMetricsServiceFacto
-
-[ 08-13 15:04:19.386  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: TComm.HttpClientSrrManager, truncated name: TComm.HttpClientSrrMana
-
-[ 08-13 15:04:19.386  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: AndroidDeviceInfoManager, truncated name: AndroidDeviceInfoManage
-
-[ 08-13 15:04:19.386  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BoundedByteArrayQueue, truncated name: Metrics:BoundedByteArra
-
-[ 08-13 15:04:19.386  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:NonVolatileBoundedByteArrayQueue, truncated name: Metrics:NonVolatileBoun
-
-[ 08-13 15:04:19.401  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BatchTransmitter, truncated name: Metrics:BatchTransmitte
-
-[ 08-13 15:04:19.401  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:ThreadPoolBatchTransmitter, truncated name: Metrics:ThreadPoolBatch
-
-[ 08-13 15:04:19.401  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: PeriodicBatchTransmitter, truncated name: PeriodicBatchTransmitte
-
-[ 08-13 15:04:19.401  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:UrgentBatchTransmitter, truncated name: Metrics:UrgentBatchTran
-
-[ 08-13 15:04:19.401  1105: 1282 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_LOCATION_SERVICE:  because no configuration is provided.
-
-[ 08-13 15:04:19.401  1105: 1282 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_NON_ANONYMOUS_METRICS:  because no configuration is provided.
-
-[ 08-13 15:04:19.401  1105: 1301 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of batches sent: 0
-
-[ 08-13 15:04:19.409  1105: 1282 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: MetricsBroadcastReceiver, truncated name: MetricsBroadcastReceive
-
-[ 08-13 15:04:19.409  1105: 1302 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of batches sent: 0
-
-[ 08-13 15:04:19.472  1213: 1213 W/fb4a(:dash):StaticBindingVerifier ]
-Verify
-
-[ 08-13 15:04:19.479  1105: 1282 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. If this is 1P device, this is a bug!
-
-[ 08-13 15:04:19.479  1213: 1213 I/dalvikvm ]
-Could not find method android.os.Trace.endSection, referenced from method com.facebook.systrace.Systrace.a
-
-[ 08-13 15:04:19.479  1213: 1213 W/dalvikvm ]
-VFY: unable to resolve static method 1040: Landroid/os/Trace;.endSection ()V
-
-[ 08-13 15:04:19.479  1213: 1213 D/dalvikvm ]
-VFY: replacing opcode 0x71 at 0x0004
-
-[ 08-13 15:04:19.479  1213: 1213 I/dalvikvm ]
-Could not find method android.os.Trace.beginSection, referenced from method com.facebook.systrace.Systrace.a
-
-[ 08-13 15:04:19.479  1213: 1213 W/dalvikvm ]
-VFY: unable to resolve static method 1039: Landroid/os/Trace;.beginSection (Ljava/lang/String;)V
-
-[ 08-13 15:04:19.479  1213: 1213 D/dalvikvm ]
-VFY: replacing opcode 0x71 at 0x0008
-
-[ 08-13 15:04:19.573  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 419K, 5% free 10558K/11012K, paused 2ms+7ms, total 37ms
-
-[ 08-13 15:04:19.722  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 565K, 6% free 10633K/11232K, paused 3ms+3ms, total 38ms
-
-[ 08-13 15:04:19.722  1213: 1213 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 14ms
-
-[ 08-13 15:04:19.800  1213: 1213 W/fb4a(:dash):BaseAnalyticsConfig ]
-willEventBeLogged() called before shared prefs were initialized! Defaulting to true.
-
-[ 08-13 15:04:19.831   380: 1768 I/ActivityManager ]
-Start proc android.process.acore for broadcast com.android.providers.contacts/.PackageIntentReceiver: pid=1309 uid=10000 gids={50000, 3003, 1015, 1028}
-
-[ 08-13 15:04:20.073   380: 4653 I/ActivityManager ]
-Start proc com.google.android.gallery3d for broadcast com.google.android.gallery3d/com.android.gallery3d.app.PackagesMonitor: pid=1327 uid=10018 gids={50018, 1006, 3003, 1015, 1028}
-
-[ 08-13 15:04:20.128  1309: 1315 D/dalvikvm ]
-GC_CONCURRENT freed 183K, 3% free 8862K/9072K, paused 2ms+9ms, total 29ms
-
-[ 08-13 15:04:20.300  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 290K, 3% free 11005K/11324K, paused 27ms+11ms, total 96ms
-
-[ 08-13 15:04:20.394   380: 1701 D/dalvikvm ]
-GC_EXPLICIT freed 1338K, 25% free 27495K/36532K, paused 77ms+15ms, total 302ms
-
-[ 08-13 15:04:20.456  1105: 1285 D/dalvikvm ]
-GC_FOR_ALLOC freed 454K, 6% free 11303K/12004K, paused 37ms, total 37ms
-
-[ 08-13 15:04:21.050  1327: 1332 D/dalvikvm ]
-GC_CONCURRENT freed 404K, 5% free 8689K/9124K, paused 8ms+65ms, total 105ms
-
-[ 08-13 15:04:21.058  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb_stl_shared.so 0x426371e8
-
-[ 08-13 15:04:21.065  1213: 1213 D/dalvikvm ]
-Shared lib '/data/app-lib/com.facebook.katana-2/libfb_stl_shared.so' already loaded in same CL 0x426371e8
-
-[ 08-13 15:04:21.065  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb.so 0x426371e8
-
-[ 08-13 15:04:21.104  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libfb.so 0x426371e8
-
-[ 08-13 15:04:21.104  1213: 1213 D/dalvikvm ]
-No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libfb.so 0x426371e8, skipping init
-
-[ 08-13 15:04:21.104  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfb_breakpad_client.so 0x426371e8
-
-[ 08-13 15:04:21.104  1213: 1213 D/dalvikvm ]
-Shared lib '/data/app-lib/com.facebook.katana-2/libfb_breakpad_client.so' already loaded in same CL 0x426371e8
-
-[ 08-13 15:04:21.112  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libfbjni.so 0x426371e8
-
-[ 08-13 15:04:21.120  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libfbjni.so 0x426371e8
-
-[ 08-13 15:04:21.120  1213: 1213 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.facebook.katana-2/libheartbleed.so 0x426371e8
-
-[ 08-13 15:04:21.120  1213: 1213 D/dalvikvm ]
-Added shared lib /data/app-lib/com.facebook.katana-2/libheartbleed.so 0x426371e8
-
-[ 08-13 15:04:21.151  1213: 1213 E/dalvikvm ]
-Could not find class 'android.telephony.CellInfoWcdma', referenced from method com.facebook.common.hardware.CellDiagnosticsSerializer.c
-
-[ 08-13 15:04:21.151  1213: 1213 W/dalvikvm ]
-VFY: unable to resolve instanceof 550 (Landroid/telephony/CellInfoWcdma;) in Lcom/facebook/common/hardware/CellDiagnosticsSerializer;
-
-[ 08-13 15:04:21.151  1213: 1213 D/dalvikvm ]
-VFY: replacing opcode 0x20 at 0x011f
-
-[ 08-13 15:04:21.183  1327: 1332 D/dalvikvm ]
-GC_CONCURRENT freed 469K, 6% free 8732K/9228K, paused 7ms+3ms, total 34ms
-
-[ 08-13 15:04:21.183  1327: 1327 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 8ms
-
-[ 08-13 15:04:21.222  1309: 1315 D/dalvikvm ]
-GC_CONCURRENT freed 108K, 2% free 9264K/9400K, paused 3ms+3ms, total 26ms
-
-[ 08-13 15:04:21.222  1309: 1323 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 11ms
-
-[ 08-13 15:04:21.222  1309: 1326 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 8ms
-
-[ 08-13 15:04:21.284  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 328K, 4% free 11424K/11780K, paused 7ms+72ms, total 177ms
-
-[ 08-13 15:04:21.440  1327: 1327 D/dalvikvm ]
-GC_FOR_ALLOC freed 217K, 6% free 8762K/9268K, paused 23ms, total 23ms
-
-[ 08-13 15:04:21.448  1213: 1213 I/dalvikvm ]
-Could not find method android.app.AlarmManager.setExact, referenced from method com.facebook.common.alarm.FbAlarmManagerImpl.a
-
-[ 08-13 15:04:21.448  1213: 1213 W/dalvikvm ]
-VFY: unable to resolve virtual method 83: Landroid/app/AlarmManager;.setExact (IJLandroid/app/PendingIntent;)V
-
-[ 08-13 15:04:21.448  1213: 1213 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x0003
-
-[ 08-13 15:04:21.472   380:  645 I/ActivityManager ]
-Start proc com.google.android.partnersetup for broadcast com.google.android.partnersetup/.RlzPingBroadcastReceiver: pid=1357 uid=10023 gids={50023, 3003, 1028}
-
-[ 08-13 15:04:21.831   380:  855 I/ActivityManager ]
-Start proc com.android.musicfx for broadcast com.android.musicfx/.Compatibility$Receiver: pid=1383 uid=10040 gids={50040, 3003, 3002, 1028}
-
-[ 08-13 15:04:21.995   791: 1397 D/PackageBroadcastService ]
-Received broadcast action=android.intent.action.PACKAGE_ADDED and uri=com.android.ApplicationTemplate
-
-[ 08-13 15:04:22.003   380:  763 I/ActivityManager ]
-Start proc com.google.android.talk for broadcast com.google.android.talk/com.google.android.apps.babel.phone.PackageReplacedReceiver: pid=1398 uid=10054 gids={50054, 3003, 1015, 1006, 3002, 1028}
-
-[ 08-13 15:04:22.144   380:  645 I/ActivityManager ]
-Process com.amazon.kindle (pid 1105) has died.
-
-[ 08-13 15:04:22.628   791: 1414 I/PeopleContactsSync ]
-CP2 sync disabled
-
-[ 08-13 15:04:22.776   380:  396 W/BroadcastQueue ]
-Permission Denial: broadcasting Intent { act=android.net.conn.INET_CONDITION_ACTION flg=0x8000010 (has extras) } from null (pid=-1, uid=-1) requires com.facebook.permission.prod.FB_APP_COMMUNICATION due to registered receiver BroadcastFilter{42edae78 u0 ReceiverList{42eddc20 1213 com.facebook.katana:dash/10162/u0 remote:42f03348}}
-
-[ 08-13 15:04:22.776   380:  396 W/BroadcastQueue ]
-Permission Denial: broadcasting Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x8000010 (has extras) } from null (pid=-1, uid=-1) requires com.facebook.permission.prod.FB_APP_COMMUNICATION due to registered receiver BroadcastFilter{42edae78 u0 ReceiverList{42eddc20 1213 com.facebook.katana:dash/10162/u0 remote:42f03348}}
-
-[ 08-13 15:04:23.261  1398: 1398 I/dalvikvm ]
-Could not find method android.app.ActivityManager.isLowRamDevice, referenced from method com.google.android.apps.babel.phone.EsApplication.onCreate
-
-[ 08-13 15:04:23.261  1398: 1398 W/dalvikvm ]
-VFY: unable to resolve virtual method 1210: Landroid/app/ActivityManager;.isLowRamDevice ()Z
-
-[ 08-13 15:04:23.261  1398: 1398 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x0132
-
-[ 08-13 15:04:23.339  1398: 1404 D/dalvikvm ]
-GC_CONCURRENT freed 313K, 4% free 8821K/9168K, paused 40ms+3ms, total 63ms
-
-[ 08-13 15:04:23.339  1398: 1398 D/dalvikvm ]
-WAIT_FOR_CONCURRENT_GC blocked 22ms
-
-[ 08-13 15:04:24.026  1398: 1404 D/dalvikvm ]
-GC_CONCURRENT freed 299K, 4% free 8958K/9284K, paused 71ms+69ms, total 180ms
-
-[ 08-13 15:04:24.034  1398: 1398 I/dalvikvm ]
-Could not find method android.provider.Telephony$Sms.getDefaultSmsPackage, referenced from method com.google.android.apps.babel.realtimechat.d.xq
-
-[ 08-13 15:04:24.034  1398: 1398 W/dalvikvm ]
-VFY: unable to resolve static method 2603: Landroid/provider/Telephony$Sms;.getDefaultSmsPackage (Landroid/content/Context;)Ljava/lang/String;
-
-[ 08-13 15:04:24.034  1398: 1398 D/dalvikvm ]
-VFY: replacing opcode 0x71 at 0x0057
-
-[ 08-13 15:04:24.175  1398: 1419 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.google.android.gms-2/libgmscore.so 0x426a7c18
-
-[ 08-13 15:04:24.261  1398: 1419 D/dalvikvm ]
-Added shared lib /data/app-lib/com.google.android.gms-2/libgmscore.so 0x426a7c18
-
-[ 08-13 15:04:24.261  1398: 1419 D/dalvikvm ]
-No JNI_OnLoad found in /data/app-lib/com.google.android.gms-2/libgmscore.so 0x426a7c18, skipping init
-
-[ 08-13 15:04:24.261  1398: 1419 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.google.android.gms-2/libconscrypt_gmscore_jni.so 0x426a7c18
-
-[ 08-13 15:04:24.269  1398: 1419 D/dalvikvm ]
-Added shared lib /data/app-lib/com.google.android.gms-2/libconscrypt_gmscore_jni.so 0x426a7c18
-
-[ 08-13 15:04:24.269  1398: 1419 V/JNIHelp  ]
-Registering com/google/android/gms/org/conscrypt/NativeCrypto's 234 native methods...
-
-[ 08-13 15:04:24.339  1398: 1398 I/dalvikvm ]
-Could not find method android.telephony.TelephonyManager.getMmsUserAgent, referenced from method cr.e
-
-[ 08-13 15:04:24.339  1398: 1398 W/dalvikvm ]
-VFY: unable to resolve virtual method 8637: Landroid/telephony/TelephonyManager;.getMmsUserAgent ()Ljava/lang/String;
-
-[ 08-13 15:04:24.339  1398: 1398 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x0021
-
-[ 08-13 15:04:24.347  1398: 1435 I/Babel    ]
-MmsConfig: mnc/mcc: 311/480
-
-[ 08-13 15:04:24.347  1398: 1435 I/Babel    ]
-MmsConfig.loadMmsSettings
-
-[ 08-13 15:04:24.347  1398: 1435 I/Babel    ]
-MmsConfig.loadFromDatabase
-
-[ 08-13 15:04:24.401  1398: 1404 D/dalvikvm ]
-GC_CONCURRENT freed 324K, 4% free 9105K/9456K, paused 5ms+21ms, total 50ms
-
-[ 08-13 15:04:24.401  1398: 1435 E/SQLiteLog ]
-(1) no such table: mmsconfig
-
-
-[ 08-13 15:04:24.401  1398: 1435 I/Babel    ]
-MmsConfig: no mmsconfig table android.database.sqlite.SQLiteException: no such table: mmsconfig (code 1): , while compiling: SELECT key, value, type FROM mmsconfig WHERE numeric=?
-
-[ 08-13 15:04:24.401  1398: 1435 I/Babel    ]
-MmsConfig.loadFromResources
-
-[ 08-13 15:04:24.409  1398: 1435 E/Babel    ]
-canonicalizeMccMnc: invalid mccmnc nullnull
-
-[ 08-13 15:04:24.409  1398: 1435 W/Babel    ]
-MmsConfig: invalid key=uaProfTagName or type=string
-
-[ 08-13 15:04:24.409  1398: 1435 I/Babel    ]
-MmsConfig.loadMmsSettings: mUserAgent=Hangouts/2.1.317, mUaProfUrl=http://www.gstatic.com/android/hangouts/hangouts_mms_ua_profile.xml
-
-[ 08-13 15:04:24.409  1398: 1398 W/Settings ]
-Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
-
-[ 08-13 15:04:24.409  1398: 1436 I/Babel    ]
-ApnsOta: OTA version -1
-
-[ 08-13 15:04:24.440   380:  861 I/ActivityManager ]
-Start proc com.google.android.googlequicksearchbox:search for broadcast com.google.android.googlequicksearchbox/com.google.android.search.core.summons.icing.InternalIcingCorporaProvider$CorporaChangedReceiver: pid=1438 uid=10024 gids={50024, 3003, 3001, 1028, 3002, 1015, 1006}
-
-[ 08-13 15:04:24.448  1213: 1215 D/dalvikvm ]
-GC_CONCURRENT freed 398K, 4% free 11969K/12384K, paused 49ms+7ms, total 121ms
-
-[ 08-13 15:04:24.503  1398: 1419 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.google.android.gms-2/libgmscore.so 0x426a7c18
-
-[ 08-13 15:04:24.503  1398: 1419 D/dalvikvm ]
-Shared lib '/data/app-lib/com.google.android.gms-2/libgmscore.so' already loaded in same CL 0x426a7c18
-
-[ 08-13 15:04:24.503  1398: 1419 D/dalvikvm ]
-Trying to load lib /data/app-lib/com.google.android.gms-2/libconscrypt_gmscore_jni.so 0x426a7c18
-
-[ 08-13 15:04:24.503  1398: 1419 D/dalvikvm ]
-Shared lib '/data/app-lib/com.google.android.gms-2/libconscrypt_gmscore_jni.so' already loaded in same CL 0x426a7c18
-
-[ 08-13 15:04:24.769   380:  396 W/BroadcastQueue ]
-Permission Denial: broadcasting Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x8000010 (has extras) } from null (pid=-1, uid=-1) requires com.facebook.permission.prod.FB_APP_COMMUNICATION due to registered receiver BroadcastFilter{428ea670 u0 ReceiverList{429020e8 1213 com.facebook.katana:dash/10162/u0 remote:42e60c80}}
-
-[ 08-13 15:04:24.886  1398: 1404 D/dalvikvm ]
-GC_CONCURRENT freed 350K, 4% free 9140K/9520K, paused 5ms+18ms, total 46ms
-
-[ 08-13 15:04:24.995  1398: 1419 I/ProviderInstaller ]
-Installed default security provider GmsCore_OpenSSL
-
-[ 08-13 15:04:25.362  1438: 1438 W/dalvikvm ]
-VFY: unable to resolve static field 1151 (CONTENT_URI) in Landroid/provider/ContactsContract$DeletedContacts;
-
-[ 08-13 15:04:25.362  1438: 1438 D/dalvikvm ]
-VFY: replacing opcode 0x62 at 0x0016
-
-[ 08-13 15:04:25.370  1438: 1438 I/dalvikvm ]
-Could not find method android.view.View.isInLayout, referenced from method dke.aD
-
-[ 08-13 15:04:25.370  1438: 1438 W/dalvikvm ]
-VFY: unable to resolve virtual method 4176: Landroid/view/View;.isInLayout ()Z
-
-[ 08-13 15:04:25.370  1438: 1438 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x0006
-
-[ 08-13 15:04:25.370  1438: 1438 I/dalvikvm ]
-Could not find method android.app.ActivityManager.isLowRamDevice, referenced from method dke.al
-
-[ 08-13 15:04:25.370  1438: 1438 W/dalvikvm ]
-VFY: unable to resolve virtual method 1949: Landroid/app/ActivityManager;.isLowRamDevice ()Z
-
-[ 08-13 15:04:25.370  1438: 1438 D/dalvikvm ]
-VFY: replacing opcode 0x6e at 0x000f
-
-[ 08-13 15:04:25.542  1438: 1459 I/IcingCorporaProvider ]
-Updating corpora: APPS=com.android.ApplicationTemplate, CONTACTS=MAYBE
-
-[ 08-13 15:04:25.573   380:  855 I/ActivityManager ]
-Start proc com.google.android.apps.plus for broadcast com.google.android.apps.plus/.service.PackagesMediaMonitor: pid=1460 uid=10047 gids={50047, 3003, 3002, 1015, 1006, 1028}
-
-[ 08-13 15:04:25.620   128:  128 D/dalvikvm ]
-GC_EXPLICIT freed 40K, 1% free 8629K/8700K, paused 6ms+5ms, total 46ms
-
-[ 08-13 15:04:25.644   128:  128 D/dalvikvm ]
-GC_EXPLICIT freed <1K, 1% free 8629K/8700K, paused 3ms+2ms, total 27ms
-
-[ 08-13 15:04:25.667   128:  128 D/dalvikvm ]
-GC_EXPLICIT freed <1K, 1% free 8629K/8700K, paused 2ms+2ms, total 22ms
+[ 06-14 23:51:41.572   843: 1045 D/TaskPersister ]
+removeObsoleteFile: deleting file=57_task_thumbnail.png
 

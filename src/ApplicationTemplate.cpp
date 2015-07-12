@@ -27,42 +27,8 @@ static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
 }
 
-
-#ifndef _WIN32
-#define  LOG_TAG    "ApplicationTemplate"
-#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
-#else
-#define  LOGI(...)  printDebug(__VA_ARGS__)
-#define  LOGE(...)  printDebug(__VA_ARGS__)
-#endif
-
-static void printGLString(const char *name, GLenum s) {
-    const char *v = (const char *) glGetString(s);
-#ifndef _WIN32
-//    LOGI("GL %s = %s\n", name, v);
-#endif
-}
-
-static void checkGlError(const char* op) {
-    for (GLint error = glGetError(); error; error = glGetError()) {
-#ifndef _WIN32
-//        LOGI("after %s() glError (0x%x)\n", op, error);
-#endif
-    }
-}
-
-#if defined _WIN32
-static void printDebug(const char* szFormat, ...)
-{
-  char szBuff[1024];
-  va_list arg;
-  va_start(arg, szFormat);
-  _vsnprintf(szBuff, sizeof(szBuff), szFormat, arg);
-  va_end(arg);
-  OutputDebugString(my::wstring(szBuff));
-}
-#endif
+// const char *v = (const char *) glGetString(s);
+// for (GLint error = glGetError(); error; error = glGetError()) {
 
 GLuint gvPositionHandle;
 
@@ -100,9 +66,11 @@ my::shared_ptr<my::object> gbackground;
 
 my::png gtexture;
 
-
-
 GLuint compile(my::shader *shader, GLuint type) {
+  DEBUG_SCOPE;
+
+  DEBUG_TRACE << "compile shader: " << type << my::endl;
+
   shader->context = glCreateShader(type);
   if (!shader->context) {
     return 0;
@@ -121,7 +89,8 @@ GLuint compile(my::shader *shader, GLuint type) {
     if (length) {
       char *info = (char*)malloc(length);
       glGetShaderInfoLog(shader->context, length, NULL, info);
-      LOGE("Could not compile shader %d:\n%s\n", type, info);
+      DEBUG_TRACE << "Could not compile shader " << type << ", " << info;
+
       free(info);
       glDeleteShader(shader->context);
       shader->context = 0;
@@ -146,10 +115,10 @@ GLuint compile(my::program &program) {
   }
 
   glAttachShader(program.context, program.vertex->context);
-  checkGlError("glAttachShader");
+  //checkGlError("glAttachShader");
 
   glAttachShader(program.context, program.fragment->context);
-  checkGlError("glAttachShader");
+  //checkGlError("glAttachShader");
 
   glLinkProgram(program.context);
 
@@ -161,7 +130,7 @@ GLuint compile(my::program &program) {
     if (length) {
       char *info = (char*)malloc(length);
       glGetProgramInfoLog(program.context, length, NULL, info);
-      LOGE("Could not link program:\n%s\n", info);
+      //DEBUG("Could not link program:\n%s\n", info);
       free(info);
     }
     glDeleteProgram(program.context);
@@ -223,10 +192,13 @@ void draw(my::string text, mat4x4 matrix) {
 
 }
 
+float input_x;
+float input_y;
 
+my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
-  LOGI("Attempting to create the draw surface\n");
+  //DEBUG("Attempting to create the draw surface\n");
 
   glDisable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
@@ -241,9 +213,9 @@ void on_startup(void *asset_manager) {
   compile(color_program);
 
   gvPositionHandle = glGetAttribLocation(color_program.context, "vPosition");
-	checkGlError("glGetAttribLocation");
+	//checkGlError("glGetAttribLocation");
 
-  LOGI("Attempting to create the draw surface\n");
+  //DEBUG("Attempting to create the draw surface\n");
 
   texture_alpha_program << texture_alpha_fragment << my::asset("shaders/texture_alpha_shader.frag");
   texture_alpha_program << texture_alpha_vertex << my::asset("shaders/texture_alpha_shader.vert");
@@ -255,11 +227,11 @@ void on_startup(void *asset_manager) {
   u_mvp_matrix_location = glGetUniformLocation(texture_alpha_program.context, "u_MvpMatrix");
   u_texture_unit_location = glGetUniformLocation(texture_alpha_program.context, "u_TextureUnit");
 
-  LOGI("pwd: %s\n", my::pwd().c_str());
+  //DEBUG("pwd: %s\n", my::pwd().c_str());
 
   my::directory dir(my::pwd());
   while(my::string current = dir.next()) {
-	  LOGI("contents: %s\n", current.c_str());
+	  //DEBUG("contents: %s\n", current.c_str());
   }
 
   font << my::asset("fonts/arial.fnt");
@@ -279,12 +251,15 @@ void on_startup(void *asset_manager) {
   gbackground->xy_projection(img, 0, 0, 256, 256);
 
   compile(gbackground);
+
+  input_x = 0.0f;
+  input_y = 0.0f;
 }
 
 void on_resize(int width, int height) {
-  LOGI("Draw surface changed\n");
+  //DEBUG("Draw surface changed\n");
   glViewport(0, 0, width, height);
-  checkGlError("glViewport");
+  //checkGlError("glViewport");
 
   mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
 
@@ -314,9 +289,9 @@ void on_draw() {
   }
 
   glClearColor(grey, grey, grey, 1.0f);
-  checkGlError("glClearColor");
+  //checkGlError("glClearColor");
   glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-  checkGlError("glClear");
+  //checkGlError("glClear");
 
   static float angle = 0.0f;
   angle -= 0.1f;
@@ -365,26 +340,37 @@ void on_draw() {
   // font 
   //
   mat4x4 letter;
-  mat4x4_identity(letter);
 
+  mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
+  mat4x4_translate_in_place(letter, -100.0f, 0.0f, -2.0f);
+  draw("C", letter);
 
-  mat4x4_translate_in_place(letter, 0.0f, 0.0f, -2.0f);
+  mat4x4_identity(letter);
+  letter[0][0] = 0.01f;
+  letter[1][1] = 0.01f;
+  letter[2][2] = 0.01f;
+  mat4x4_translate_in_place(letter, -100.0f, 20.0f, -2.0f);
+  draw(my::type_cast<my::string>(input_x), letter);
 
-  //model_view_projection_matrix
-  //draw(font.glyphs[66]->quad, letter);
-
-  draw("Testing", letter);
+  mat4x4_identity(letter);
+  letter[0][0] = 0.01f;
+  letter[1][1] = 0.01f;
+  letter[2][2] = 0.01f;
+  mat4x4_translate_in_place(letter, -100.0f, 40.0f, -2.0f);
+  draw(my::type_cast<my::string>(input_y), letter);
 
 }
 
 void on_touch_press(float normalized_x, float normalized_y) {
-
+  input_x = normalized_x;
+  input_y = normalized_y;
 }
 
 void on_touch_drag(float normalized_x, float normalized_y) {
-
+  input_x = normalized_x;
+  input_y = normalized_y;
 }
 

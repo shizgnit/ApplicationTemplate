@@ -94,10 +94,16 @@ __MYLO_DLL_EXPORT my::string guid(void) {
   static my::string host;
   
   if(host.empty()) {
+    //DEBUG("host is empty");
     my::string hostname = my::hostname();
+    //DEBUG("Hostname: %s", hostname.c_str());
 
     host = my::join("", my::split("\\.", my::ip(hostname)));
     host = my::base(host, 62);
+    //DEBUG("Host: %s", host.c_str());
+  }
+  else {
+    //DEBUG("Host is already defined: %s", host.c_str());
   }
 
   if(process.empty()) {

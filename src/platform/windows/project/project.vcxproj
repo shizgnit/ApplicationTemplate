@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\..\common\mylo\regex.cpp" />
     <ClCompile Include="..\..\..\common\mylo\stream.cpp" />
     <ClCompile Include="..\..\..\common\mylo\timer.cpp" />
+    <ClCompile Include="..\..\..\common\mylo\trace.cpp" />
     <ClCompile Include="..\..\..\common\mylo\utilities.cpp" />
     <ClCompile Include="..\..\..\common\mylo\xml.cpp" />
     <ClCompile Include="..\..\..\common\mylo\xpath.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="..\..\..\common\mylo\compression.hpp" />
     <ClInclude Include="..\..\..\common\mylo\configuration.hpp" />
     <ClInclude Include="..\..\..\common\mylo\datatype.hpp" />
+    <ClInclude Include="..\..\..\common\mylo\debug.hpp" />
     <ClInclude Include="..\..\..\common\mylo\entity.hpp" />
     <ClInclude Include="..\..\..\common\mylo\factory.hpp" />
     <ClInclude Include="..\..\..\common\mylo\filesystem.hpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="..\..\..\common\mylo\string.hpp" />
     <ClInclude Include="..\..\..\common\mylo\tga.hpp" />
     <ClInclude Include="..\..\..\common\mylo\timer.hpp" />
+    <ClInclude Include="..\..\..\common\mylo\trace.hpp" />
     <ClInclude Include="..\..\..\common\mylo\typecast.hpp" />
     <ClInclude Include="..\..\..\common\mylo\typetraits.hpp" />
     <ClInclude Include="..\..\..\common\mylo\utilities.hpp" />
