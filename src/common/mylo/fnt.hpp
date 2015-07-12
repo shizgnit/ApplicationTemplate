@@ -90,7 +90,7 @@ public:
       current->page = type_cast<int>(cit->second.getAttribute("page"));
       current->channel = type_cast<int>(cit->second.getAttribute("channel"));
 
-      current->quad = my::primitive::quad(current->width, current->height);
+      current->quad = my::primitive::quad((float)current->width, (float)current->height);
       current->quad->xy_projection(context->pages[current->page], current->x, current->y, current->width, current->height);
     }
 

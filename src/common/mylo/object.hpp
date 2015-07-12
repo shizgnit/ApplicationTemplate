@@ -47,7 +47,7 @@ public:
 		float max_x = 0.0f;
 		float max_y = 0.0f;
 		
-		for(int i=0; i<vertices.size(); i++) {
+		for(unsigned int i=0; i<vertices.size(); i++) {
 			if(vertices[i].coordinate[0] > max_x) {
 				max_x = vertices[i].coordinate[0];
 			}
@@ -59,7 +59,7 @@ public:
     float texture_dx = 1 / (float)texture->map->header.width;
     float texture_dy = 1 / (float)texture->map->header.height;
 
-		for(int i=0; i<vertices.size(); i++) {
+		for(unsigned int i=0; i<vertices.size(); i++) {
 		  float dx = vertices[i].coordinate[0] / max_x;
 		  float dy = (max_y - vertices[i].coordinate[1]) / max_y;
 		  
@@ -78,7 +78,7 @@ public:
   object *flat_normals() {
     int triangles = vertices.size() / 3;
 		  
-    for(int i=0; i<vertices.size()/3; i++) {
+    for(unsigned int i=0; i<vertices.size()/3; i++) {
       int index = i * 3;
 		
 	    float u[3];

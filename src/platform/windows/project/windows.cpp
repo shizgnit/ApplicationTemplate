@@ -260,7 +260,7 @@ void OnTimer() {
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
   int nNoOfDevices = 0;
-  POINT p, q;
+  POINT p;
 
   RAWINPUT input;
   UINT szData = sizeof(input), szHeader = sizeof(RAWINPUTHEADER);
@@ -424,7 +424,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       GetCursorPos(&p);
       ScreenToClient(hWnd, &p);
 
-      on_touch_press(p.x, p.y);
+      on_touch_press((float)p.x, (float)p.y);
     }
 
     case WM_TRAYICON:	{

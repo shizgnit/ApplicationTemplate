@@ -94,8 +94,6 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/asm-generic/errno.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/asm-generic/errno-base.h \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/string.hpp \
- c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/debug.hpp \
- C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/android/log.h \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/typetraits.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/shared_ptr.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/iterator.hpp \
@@ -104,6 +102,8 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/map.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/buffer.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/typecast.hpp \
+ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/trace.hpp \
+ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/debug.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/variant.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/regex.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/utilities.hpp \
@@ -327,10 +327,6 @@ C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/inc
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/string.hpp:
 
-c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/debug.hpp:
-
-C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/android/log.h:
-
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/typetraits.hpp:
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/shared_ptr.hpp:
@@ -346,6 +342,10 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/buffer.hpp:
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/typecast.hpp:
+
+c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/trace.hpp:
+
+c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/debug.hpp:
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/variant.hpp:
 

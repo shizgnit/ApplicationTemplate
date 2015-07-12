@@ -10,7 +10,8 @@
 #if defined WIN32
 #define __MYLO_WINDOWS 1
 //#define __MYLO_STATIC 1
-#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #else
 #define __MYLO_POSIX 1
 #endif

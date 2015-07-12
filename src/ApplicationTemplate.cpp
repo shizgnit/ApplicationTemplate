@@ -179,14 +179,14 @@ void draw(my::string text, mat4x4 matrix) {
 
   int prior = 0;
 
-  for (int i = 0; i < text.length(); i++) {
-    mat4x4_translate_in_place(matrix, font.kern(prior, text[i]), 0.0f, 0.0f);
+  for (unsigned int i = 0; i < text.length(); i++) {
+    mat4x4_translate_in_place(matrix, (float)font.kern(prior, text[i]), 0.0f, 0.0f);
     mat4x4 temporary;
     mat4x4_dup(temporary, matrix);
-    mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, 0.0f, 0.0f);
+    mat4x4_translate_in_place(temporary, (float)font.glyphs[text[i]]->xoffset, 0.0f, 0.0f);
     //mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, font.glyphs[text[i]]->yoffset, 0.0f);
     draw(font.glyphs[text[i]]->quad, temporary);
-    mat4x4_translate_in_place(matrix, font.glyphs[text[i]]->xadvance, 0.0f, 0.0f);
+    mat4x4_translate_in_place(matrix, (float)font.glyphs[text[i]]->xadvance, 0.0f, 0.0f);
     prior = text[i];
   }
 
@@ -237,7 +237,7 @@ void on_startup(void *asset_manager) {
   font << my::asset("fonts/arial.fnt");
 
   int x = font.glyphs.size();
-  for (int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
+  for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
     if (font.glyphs[i]->identifier) {
       compile(font.glyphs[i]->quad);
     }
