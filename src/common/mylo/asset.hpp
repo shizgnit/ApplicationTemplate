@@ -9,14 +9,17 @@ class __MYLO_DLL_EXPORT asset : public my::serializable {
 public:
   asset(void) { /* NULL */ }
   asset(my::string in) {
+    DEBUG_SCOPE;
     open(in);
   }
 
   ~asset(void) {
+    DEBUG_SCOPE;
     close();
   }
   
   bool open() {
+    DEBUG_SCOPE;
     return(open(m_name));
   }
   bool open(my::string in);

@@ -60,7 +60,7 @@ private:
 template <> class type_cast <my::string> {
 public:
 
-#if defined WIN32
+#if defined __MYLO_WINDOWS
   type_cast(short &in)          { sprintf_s(m_buffer, "%d", in); m_data = m_buffer; }
   type_cast(int &in)            { sprintf_s(m_buffer, "%d", in); m_data = m_buffer; }
   type_cast(long &in)           { sprintf_s(m_buffer, "%ld", in); m_data = m_buffer; }
@@ -109,7 +109,7 @@ private:
 template <> class type_cast <my::wstring> {
 public:
 
-#if defined WIN32
+#if defined __MYLO_WINDOWS
   type_cast(DWORD &in)  { 
     //wsprintf(m_buffer, L"%u", in); 
     m_data = m_buffer; 

@@ -66,8 +66,7 @@ my::shared_ptr<my::object> gbackground;
 
 my::png gtexture;
 
-GLuint compile(my::shader *shader, GLuint type) {
-  DEBUG_SCOPE;
+GLuint compile(my::shader *shader, GLuint type) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "compile shader: " << type << my::endl;
 

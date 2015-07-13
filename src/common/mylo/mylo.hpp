@@ -9,11 +9,12 @@
 
 #if defined WIN32
 #define __MYLO_WINDOWS 1
-//#define __MYLO_STATIC 1
-#define _CRT_SECURE_NO_WARNINGS
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #else
 #define __MYLO_POSIX 1
+#endif
+
+#if defined __ANDROID__
+#define __MYLO_ANDROID 1
 #endif
 
 #if defined(__MYLO_WINDOWS)
@@ -21,15 +22,16 @@
 #error Set "Use Unicode Character Set" in the general project settings
 #endif
 #define WIDE 1
+#define _CRT_SECURE_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #endif
 
 //
 //-[ MACROS ]-----------------------------------------------------------
 //
-#ifdef _WIN32
+#if defined __MYLO_WINDOWS
 #define __MYLO_STATIC 1
-//#if defined(__MYLO_WINDOWS)
-#  if defined(__MYLO_STATIC)
+#  if defined __MYLO_STATIC
 #    define __MYLO_DLL_EXPORT
 #    define __MYLO_INTERNAL_DLL_EXPORT
 #    define __MYLO_STL_EXPORT
@@ -57,7 +59,7 @@
 #define __MYLO_NAMESPACE_END }
 
 //#if defined(__MYLO_WINDOWS)
-#ifdef _WIN32
+#if defined __MYLO_WINDOWS
 #  include <winsock2.h>
 #  include <rpc.h>
 #  include <windows.h>

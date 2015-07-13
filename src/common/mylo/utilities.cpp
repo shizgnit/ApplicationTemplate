@@ -299,7 +299,7 @@ __MYLO_DLL_EXPORT my::string base64(my::string in) {
   return(results);
 }
 
-#if defined WIN32
+#if defined __MYLO_WINDOWS
 
 __MYLO_DLL_EXPORT my::string hostname() {
   char hostname[128];

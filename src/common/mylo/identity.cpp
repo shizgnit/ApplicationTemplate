@@ -54,7 +54,7 @@ __MYLO_DLL_EXPORT unsigned long CRC32(my::string filename) {
   unsigned long result = 0xFFFFFFFF;
   unsigned long *lookup = CRC32_init();
   
-#if defined WIN32
+#if defined __MYLO_WINDOWS
   FILE *fp;
   fopen_s(&fp, filename.c_str(), "rb");
 #else
@@ -123,7 +123,7 @@ __MYLO_DLL_EXPORT my::string guid(void) {
   return(my::join("", (current, time, process, host)));
 }
 
-#if defined WIN32
+#if defined __MYLO_WINDOWS
 
 __MYLO_DLL_EXPORT my::string uuid(void) {
   uuid_t uuid;
