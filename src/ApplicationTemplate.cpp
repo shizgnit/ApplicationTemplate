@@ -197,7 +197,7 @@ float input_y;
 my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
-  //DEBUG("Attempting to create the draw surface\n");
+  DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
   glDisable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
@@ -209,12 +209,15 @@ void on_startup(void *asset_manager) {
   color_program << color_fragment << my::asset("shaders/color_shader.fsh");
   color_program << color_vertex << my::asset("shaders/color_shader.vsh");
 
+  DEBUG_TRACE << "Fragment shader: " << my::endl << color_fragment.text << my::endl;
+  DEBUG_TRACE << "Vertex shader: " << my::endl << color_vertex.text << my::endl;
+
   compile(color_program);
 
   gvPositionHandle = glGetAttribLocation(color_program.context, "vPosition");
 	//checkGlError("glGetAttribLocation");
 
-  //DEBUG("Attempting to create the draw surface\n");
+  DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
   texture_alpha_program << texture_alpha_fragment << my::asset("shaders/texture_alpha_shader.frag");
   texture_alpha_program << texture_alpha_vertex << my::asset("shaders/texture_alpha_shader.vert");
@@ -226,11 +229,11 @@ void on_startup(void *asset_manager) {
   u_mvp_matrix_location = glGetUniformLocation(texture_alpha_program.context, "u_MvpMatrix");
   u_texture_unit_location = glGetUniformLocation(texture_alpha_program.context, "u_TextureUnit");
 
-  //DEBUG("pwd: %s\n", my::pwd().c_str());
+  DEBUG_TRACE << "pwd: " << my::pwd() << my::endl;
 
   my::directory dir(my::pwd());
   while(my::string current = dir.next()) {
-	  //DEBUG("contents: %s\n", current.c_str());
+    DEBUG_TRACE << "contents: " << current << my::endl;
   }
 
   font << my::asset("fonts/arial.fnt");

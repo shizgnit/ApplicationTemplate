@@ -1,815 +1,1529 @@
---------- beginning of system
-[ 06-14 23:51:30.610   843: 1348 I/ActivityManager ]
-Killing 2886:com.aide.ui/u0a105 (adj 15): empty #17
+--------- beginning of /dev/log/main
+[ 07-14 01:29:11.335 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 231K, 3% free 9008K/9268K, paused 11ms+66ms, total 95ms
 
-[ 06-14 23:51:30.703   843: 1002 I/PowerManagerService ]
-Waking up from dozing (uid 1000)...
+[ 07-14 01:29:12.053 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 185K, 3% free 9242K/9456K, paused 13ms+26ms, total 65ms
 
-[ 06-14 23:51:30.704   843:  923 I/DisplayPowerController ]
-Blocking screen on until initial contents have been drawn.
+[ 07-14 01:29:12.256 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 62K, 1% free 9605K/9696K, paused 20ms+7ms, total 50ms
 
---------- beginning of main
-[ 06-14 23:51:30.708   259:  259 D/SurfaceFlinger ]
-Set power mode=2, type=0 flinger=0xb6482000
+[ 07-14 01:29:12.522 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 98K, 2% free 9896K/10020K, paused 4ms+33ms, total 59ms
 
-[ 06-14 23:51:30.708   259:  259 D/qdhwcomposer ]
-hwc_setPowerMode: Setting mode 2 on display: 0
+--------- beginning of /dev/log/system
+[ 07-14 01:29:12.686   378:  378 I/ActivityManager ]
+Start proc org.mozilla.firefox for broadcast org.mozilla.firefox/org.mozilla.gecko.webapp.UninstallListener: pid=23993 uid=10219 gids={50219, 3003, 1015, 1006, 1028}
 
-[ 06-14 23:51:30.714   843:  921 I/DisplayManagerService ]
-Display device changed: DisplayDeviceInfo{"Built-in Screen": uniqueId="local:0", 1440 x 2560, 60.0 fps, supportedRefreshRates [60.0], density 560, 494.27 x 492.606 dpi, appVsyncOff 7500000, presDeadline 12666667, touch INTERNAL, rotation 0, type BUILT_IN, state ON, FLAG_DEFAULT_DISPLAY, FLAG_ROTATES_WITH_CONTENT, FLAG_SECURE, FLAG_SUPPORTS_PROTECTED_BUFFERS}
+[ 07-14 01:29:12.710   378:  753 I/ActivityManager ]
+Process com.google.android.apps.plus (pid 23805) has died.
 
-[ 06-14 23:51:30.817   843:  843 V/KeyguardServiceDelegate ]
-onScreenTurnedOn(showListener = com.android.internal.policy.impl.PhoneWindowManager$2@fb8399a)
+[ 07-14 01:29:12.967 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 126K, 2% free 10174K/10336K, paused 4ms+2ms, total 41ms
 
-[ 06-14 23:51:30.818   843:  843 V/ActivityManager ]
-Display changed displayId=0
+[ 07-14 01:29:13.350 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libfb.so 0x415896d8
 
-[ 06-14 23:51:30.842   357: 1025 D/audio_hw_primary ]
-adev_set_parameters: enter: screen_state=on
+[ 07-14 01:29:13.421 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libfb.so 0x415896d8
 
-[ 06-14 23:51:30.842   357: 1025 D/mot_vr_audio_hw ]
-adev_set_parameters: screen_state=on
+[ 07-14 01:29:13.421 23965:24010 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libfb.so 0x415896d8, skipping init
 
-[ 06-14 23:51:30.845   843: 1010 E/WifiStateMachine ]
-cancelDelayedScan -> 1120
+[ 07-14 01:29:13.421 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libfbjni.so 0x415896d8
 
-[ 06-14 23:51:30.849   843: 1010 E/native   ]
-do suspend false
+[ 07-14 01:29:13.514 23825:23829 D/dalvikvm ]
+GC_CONCURRENT freed 129K, 2% free 10382K/10544K, paused 6ms+5ms, total 93ms
 
-[ 06-14 23:51:30.945   259:  319 I/qdhwcomposer ]
-handle_blank_event: dpy:0 panel power state: 1
+[ 07-14 01:29:13.592 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libfbjni.so 0x415896d8
 
-[ 06-14 23:51:30.946   259:  259 D/qdhwcomposer ]
-hwc_setPowerMode: Done setting mode 2 on display 0
+[ 07-14 01:29:13.678 23993:23993 D/dalvikvm ]
+Trying to load lib /data/app-lib/org.mozilla.firefox-2/libmozglue.so 0x4158ca88
 
-[ 06-14 23:51:30.947   843: 1044 D/SurfaceControl ]
-Excessive delay in setPowerMode(): 239ms
+[ 07-14 01:29:13.756 23993:23993 D/dalvikvm ]
+Added shared lib /data/app-lib/org.mozilla.firefox-2/libmozglue.so 0x4158ca88
 
-[ 06-14 23:51:30.959  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_SET_TECH_CFG_EVT; status=0x0
+[ 07-14 01:29:13.756 23993:23993 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/org.mozilla.firefox-2/libmozglue.so 0x4158ca88, skipping init
 
-[ 06-14 23:51:30.960  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_SET_PROTO_CFG_EVT; status=0x0
+[ 07-14 01:29:13.780 23993:23993 F/Adjust   ]
+PRODUCTION: Adjust is running in Production mode. Use this setting only for the build that you want to publish. Set the environment to `sandbox` if you want to test your app!
 
-[ 06-14 23:51:30.960  1396: 3334 D/BrcmNfcJni ]
-RoutingManager::commitRouting
+[ 07-14 01:29:13.796 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libcares.so 0x415896d8
 
-[ 06-14 23:51:30.962   843: 1767 V/KeyguardServiceDelegate ]
-**** SHOWN CALLED ****
+[ 07-14 01:29:13.796 23993:23993 I/GeckoWebappUninstallListener ]
+Package is being replaced; ignoring removal intent
 
-[ 06-14 23:51:30.964   843:  923 I/DisplayPowerController ]
-Unblocked screen on after 260 ms
+[ 07-14 01:29:13.803 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libcares.so 0x415896d8
 
-[ 06-14 23:51:30.973   843:  923 I/DreamManagerService ]
-Gently waking up from dream.
+[ 07-14 01:29:13.803 23965:24010 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libcares.so 0x415896d8, skipping init
 
-[ 06-14 23:51:30.974   843: 1767 I/DreamManagerService ]
-Leaving dreamland.
+[ 07-14 01:29:13.811 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libdouble-conversion.so 0x415896d8
 
-[ 06-14 23:51:30.978   843:  918 I/DreamController ]
-Stopping dream: name=ComponentInfo{com.android.systemui/com.android.systemui.doze.DozeService}, isTest=false, canDoze=true, userId=0
+[ 07-14 01:29:13.811 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libdouble-conversion.so 0x415896d8
 
-[ 06-14 23:51:30.983  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_UPDATED_EVT
+[ 07-14 01:29:13.811 23965:24010 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libdouble-conversion.so 0x415896d8, skipping init
 
-[ 06-14 23:51:31.346   843: 1010 E/WifiStateMachine ]
-WifiStateMachine CMD_START_SCAN source -2 txSuccessRate=10.88 rxSuccessRate=62.25 targetRoamBSSID=any RSSI=-66
+[ 07-14 01:29:13.819 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libevent.so 0x415896d8
 
-[ 06-14 23:51:31.346   843: 1010 E/WifiStateMachine ]
-WifiStateMachine starting scan for "NRA73"WPA_PSK with 5220
+[ 07-14 01:29:13.827 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libevent.so 0x415896d8
 
-[ 06-14 23:51:31.557  3431: 3457 I/GAV4     ]
-Thread[GAThread,5,main]: No campaign data found.
+[ 07-14 01:29:13.827 23965:24010 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libevent.so 0x415896d8, skipping init
 
-[ 06-14 23:51:31.753  1082: 1082 D/PhoneStatusBar ]
-disable: < expand ICONS alerts SYSTEM_INFO back HOME RECENT clock SEARCH >
+[ 07-14 01:29:13.842 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libglog.so 0x415896d8
 
-[ 06-14 23:51:31.795   357: 1011 D/audio_hw_primary ]
-out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+[ 07-14 01:29:13.858   378:  749 I/ActivityManager ]
+Start proc com.google.android.gallery3d for broadcast com.google.android.gallery3d/com.android.gallery3d.app.PackagesMonitor: pid=24016 uid=10018 gids={50018, 1006, 3003, 1015, 1028}
 
-[ 06-14 23:51:31.796  1082: 1082 D/PhoneStatusBar ]
-disable: < expand icons* alerts system_info* back HOME RECENT clock SEARCH >
+[ 07-14 01:29:13.874 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libglog.so 0x415896d8
 
-[ 06-14 23:51:31.808   357:  840 D/audio_hw_primary ]
-select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+[ 07-14 01:29:13.874 23965:24010 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.facebook.katana-2/libglog.so 0x415896d8, skipping init
 
-[ 06-14 23:51:31.808   357:  840 D/msm8974_platform ]
-platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
+[ 07-14 01:29:13.960 23965:24010 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libliger.so 0x415896d8
 
-[ 06-14 23:51:31.808   357:  840 E/ACDB-LOADER ]
-Error: ACDB AFE returned = -19
+[ 07-14 01:29:13.967 23825:23829 D/dalvikvm ]
+GC_CONCURRENT freed 740K, 8% free 10102K/10876K, paused 3ms+34ms, total 57ms
 
+[ 07-14 01:29:14.014 23825:23874 D/Finsky   ]
+[9294] AppStatesReplicator.handleContentSyncResponse: Completed 0 account content syncs with 0 successful.
 
-[ 06-14 23:51:31.808   357:  840 D/audio_hw_primary ]
-enable_snd_device: snd_device(2: speaker)
+[ 07-14 01:29:14.194 23825:23825 D/Finsky   ]
+[1] 5.onFinished: Installation state replication succeeded.
 
-[ 06-14 23:51:31.810   357:  840 D/audio_hw_primary ]
-enable_audio_route: apply and update mixer path: low-latency-playback speaker
+[ 07-14 01:29:14.233   378:  750 I/ActivityManager ]
+Process com.google.android.apps.docs (pid 23884) has died.
 
-[ 06-14 23:51:31.821  1082: 1082 D/PhoneStatusBar ]
-disable: < expand icons alerts system_info back home* recent* clock search* >
+[ 07-14 01:29:14.342 23965:24010 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libliger.so 0x415896d8
 
-[ 06-14 23:51:31.840  2340: 2340 V/UserPresentBroadcastReceiver ]
-Received Intent { act=android.intent.action.USER_PRESENT flg=0x24000010 cmp=com.google.android.gms/.auth.trustagent.UserPresentBroadcastReceiver }.
+[ 07-14 01:29:14.600 23993:23997 D/dalvikvm ]
+GC_CONCURRENT freed 203K, 3% free 8880K/9112K, paused 8ms+12ms, total 71ms
 
-[ 06-14 23:51:31.843  1396: 1597 E/BrcmNfcJni ]
-nfaConnectionCallback: unknown event ????
+[ 07-14 01:29:14.624 24016:24019 D/dalvikvm ]
+GC_CONCURRENT freed 401K, 5% free 8693K/9124K, paused 9ms+3ms, total 40ms
 
-[ 06-14 23:51:31.843  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_SET_TECH_CFG_EVT; status=0x0
+[ 07-14 01:29:14.733 24016:24019 D/dalvikvm ]
+GC_CONCURRENT freed 473K, 6% free 8733K/9232K, paused 1ms+4ms, total 21ms
 
-[ 06-14 23:51:31.843  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_SET_PROTO_CFG_EVT; status=0x0
+[ 07-14 01:29:14.733 24016:24016 D/dalvikvm ]
+WAIT_FOR_CONCURRENT_GC blocked 8ms
 
-[ 06-14 23:51:31.843  1396: 4948 D/BrcmNfcJni ]
-RoutingManager::commitRouting
+[ 07-14 01:29:14.764 23965:23965 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.facebook.katana-2/libheartbleed.so 0x415896d8
 
-[ 06-14 23:51:31.850  1396: 1597 D/BrcmNfcJni ]
-RoutingManager::nfaEeCallback: NFA_EE_UPDATED_EVT
+[ 07-14 01:29:14.764 23965:23965 D/dalvikvm ]
+Added shared lib /data/app-lib/com.facebook.katana-2/libheartbleed.so 0x415896d8
 
-[ 06-14 23:51:31.873   843:  862 I/ActivityManager ]
-Start proc 3575:com.google.android.apps.fitness/u0a58 for broadcast com.google.android.apps.fitness/.widget.TodayStatusWidgetProvider
+[ 07-14 01:29:14.780 23965:23965 E/dalvikvm ]
+Could not find class 'android.telephony.CellInfoWcdma', referenced from method com.facebook.common.hardware.CellDiagnosticsSerializer.c
 
-[ 06-14 23:51:31.898  2340: 2340 I/art      ]
-Explicit concurrent mark sweep GC freed 18759(847KB) AllocSpace objects, 0(0B) LOS objects, 36% free, 28MB/44MB, paused 1.089ms total 43.635ms
+[ 07-14 01:29:14.780 23965:23965 W/dalvikvm ]
+VFY: unable to resolve instanceof 366 (Landroid/telephony/CellInfoWcdma;) in Lcom/facebook/common/hardware/CellDiagnosticsSerializer;
 
-[ 06-14 23:51:31.993   843: 3637 I/art      ]
-Explicit concurrent mark sweep GC freed 23097(1165KB) AllocSpace objects, 0(0B) LOS objects, 25% free, 45MB/61MB, paused 2.174ms total 89.747ms
+[ 07-14 01:29:14.780 23965:23965 D/dalvikvm ]
+VFY: replacing opcode 0x20 at 0x0130
 
-[ 06-14 23:51:32.013   843: 1348 W/InputMethodManagerService ]
-Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@14bbbed4 attribute=android.view.inputmethod.EditorInfo@340d087d, token = android.os.BinderProxy@e956afc
+[ 07-14 01:29:14.991 24016:24032 D/dalvikvm ]
+GC_FOR_ALLOC freed 177K, 5% free 8819K/9268K, paused 75ms, total 75ms
 
-[ 06-14 23:51:32.014  1268: 1268 I/Keyboard.Facilitator ]
-onFinishInput()
+[ 07-14 01:29:15.256   378:  753 I/ActivityManager ]
+START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.ApplicationTemplate/.ApplicationTemplateActivity} from pid 751
 
-[ 06-14 23:51:32.068  3697: 3596 I/HotwordRecognitionRnr ]
-Starting hotword detection.
+[ 07-14 01:29:15.452 23965:23969 D/dalvikvm ]
+GC_CONCURRENT freed 236K, 3% free 10346K/10620K, paused 11ms+42ms, total 244ms
 
-[ 06-14 23:51:32.071  3697: 3597 I/MicrophoneInputStream ]
-mic_starting com.google.android.apps.gsa.speech.audio.w@26f240ca
+[ 07-14 01:29:15.538   378: 5687 D/dalvikvm ]
+GC_EXPLICIT freed 1749K, 43% free 23524K/40700K, paused 260ms+18ms, total 590ms
 
-[ 06-14 23:51:32.073   357: 3600 I/AudioFlinger ]
-AudioFlinger's thread 0xb411b000 ready to run
+[ 07-14 01:29:16.327 23993:23997 D/dalvikvm ]
+GC_CONCURRENT freed 291K, 4% free 9007K/9328K, paused 5ms+3ms, total 34ms
 
-[ 06-14 23:51:32.077   357: 1024 I/SoundTriggerHwService::Module ]
-void android::SoundTriggerHwService::Module::onCallbackEvent(const android::sp<android::SoundTriggerHwService::CallbackEvent>&) mClient == 0
+[ 07-14 01:29:16.389   378:  393 I/Choreographer ]
+Skipped 49 frames!  The application may be doing too much work on its main thread.
 
-[ 06-14 23:51:32.080  3697: 3597 I/MicrophoneInputStream ]
-mic_started com.google.android.apps.gsa.speech.audio.w@26f240ca
+[ 07-14 01:29:16.624   751:  751 I/Choreographer ]
+Skipped 101 frames!  The application may be doing too much work on its main thread.
 
-[ 06-14 23:51:32.090   357: 3600 D/audio_hw_primary ]
-select_devices: out_snd_device(0: none) in_snd_device(55: voice-rec-mic)
+[ 07-14 01:29:16.655   378:  378 I/ActivityManager ]
+Start proc com.google.android.partnersetup for broadcast com.google.android.partnersetup/.RlzPingBroadcastReceiver: pid=24042 uid=10023 gids={50023, 3003, 1028}
 
-[ 06-14 23:51:32.090   357: 3600 D/msm8974_platform ]
-platform_send_audio_calibration: sending audio calibration for snd_device(55) acdb_id(62)
+[ 07-14 01:29:16.725   378:  863 I/ActivityManager ]
+Process com.google.android.gsf.login (pid 23948) has died.
 
-[ 06-14 23:51:32.090   357: 3600 E/ACDB-LOADER ]
-Error: ACDB AudProc vol returned = -19
+[ 07-14 01:29:16.780 24054:24054 D/dalvikvm ]
+Late-enabling CheckJNI
 
+[ 07-14 01:29:16.811 24054:24054 I/dalvikvm ]
+Turning on JNI app bug workarounds for target SDK version 10...
 
-[ 06-14 23:51:32.090   357: 3600 D/audio_hw_primary ]
-enable_snd_device: snd_device(55: voice-rec-mic)
+[ 07-14 01:29:16.811   378:  389 I/ActivityManager ]
+Start proc com.android.ApplicationTemplate for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity: pid=24054 uid=10075 gids={50075, 1015, 1028}
 
-[ 06-14 23:51:32.098   357: 3600 D/audio_hw_primary ]
-enable_audio_route: apply and update mixer path: audio-record
+[ 07-14 01:29:17.569   378:  393 I/Choreographer ]
+Skipped 42 frames!  The application may be doing too much work on its main thread.
 
-[ 06-14 23:51:32.109  3575: 3575 I/FitnessApp ]
-Initializers took 0 milliseconds
+[ 07-14 01:29:17.874 23993:23997 D/dalvikvm ]
+GC_CONCURRENT freed 291K, 4% free 9112K/9432K, paused 8ms+2ms, total 45ms
 
-[ 06-14 23:51:32.143   843: 1766 I/ActivityManager ]
-Start proc 3603:com.aide.ui/u0a105 for broadcast com.aide.ui/com.appfour.common.gcm.GcmUserPresentBroadcastReceiver
+[ 07-14 01:29:17.960   378:  865 I/ActivityManager ]
+Start proc com.android.musicfx for broadcast com.android.musicfx/.Compatibility$Receiver: pid=24072 uid=10040 gids={50040, 3003, 3002, 1028}
 
-[ 06-14 23:51:32.145   843: 1766 I/ActivityManager ]
-Killing 3012:com.google.android.apps.photos/u0a78 (adj 15): empty #17
+[ 07-14 01:29:17.967   378:  863 I/ActivityManager ]
+Process net.dinglisch.android.taskerm (pid 23926) has died.
 
-[ 06-14 23:51:32.169  3697: 3697 I/HotwordWorker ]
-onReady
+[ 07-14 01:29:17.975   378:  394 W/BroadcastQueue ]
+Permission Denial: broadcasting Intent { act=android.net.conn.INET_CONDITION_ACTION flg=0x8000010 (has extras) } from null (pid=-1, uid=-1) requires com.facebook.permission.prod.FB_APP_COMMUNICATION due to registered receiver BroadcastFilter{42632768 u0 ReceiverList{4263fcd0 23965 com.facebook.katana:dash/10162/u0 remote:41e900b0}}
 
-[ 06-14 23:51:32.294   843: 1256 I/ActivityManager ]
-Killing 3128:com.android.defcontainer/u0a9 (adj 15): empty #17
+[ 07-14 01:29:17.975   378:  394 W/BroadcastQueue ]
+Permission Denial: broadcasting Intent { act=android.net.conn.CONNECTIVITY_CHANGE flg=0x8000010 (has extras) } from null (pid=-1, uid=-1) requires com.facebook.permission.prod.FB_APP_COMMUNICATION due to registered receiver BroadcastFilter{42632768 u0 ReceiverList{4263fcd0 23965 com.facebook.katana:dash/10162/u0 remote:41e900b0}}
 
-[ 06-14 23:51:32.350  1552: 2745 D/GCM      ]
-GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
+[ 07-14 01:29:18.147 24054:24054 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x4158bee8
 
-[ 06-14 23:51:32.891  3697: 6164 I/MicrophoneInputStream ]
-mic_close com.google.android.apps.gsa.speech.audio.w@26f240ca
+[ 07-14 01:29:18.327 24054:24054 D/dalvikvm ]
+Added shared lib /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x4158bee8
 
-[ 06-14 23:51:32.900   357: 1011 D/audio_hw_primary ]
-out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+[ 07-14 01:29:18.327 24054:24054 D/dalvikvm ]
+No JNI_OnLoad found in /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so 0x4158bee8, skipping init
 
-[ 06-14 23:51:32.951   357: 3600 D/audio_hw_primary ]
-disable_audio_route: reset and update mixer path: audio-record
+[ 07-14 01:29:18.381   930:24088 D/PackageBroadcastService ]
+Received broadcast action=android.intent.action.PACKAGE_ADDED and uri=com.android.ApplicationTemplate
 
-[ 06-14 23:51:32.952   357: 3600 D/audio_hw_primary ]
-disable_snd_device: snd_device(55: voice-rec-mic)
+[ 07-14 01:29:18.397   378: 5316 I/ActivityManager ]
+Process com.facebook.katana:dash (pid 23965) has died.
 
-[ 06-14 23:51:32.957   357: 1024 I/SoundTriggerHwService::Module ]
-void android::SoundTriggerHwService::Module::onCallbackEvent(const android::sp<android::SoundTriggerHwService::CallbackEvent>&) mClient == 0
-
-[ 06-14 23:51:32.960  3697: 6185 I/HotwordRecognitionRnr ]
-Stopping hotword detection.
-
-[ 06-14 23:51:32.960  3697: 3596 I/HotwordRecognitionRnr ]
-Hotword detection finished
-
-[ 06-14 23:51:33.557  3603: 3621 D/A4GCM    ]
-GCM id: APA91bEJOC_OSVIbhfvAEMtKbtPTHcK_HwpsC5WkqslYfRaJBI291qJE4NOOq6zgghZi5wGsMz9cvVC-JkOJQsk4Cc51ScSw3lJhQoDsQV6WMW1LJoON_cGufl7mjq-Edo1yhJuBy-9p
-
-[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
-updateNetworkScore for NetworkAgentInfo [WIFI () - 117] to 60
-
-[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
-rematching NetworkAgentInfo [WIFI () - 117]
-
-[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
-Network NetworkAgentInfo [WIFI () - 117] was already satisfying request 1. No change.
-
-[ 06-14 23:51:33.868   843: 1027 D/ConnectivityService ]
-notifyType AVAILABLE for NetworkAgentInfo [WIFI () - 117]
-
-[ 06-14 23:51:33.869  1082: 1537 D/ConnectivityManager.CallbackHandler ]
-CM callback handler got msg 524290
-
-[ 06-14 23:51:35.427  1855: 3331 V/ConfigFetchTask ]
-ConfigFetchTask getDeviceDataVersionInfo(): ABFEt1XXgf6PDXRr1ak31Szhwx37DuVmifoNfRI9-4pFTDiRaSIwTzyL7cZEohc3Is0VJ2Viv_B4uB6EoathCio-PSYNy8v03gYIn3T14x6vRnZk07QrFUgosW1Qcr2LvIZe8uCJTLB3YP9ouZyaJ3cRfKbPx1f9Mo5yaELF1vmfJuCG0dOHY5bAuRpta4ihff_AW0kwBgM8
-
-[ 06-14 23:51:35.430  1855: 3331 I/GoogleURLConnFactory ]
-Using platform SSLCertificateSocketFactory
-
-[ 06-14 23:51:35.612  1855: 1855 I/ConfigFetchService ]
-fetch service done; releasing wakelock
-
-[ 06-14 23:51:35.614  1855: 1855 I/ConfigFetchService ]
-stopping self
-
-[ 06-14 23:51:36.115   357: 1011 D/audio_hw_primary ]
-disable_audio_route: reset and update mixer path: low-latency-playback speaker
-
-[ 06-14 23:51:36.116   357: 1011 D/audio_hw_primary ]
-disable_snd_device: snd_device(2: speaker)
-
-[ 06-14 23:51:36.933   843: 1447 I/ActivityManager ]
-START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.ApplicationTemplate/.ApplicationTemplateActivity (has extras)} from uid 10034 on display 0
-
-[ 06-14 23:51:36.941   357: 1011 D/audio_hw_primary ]
-out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
-
-[ 06-14 23:51:36.948   843: 1447 V/WindowManager ]
-addAppToken: AppWindowToken{36560aed token=Token{23b68504 ActivityRecord{3778cd17 u0 com.android.ApplicationTemplate/.ApplicationTemplateActivity t58}}} to stack=1 task=58 at 0
-
-[ 06-14 23:51:36.952   843:  921 V/WindowManager ]
-Adding window Window{214ad96e u0 Starting com.android.ApplicationTemplate} at 6 of 13 (after Window{3c60eede u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.legacyui.VelvetActivity})
-
-[ 06-14 23:51:36.955   357:  840 D/audio_hw_primary ]
-select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
-
-[ 06-14 23:51:36.955   357:  840 D/msm8974_platform ]
-platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
-
-[ 06-14 23:51:36.955   357:  840 E/ACDB-LOADER ]
-Error: ACDB AFE returned = -19
-
-
-[ 06-14 23:51:36.955   357:  840 D/audio_hw_primary ]
-enable_snd_device: snd_device(2: speaker)
-
-[ 06-14 23:51:36.957   357:  840 D/audio_hw_primary ]
-enable_audio_route: apply and update mixer path: low-latency-playback speaker
-
-[ 06-14 23:51:37.014  3639: 3639 I/art      ]
-Late-enabling -Xcheck:jni
-
-[ 06-14 23:51:37.015   843:12029 I/ActivityManager ]
-Start proc 3639:com.android.ApplicationTemplate/u0a158 for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity
-
-[ 06-14 23:51:37.052  1082: 1082 V/PhoneStatusBar ]
+[ 07-14 01:29:18.460   611:  611 V/PhoneStatusBar ]
 setLightsOn(true)
 
-[ 06-14 23:51:37.096   843: 1256 V/WindowManager ]
-Adding window Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity} at 6 of 14 (before Window{214ad96e u0 Starting com.android.ApplicationTemplate})
+[ 07-14 01:29:18.514 24054:24087 D/libEGL   ]
+loaded /vendor/lib/egl/libEGL_POWERVR_SGX540_120.so
 
-[ 06-14 23:51:37.106   843: 1348 V/WindowManager ]
-Adding window Window{33567a1e u0 SurfaceView} at 6 of 15 (before Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity})
+[ 07-14 01:29:18.553 24054:24087 D/libEGL   ]
+loaded /vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so
 
-[ 06-14 23:51:37.112  3639: 3658 I/Adreno   ]
-EGLInit: QTI Build: 01/29/15, 1bccc5d, I0ba6dce82d
+[ 07-14 01:29:18.561   930:  930 D/ChimeraRcvrProxy ]
+Creating receiver proxy ComponentInfo{com.google.android.gms/com.google.android.gms.games.chimera.GamesSystemBroadcastReceiverProxy}
 
-[ 06-14 23:51:37.153   843:  921 I/ActivityManager ]
-Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +170ms
+[ 07-14 01:29:18.561 24054:24087 D/libEGL   ]
+loaded /vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so
 
-[ 06-14 23:51:37.157  1268: 1268 I/Keyboard.Facilitator ]
-onFinishInput()
+[ 07-14 01:29:18.577   930:  930 D/ChimeraRcvrProxy ]
+Proxying container receiver ComponentInfo{com.google.android.gms/com.google.android.gms.games.chimera.GamesSystemBroadcastReceiverProxy} to Chimera receiver impl com.google.android.gms.games.GamesBroadcastReceiverStub
 
-[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
-Attempting to create the draw surface
+[ 07-14 01:29:18.608   930:  930 D/ChimeraCfgMgr ]
+Loading module com.google.android.gms.games from APK com.google.android.gms
 
+[ 07-14 01:29:18.702   378: 9085 I/ActivityManager ]
+Start proc com.google.android.apps.plus for broadcast com.google.android.apps.plus/.service.PackagesMediaMonitor: pid=24089 uid=10047 gids={50047, 3003, 3002, 1015, 1006, 1028}
 
-[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
-Attempting to find resource: shaders/color_shader.fsh
+[ 07-14 01:29:18.717   378:  393 I/ActivityManager ]
+Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +1s971ms
 
-[ 06-14 23:51:37.165  3639: 3658 I/ApplicationTemplate ]
-Found resource 84 bytes
+[ 07-14 01:29:18.717   378: 5687 I/ActivityManager ]
+Start proc com.google.android.gms.wearable for service com.google.android.gms/.wearable.service.WearableControlService: pid=24099 uid=10011 gids={50011, 3003, 1007, 1028, 1015, 1006, 3002, 3001, 2001, 3006}
 
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Contents: precision mediump float;
-void main() {
-  gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-}
-_image 
+[ 07-14 01:29:18.796   930:  930 I/ConfigFetchService ]
+onStartCommand Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.android.ApplicationTemplate cmp=com.google.android.gms/.config.ConfigFetchService (has extras) }
 
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Contents length: 91
+[ 07-14 01:29:18.975 24054:24087 F/libc     ]
+Fatal signal 11 (SIGSEGV) at 0x5d41c000 (code=1), thread 24087 (Thread-9300)
 
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Attempting to find resource: shaders/color_shader.vsh
+[ 07-14 01:29:19.131   930:  930 I/ConfigFetchService ]
+launchTask
 
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Found resource 69 bytes
-
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Contents: attribute vec4 vPosition;
-void main() {
-  gl_Position = vPosition;
-}
-
-
-[ 06-14 23:51:37.167  3639: 3658 I/ApplicationTemplate ]
-Contents length: 69
-
-[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
-Attempting to create the draw surface
-
-
-[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
-Attempting to find resource: shaders/texture_alpha_shader.frag
-
-[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
-Found resource 246 bytes
-
-[ 06-14 23:51:37.187  3639: 3658 I/ApplicationTemplate ]
-Contents: precision mediump float;
-uniform sampler2D u_TextureUnit;
-varying vec2 v_TextureCoordinates;
-void main()
-{
-  gl_FragColor = gl_FragColor + texture2D(u_TextureUnit, v_TextureCoordinates) * vec4(texture2D(u_TextureUnit, v_TextureCoordinates).a);
-}
-
-
-[ 06-14 23:51:37.189  3639: 3658 I/ApplicationTemplate ]
-Contents length: 246
-
-[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
-Attempting to find resource: shaders/texture_alpha_shader.vert
-
-[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
-Found resource 230 bytes
-
-[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
-Contents: uniform mat4 u_MvpMatrix;
-attribute vec4 a_Position;
-attribute vec2 a_TextureCoordinates;
-varying vec2 v_TextureCoordinates;
-void main()
-{
-  v_TextureCoordinates = a_TextureCoordinates;
-  gl_Position = u_MvpMatrix * a_Position;
-}
-rdinates).a);
-}
-
-
-[ 06-14 23:51:37.190  3639: 3658 I/ApplicationTemplate ]
-Contents length: 246
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-pwd: /
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: .
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: ..
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: tmp-mksh
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: fsg
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: sdcard
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: persist
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: oem
-
-
-[ 06-14 23:51:37.205  3639: 3658 I/ApplicationTemplate ]
-contents: storage
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: config
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: cache
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: acct
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: vendor
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: d
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: etc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: tombstones
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: firmware
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: mnt
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: verity_key
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: ueventd.shamu.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: ueventd.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: system
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: sys
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: service_contexts
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: sepolicy
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: selinux_version
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: seapp_contexts
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: sbin
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: res
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: property_contexts
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: proc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.zygote32.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.usb.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.trace.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.shamu.usb.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.shamu.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.shamu.power.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.shamu.diag.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.mmi.touch.sh
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init.environ.rc
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: init
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: fstab.shamu
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: file_contexts
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: default.prop
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: data
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: charger
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: root
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-contents: dev
-
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-Attempting to find resource: fonts/arial.fnt
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-Found resource 27658 bytes
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-Contents: <font>
-  <info face="Arial" size="32" bold="0" italic="0" charset="" unicode="1" stretchH="100" smooth="1" aa="1" padding="0,0,0,0" spacing="1,1" outline="0"/>
-  <common lineHeight="32" base="26" scaleW="256" scaleH="256" pages="1" packed="0" alphaChnl="0" redChnl="3" greenChnl="3" blueChnl="3"/>
-  <pages>
-    <page id="0" file="fonts/arial_1.png" />
-  </pages>
-  <chars count="191">
-    <char id="32" x="72" y="77" width="1" height="1" xoffset="0" yoffset="26" xadvance="8" page="0" chnl="15" />
-    <char id="33" x="100" y="161" width="2" height="20" xoffset="3" yoffset="6" xadvance="8" page="0" chnl="15" />
-    <char id="34" x="134" y="196" width="7" height="7" xoffset="1" yoffset="6" xadvance="10" page="0" chnl="15" />
-    <char id="35" x="241" y="74" width="14" height="20" xoffset="0" yoffset="6" xadvance="15" page="0" chnl="15" />
-    <char id="36" x="87" y="53" width="13" height="23" xoffset="1" yoffset="5" xadvance="15" page="0" chnl="15" />
-    <char id="37" x="0" y="79" width="20"
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-Contents length: 27658
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-host is empty
-
-[ 06-14 23:51:37.206  3639: 3658 I/ApplicationTemplate ]
-Hostname: localhost
-
---------- beginning of crash
-[ 06-14 23:51:37.207  3639: 3658 F/libc     ]
-Fatal signal 11 (SIGSEGV), code 1, fault addr 0x10 in tid 3658 (GLThread 5157)
-
-[ 06-14 23:51:37.308   354:  354 I/DEBUG    ]
+[ 07-14 01:29:19.311   124:  124 I/DEBUG    ]
 *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 
 
-[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
-Build fingerprint: 'google/shamu/shamu:5.1/LMY47D/1743759:user/release-keys'
+[ 07-14 01:29:19.311   124:  124 I/DEBUG    ]
+Build fingerprint: 'google/mysid/toro:4.2.2/JDQ39/573038:user/release-keys'
 
 
-[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
-Revision: '33696'
+[ 07-14 01:29:19.311   124:  124 I/DEBUG    ]
+Revision: '9'
 
 
-[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
-ABI: 'arm'
+[ 07-14 01:29:19.311   124:  124 I/DEBUG    ]
+pid: 24054, tid: 24087, name: Thread-9300  >>> com.android.ApplicationTemplate <<<
 
 
-[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
-pid: 3639, tid: 3658, name: GLThread 5157  >>> com.android.ApplicationTemplate <<<
+[ 07-14 01:29:19.311   124:  124 I/DEBUG    ]
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 5d41c000
 
 
-[ 06-14 23:51:37.309   354:  354 I/DEBUG    ]
-signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x10
+[ 07-14 01:29:19.335   930:  934 D/dalvikvm ]
+GC_CONCURRENT freed 1224K, 35% free 13097K/19980K, paused 30ms+168ms, total 758ms
+
+[ 07-14 01:29:19.803   930:  930 I/ConfigFetchService ]
+service connected
+
+[ 07-14 01:29:19.819   930:  930 D/ConfigFetchService ]
+ConfigApi connection successful.
+
+[ 07-14 01:29:19.827 24099:24099 W/dalvikvm ]
+VFY: unable to resolve static field 629 (PR_SET_DUMPABLE) in Landroid/system/OsConstants;
+
+[ 07-14 01:29:19.827 24099:24099 D/dalvikvm ]
+VFY: replacing opcode 0x60 at 0x000b
+
+[ 07-14 01:29:19.889 24099:24099 I/MultiDex ]
+VM with version 1.6.0 does not have multidex support
+
+[ 07-14 01:29:19.889 24099:24099 I/MultiDex ]
+install
+
+[ 07-14 01:29:19.897 24099:24099 I/MultiDex ]
+MultiDexExtractor.load(/data/app/com.google.android.gms-2.apk, false)
+
+[ 07-14 01:29:19.928 24099:24099 I/MultiDex ]
+loading existing secondary dex files
+
+[ 07-14 01:29:20.038 24099:24099 I/MultiDex ]
+load found 3 secondary dex files
+
+[ 07-14 01:29:20.092 24099:24099 I/MultiDex ]
+install done
+
+[ 07-14 01:29:20.178 24089:24089 E/dalvikvm ]
+Could not find class 'android.app.Notification$Action$Builder', referenced from method b.a
+
+[ 07-14 01:29:20.178 24089:24089 W/dalvikvm ]
+VFY: unable to resolve new-instance 243 (Landroid/app/Notification$Action$Builder;) in Lb;
+
+[ 07-14 01:29:20.178 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x22 at 0x0000
+
+[ 07-14 01:29:20.389 24099:24099 I/ProviderInstaller ]
+Insert disabled by gate 'gms:security:enable_conscrypt_in_gms_application'
+
+[ 07-14 01:29:20.600 24089:24089 E/dalvikvm ]
+Could not find class 'android.graphics.drawable.RippleDrawable', referenced from method b.a
+
+[ 07-14 01:29:20.600 24089:24089 W/dalvikvm ]
+VFY: unable to resolve new-instance 404 (Landroid/graphics/drawable/RippleDrawable;) in Lb;
+
+[ 07-14 01:29:20.600 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x22 at 0x000b
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    r0 56f33850  r1 5d41bff0  r2 000032a9  r3 00000008
 
 
-[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
-    r0 00000000  r1 00000000  r2 8cbed564  r3 00000000
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    r4 5e103b00  r5 00000000  r6 5a45b5f0  r7 56f2e008
 
 
-[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
-    r4 b6e98df4  r5 b362d460  r6 b362d414  r7 b362d468
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    r8 5e103afc  r9 00000001  sl 00000000  fp 5e103c64
 
 
-[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
-    r8 12ce7090  r9 b4a36c00  sl 00000001  fp 00000000
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    ip 00000000  sp 5e103ad0  lr 58103594  pc 401b867c  cpsr 20000010
 
 
-[ 06-14 23:51:37.317   354:  354 I/DEBUG    ]
-    ip b6e98df4  sp b362d410  lr b6e462d1  pc b3660e6a  cpsr 40000030
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d0  0000000000000002  d1  0000001b58b95f58
 
 
-[ 06-14 23:51:37.318   354:  354 I/DEBUG    ]
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d2  000140005d408000  d3  000000015d3c0fe0
+
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d4  ffffffff5ad39a40  d5  0000000000000000
+
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d6  42eccefa43de3400  d7  0000001300000000
+
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d8  0000000000000000  d9  0000000000000000
+
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d10 0000000000000000  d11 0000000000000000
+
+
+[ 07-14 01:29:20.827   124:  124 I/DEBUG    ]
+    d12 0000000000000000  d13 0000000000000000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d14 0000000000000000  d15 0000000000000000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d16 697469736f507620  d17 0000000000000000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d18 0000000000000000  d19 00bc800000b98000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d20 00b6802e00b3802d  d21 00bc802f00b9802f
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d22 0707070703030303  d23 0000002f0000002e
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d24 0000000000000000  d25 0000000000000000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d26 0000002f0000002f  d27 0000002f0000002f
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d28 0001000000010000  d29 0001000000010000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    d30 0003000000030000  d31 0003000000030000
+
+
+[ 07-14 01:29:20.835   124:  124 I/DEBUG    ]
+    scr 60000090
+
+
+[ 07-14 01:29:20.858 24089:24089 W/dalvikvm ]
+VFY: unable to find class referenced in signature (Lcom/google/android/gms/maps/model/LatLng;)
+
+[ 07-14 01:29:20.858 24089:24089 W/dalvikvm ]
+VFY: unable to find class referenced in signature (Lcom/google/android/gms/maps/model/LatLng;)
+
+[ 07-14 01:29:20.866 24089:24089 W/dalvikvm ]
+VFY: unable to find class referenced in signature (Lcom/google/android/gms/maps/model/LatLng;)
+
+[ 07-14 01:29:20.866 24089:24089 W/dalvikvm ]
+VFY: unable to find class referenced in signature (Lcom/google/android/gms/maps/model/LatLng;)
+
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
 
 backtrace:
 
 
-[ 06-14 23:51:37.321   354:  354 I/DEBUG    ]
-    #00 pc 00022e6a  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::ip(my::string)+25)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+    #00  pc 0001867c  /system/lib/libc.so (memcpy+124)
 
 
-[ 06-14 23:51:37.322   354:  354 I/DEBUG    ]
-    #01 pc 00021b47  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::guid()+310)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+    #01  pc 0001e590  /system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so (glShaderSource+244)
 
 
-[ 06-14 23:51:37.323   354:  354 I/DEBUG    ]
-    #02 pc 00021f41  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::uuid()+20)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+
+stack:
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #03 pc 0001f187  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::xml::dom::document::document()+74)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103a90  00008b3b  
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #04 pc 0001f359  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::fnt::write(my::font*, unsigned char*, long)+44)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103a94  401b13c3  /system/lib/libc.so (dlmalloc+5170)
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #05 pc 0001af85  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::datatype<my::font>::write(unsigned char*, long)+10)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103a98  40b8efa0  
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #06 pc 0002263b  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (my::stream::~stream()+262)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103a9c  40b8efa0  
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #07 pc 0001e629  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (on_startup(void*)+568)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103aa0  5a45a820  
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #08 pc 0001ab25  /data/app/com.android.ApplicationTemplate-1/lib/arm/libApplicationTemplate.so (Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1startup+8)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103aa4  5a45a820  
 
 
-[ 06-14 23:51:37.324   354:  354 I/DEBUG    ]
-    #09 pc 00000979  /data/dalvik-cache/arm/data@app@com.android.ApplicationTemplate-1@base.apk@classes.dex
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103aa8  40b8e008  
 
 
-[ 06-14 23:51:37.640   354:  354 I/DEBUG    ]
-
-Tombstone written to: /data/tombstones/tombstone_01
-
-
-[ 06-14 23:51:37.640   843: 3660 W/ActivityManager ]
-  Force finishing activity 1 com.android.ApplicationTemplate/.ApplicationTemplateActivity
-
-[ 06-14 23:51:37.642   843:  917 I/BootReceiver ]
-Copying /data/tombstones/tombstone_01 to DropBox (SYSTEM_TOMBSTONE)
-
-[ 06-14 23:51:37.661   843: 1001 W/InputDispatcher ]
-channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
-
-[ 06-14 23:51:37.661   843: 1001 E/InputDispatcher ]
-channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
-
-[ 06-14 23:51:37.667   843: 3647 I/WindowState ]
-WIN DEATH: Window{323a92a0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
-
-[ 06-14 23:51:37.667   843: 3647 W/InputDispatcher ]
-Attempted to unregister already unregistered input channel '323a92a0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity (server)'
-
-[ 06-14 23:51:37.671   843: 1449 I/WindowState ]
-WIN DEATH: Window{33567a1e u0 SurfaceView}
-
-[ 06-14 23:51:37.673   843: 3660 W/ActivityManager ]
-Exception thrown during pause
-android.os.DeadObjectException
-	at android.os.BinderProxy.transactNative(Native Method)
-	at android.os.BinderProxy.transact(Binder.java:496)
-	at android.app.ApplicationThreadProxy.schedulePauseActivity(ApplicationThreadNative.java:704)
-	at com.android.server.am.ActivityStack.startPausingLocked(ActivityStack.java:825)
-	at com.android.server.am.ActivityStack.finishActivityLocked(ActivityStack.java:2726)
-	at com.android.server.am.ActivityStack.finishTopRunningActivityLocked(ActivityStack.java:2583)
-	at com.android.server.am.ActivityStackSupervisor.finishTopRunningActivityLocked(ActivityStackSupervisor.java:2497)
-	at com.android.server.am.ActivityManagerService.handleAppCrashLocked(ActivityManagerService.java:11500)
-	at com.android.server.am.ActivityManagerService.makeAppCrashingLocked(ActivityManagerService.java:11397)
-	at com.android.server.am.ActivityManagerService.crashApplication(ActivityManagerService.java:12081)
-	at com.android.server.am.ActivityManagerService.handleApplicationCrashInner(ActivityManagerService.java:11592)
-	at com.android.server.am.NativeCrashListener$NativeCrashReporter.run(NativeCrashListener.java:86)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103aac  5e103b00  
 
 
-[ 06-14 23:51:37.675   256:  256 E/lowmemorykiller ]
-Error writing /proc/3639/oom_score_adj; errno=22
-
-[ 06-14 23:51:37.736   368:  368 I/Zygote   ]
-Process 3639 exited due to signal (11)
-
-[ 06-14 23:51:37.782   843: 1071 I/ActivityManager ]
-Process com.android.ApplicationTemplate (pid 3639) has died
-
-[ 06-14 23:51:37.823   843:32210 I/OpenGLRenderer ]
-Initialized EGL, version 1.4
-
-[ 06-14 23:51:37.897   843: 1455 I/ActivityManager ]
-Killing 3156:com.android.keychain/1000 (adj 15): empty #17
-
-[ 06-14 23:51:38.029  1082: 1082 W/ResourceType ]
-No package identifier when getting value for resource number 0x00000000
-
-[ 06-14 23:51:38.029  1082: 1082 W/PackageManager ]
-Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
-
-[ 06-14 23:51:38.029  1082: 1082 W/ResourceType ]
-No package identifier when getting value for resource number 0x00000000
-
-[ 06-14 23:51:38.029  1082: 1082 W/PackageManager ]
-Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
-
-[ 06-14 23:51:40.165   357: 1011 D/audio_hw_primary ]
-disable_audio_route: reset and update mixer path: low-latency-playback speaker
-
-[ 06-14 23:51:40.166   357: 1011 D/audio_hw_primary ]
-disable_snd_device: snd_device(2: speaker)
-
-[ 06-14 23:51:40.230 31699:31742 D/Finsky   ]
-[4730] AppStatesReplicator.handleContentSyncResponse: Completed 0 account content syncs with 0 successful.
-
-[ 06-14 23:51:40.231 31699:31699 D/Finsky   ]
-[1] 5.onFinished: Installation state replication succeeded.
-
-[ 06-14 23:51:40.368   843: 1449 W/InputMethodManagerService ]
-Got RemoteException sending setActive(false) notification to pid 3639 uid 10158
-
-[ 06-14 23:51:40.370  1268: 1268 I/Keyboard.Facilitator ]
-onFinishInput()
-
-[ 06-14 23:51:40.371   357: 1011 D/audio_hw_primary ]
-out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
-
-[ 06-14 23:51:40.382   357:  840 D/audio_hw_primary ]
-select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
-
-[ 06-14 23:51:40.382   357:  840 D/msm8974_platform ]
-platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
-
-[ 06-14 23:51:40.382   357:  840 E/ACDB-LOADER ]
-Error: ACDB AFE returned = -19
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ab0  00008b32  
 
 
-[ 06-14 23:51:40.382   357:  840 D/audio_hw_primary ]
-enable_snd_device: snd_device(2: speaker)
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ab4  5a45b5f0  
 
-[ 06-14 23:51:40.386   357:  840 D/audio_hw_primary ]
-enable_audio_route: apply and update mixer path: low-latency-playback speaker
 
-[ 06-14 23:51:40.626  1552: 1552 I/ConfigService ]
-onDestroy
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ab8  40b8e008  
 
-[ 06-14 23:51:41.572   843: 1045 D/TaskPersister ]
-removeObsoleteFile: deleting file=57_task.xml
 
-[ 06-14 23:51:41.572   843: 1045 D/TaskPersister ]
-removeObsoleteFile: deleting file=57_task_thumbnail.png
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103abc  5e103afc  
+
+
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ac0  00000001  
+
+
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ac4  00000001  
+
+
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103ac8  df0027ad  
+
+
+[ 07-14 01:29:20.874   124:  124 I/DEBUG    ]
+         5e103acc  00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    #00  5e103ad0  56f2e008  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103ad4  58103594  /system/vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so (glShaderSource+248)
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    #01  5e103ad8  580d4584  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103adc  00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103ae0  5e103afc  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103ae4  580d463c  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103ae8  5e103c50  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103aec  4003cf30  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103af0  5d9e31f0  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103af4  580a50eb  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so (compile(my::shader*, unsigned int)+34)
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103af8  580d4584  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103afc  00008b31  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b00  5d416788  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b04  00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b08  580d463c  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b0c  580d3e18  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b10  5e103b94  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+         5e103b14  580a5151  /data/app-lib/com.android.ApplicationTemplate-2/libApplicationTemplate.so (compile(my::program&)+12)
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+
+memory near r0:
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33830 5ad39a40 ffffffff 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33840 43de3400 42eccefa 00000000 00000013  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33850 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33860 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33870 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33880 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33890 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338a0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338b0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338c0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338d0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338e0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f338f0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33900 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.881   124:  124 I/DEBUG    ]
+    56f33910 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    56f33920 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+
+memory near r1:
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41bfd0 00000002 00000000 58b95f58 0000001b  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41bfe0 5d408000 00014000 5d3c0fe0 00000001  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41bff0 00000000 00000007 00000007 00000007  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c000 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c010 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c020 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c030 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c040 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c050 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c060 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c070 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c080 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c090 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c0a0 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c0b0 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5d41c0c0 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+
+memory near r2:
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003288 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003298 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032a8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032b8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032c8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032d8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032e8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    000032f8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003308 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003318 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003328 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003338 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003348 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003358 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003368 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    00003378 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+
+memory near r4:
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5e103ae0 5e103afc 580d463c 5e103c50 4003cf30  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5e103af0 5d9e31f0 580a50eb 580d4584 00008b31  
+
+
+[ 07-14 01:29:20.889   124:  124 I/DEBUG    ]
+    5e103b00 5d416788 00000000 580d463c 580d3e18  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b10 5e103b94 580a5151 580d463c 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b20 5e103be8 580d3e18 5e103b94 580a8069  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b30 00000000 00000000 00000000 5e103ba0  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b40 580d4584 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b50 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b60 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b70 5d9e31e0 57058480 5e103be4 5e103be4  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b80 4003cf08 58368aa3 5e103be8 40860c35  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103b90 5d9e31e0 580d2d50 00000000 5e103be8  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103ba0 580d3498 00000000 00000000 40d263b8  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103bb0 56ef1958 4158bee8 5d9e31e0 401b1813  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103bc0 40d263b8 56ef1958 4158bee8 5d9e31e0  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5e103bd0 40d263b8 401acf15 40d263b8 40d263b8  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+
+memory near r6:
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b5d0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b5e0 00000000 00000000 00000000 00000033  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b5f0 00011171 00000001 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b600 00000001 56f2e008 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b610 00000000 00000000 00000030 00000023  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b620 5ad3c1de 20009c22 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b630 43de3400 42eccefa 00000005 00000023  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b640 406e1d28 00000001 00000008 5a45b660  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b650 407c0f2d 00000000 5af6bd90 0000002b  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b660 5a45b620 20009c22 00000144 01000001  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b670 656d614e 00002f73 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b680 00000000 00000033 00750041 00740073  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b690 00610072 0069006c 002f0061 0069004c  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b6a0 0064006e 006d0065 006e0061 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b6b0 00000000 00000149 5d9fbfc0 5d3bf920  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    5a45b6c0 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+
+memory near r7:
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    56f2dfe8 ffffffff ffffffff ffffffff ffffffff  
+
+
+[ 07-14 01:29:20.897   124:  124 I/DEBUG    ]
+    56f2dff8 ffffffff ffffffff 00000000 00008b3b  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e008 72747461 74756269 65762065 76203463  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e018 69736f50 6e6f6974 6f760a3b 6d206469  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e028 286e6961 0a7b2029 6c672020 736f505f  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e038 6f697469 203d206e 736f5076 6f697469  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e048 7d0a3b6e 0000000a 00000000 00000061  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e058 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e068 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e078 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e088 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e098 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e0a8 00000000 00000000 00000060 00000022  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e0b8 00000000 5aeb36dc 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e0c8 00000000 00000000 02030000 00000181  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    56f2e0d8 5d9f07a8 5d417a30 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+
+memory near r8:
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103adc 00000000 5e103afc 580d463c 5e103c50  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103aec 4003cf30 5d9e31f0 580a50eb 580d4584  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103afc 00008b31 5d416788 00000000 580d463c  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b0c 580d3e18 5e103b94 580a5151 580d463c  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b1c 00000000 5e103be8 580d3e18 5e103b94  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b2c 580a8069 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b3c 5e103ba0 580d4584 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b4c 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b5c 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b6c 00000000 5d9e31e0 57058480 5e103be4  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b7c 5e103be4 4003cf08 58368aa3 5e103be8  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b8c 40860c35 5d9e31e0 580d2d50 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103b9c 5e103be8 580d3498 00000000 00000000  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103bac 40d263b8 56ef1958 4158bee8 5d9e31e0  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103bbc 401b1813 40d263b8 56ef1958 4158bee8  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103bcc 5d9e31e0 40d263b8 401acf15 40d263b8  
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+
+memory near fp:
+
+
+[ 07-14 01:29:20.905   124:  124 I/DEBUG    ]
+    5e103c44 580a45c9 4003cf6c 4081f294 4003cf30  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103c54 00000001 4158f400 400316f7 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103c64 4084e415 4003cf30 400316f5 580a45bd  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103c74 5d9e31f0 4158f400 00000000 c0000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103c84 401eb228 5d9f3898 5d9e30d8 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103c94 401b1813 00000000 5d9f3898 5d9e30d8  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ca4 00000000 5a3e3770 401acf15 4019a840  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103cb4 408507c7 00000003 57324fa8 000000a8  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103cc4 59685e8b 00000002 00000000 5e103d2c  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103cd4 4086be95 59685e8b 4158f580 401eb228  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ce4 4158f580 5e103d54 57324d7c 00000001  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103cf4 4158f400 00000001 57324d68 00000118  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103d04 400318db 00000004 00000001 5e103d54  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103d14 4086bebd 400318db 4158f400 400318db  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103d24 0000002c 40038000 00000002 400306a0  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103d34 401eb228 5d3157e0 435c07fd 58abecb0  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+
+memory near sp:
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ab0 00008b32 5a45b5f0 40b8e008 5e103afc  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ac0 00000001 00000001 df0027ad 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ad0 56f2e008 58103594 580d4584 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ae0 5e103afc 580d463c 5e103c50 4003cf30  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103af0 5d9e31f0 580a50eb 580d4584 00008b31  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b00 5d416788 00000000 580d463c 580d3e18  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b10 5e103b94 580a5151 580d463c 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b20 5e103be8 580d3e18 5e103b94 580a8069  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b30 00000000 00000000 00000000 5e103ba0  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b40 580d4584 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b50 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b60 00000000 00000000 00000000 00000000  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b70 5d9e31e0 57058480 5e103be4 5e103be4  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b80 4003cf08 58368aa3 5e103be8 40860c35  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103b90 5d9e31e0 580d2d50 00000000 5e103be8  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+    5e103ba0 580d3498 00000000 00000000 40d263b8  
+
+
+[ 07-14 01:29:20.913   124:  124 I/DEBUG    ]
+
+code around pc:
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b865c f5d1f000 f5d1f040 e2522040 3a000009  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b866c f5d1f080 f5d1f0c0 f5d1f100 f421020d  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b867c f421420d f5d1f100 e2522040 f400022d  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b868c f400422d 2afffff8 e2822040 e2522020  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b869c 3a000003 f421020d e2522020 f400022d  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86ac 2afffffb e2822020 e3120010 0a000001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86bc f4210a0d f4000a2d e1b0ce82 3a000001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86cc f421070d f400070d aa000001 f4a1030d  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86dc f480030d e1b0cf82 44d13001 24d1c001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86ec 24d1e001 44c03001 24c0c001 24c0e001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b86fc e8bd4001 e12fff1e e1a02001 e3a01000  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b870c e92d40f1 e2603000 e2133003 e1530002  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b871c 81a03002 e1a01c01 e1811421 e1811821  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b872c e1b0cf83 24c01001 24c01001 44c01001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b873c e0522003 98bd40f1 912fff1e e1a0c001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    401b874c e1a0e001 e1a04001 e1a05001 e1a06001  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+
+code around lr:
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103574 e3580000 e1a00007 0a000007 e7982005  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103584 e3520000 da000004 e7941005 ebff9223  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103594 e7983005 e0877003 ea000004 e7941005  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035a4 ebff929c e7940005 ebff922b e0877000  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035b4 e28aa001 e2855004 e15a0009 1affffeb  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035c4 e3a04000 e5c74000 e5864020 e5864024  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035d4 e5960018 ebff920e e5864018 e8bd87f0  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035e4 0002cede 0002ceae 0002ce56 e92d45f0  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    581035f4 e24dd014 e1a07000 e1a04001 e1a06002  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103604 e1a08003 e59da030 ebffdf19 e2505000  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103614 0a000050 e3083c0a e1560003 159f213c  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103624 13a01c05 108f2002 1a00000a e3540000  
+
+
+[ 07-14 01:29:20.921   124:  124 I/DEBUG    ]
+    58103634 13580000 13a06000 03a06001 0a000001  
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    58103644 e3570001 0a000005 e59f2114 e1a00005  
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    58103654 e3001501 e08f2002 e3a03000 ea00003a  
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    58103664 e5941000 ebfffa31 e2504000 1a000005  
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+
+memory map around fault addr 5d41c000:
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    5d408000-5d41c000 
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    (no map for address)
+
+
+[ 07-14 01:29:20.928   124:  124 I/DEBUG    ]
+    5d4c5000-5d4c6000 
+
+
+[ 07-14 01:29:21.006 24089:24089 I/dalvikvm ]
+Could not find method android.os.Trace.beginSection, referenced from method b.a
+
+[ 07-14 01:29:21.006 24089:24089 W/dalvikvm ]
+VFY: unable to resolve static method 2515: Landroid/os/Trace;.beginSection (Ljava/lang/String;)V
+
+[ 07-14 01:29:21.006 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x71 at 0x0007
+
+[ 07-14 01:29:21.006 24089:24089 I/dalvikvm ]
+Could not find method android.os.Trace.endSection, referenced from method b.a
+
+[ 07-14 01:29:21.006 24089:24089 W/dalvikvm ]
+VFY: unable to resolve static method 2516: Landroid/os/Trace;.endSection ()V
+
+[ 07-14 01:29:21.006 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x71 at 0x0021
+
+[ 07-14 01:29:21.014 24089:24089 E/dalvikvm ]
+Could not find class 'android.app.Notification$Action$Builder', referenced from method b.a
+
+[ 07-14 01:29:21.014 24089:24089 W/dalvikvm ]
+VFY: unable to resolve new-instance 243 (Landroid/app/Notification$Action$Builder;) in Lb;
+
+[ 07-14 01:29:21.014 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x22 at 0x0000
+
+[ 07-14 01:29:21.053 24089:24089 E/dalvikvm ]
+Could not find class 'android.transition.Transition', referenced from method b.a
+
+[ 07-14 01:29:21.053 24089:24089 W/dalvikvm ]
+VFY: unable to resolve check-cast 619 (Landroid/transition/Transition;) in Lb;
+
+[ 07-14 01:29:21.053 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x1f at 0x0000
+
+[ 07-14 01:29:21.061 24089:24089 E/dalvikvm ]
+Could not find class 'android.transition.Transition', referenced from method b.a
+
+[ 07-14 01:29:21.061 24089:24089 W/dalvikvm ]
+VFY: unable to resolve check-cast 619 (Landroid/transition/Transition;) in Lb;
+
+[ 07-14 01:29:21.061 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x1f at 0x0005
+
+[ 07-14 01:29:21.061 24089:24089 E/dalvikvm ]
+Could not find class 'android.transition.Transition', referenced from method b.a
+
+[ 07-14 01:29:21.061 24089:24089 W/dalvikvm ]
+VFY: unable to resolve check-cast 619 (Landroid/transition/Transition;) in Lb;
+
+[ 07-14 01:29:21.061 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x1f at 0x0000
+
+[ 07-14 01:29:21.085   378: 5316 I/WindowState ]
+WIN DEATH: Window{415bf0f0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
+
+[ 07-14 01:29:21.085   378:  750 I/ActivityManager ]
+Process com.android.ApplicationTemplate (pid 24054) has died.
+
+[ 07-14 01:29:21.085   378:  750 W/ActivityManager ]
+Force removing ActivityRecord{42301e10 u0 com.android.ApplicationTemplate/.ApplicationTemplateActivity}: app died, no saved state
+
+[ 07-14 01:29:21.092 24089:24093 D/dalvikvm ]
+GC_CONCURRENT freed 243K, 3% free 8779K/9048K, paused 3ms+10ms, total 38ms
+
+[ 07-14 01:29:21.092 24089:24089 I/dalvikvm ]
+Could not find method android.view.ViewGroup.isTransitionGroup, referenced from method b.a
+
+[ 07-14 01:29:21.092 24089:24089 W/dalvikvm ]
+VFY: unable to resolve virtual method 4152: Landroid/view/ViewGroup;.isTransitionGroup ()Z
+
+[ 07-14 01:29:21.092 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x6e at 0x000c
+
+[ 07-14 01:29:21.092 24089:24089 I/dalvikvm ]
+Could not find method android.view.View.getTransitionName, referenced from method b.a
+
+[ 07-14 01:29:21.092 24089:24089 W/dalvikvm ]
+VFY: unable to resolve virtual method 3967: Landroid/view/View;.getTransitionName ()Ljava/lang/String;
+
+[ 07-14 01:29:21.092 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x6e at 0x0006
+
+[ 07-14 01:29:21.092   378: 5316 W/WindowManager ]
+Force-removing child win Window{415cfc20 u0 SurfaceView} from container Window{415bf0f0 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
+
+[ 07-14 01:29:21.100   378:  399 I/BootReceiver ]
+Copying /data/tombstones/tombstone_03 to DropBox (SYSTEM_TOMBSTONE)
+
+[ 07-14 01:29:21.163   127:  127 D/Zygote   ]
+Process 24054 terminated by signal (11)
+
+[ 07-14 01:29:21.225   378: 9085 W/WindowManager ]
+Failed looking up window
+java.lang.IllegalArgumentException: Requested window android.os.BinderProxy@41bd8740 does not exist
+	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:8102)
+	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:8093)
+	at com.android.server.wm.WindowState$DeathRecipient.binderDied(WindowState.java:932)
+	at android.os.BinderProxy.sendDeathNotice(Binder.java:433)
+	at dalvik.system.NativeStart.run(Native Method)
+
+
+[ 07-14 01:29:21.225   378: 9085 I/WindowState ]
+WIN DEATH: null
+
+[ 07-14 01:29:21.358 24089:24089 W/dalvikvm ]
+VFY: unable to find class referenced in signature ([Landroid/app/RemoteInput;)
+
+[ 07-14 01:29:21.358 24089:24089 E/dalvikvm ]
+Could not find class 'android.app.RemoteInput[]', referenced from method b.a
+
+[ 07-14 01:29:21.358 24089:24089 W/dalvikvm ]
+VFY: unable to resolve new-array 12157 ([Landroid/app/RemoteInput;) in Lb;
+
+[ 07-14 01:29:21.358 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x23 at 0x0005
+
+[ 07-14 01:29:21.428   378:  389 W/InputMethodManagerService ]
+Got RemoteException sending setActive(false) notification to pid 24054 uid 10075
+
+[ 07-14 01:29:21.452 24089:24089 E/dalvikvm ]
+Could not find class 'android.transition.Transition', referenced from method b.b
+
+[ 07-14 01:29:21.452 24089:24089 W/dalvikvm ]
+VFY: unable to resolve check-cast 619 (Landroid/transition/Transition;) in Lb;
+
+[ 07-14 01:29:21.452 24089:24089 D/dalvikvm ]
+VFY: replacing opcode 0x1f at 0x0000
+
+[ 07-14 01:29:21.530 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x044c at 0x0e in Lb;.a
+
+[ 07-14 01:29:21.530 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x07b6 at 0x0e in Lb;.a
+
+[ 07-14 01:29:21.538 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x044c at 0x0e in Lb;.a
+
+[ 07-14 01:29:21.538 24089:24089 W/dalvikvm ]
+Unable to resolve superclass of Lay; (617)
+
+[ 07-14 01:29:21.538 24089:24089 W/dalvikvm ]
+Link of class 'Lay;' failed
+
+[ 07-14 01:29:21.538 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x18a8 at 0x08 in Lb;.a
+
+[ 07-14 01:29:21.538 24089:24089 W/dalvikvm ]
+Unable to resolve superclass of Lba; (617)
+
+[ 07-14 01:29:21.538 24089:24089 W/dalvikvm ]
+Link of class 'Lba;' failed
+
+[ 07-14 01:29:21.538 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x1b92 at 0x2c in Lb;.a
+
+[ 07-14 01:29:21.538 24089:24089 D/dalvikvm ]
+DexOpt: unable to opt direct call 0x04a3 at 0x13 in Lb;.a
+
+[ 07-14 01:29:21.639 24089:24093 D/dalvikvm ]
+GC_CONCURRENT freed 353K, 5% free 8904K/9284K, paused 2ms+9ms, total 29ms
+
+[ 07-14 01:29:21.858 24089:24093 D/dalvikvm ]
+GC_CONCURRENT freed 303K, 4% free 9028K/9360K, paused 4ms+4ms, total 28ms
+
+[ 07-14 01:29:21.936 24089:24089 D/dalvikvm ]
+Trying to load lib /data/app-lib/com.google.android.apps.plus-1/libcrashreporterer.so 0x41591d88
+
+[ 07-14 01:29:21.936 24089:24089 D/dalvikvm ]
+Added shared lib /data/app-lib/com.google.android.apps.plus-1/libcrashreporterer.so 0x41591d88
+
+[ 07-14 01:29:22.100 24089:24093 D/dalvikvm ]
+GC_CONCURRENT freed 218K, 3% free 9255K/9500K, paused 6ms+3ms, total 28ms
+
+[ 07-14 01:29:22.366 13010:24130 I/UpdateIcingCorporaServi ]
+Updating corpora: APPS=com.android.ApplicationTemplate, CONTACTS=MAYBE
+
+[ 07-14 01:29:22.553   378:  378 I/ActivityManager ]
+Start proc com.google.android.apps.docs for broadcast com.google.android.apps.docs/.receivers.AppPackageAddRemoveReceiver: pid=24131 uid=10099 gids={50099, 1006, 1028, 3003, 1015}
 
