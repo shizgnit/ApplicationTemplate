@@ -50,7 +50,7 @@ include $(BUILD_STATIC_LIBRARY)
 #
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS := -fpermissive
+LOCAL_CFLAGS := -fpermissive -D_DEBUG
 LOCAL_C_INCLUDES += $(COMMON_PATH)/mylo
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/linmath

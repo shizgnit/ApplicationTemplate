@@ -15,8 +15,8 @@ __MYLO_DLL_EXPORT bool asset::open(my::string in) {
   AAsset* asset = AAssetManager_open((AAssetManager*)m_manager, in, AASSET_MODE_STREAMING);
   m_ptr = asset;
   if(asset) {  
-    DEBUG_TRACE << "Found resource %d bytes" << (int)AAsset_getLength(asset) << endl;
-    DEBUG_TRACE << "Contents: %s" << (char *)AAsset_getBuffer(asset) << endl;
+    DEBUG_TRACE << "Found resource " << (int)AAsset_getLength(asset) << " bytes" << endl;
+    DEBUG_TRACE << "Contents: " << (char *)AAsset_getBuffer(asset) << endl;
     DEBUG_TRACE << "Contents length: " << strlen((char *)AAsset_getBuffer(asset)) << endl;
     m_buffer.write((unsigned char *)AAsset_getBuffer(asset), AAsset_getLength(asset));
   }
