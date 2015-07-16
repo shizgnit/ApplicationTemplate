@@ -147,6 +147,8 @@ __MYLO_DLL_EXPORT my::string serializable::getline(void) {
 }
 
 __MYLO_DLL_EXPORT serializable::operator my::string (void) {
+  DEBUG_SCOPE;
+
   char *characters = NULL;
   off_t length = 0;
   
@@ -160,6 +162,7 @@ __MYLO_DLL_EXPORT serializable::operator my::string (void) {
     characters = new char[bytes_available + 1];
     memcpy(characters, temporary, bytes_available);
     characters[bytes_available] = 0;
+    DEBUG_TRACE << "Termination of serializable characters at " << bytes_available << endl;
   }
 
   while(1) {
@@ -175,8 +178,10 @@ __MYLO_DLL_EXPORT serializable::operator my::string (void) {
     length += bytes_available;
     accumulation[length] = 0;
     
+    DEBUG_TRACE << "Further termination of serializable characters at " << length << endl;
+
     delete [] (characters);
-    characters = accumulation;    
+    characters = accumulation;
   }
 
   if(characters == NULL) {
