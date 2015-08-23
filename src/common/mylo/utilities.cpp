@@ -143,9 +143,20 @@ __MYLO_DLL_EXPORT my::vector<my::string> split(my::string expression, my::string
 __MYLO_DLL_EXPORT my::vector<my::string> tokenize(my::string input, my::string delimiter) {
   my::vector<my::string> results;
 
+  bool newlines = false;
+  if (delimiter.empty()) {
+    delimiter = "\n";
+    newlines = true;
+  }
+
   size_t start = 0, end;
   while((end = input.find(delimiter, start)) != my::string::npos) {
-    results.push_back(input.substr(start, end - start));
+    if (newlines && input[end-1] == '\r') {
+      results.push_back(input.substr(start, end - 1 - start));
+    }
+    else {
+      results.push_back(input.substr(start, end - start));
+    }
     start = end + 1;
   }
   results.push_back(input.substr(start, input.length() - start));

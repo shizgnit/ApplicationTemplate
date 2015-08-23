@@ -195,7 +195,7 @@ __MYLO_DLL_EXPORT serializable::operator my::string (void) {
 }
 
 __MYLO_DLL_EXPORT serializable::operator my::vector<my::string> (void) {
-  return(tokenize(*this, "\n"));
+  return(tokenize(*this));
 }
 
 __MYLO_DLL_EXPORT off_t serializable::write(my::string &in) {
@@ -210,5 +210,10 @@ __MYLO_DLL_EXPORT off_t serializable::write(my::vector<my::string> &in) {
   }
   return(total);
 }
+
+__MYLO_DLL_EXPORT void serializable::path(my::string rpath) {
+  search_path = rpath;
+}
+
 
 __MYLO_NAMESPACE_END

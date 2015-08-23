@@ -266,6 +266,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
   UINT szData = sizeof(input), szHeader = sizeof(RAWINPUTHEADER);
   HRAWINPUT handle;
 
+  static bool LBUTTONDOWN = false;
+  if (LBUTTONDOWN) {
+    GetCursorPos(&p);
+    ScreenToClient(hWnd, &p);
+
+    on_touch_drag((float)p.x, (float)p.y);
+  }
+
 	switch (uMsg) {
 	  case WM_CREATE:
 
@@ -383,6 +391,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       std::cout << " ulExtraInformation:" << input.data.mouse.ulExtraInformation;
       std::cout << std::endl;
     }
+
+    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0001)
+    {
+      GetCursorPos(&p);
+      ScreenToClient(hWnd, &p);
+
+      on_touch_press((float)p.x, (float)p.y);
+      LBUTTONDOWN = true;
+    }
+    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0002)
+    {
+      LBUTTONDOWN = false;
+    }
+    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0400)
+    {
+      if (input.data.mouse.usButtonData == 0xFF88) { // 65416
+        on_touch_zoom_in();
+      }
+      if (input.data.mouse.usButtonData == 0x0078) { // 120
+        on_touch_zoom_out();
+      }
+    }
+
     break;
 	  
     case WM_ACTIVATE: {
@@ -419,13 +450,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       return 0;
     }
 
-    case WM_LBUTTONDOWN: {
+//    case WM_LBUTTONDOWN: {
       // Focus
-      GetCursorPos(&p);
-      ScreenToClient(hWnd, &p);
+//      GetCursorPos(&p);
+//      ScreenToClient(hWnd, &p);
 
-      on_touch_press((float)p.x, (float)p.y);
-    }
+//      on_touch_press((float)p.x, (float)p.y);
+//      LBUTTONDOWN = true;
+//    }
 
     case WM_TRAYICON:	{
       switch (wParam)	{

@@ -13,7 +13,7 @@ public:
   float diffuse[4];
   float specular[4];
   float emission[4];
-	
+
   float shininess;
   float opacity;
   float illumination;
@@ -24,6 +24,16 @@ public:
 
   my::buffer buffer;
 };
+
+class __MYLO_DLL_EXPORT materials : public datatype<materials> {
+public:
+
+  my::map<my::string, my::shared_ptr<my::material>> material;
+  my::material *active;
+
+  my::buffer buffer;
+};
+
 
 __MYLO_NAMESPACE_END
 

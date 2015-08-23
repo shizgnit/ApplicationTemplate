@@ -105,12 +105,35 @@ public:
   }
 	
   my::vector< vertex > vertices;
-  shared_ptr< material > texture;
+  vertex *active;
+
+  my::vector< my::vector< my::shared_ptr<vertex> > > faces;
+
+  my::shared_ptr< material > texture;
+
+  my::string id;
 
   unsigned int context;
 
+  my::vector< float > buffer_vertices;
+  my::vector< float > buffer_textures;
+  my::vector< float > buffer_normals;
+
   my::buffer buffer;
 };
+
+class __MYLO_DLL_EXPORT objects : public datatype < objects > {
+public:
+
+  my::map<my::string, my::shared_ptr<my::object> > object;
+  my::object *active;
+
+  my::shared_ptr< materials > materials;
+
+  my::buffer buffer;
+
+};
+
 
 __MYLO_NAMESPACE_END
 

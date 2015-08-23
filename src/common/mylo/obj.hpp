@@ -5,13 +5,13 @@
 
 __MYLO_NAMESPACE_BEGIN
 
-class __MYLO_DLL_EXPORT obj: public object {
+class __MYLO_DLL_EXPORT obj: public objects {
 public:
   obj() {
     callback_write("OBJ", write);
   }
 
-  static off_t write(object *context, unsigned char *buffer, off_t bytes) {
+  static off_t write(objects *context, unsigned char *buffer, off_t bytes) {
     if(bytes) {
       context->buffer.write(buffer, bytes);
       return(bytes);
@@ -29,15 +29,7 @@ public:
     return(0);
   }
 
-  static void process(object *context, my::string command, my::vector<my::string> arguments) {
-    object *model = context;
-    material *mat;
-
-    my::vector<float> vertices;
-    my::vector<float> normals;
-    my::vector<float> textures;
-
-
+  static void process(objects *context, my::string command, my::vector<my::string> arguments) {
     /*
 	  mtllib apple.mtl
 	  o sphere5
@@ -56,43 +48,42 @@ public:
 	  */
 
 	  if(command.compare("mtllib") == 0) { //material
-      mat = new material;
-      *mat << file(arguments[1]);
+      context->materials = new my::mtl;
+      context->materials->search_path = context->search_path;
+      *context->materials << my::asset(my::join("/", (context->search_path, arguments[1])));
     }
 	  if(command.compare("o") == 0) { //entity
-      vertices.clear();
-      textures.clear();
-      normals.clear();
+      context->active = new my::object;
+      context->active->id = arguments[1];
+      context->object[arguments[1]] = context->active;
 	  }
 	  if(command.compare("v") == 0) { //vertex
-      vertices.push_back((float)atof(arguments[1].c_str()));
-      vertices.push_back((float)atof(arguments[2].c_str()));
-      vertices.push_back((float)atof(arguments[3].c_str()));
+      context->active->buffer_vertices.push_back((float)atof(arguments[1].c_str()));
+      context->active->buffer_vertices.push_back((float)atof(arguments[2].c_str()));
+      context->active->buffer_vertices.push_back((float)atof(arguments[3].c_str()));
 	  }
 	  if(command.compare("vt") == 0) { //texture coordinates
-      textures.push_back((float)atof(arguments[1].c_str()));
-      textures.push_back((float)atof(arguments[2].c_str()));
+      context->active->buffer_textures.push_back((float)atof(arguments[1].c_str()));
+      context->active->buffer_textures.push_back((float)atof(arguments[2].c_str()));
 	  }
 	  if(command.compare("vn") == 0) { //normals
-      normals.push_back((float)atof(arguments[1].c_str()));
-      normals.push_back((float)atof(arguments[2].c_str()));
-      normals.push_back((float)atof(arguments[3].c_str()));
+      context->active->buffer_normals.push_back((float)atof(arguments[1].c_str()));
+      context->active->buffer_normals.push_back((float)atof(arguments[2].c_str()));
+      context->active->buffer_normals.push_back((float)atof(arguments[3].c_str()));
 	  }
 	  if(command.compare("g") == 0) { //group
 	  }
 	  if(command.compare("usemtl") == 0) { //material
-      //my::map<my::string, shared_ptr<material::layer> >::iterator it = mat->layers.find(arguments[1]);
-      //if(it != mat->layers.end()) {
-      //  model->material = it->second;
-      //}
-      model->texture = mat;
+      my::map<my::string, my::shared_ptr<my::material>>::iterator it = context->materials->material.find(arguments[1]);
+      if (it != context->materials->material.end()) {
+        context->active->texture = it->second;
+      }
 	  }
     if (command.compare("f") == 0) { //faces
       //vertex->sides = arguments.size() - 1;
 
       for (unsigned int i = 1; i < arguments.size(); i++) {
-        object::vertex vertex;
-        model->vertices.push_back(vertex);
+        my::object::vertex vertex;
 
         my::vector<my::string> parts = tokenize(arguments[i], "/");
 
@@ -100,17 +91,22 @@ public:
         int ti = (atoi(parts[1].c_str()) - 1) * 2;
         int ni = (atoi(parts[2].c_str()) - 1) * 3;
 
-        vertex.coordinate[0] = vertices[vi];
-        vertex.coordinate[1] = vertices[vi + 1];
-        vertex.coordinate[2] = vertices[vi + 2];
+        vertex.coordinate[0] = context->active->buffer_vertices[vi];
+        vertex.coordinate[1] = context->active->buffer_vertices[vi + 1];
+        vertex.coordinate[2] = context->active->buffer_vertices[vi + 2];
         vertex.coordinate[3] = 1.0f;
 
-        vertex.texture[0] = vertices[ti];
-        vertex.texture[1] = vertices[ti + 1];
+        vertex.texture[0] = context->active->buffer_textures[ti];
+        vertex.texture[1] = context->active->buffer_textures[ti + 1];
+        vertex.texture[2] = 0.0f;
+        vertex.texture[3] = 0.0f;
 
-        vertex.normal[0] = vertices[ni];
-        vertex.normal[1] = vertices[ni + 1];
-        vertex.normal[2] = vertices[ni + 2];
+        vertex.normal[0] = context->active->buffer_normals[ni];
+        vertex.normal[1] = context->active->buffer_normals[ni + 1];
+        vertex.normal[2] = context->active->buffer_normals[ni + 2];
+        vertex.normal[3] = 0.0f;
+
+        context->active->vertices.push_back(vertex);
       }
     }
 

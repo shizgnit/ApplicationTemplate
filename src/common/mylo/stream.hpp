@@ -85,6 +85,10 @@ public:
   
   virtual off_t cached();
 
+  virtual void path(my::string rpath);
+
+public:
+  my::string search_path;
 protected:
   my::shared_ptr<buffer> m_cache;
 };

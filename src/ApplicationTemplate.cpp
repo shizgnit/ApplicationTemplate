@@ -43,14 +43,14 @@ GLint u_texture_unit_location;
 #define BUFFER_OFFSET(i) ((void*)(i))
 
 static mat4x4 projection_matrix;
-static mat4x4 model_matrix;
-static mat4x4 view_matrix;
+//static mat4x4 model_matrix;
+//static mat4x4 view_matrix;
 
-static mat4x4 view_projection_matrix;
-static mat4x4 model_view_projection_matrix;
-static mat4x4 inverted_view_projection_matrix;
+//static mat4x4 view_projection_matrix;
+//static mat4x4 model_view_projection_matrix;
+//static mat4x4 inverted_view_projection_matrix;
 
-static mat4x4 background_projection_matrix;
+//static mat4x4 background_projection_matrix;
 
 my::fnt font;
 
@@ -65,6 +65,9 @@ my::vert texture_alpha_vertex;
 my::shared_ptr<my::object> gbackground;
 
 my::png gtexture;
+
+my::obj gapple;
+
 
 GLuint compile(my::shader *shader, GLuint type) { DEBUG_SCOPE;
 
@@ -139,6 +142,7 @@ GLuint compile(my::program &program) {
   return program.context;
 }
 
+
 void compile(my::shared_ptr<my::object> object) {
   glGenBuffers(1, &object->context);
   glBindBuffer(GL_ARRAY_BUFFER, object->context);
@@ -152,6 +156,11 @@ void compile(my::shared_ptr<my::object> object) {
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, object->texture->map->header.width, object->texture->map->header.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, object->texture->map->raster);
   glGenerateMipmap(GL_TEXTURE_2D);
   glBindTexture(GL_TEXTURE_2D, 0);
+}
+void compile(my::objects &objects) {
+  for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
+    compile(it->second);
+  }
 }
 
 void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
@@ -173,6 +182,12 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
+void draw(my::objects &objects, mat4x4 matrix) {
+  for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
+    draw(it->second, matrix);
+  }
+}
+
 
 void draw(my::string text, mat4x4 matrix) {
 
@@ -193,6 +208,8 @@ void draw(my::string text, mat4x4 matrix) {
 
 float input_x;
 float input_y;
+
+float input_z;
 
 my::trace::console tracer;
 
@@ -229,15 +246,27 @@ void on_startup(void *asset_manager) {
   u_mvp_matrix_location = glGetUniformLocation(texture_alpha_program.context, "u_MvpMatrix");
   u_texture_unit_location = glGetUniformLocation(texture_alpha_program.context, "u_TextureUnit");
 
+  //
+  // Just testing out some file system abstractions
+  //
   DEBUG_TRACE << "pwd: " << my::pwd() << my::endl;
-
   my::directory dir(my::pwd());
   while(my::string current = dir.next()) {
     DEBUG_TRACE << "contents: " << current << my::endl;
   }
 
-  font << my::asset("fonts/arial.fnt");
+  //
+  // Load up an apple
+  //
+  gapple.search_path = "models/obj";
+  gapple << my::asset("models/obj/apple.obj");
 
+  compile(gapple);
+
+  //
+  // Load up the font
+  //
+  font << my::asset("fonts/arial.fnt");
   int x = font.glyphs.size();
   for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
     if (font.glyphs[i]->identifier) {
@@ -245,31 +274,31 @@ void on_startup(void *asset_manager) {
     }
   }
 
+  //
+  // Load up the background
+  //
   gbackground = my::primitive::quad(256, 256);
-
   my::image *img = new my::png;
   *img << my::asset("textures/landscape2.png");
-
   gbackground->xy_projection(img, 0, 0, 256, 256);
-
   compile(gbackground);
 
+ 
+  //
+  // Default the inputs
+  //
   input_x = 0.0f;
   input_y = 0.0f;
+  input_z = 0.0f;
 }
 
 void on_resize(int width, int height) {
   //DEBUG("Draw surface changed\n");
   glViewport(0, 0, width, height);
   //checkGlError("glViewport");
-
+  
   mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
 
-  float eye[3] = { 10.0f, 4.0f, 1.0f };
-  float center[3] = { 10.0f, 4.0f, 0.0f };
-  float up[3] = { 0.0f, 1.0f, 0.0f };
-
-  mat4x4_look_at(view_matrix, eye, center, up);
 }
 
 
@@ -301,7 +330,7 @@ void on_draw() {
     angle = 0.0f;
   }
 
-  mat4x4_identity(background_projection_matrix);
+  //mat4x4_identity(background_projection_matrix);
 
   mat4x4_identity(identity);
 
@@ -326,6 +355,7 @@ void on_draw() {
   //
   // position
   //
+  /*
   mat4x4_mul(view_projection_matrix, projection_matrix, view_matrix);
   mat4x4_invert(inverted_view_projection_matrix, view_projection_matrix);
 
@@ -336,7 +366,46 @@ void on_draw() {
   mat4x4_translate_in_place(rotated_model_matrix, 0.0f, 0.0f, 1.0f);
 
   mat4x4_mul(model_view_projection_matrix, view_projection_matrix, rotated_model_matrix);
+  */
 
+//  float eye[3] = { 10.0f, 4.0f, 1.0f };
+//  float center[3] = { 10.0f, 4.0f, 0.0f };
+//  float up[3] = { 0.0f, 1.0f, 0.0f };
+
+  static mat4x4 view_matrix;
+
+//  float eye[3] = { input_x / 10, input_y / 10, 1.0f };
+//  float center[3] = { input_x / 10, input_y / 10, 0.0f };
+//  float up[3] = { 0.0f, 1.0f, 0.0f };
+
+  float eye[3] = { input_x / 10, input_y / 10, 1.0f + input_z };
+  float center[3] = { input_x / 10, input_y / 10, 0.0f + input_z };
+  float up[3] = { 0.0f, 1.0f, 0.0f };
+
+//  float eye[3] = { 10.0f, 4.0f, 1.0f };
+//  float center[3] = { 10.0f, 4.0f, 0.0f };
+//  float up[3] = { 0.0f, 1.0f, 0.0f };
+
+  mat4x4_look_at(view_matrix, eye, center, up);
+
+  mat4x4 model_view_projection_matrix;
+  mat4x4 model_matrix;
+
+  mat4x4_identity(model_matrix);
+
+  mat4x4 model_scale_matrix;
+  mat4x4_identity(model_scale_matrix);
+
+//  mat4x4_scale(model_scale_matrix, model_matrix, input_y);
+//  mat4x4_translate_in_place(model_scale_matrix, 0.0f, 0.0f, input_x);
+
+  mat4x4 view_projection_matrix;
+
+  mat4x4_mul(view_projection_matrix, projection_matrix, view_matrix);
+
+  mat4x4_mul(model_view_projection_matrix, view_projection_matrix, model_scale_matrix);
+
+  draw(gapple, model_view_projection_matrix);
 
   //
   // font 
@@ -348,7 +417,7 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 0.0f, -2.0f);
-  draw("C", letter);
+  draw("C", model_view_projection_matrix);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
@@ -376,3 +445,15 @@ void on_touch_drag(float normalized_x, float normalized_y) {
   input_y = normalized_y;
 }
 
+void on_touch_release(float normalized_x, float normalized_y) {
+  input_x = normalized_x;
+  input_y = normalized_y;
+}
+
+void on_touch_zoom_in() {
+  input_z -= 0.1f;
+}
+
+void on_touch_zoom_out() {
+  input_z += 0.1f;
+}
