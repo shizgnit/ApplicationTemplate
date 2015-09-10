@@ -292,11 +292,17 @@ void on_startup(void *asset_manager) {
   input_z = 0.0f;
 }
 
+int screen_width;
+int screen_height;
+
 void on_resize(int width, int height) {
   //DEBUG("Draw surface changed\n");
   glViewport(0, 0, width, height);
   //checkGlError("glViewport");
   
+  screen_width = width;
+  screen_height = height;
+
   mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
 
 }
@@ -378,8 +384,8 @@ void on_draw() {
 //  float center[3] = { input_x / 10, input_y / 10, 0.0f };
 //  float up[3] = { 0.0f, 1.0f, 0.0f };
 
-  float eye[3] = { input_x / 10, input_y / 10, 1.0f + input_z };
-  float center[3] = { input_x / 10, input_y / 10, 0.0f + input_z };
+  float eye[3] = { ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 1.0f + input_z };
+  float center[3] = { ((input_x - (screen_width / 2)) / 10) * -1, (input_y - (screen_height / 2)) / 10, 0.0f + input_z };
   float up[3] = { 0.0f, 1.0f, 0.0f };
 
 //  float eye[3] = { 10.0f, 4.0f, 1.0f };
@@ -451,9 +457,9 @@ void on_touch_release(float normalized_x, float normalized_y) {
 }
 
 void on_touch_zoom_in() {
-  input_z -= 0.1f;
+  input_z += 0.1f;
 }
 
 void on_touch_zoom_out() {
-  input_z += 0.1f;
+  input_z -= 0.1f;
 }

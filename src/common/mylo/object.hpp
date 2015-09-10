@@ -115,10 +115,6 @@ public:
 
   unsigned int context;
 
-  my::vector< float > buffer_vertices;
-  my::vector< float > buffer_textures;
-  my::vector< float > buffer_normals;
-
   my::buffer buffer;
 };
 
@@ -132,6 +128,9 @@ public:
 
   my::buffer buffer;
 
+  my::vector< float > buffer_vertices;
+  my::vector< float > buffer_textures;
+  my::vector< float > buffer_normals;
 };
 
 
