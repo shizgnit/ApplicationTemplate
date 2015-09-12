@@ -85,6 +85,10 @@ public:
         context->active->map = new tga();
         *context->active->map << my::asset(my::join("/", (context->search_path, arguments[1])));
       }
+      if (extension.compare(".png") == 0) {
+        context->active->map = new png();
+        *context->active->map << my::asset(my::join("/", (context->search_path, arguments[1])));
+      }
     }
   }
 };

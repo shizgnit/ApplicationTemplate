@@ -99,27 +99,19 @@ private:
 
     unsigned char *final = new unsigned char[pixel_count*4];
 
-    // BGRA -> RGBA
+    // Flip the image
     unsigned char *target;
     unsigned char *source;
-    if(bytes == 3) {
-      for(unsigned int i=0; i < pixel_count; i++) {
-        target = final + (i*4);
-        source = normalization + (i*Bpp);
+    for (int y = 0; y < context->header.height; y++) {
+      for (int x = 0; x < context->header.width; x++) {
+//        target = final + (y * context->header.width * 4) + ((context->header.width - x) * 4);
+        target = final + ((context->header.height - y - 1) * context->header.width * 4) + (x * 4);
+//        target = final + (y * context->header.width * 4) + (x * 4);
+        source = normalization + (y * context->header.width * Bpp) + (x * Bpp);
         target[0] = source[2];
         target[1] = source[1];
         target[2] = source[0];
-        target[3] = 255;
-      }
-    }
-    if(bytes == 4) {
-      for(unsigned int i=0; i < pixel_count; i++) {
-        target = final + (i*4);
-        source = normalization + (i*Bpp);
-        target[0] = source[2];
-        target[1] = source[1];
-        target[2] = source[0];
-        target[3] = source[3];
+        target[3] = Bpp == 4 ? source[4] : 255;
       }
     }
 

@@ -80,34 +80,65 @@ public:
       }
 	  }
     if (command.compare("f") == 0) { //faces
-      //vertex->sides = arguments.size() - 1;
 
-      for (unsigned int i = 1; i < 4; i++) { // arguments.size(); i++) {
-        my::object::vertex vertex;
+      if (arguments.size() >= 4) {
+        for (unsigned int i = 1; i < 4; i++) {
+          my::object::vertex vertex;
 
-        my::vector<my::string> parts = tokenize(arguments[i], "/");
+          my::vector<my::string> parts = tokenize(arguments[i], "/");
 
-        int vi = (atoi(parts[0].c_str()) - 1) * 3;
-        int ti = (atoi(parts[1].c_str()) - 1) * 2;
-        int ni = (atoi(parts[2].c_str()) - 1) * 3;
+          int vi = (atoi(parts[0].c_str()) - 1) * 3;
+          int ti = (atoi(parts[1].c_str()) - 1) * 2;
+          int ni = (atoi(parts[2].c_str()) - 1) * 3;
 
-        vertex.coordinate[0] = context->buffer_vertices[vi];
-        vertex.coordinate[1] = context->buffer_vertices[vi + 1];
-        vertex.coordinate[2] = context->buffer_vertices[vi + 2];
-        vertex.coordinate[3] = 1.0f;
+          vertex.coordinate[0] = context->buffer_vertices[vi];
+          vertex.coordinate[1] = context->buffer_vertices[vi + 1];
+          vertex.coordinate[2] = context->buffer_vertices[vi + 2];
+          vertex.coordinate[3] = 1.0f;
 
-        vertex.texture[0] = context->buffer_textures[ti];
-        vertex.texture[1] = context->buffer_textures[ti + 1];
-        vertex.texture[2] = 0.0f;
-        vertex.texture[3] = 0.0f;
+          vertex.texture[0] = context->buffer_textures[ti];
+          vertex.texture[1] = context->buffer_textures[ti + 1];
+          vertex.texture[2] = 0.0f;
+          vertex.texture[3] = 0.0f;
 
-        vertex.normal[0] = context->buffer_normals[ni];
-        vertex.normal[1] = context->buffer_normals[ni + 1];
-        vertex.normal[2] = context->buffer_normals[ni + 2];
-        vertex.normal[3] = 0.0f;
+          vertex.normal[0] = context->buffer_normals[ni];
+          vertex.normal[1] = context->buffer_normals[ni + 1];
+          vertex.normal[2] = context->buffer_normals[ni + 2];
+          vertex.normal[3] = 0.0f;
 
-        context->active->vertices.push_back(vertex);
+          context->active->vertices.push_back(vertex);
+        }
       }
+
+      if (arguments.size() == 6) {
+        for (unsigned int i = 2; i < 5; i++) {
+          my::object::vertex vertex;
+
+          my::vector<my::string> parts = tokenize(arguments[i], "/");
+
+          int vi = (atoi(parts[0].c_str()) - 1) * 3;
+          int ti = (atoi(parts[1].c_str()) - 1) * 2;
+          int ni = (atoi(parts[2].c_str()) - 1) * 3;
+
+          vertex.coordinate[0] = context->buffer_vertices[vi];
+          vertex.coordinate[1] = context->buffer_vertices[vi + 1];
+          vertex.coordinate[2] = context->buffer_vertices[vi + 2];
+          vertex.coordinate[3] = 1.0f;
+
+          vertex.texture[0] = context->buffer_textures[ti];
+          vertex.texture[1] = context->buffer_textures[ti + 1];
+          vertex.texture[2] = 0.0f;
+          vertex.texture[3] = 0.0f;
+
+          vertex.normal[0] = context->buffer_normals[ni];
+          vertex.normal[1] = context->buffer_normals[ni + 1];
+          vertex.normal[2] = context->buffer_normals[ni + 2];
+          vertex.normal[3] = 0.0f;
+
+          context->active->vertices.push_back(vertex);
+        }
+      }
+
     }
 
   }

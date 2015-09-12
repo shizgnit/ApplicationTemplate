@@ -173,7 +173,7 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glUniform1i(u_texture_unit_location, 0);
 
   glBindBuffer(GL_ARRAY_BUFFER, object->context);
-  glVertexAttribPointer(a_position_location, 2, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(0));
+  glVertexAttribPointer(a_position_location, 3, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(0));
   glVertexAttribPointer(a_texture_coordinates_location, 2, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
   glEnableVertexAttribArray(a_position_location);
   glEnableVertexAttribArray(a_texture_coordinates_location);
@@ -259,7 +259,7 @@ void on_startup(void *asset_manager) {
   // Load up an apple
   //
   gapple.search_path = "models/obj";
-  gapple << my::asset("models/obj/apple.obj");
+  gapple << my::asset("models/obj/cube.obj");
 
   compile(gapple);
 
@@ -277,19 +277,30 @@ void on_startup(void *asset_manager) {
   //
   // Load up the background
   //
+//  gbackground = my::primitive::quad(256, 256);
+//  my::image *img = new my::tga;
+//  *img << my::asset("textures/landscape2.png");
+//  gbackground->xy_projection(img, 0, 0, 256, 256);
+//  compile(gbackground);
+
+//  gbackground = my::primitive::quad(256, 256);
+//  my::image *img = new my::tga;
+//  *img << my::asset("models/obj/sphere1_auv.tga");
+//  gbackground->xy_projection(img, 0, 0, 1024, 1024);
+//  compile(gbackground);
+
   gbackground = my::primitive::quad(256, 256);
   my::image *img = new my::png;
-  *img << my::asset("textures/landscape2.png");
-  gbackground->xy_projection(img, 0, 0, 256, 256);
+  *img << my::asset("models/obj/cube1_auv.png");
+  gbackground->xy_projection(img, 0, 0, 1024, 1024);
   compile(gbackground);
 
- 
   //
   // Default the inputs
   //
-  input_x = 0.0f;
-  input_y = 0.0f;
-  input_z = 0.0f;
+  input_x = 320.0f;
+  input_y = 240.0f;
+  input_z = 1.0f;
 }
 
 int screen_width;
@@ -347,7 +358,7 @@ void on_draw() {
 
   mat4x4_scale( scale , identity, 0.01f);
   scale[3][3] = 1.0f;
-  mat4x4_translate_in_place( scale, -100.0f, -100.0f, -1.0f );
+  mat4x4_translate_in_place( scale, -70.0f, -170.0f, -1.0f );
 
   //pprint(scale);
 
@@ -399,8 +410,14 @@ void on_draw() {
 
   mat4x4_identity(model_matrix);
 
+  static float rotation = 0.0f;
+
+  rotation += 0.05f;
+
   mat4x4 model_scale_matrix;
   mat4x4_identity(model_scale_matrix);
+
+  mat4x4_rotate_Y(model_scale_matrix, model_matrix, rotation);
 
 //  mat4x4_scale(model_scale_matrix, model_matrix, input_y);
 //  mat4x4_translate_in_place(model_scale_matrix, 0.0f, 0.0f, input_x);
@@ -438,6 +455,13 @@ void on_draw() {
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 40.0f, -2.0f);
   draw(my::type_cast<my::string>(input_y), letter);
+
+  mat4x4_identity(letter);
+  letter[0][0] = 0.01f;
+  letter[1][1] = 0.01f;
+  letter[2][2] = 0.01f;
+  mat4x4_translate_in_place(letter, -100.0f, 60.0f, -2.0f);
+  draw(my::type_cast<my::string>(input_z), letter);
 
 }
 
