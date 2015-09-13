@@ -178,8 +178,8 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glEnableVertexAttribArray(a_position_location);
   glEnableVertexAttribArray(a_texture_coordinates_location);
 
-  glDrawArrays(GL_TRIANGLE_FAN, 0, object->vertices.size());
-  //glDrawArrays(GL_TRIANGLES, 0, object->vertices.size());
+  //glDrawArrays(GL_TRIANGLE_FAN, 0, object->vertices.size());
+  glDrawArrays(GL_TRIANGLES, 0, object->vertices.size());
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
