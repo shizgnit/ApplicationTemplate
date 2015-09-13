@@ -110,8 +110,12 @@ public:
         }
       }
 
-      if (arguments.size() == 6) {
-        for (unsigned int i = 2; i < 5; i++) {
+      if (arguments.size() == 5) {
+        for (unsigned int i = 1; i < 5; i++) {
+          if (i == 2) {
+            continue;
+          }
+
           my::object::vertex vertex;
 
           my::vector<my::string> parts = tokenize(arguments[i], "/");

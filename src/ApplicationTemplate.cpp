@@ -173,12 +173,13 @@ void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glUniform1i(u_texture_unit_location, 0);
 
   glBindBuffer(GL_ARRAY_BUFFER, object->context);
-  glVertexAttribPointer(a_position_location, 3, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(0));
-  glVertexAttribPointer(a_texture_coordinates_location, 2, GL_FLOAT, GL_FALSE, 12 * sizeof(GL_FLOAT), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
+  glVertexAttribPointer(a_position_location, 4, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(0));
+  glVertexAttribPointer(a_texture_coordinates_location, 2, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
   glEnableVertexAttribArray(a_position_location);
   glEnableVertexAttribArray(a_texture_coordinates_location);
 
   glDrawArrays(GL_TRIANGLE_FAN, 0, object->vertices.size());
+  //glDrawArrays(GL_TRIANGLES, 0, object->vertices.size());
 
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -277,11 +278,11 @@ void on_startup(void *asset_manager) {
   //
   // Load up the background
   //
-//  gbackground = my::primitive::quad(256, 256);
-//  my::image *img = new my::tga;
-//  *img << my::asset("textures/landscape2.png");
-//  gbackground->xy_projection(img, 0, 0, 256, 256);
-//  compile(gbackground);
+  gbackground = my::primitive::quad(256, 256);
+  my::image *img = new my::png;
+  *img << my::asset("textures/landscape2.png");
+  gbackground->xy_projection(img, 0, 0, 256, 256);
+  compile(gbackground);
 
 //  gbackground = my::primitive::quad(256, 256);
 //  my::image *img = new my::tga;
@@ -289,11 +290,11 @@ void on_startup(void *asset_manager) {
 //  gbackground->xy_projection(img, 0, 0, 1024, 1024);
 //  compile(gbackground);
 
-  gbackground = my::primitive::quad(256, 256);
-  my::image *img = new my::png;
-  *img << my::asset("models/obj/cube1_auv.png");
-  gbackground->xy_projection(img, 0, 0, 1024, 1024);
-  compile(gbackground);
+//  gbackground = my::primitive::quad(256, 256);
+//  my::image *img = new my::png;
+//  *img << my::asset("models/obj/cube1_auv.png");
+//  gbackground->xy_projection(img, 0, 0, 1024, 1024);
+//  compile(gbackground);
 
   //
   // Default the inputs
