@@ -222,7 +222,8 @@ bool Window::Resize(int w, int h) {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
 
-  gluPerspective(45.0f,(GLfloat)width/(GLfloat)height, 0.1f, 1000.0f);
+  //gluPerspective(45.0f,(GLfloat)width/(GLfloat)height, 0.1f, 1000.0f);
+  gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, -1.0f, 1.0f);
 
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();

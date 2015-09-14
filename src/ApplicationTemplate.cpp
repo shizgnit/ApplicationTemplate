@@ -217,7 +217,11 @@ my::trace::console tracer;
 void on_startup(void *asset_manager) {
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
-  glDisable(GL_DEPTH_TEST);
+  //glDisable(GL_DEPTH_TEST);
+
+  glDepthFunc(GL_LEQUAL);
+
+  glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -260,7 +264,7 @@ void on_startup(void *asset_manager) {
   // Load up an apple
   //
   gapple.search_path = "models/obj";
-  gapple << my::asset("models/obj/cube.obj");
+  gapple << my::asset("models/obj/apple.obj");
 
   compile(gapple);
 
@@ -315,8 +319,8 @@ void on_resize(int width, int height) {
   screen_width = width;
   screen_height = height;
 
-  mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
-
+  //mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
+  mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, -1.0f, 1.0f);
 }
 
 
@@ -331,13 +335,7 @@ void pprint(mat4x4 mat) {
 
 
 void on_draw() {
-  static float grey = 0.0f;
-  grey += 0.01f;
-  if (grey > 1.0f) {
-    grey = 0.0f;
-  }
-
-  glClearColor(grey, grey, grey, 1.0f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   //checkGlError("glClearColor");
   glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
   //checkGlError("glClear");
@@ -348,10 +346,7 @@ void on_draw() {
     angle = 0.0f;
   }
 
-  //mat4x4_identity(background_projection_matrix);
-
   mat4x4_identity(identity);
-
 
   mat4x4 scale;
 
@@ -359,16 +354,12 @@ void on_draw() {
 
   mat4x4_scale( scale , identity, 0.01f);
   scale[3][3] = 1.0f;
-  mat4x4_translate_in_place( scale, -70.0f, -170.0f, -1.0f );
-
-  //pprint(scale);
-
-  //int x = getchar();
+  mat4x4_translate_in_place( scale, -130.0f, -120.0f, input_z);
 
   //
-  // render
+  // render background
   //
-  draw(gbackground, scale);
+  //draw(gbackground, scale);
 
   //
   // position
@@ -397,7 +388,7 @@ void on_draw() {
 //  float up[3] = { 0.0f, 1.0f, 0.0f };
 
   float eye[3] = { ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 1.0f + input_z };
-  float center[3] = { ((input_x - (screen_width / 2)) / 10) * -1, (input_y - (screen_height / 2)) / 10, 0.0f + input_z };
+  float center[3] = { ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 0.0f + input_z };
   float up[3] = { 0.0f, 1.0f, 0.0f };
 
 //  float eye[3] = { 10.0f, 4.0f, 1.0f };
@@ -440,28 +431,28 @@ void on_draw() {
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
-  mat4x4_translate_in_place(letter, -100.0f, 0.0f, -2.0f);
+  mat4x4_translate_in_place(letter, -100.0f, 0.0f, 0.08f);
   draw("C", model_view_projection_matrix);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
-  mat4x4_translate_in_place(letter, -100.0f, 20.0f, -2.0f);
+  mat4x4_translate_in_place(letter, -100.0f, 20.0f, 0.08f);
   draw(my::type_cast<my::string>(input_x), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
-  mat4x4_translate_in_place(letter, -100.0f, 40.0f, -2.0f);
+  mat4x4_translate_in_place(letter, -100.0f, 40.0f, 0.08f);
   draw(my::type_cast<my::string>(input_y), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
-  mat4x4_translate_in_place(letter, -100.0f, 60.0f, -2.0f);
+  mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
   draw(my::type_cast<my::string>(input_z), letter);
 
 }
