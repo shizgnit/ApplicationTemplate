@@ -99,7 +99,6 @@ private:
 
     unsigned char *final = new unsigned char[pixel_count*4];
 
-    // Flip the image
     unsigned char *target;
     unsigned char *source;
     for (int y = 0; y < context->header.height; y++) {

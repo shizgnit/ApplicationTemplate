@@ -190,7 +190,7 @@ __MYLO_NAMESPACE_END
 #include "primitives.hpp"
 #include "entity.hpp"
 #include "font.hpp"
-
+#include "audio.hpp"
 
 #if defined(__MYLO_MYSQL) && defined(__MYLO_PTHREAD)
 #include "db.hpp"
@@ -202,8 +202,11 @@ __MYLO_NAMESPACE_END
 #include "obj.hpp"
 #include "vert.hpp"
 #include "frag.hpp"
-#include "program.hpp"
 #include "fnt.hpp"
+#include "wav.hpp"
+
+#include "program.hpp"
+
 
 #endif
 

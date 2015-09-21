@@ -248,5 +248,11 @@
     <ClInclude Include="..\..\..\common\mylo\trace.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\common\mylo\audio.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\mylo\wav.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

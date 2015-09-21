@@ -180,6 +180,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\ApplicationTemplate.hpp" />
     <ClInclude Include="..\..\..\common\mylo\asset.hpp" />
+    <ClInclude Include="..\..\..\common\mylo\audio.hpp" />
     <ClInclude Include="..\..\..\common\mylo\buffer.hpp" />
     <ClInclude Include="..\..\..\common\mylo\compression.hpp" />
     <ClInclude Include="..\..\..\common\mylo\configuration.hpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="..\..\..\common\mylo\variant.hpp" />
     <ClInclude Include="..\..\..\common\mylo\vector.hpp" />
     <ClInclude Include="..\..\..\common\mylo\vert.hpp" />
+    <ClInclude Include="..\..\..\common\mylo\wav.hpp" />
     <ClInclude Include="..\..\..\common\mylo\xml.hpp" />
     <ClInclude Include="..\..\..\common\mylo\xpath.hpp" />
     <ClInclude Include="..\..\..\third_party\png\config.h" />

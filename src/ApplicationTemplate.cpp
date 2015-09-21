@@ -22,6 +22,9 @@
 
 #include "linmath.h"
 
+#include <AL/al.h>
+#include <AL/alc.h>
+
 
 static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
@@ -67,6 +70,8 @@ my::shared_ptr<my::object> gbackground;
 my::png gtexture;
 
 my::obj gapple;
+
+my::wav sound;
 
 
 GLuint compile(my::shader *shader, GLuint type) { DEBUG_SCOPE;
@@ -163,6 +168,21 @@ void compile(my::objects &objects) {
   }
 }
 
+void compile(my::audio &sound) {
+  alGenSources(1, &sound.source);
+
+  alSourcef(sound.source, AL_PITCH, 1.0f);
+  alSourcef(sound.source, AL_GAIN, 1.0f);
+  alSource3f(sound.source, AL_POSITION, 0.0f, 0.0f, -1.0f);
+  alSource3f(sound.source, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
+  alSourcei(sound.source, AL_LOOPING, AL_FALSE);
+
+  alGenBuffers(1, &sound.context);
+  
+  //alBufferData(sound.context, AL_FORMAT_MONO16, sound.data, sound.size, 44100);
+  alBufferData(sound.context, AL_FORMAT_MONO8, sound.data, sound.size, 11000);
+}
+
 void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
   glUseProgram(texture_alpha_program.context);
 
@@ -191,9 +211,7 @@ void draw(my::objects &objects, mat4x4 matrix) {
 
 
 void draw(my::string text, mat4x4 matrix) {
-
   int prior = 0;
-
   for (unsigned int i = 0; i < text.length(); i++) {
     mat4x4_translate_in_place(matrix, (float)font.kern(prior, text[i]), 0.0f, 0.0f);
     mat4x4 temporary;
@@ -206,6 +224,14 @@ void draw(my::string text, mat4x4 matrix) {
   }
 
 }
+
+void play(my::audio &sound) {
+  alSourcei(sound.source, AL_BUFFER, sound.context);
+  alSourcePlay(sound.source);
+  alSource3f(sound.source, AL_POSITION, 0.0f, 0.0f, -1.0f);
+  alSource3f(sound.source, AL_VELOCITY, 0.0f, 0.0f, -1.0f);
+}
+
 
 float input_x;
 float input_y;
@@ -306,6 +332,32 @@ void on_startup(void *asset_manager) {
   input_x = 320.0f;
   input_y = 240.0f;
   input_z = 1.0f;
+
+  //
+  // Init sound
+  //
+  ALCint attributes[] = { ALC_FREQUENCY, 44100, 0 };
+
+  ALCdevice* device = alcOpenDevice(NULL);
+  ALCcontext* context = alcCreateContext(device, attributes);
+
+  alcMakeContextCurrent(context);
+
+  float orientation[6] = { 0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f };
+
+  alListener3f(AL_POSITION, 0., 1.5, 0.);
+  alListener3f(AL_VELOCITY, 0., 0., 0.);
+  alListenerfv(AL_ORIENTATION, orientation);
+
+  sound << my::asset("sounds/mind_is_going.wav");
+  compile(sound);
+}
+
+void on_shutdown() {
+  alDeleteSources(1, &sound.source);
+  alDeleteBuffers(1, &sound.context);
+  //alcDestroyContext(context);
+  //alcCloseDevice(device);
 }
 
 int screen_width;
@@ -460,6 +512,8 @@ void on_draw() {
 void on_touch_press(float normalized_x, float normalized_y) {
   input_x = normalized_x;
   input_y = normalized_y;
+
+  play(sound);
 }
 
 void on_touch_drag(float normalized_x, float normalized_y) {
