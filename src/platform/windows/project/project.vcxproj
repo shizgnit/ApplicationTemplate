@@ -87,6 +87,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\common\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -120,12 +121,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\common\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\windows\Debug;C:\Users\codeneko\Dropbox\Development\dependencies\lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;C:\Program Files\Microsoft DirectX SDK (June 2010)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua.lib;rpcrt4.lib;ws2_32.lib;zlib.lib;opengl32.lib;glu32.lib;glew32s.lib;openal32.lib;alut.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -140,6 +140,41 @@ __MYLO_DLL_EXPORT my::vector<my::string> split(my::string expression, my::string
   return(results);
 }
 
+__MYLO_DLL_EXPORT my::vector<char *> segment(char *input, char delimiter) {
+  my::vector<char *> pointers;
+
+  char *current = input;
+
+  while (*current) {
+    pointers.push_back(current);
+    bool seg = false;
+    while (*current) {
+      if (*current == delimiter) {
+	DEBUG_TRACE<<"zero "<<(current - input)<<my::endl;
+        *current = '\0';
+        while (*(current + 1) == delimiter) {
+          current++;
+	  DEBUG_TRACE<<"zero "<<(current - input)<<my::endl;
+          *current = '\0';
+        }
+        if (delimiter == '\n' && *(current - 1) == '\r') {
+	  DEBUG_TRACE<<"zero "<<(current - 1 - input)<<my::endl;
+          *(current - 1) = '\0';
+        }
+        seg = true;
+      }
+      else {
+        current++;
+      }
+    }
+    if (seg) {
+      current++;
+    }
+  }
+
+  return(pointers);
+}
+
 __MYLO_DLL_EXPORT my::vector<my::string> tokenize(my::string input, my::string delimiter) {
   my::vector<my::string> results;
 

@@ -22,9 +22,10 @@
 
 #include "linmath.h"
 
+#ifndef __ANDROID__
 #include <AL/al.h>
 #include <AL/alc.h>
-
+#endif
 
 static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
@@ -83,8 +84,8 @@ GLuint compile(my::shader *shader, GLuint type) { DEBUG_SCOPE;
     return 0;
   }
 
-  GLint length;
   GLchar *text = shader->text.c_str();
+  GLint length = strlen(text);
   glShaderSource(shader->context, 1, (const GLchar **)&text, &length);
 
   glCompileShader(shader->context);
@@ -169,6 +170,8 @@ void compile(my::objects &objects) {
 }
 
 void compile(my::audio &sound) {
+#ifndef __ANDROID__
+
   alGenSources(1, &sound.source);
 
   alSourcef(sound.source, AL_PITCH, 1.0f);
@@ -181,6 +184,8 @@ void compile(my::audio &sound) {
   
   //alBufferData(sound.context, AL_FORMAT_MONO16, sound.data, sound.size, 44100);
   alBufferData(sound.context, AL_FORMAT_MONO8, sound.data, sound.size, 11000);
+
+#endif
 }
 
 void draw(my::shared_ptr<my::object> object, mat4x4 matrix) {
@@ -226,10 +231,14 @@ void draw(my::string text, mat4x4 matrix) {
 }
 
 void play(my::audio &sound) {
+#ifndef __ANDROID__
+
   alSourcei(sound.source, AL_BUFFER, sound.context);
   alSourcePlay(sound.source);
   alSource3f(sound.source, AL_POSITION, 0.0f, 0.0f, -1.0f);
   alSource3f(sound.source, AL_VELOCITY, 0.0f, 0.0f, -1.0f);
+
+#endif
 }
 
 
@@ -241,6 +250,15 @@ float input_z;
 my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
+  /*
+  my::asset::manager(asset_manager);
+  gbackground = my::primitive::quad(256, 256);
+  my::image *img2 = new my::png;
+  *img2 << my::asset("textures/landscape2.png");
+  gbackground->xy_projection(img2, 0, 0, 256, 256);
+
+  exit;
+  */
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
   //glDisable(GL_DEPTH_TEST);
@@ -257,6 +275,8 @@ void on_startup(void *asset_manager) {
   color_program << color_fragment << my::asset("shaders/color_shader.fsh");
   color_program << color_vertex << my::asset("shaders/color_shader.vsh");
 
+  DEBUG_TRACE << "finished loading shaders..." << my::endl;
+
   DEBUG_TRACE << "Fragment shader: " << my::endl << color_fragment.text << my::endl;
   DEBUG_TRACE << "Vertex shader: " << my::endl << color_vertex.text << my::endl;
 
@@ -270,12 +290,18 @@ void on_startup(void *asset_manager) {
   texture_alpha_program << texture_alpha_fragment << my::asset("shaders/texture_alpha_shader.frag");
   texture_alpha_program << texture_alpha_vertex << my::asset("shaders/texture_alpha_shader.vert");
 
+  DEBUG_TRACE << "attempting to compile" << my::endl;
+
   compile(texture_alpha_program);
+
+  DEBUG_TRACE << "compiled" << my::endl;
 
   a_position_location = glGetAttribLocation(texture_alpha_program.context, "a_Position");
   a_texture_coordinates_location = glGetAttribLocation(texture_alpha_program.context, "a_TextureCoordinates");
   u_mvp_matrix_location = glGetUniformLocation(texture_alpha_program.context, "u_MvpMatrix");
   u_texture_unit_location = glGetUniformLocation(texture_alpha_program.context, "u_TextureUnit");
+
+  DEBUG_TRACE << "attempting to get pwd" << my::endl;
 
   //
   // Just testing out some file system abstractions
@@ -297,7 +323,8 @@ void on_startup(void *asset_manager) {
   //
   // Load up the font
   //
-  font << my::asset("fonts/arial.fnt");
+  
+  font << my::asset("fonts/arial2.fnt");
   int x = font.glyphs.size();
   for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
     if (font.glyphs[i]->identifier) {
@@ -336,6 +363,7 @@ void on_startup(void *asset_manager) {
   //
   // Init sound
   //
+#ifndef __ANDROID__
   ALCint attributes[] = { ALC_FREQUENCY, 44100, 0 };
 
   ALCdevice* device = alcOpenDevice(NULL);
@@ -351,13 +379,16 @@ void on_startup(void *asset_manager) {
 
   sound << my::asset("sounds/mind_is_going.wav");
   compile(sound);
+#endif
 }
 
 void on_shutdown() {
+#ifndef __ANDROID__
   alDeleteSources(1, &sound.source);
   alDeleteBuffers(1, &sound.context);
   //alcDestroyContext(context);
   //alcCloseDevice(device);
+#endif
 }
 
 int screen_width;
@@ -387,6 +418,7 @@ void pprint(mat4x4 mat) {
 
 
 void on_draw() {
+  //return;
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   //checkGlError("glClearColor");
   glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -484,7 +516,7 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 0.0f, 0.08f);
-  draw("C", model_view_projection_matrix);
+  //draw("C", model_view_projection_matrix);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
@@ -498,14 +530,14 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 40.0f, 0.08f);
-  draw(my::type_cast<my::string>(input_y), letter);
+  //draw(my::type_cast<my::string>(input_y), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
-  draw(my::type_cast<my::string>(input_z), letter);
+  //draw(my::type_cast<my::string>(input_z), letter);
 
 }
 

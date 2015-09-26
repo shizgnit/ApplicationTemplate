@@ -107,7 +107,7 @@ public:
   my::vector< vertex > vertices;
   vertex *active;
 
-  my::vector< my::vector< my::shared_ptr<vertex> > > faces;
+  my::vector<my::vector< my::shared_ptr<vertex> > > faces;
 
   my::shared_ptr< material > texture;
 
@@ -124,7 +124,7 @@ public:
   my::map<my::string, my::shared_ptr<my::object> > object;
   my::object *active;
 
-  my::shared_ptr< materials > materials;
+  my::shared_ptr< materials > mats;
 
   my::buffer buffer;
 

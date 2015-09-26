@@ -260,6 +260,8 @@ void OnTimer() {
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
+  std::cout << "starting up..." << std::endl;
+
   int nNoOfDevices = 0;
   POINT p;
 
@@ -277,20 +279,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
 	switch (uMsg) {
 	  case WM_CREATE:
-
       AllocConsole();
+      std::cout << "WM_CREATE" << std::endl;
 
       freopen("CONIN$", "r", stdin);
       freopen("CONOUT$", "w", stdout);
       freopen("CONOUT$", "w", stderr);
+      
+      //std::cout << "WM_CREATE2" << std::endl;
 
       UINT nDevices;
       PRAWINPUTDEVICELIST pRawInputDeviceList;
       GetRawInputDeviceList(NULL, &nDevices, sizeof(RAWINPUTDEVICELIST));
+      //std::cout << "WM_CREATE3" << std::endl;
 
       pRawInputDeviceList = (PRAWINPUTDEVICELIST)malloc(sizeof(RAWINPUTDEVICELIST)* nDevices);
+      //std::cout << "WM_CREATE4" << std::endl;
 
       nNoOfDevices = GetRawInputDeviceList(pRawInputDeviceList, &nDevices, sizeof(RAWINPUTDEVICELIST));
+      //std::cout << "WM_CREATE5" << std::endl;
 
       RID_DEVICE_INFO rdi;
       rdi.cbSize = sizeof(RID_DEVICE_INFO);
@@ -302,17 +309,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         UINT cbSize = rdi.cbSize;
         GetRawInputDeviceInfo(pRawInputDeviceList[i].hDevice, RIDI_DEVICEINFO, &rdi, &cbSize);
 
-        std::wcout << L"Device Name: " << device << std::endl;
-        std::cout << "rdi.dwType ............................ " << rdi.dwType << std::endl;
+        //std::wcout << L"Device Name: " << device << std::endl;
+        //std::cout << "rdi.dwType ............................ " << rdi.dwType << std::endl;
 
-        if (rdi.dwType == RIM_TYPEMOUSE)
+        if (0 && rdi.dwType == RIM_TYPEMOUSE)
         {
           std::cout << "rdi.mouse.dwId ........................ " << rdi.mouse.dwId << std::endl;
           std::cout << "rdi.mouse.dwNumberOfButtons ........... " << rdi.mouse.dwNumberOfButtons << std::endl;
           std::cout << "rdi.mouse.dwSampleRate ................ " << rdi.mouse.dwSampleRate << std::endl;
         }
 
-        if (rdi.dwType == RIM_TYPEKEYBOARD)
+        if (0 && rdi.dwType == RIM_TYPEKEYBOARD)
         {
           std::cout << "rdi.keyboard.dwKeyboardMode ........... " << rdi.keyboard.dwKeyboardMode << std::endl;
           std::cout << "rdi.keyboard.dwNumberOfFunctionKeys ... " << rdi.keyboard.dwNumberOfFunctionKeys << std::endl;
@@ -322,7 +329,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
           std::cout << "rdi.keyboard.dwSubType ................ " << rdi.keyboard.dwSubType << std::endl;
         }
 
-        if (rdi.dwType == RIM_TYPEHID)
+        if (0 && rdi.dwType == RIM_TYPEHID)
         {
           std::cout << "rdi.hid.dwVendorId .................... " << rdi.hid.dwVendorId << std::endl;
           std::cout << "rdi.hid.dwProductId ................... " << rdi.hid.dwProductId << std::endl;
@@ -358,6 +365,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       break;
 
 	case WM_INPUT:
+    //std::cout << "WM_INPUT" << std::endl;
     // https://msdn.microsoft.com/en-us/library/windows/desktop/ms645546(v=vs.85).aspx
 
     handle = reinterpret_cast<HRAWINPUT>(lParam);
@@ -439,10 +447,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     }
 
     case WM_CLOSE: {
-      //KillTimer(hWnd, 1);
-      //running = false;
-      //return 0;
-      window->Minimize();
+      KillTimer(hWnd, 1);
+      running = false;
+      return 0;
+      //window->Minimize();
       return 0;
     }
 

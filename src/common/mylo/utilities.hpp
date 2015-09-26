@@ -22,6 +22,7 @@ __MYLO_DLL_EXPORT my::string join(my::string, my::vector<my::string> arguments);
 __MYLO_DLL_EXPORT my::wstring join(my::wstring, my::vector<my::wstring> arguments);
 __MYLO_DLL_EXPORT my::vector<my::string> split(my::string expression, my::string buffer, int limit=0);
 
+__MYLO_DLL_EXPORT my::vector<char *> segment(char *input, char delimiter='\0');
 __MYLO_DLL_EXPORT my::vector<my::string> tokenize(my::string input, my::string delimiter="");
 
 __MYLO_DLL_EXPORT my::string substitute(my::string input, my::string expression, my::string replacement, bool global=true);

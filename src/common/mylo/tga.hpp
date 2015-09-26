@@ -101,8 +101,8 @@ private:
 
     unsigned char *target;
     unsigned char *source;
-    for (int y = 0; y < context->header.height; y++) {
-      for (int x = 0; x < context->header.width; x++) {
+    for (unsigned int y = 0; y < context->header.height; y++) {
+      for (unsigned int x = 0; x < context->header.width; x++) {
 //        target = final + (y * context->header.width * 4) + ((context->header.width - x) * 4);
 //        target = final + ((context->header.height - y - 1) * context->header.width * 4) + (x * 4);
         target = final + (y * context->header.width * 4) + (x * 4);

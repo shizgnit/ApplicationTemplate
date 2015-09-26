@@ -28,7 +28,7 @@ public:
 class __MYLO_DLL_EXPORT materials : public datatype<materials> {
 public:
 
-  my::map<my::string, my::shared_ptr<my::material>> material;
+  my::map< my::string, my::shared_ptr<my::material> > material;
   my::material *active;
 
   my::buffer buffer;

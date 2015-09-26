@@ -78,6 +78,8 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/asm/param.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/stdio.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/arpa/nameser.h \
+ C:/Users/codeneko/AppData/Local/Android/ndk/sources/cxx-stl/system/include/cstring \
+ C:/Users/codeneko/AppData/Local/Android/ndk/sources/cxx-stl/system/include/cstddef \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/stdlib.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/alloca.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/strings.h \
@@ -124,6 +126,7 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/primitives.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/entity.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/font.hpp \
+ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/audio.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/tga.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/png.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//third_party/png/png.h \
@@ -136,8 +139,9 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/obj.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/vert.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/frag.hpp \
- c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/program.hpp \
  c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/fnt.hpp \
+ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/wav.hpp \
+ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/program.hpp \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/android/asset_manager_jni.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/android/asset_manager.h \
  C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/jni.h
@@ -298,6 +302,10 @@ C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/inc
 
 C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/arpa/nameser.h:
 
+C:/Users/codeneko/AppData/Local/Android/ndk/sources/cxx-stl/system/include/cstring:
+
+C:/Users/codeneko/AppData/Local/Android/ndk/sources/cxx-stl/system/include/cstddef:
+
 C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/stdlib.h:
 
 C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/alloca.h:
@@ -390,6 +398,8 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/font.hpp:
 
+c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/audio.hpp:
+
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/tga.hpp:
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/png.hpp:
@@ -414,9 +424,11 @@ c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/
 
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/frag.hpp:
 
-c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/program.hpp:
-
 c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/fnt.hpp:
+
+c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/wav.hpp:
+
+c:/Users/codeneko/Dropbox/Development/projects/ApplicationTemplate/src/platform/android//jni/../../..//common/mylo/program.hpp:
 
 C:/Users/codeneko/AppData/Local/Android/ndk/platforms/android-9/arch-arm/usr/include/android/asset_manager_jni.h:
 

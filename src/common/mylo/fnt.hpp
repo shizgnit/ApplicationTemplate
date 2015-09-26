@@ -17,10 +17,155 @@ public:
   }
 
   static off_t write(font *context, unsigned char *buffer, off_t bytes) {
-    if(bytes) {
+    if (bytes) {
       context->buffer.write(buffer, bytes);
       return(bytes);
     }
+
+    if (context->buffer.raw()[0] == '<') {
+      write_xml(context);
+    }
+    else {
+      write_text(context);
+    }
+
+    return(0);
+  }
+
+  static void write_text(font *context) {
+    /*
+    info face="Arial" size=32 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+    common lineHeight=32 base=26 scaleW=256 scaleH=256 pages=1 packed=0 alphaChnl=0 redChnl=0 greenChnl=0 blueChnl=0
+    page id=0 file="arial2_0.png"
+    chars count=191
+    char id=32   x=155   y=75    width=3     height=1     xoffset=-1    yoffset=31    xadvance=8     page=0  chnl=15
+    char id=33   x=250   y=116   width=4     height=20    xoffset=2     yoffset=6     xadvance=8     page=0  chnl=15
+    ...
+    kernings count=91
+    kerning first=32  second=65  amount=-2
+    kerning first=32  second=84  amount=-1
+    ...
+    */
+    for (int i = 0; i <= 255; i++) {
+      font::glyph *current = new font::glyph();
+      current->identifier = 0;
+      context->glyphs[i] = current;
+    }
+
+    my::vector<char *> lines = my::segment((char *)context->buffer.raw(), '\n');
+    for (int i = 0; i < lines.size(); i++) {
+      if (lines[i][0] == '#') {
+        continue;
+      }
+      my::vector<char *> line = my::segment(lines[i], ' ');
+
+      if (strcmp(line[0], "info") == 0) {
+        for (int j = 1; j < line.size(); j++) {
+          my::vector<char *> parameter = my::segment(line[j], '=');
+
+          if (strcmp(parameter[0], "face") == 0) {
+            parameter[1][strlen(parameter[1])] = '\0';
+            context->name = parameter[1] + 1;
+          }
+          if (strcmp(parameter[0], "size") == 0) {
+            context->size = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "bold") == 0) {
+            context->bold = strcmp(parameter[1], "1") == 0;
+          }
+          if (strcmp(parameter[0], "italic") == 0) {
+            context->italic = strcmp(parameter[1], "1") == 0;
+          }
+          if (strcmp(parameter[0], "padding") == 0) {
+            my::vector<char *> padding_fields = my::segment(parameter[1], ',');
+            context->padding_top = type_cast<int>(padding_fields[0]);
+            context->padding_left = type_cast<int>(padding_fields[1]);
+            context->padding_bottom = type_cast<int>(padding_fields[2]);
+            context->padding_right = type_cast<int>(padding_fields[3]);
+          }
+          if (strcmp(parameter[0], "spacing") == 0) {
+            my::vector<char *> spacing_fields = my::segment(parameter[1], ',');
+            context->spacing_left = type_cast<int>(spacing_fields[0]);
+            context->spacing_right = type_cast<int>(spacing_fields[1]);
+          }
+        }
+      }
+
+      if (strcmp(line[0], "page") == 0) {
+        my::vector<char *> id_parameter = my::segment(line[1], '=');
+        my::vector<char *> file_parameter = my::segment(line[2], '=');
+
+        file_parameter[1][strlen(file_parameter[1])-1] = '\0';
+        my::string file = file_parameter[1] + 1;
+
+        my::image *page = new my::png();
+        *page << my::asset(file);
+        context->pages.push(page);
+      }
+
+      if (strcmp(line[0], "char") == 0) {
+        font::glyph *glyph = context->glyphs[i];
+        for (int j = 1; j < line.size(); j++) {
+          my::vector<char *> parameter = my::segment(line[j], '=');
+          if (strcmp(parameter[0], "id") == 0) {
+            int id = type_cast<int>(parameter[1]);
+            glyph = context->glyphs[id];
+            glyph->identifier = id;
+          }
+          if (strcmp(parameter[0], "x") == 0) {
+            glyph->x = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "y") == 0) {
+            glyph->y = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "width") == 0) {
+            glyph->width = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "height") == 0) {
+            glyph->height = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "xoffset") == 0) {
+            glyph->xoffset = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "yoffset") == 0) {
+            glyph->yoffset = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "xadvance") == 0) {
+            glyph->xadvance = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "page") == 0) {
+            glyph->page = type_cast<int>(parameter[1]);
+            glyph->quad = my::primitive::quad((float)glyph->width, (float)glyph->height);
+            glyph->quad->xy_projection(context->pages[glyph->page], glyph->x, glyph->y, glyph->width, glyph->height);
+          }
+          if (strcmp(parameter[0], "channel") == 0) {
+            glyph->channel = type_cast<int>(parameter[1]);
+          }
+        }
+      }
+
+      if (strcmp(line[0], "kerning") == 0) {
+        font::kerning *kerning = new font::kerning();
+        for (int j = 1; j < line.size(); j++) {
+          my::vector<char *> parameter = my::segment(line[j], '=');
+
+          if (strcmp(parameter[0], "first") == 0) {
+            kerning->first = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "second") == 0) {
+            kerning->second = type_cast<int>(parameter[1]);
+          }
+          if (strcmp(parameter[0], "amount") == 0) {
+            kerning->amount = type_cast<int>(parameter[1]);
+          }
+        }
+        context->kernings.push_back(kerning);
+      }
+
+    }
+  }
+
+  static void write_xml(font *context) {
 
     document doc;
     doc.loadXML(join(" ", context->buffer));
@@ -107,8 +252,6 @@ public:
     }
 
     context->buffer.reset();
-
-    return(0);
   }
 
 };

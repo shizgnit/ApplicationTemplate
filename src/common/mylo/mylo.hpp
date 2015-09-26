@@ -80,6 +80,7 @@
 #  include <utime.h>
 #  include <netdb.h>
 #  include <resolv.h>
+#  include <cstring>
 #  ifndef MAP_FILE
 #    define MAP_FILE 0
 #  endif

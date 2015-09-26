@@ -3,10 +3,11 @@
 __MYLO_NAMESPACE_BEGIN
 
 __MYLO_DLL_EXPORT void buffer::reset() {
-  m_cache = new unsigned char [buffer::alloc];
+  m_cache = new unsigned char [buffer::alloc+1];
   m_cache_used = 0;
   m_cache_allocated = stream::alloc;
   m_cache_read = 0;
+  *(&m_cache) = 0;
 }
 
 __MYLO_DLL_EXPORT off_t buffer::location(void) {
@@ -43,15 +44,18 @@ __MYLO_DLL_EXPORT off_t buffer::write(unsigned char *data, off_t size) {
     cache_allocation += buffer::alloc;
   }
   if(cache_allocation != m_cache_allocated) {
-    unsigned char *reallocation = new unsigned char [cache_allocation];
+    unsigned char *reallocation = new unsigned char [cache_allocation+1];
     memcpy(reallocation, m_cache, m_cache_used);
     m_cache = reallocation;
     m_cache_allocated = cache_allocation;
   }
 
   memcpy(&m_cache + m_cache_used, data, size);
-
   m_cache_used += size;
+
+  *(&m_cache + m_cache_used) = 0; 
+ 
+  DEBUG_TRACE << "buffer size " << m_cache_used << " (" << size << ", " << m_cache_allocated << ")" << my::endl;
 
   return(size);
 }

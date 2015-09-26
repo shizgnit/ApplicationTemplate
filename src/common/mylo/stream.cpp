@@ -149,16 +149,21 @@ __MYLO_DLL_EXPORT my::string serializable::getline(void) {
 __MYLO_DLL_EXPORT serializable::operator my::string (void) {
   DEBUG_SCOPE;
 
+  DEBUG_TRACE << "Serialize to string" << my::endl;
+
   char *characters = NULL;
   off_t length = 0;
   
+  //DEBUG_TRACE << "Temporary " << stream::alloc << " bytes" << my::endl;
   unsigned char temporary[stream::alloc];
   off_t bytes_available = 0;
 
   memset(temporary, 0, stream::alloc);
 
   if(m_cache && m_cache->size()) {
+    DEBUG_TRACE << "Cache " << m_cache->size() << " bytes" << my::endl;
     bytes_available = m_cache->read(temporary, stream::alloc);
+    DEBUG_TRACE << "Bytes available " << bytes_available << my::endl;
     characters = new char[bytes_available + 1];
     memcpy(characters, temporary, bytes_available);
     characters[bytes_available] = 0;
@@ -166,12 +171,20 @@ __MYLO_DLL_EXPORT serializable::operator my::string (void) {
   }
 
   while(1) {
+    DEBUG_TRACE << "Reading data..." << my::endl;
     bytes_available = read(temporary, stream::alloc);
-    if(bytes_available == 0) {
+    DEBUG_TRACE << "Bytes available " << bytes_available << my::endl;
+    if (bytes_available == 0) {
       break;
     }
     
-    char *accumulation = new char[length+bytes_available+1];
+    DEBUG_TRACE << "Length " << length << my::endl;
+    char *accumulation = new char[length + bytes_available + 1];
+
+    if (!accumulation) {
+      DEBUG_TRACE << "Allocation failure" << my::endl;
+    }
+
     memcpy(accumulation, characters, length);
     memcpy(accumulation + length, temporary, bytes_available);
     
@@ -185,12 +198,16 @@ __MYLO_DLL_EXPORT serializable::operator my::string (void) {
   }
 
   if(characters == NULL) {
+    DEBUG_TRACE << "null... returning empty" << my::endl;
     return(my::string());
   }
   
+  DEBUG_TRACE << "Assign to string" << my::endl;
+
   my::string results = characters;
   
-  delete [] (characters);
+  DEBUG_TRACE << "Cleanup" << my::endl;
+  delete[](characters);
   return(results);
 }
 

@@ -107,11 +107,12 @@ private:
 
     // create the raw data pointers
     png_size_t size = png_get_rowbytes(png_ptr, info_ptr);
-    context->raster = (png_bytep)malloc(size * height);
-    if (context->raster == 0) {
-      png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
-      return 0;
-    }
+//    context->raster = (png_bytep)malloc(size * height);
+    context->raster = (png_bytep)new char[size * height];
+//    if (context->raster == 0) {
+//      png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
+//      return 0;
+//    }
 
     png_bytep *rows = (png_bytep *)malloc(sizeof(png_bytep) * height);
     if (rows == NULL) {
@@ -128,7 +129,7 @@ private:
     png_read_image(png_ptr, rows);
 
     // row addressing done
-    delete(rows);
+    free(rows);
 
     // assign metadata
     context->header.width = width;

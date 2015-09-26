@@ -161,9 +161,13 @@ public:
     
     T *start = indexer(pos);
     T *end = n == npos ? m_data + size() : indexer(pos+n);
-     
+    
+    if (end > indexer(size())) {
+      end = indexer(size());
+    }
+
     size_t length = end - start;
-     
+    
     T *temporary = new T[length+1];
     memcpy(temporary, start, length);
     temporary[length] = 0;
