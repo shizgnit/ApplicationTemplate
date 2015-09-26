@@ -31,9 +31,6 @@ static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
 }
 
-// const char *v = (const char *) glGetString(s);
-// for (GLint error = glGetError(); error; error = glGetError()) {
-
 GLuint gvPositionHandle;
 
 GLuint gTextureProgram;
@@ -47,14 +44,6 @@ GLint u_texture_unit_location;
 #define BUFFER_OFFSET(i) ((void*)(i))
 
 static mat4x4 projection_matrix;
-//static mat4x4 model_matrix;
-//static mat4x4 view_matrix;
-
-//static mat4x4 view_projection_matrix;
-//static mat4x4 model_view_projection_matrix;
-//static mat4x4 inverted_view_projection_matrix;
-
-//static mat4x4 background_projection_matrix;
 
 my::fnt font;
 
@@ -123,10 +112,8 @@ GLuint compile(my::program &program) {
   }
 
   glAttachShader(program.context, program.vertex->context);
-  //checkGlError("glAttachShader");
 
   glAttachShader(program.context, program.fragment->context);
-  //checkGlError("glAttachShader");
 
   glLinkProgram(program.context);
 
@@ -138,7 +125,6 @@ GLuint compile(my::program &program) {
     if (length) {
       char *info = (char*)malloc(length);
       glGetProgramInfoLog(program.context, length, NULL, info);
-      //DEBUG("Could not link program:\n%s\n", info);
       free(info);
     }
     glDeleteProgram(program.context);
@@ -250,15 +236,6 @@ float input_z;
 my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
-  /*
-  my::asset::manager(asset_manager);
-  gbackground = my::primitive::quad(256, 256);
-  my::image *img2 = new my::png;
-  *img2 << my::asset("textures/landscape2.png");
-  gbackground->xy_projection(img2, 0, 0, 256, 256);
-
-  exit;
-  */
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
   //glDisable(GL_DEPTH_TEST);
@@ -323,7 +300,6 @@ void on_startup(void *asset_manager) {
   //
   // Load up the font
   //
-  
   font << my::asset("fonts/arial2.fnt");
   int x = font.glyphs.size();
   for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
@@ -395,9 +371,7 @@ int screen_width;
 int screen_height;
 
 void on_resize(int width, int height) {
-  //DEBUG("Draw surface changed\n");
   glViewport(0, 0, width, height);
-  //checkGlError("glViewport");
   
   screen_width = width;
   screen_height = height;
@@ -418,11 +392,8 @@ void pprint(mat4x4 mat) {
 
 
 void on_draw() {
-  //return;
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-  //checkGlError("glClearColor");
   glClear( GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-  //checkGlError("glClear");
 
   static float angle = 0.0f;
   angle -= 0.1f;
@@ -448,36 +419,11 @@ void on_draw() {
   //
   // position
   //
-  /*
-  mat4x4_mul(view_projection_matrix, projection_matrix, view_matrix);
-  mat4x4_invert(inverted_view_projection_matrix, view_projection_matrix);
-
-  mat4x4 rotated_model_matrix;
-  mat4x4_identity(model_matrix);
-
-  mat4x4_rotate_X(rotated_model_matrix, model_matrix, deg_to_radf(angle));
-  mat4x4_translate_in_place(rotated_model_matrix, 0.0f, 0.0f, 1.0f);
-
-  mat4x4_mul(model_view_projection_matrix, view_projection_matrix, rotated_model_matrix);
-  */
-
-//  float eye[3] = { 10.0f, 4.0f, 1.0f };
-//  float center[3] = { 10.0f, 4.0f, 0.0f };
-//  float up[3] = { 0.0f, 1.0f, 0.0f };
-
   static mat4x4 view_matrix;
-
-//  float eye[3] = { input_x / 10, input_y / 10, 1.0f };
-//  float center[3] = { input_x / 10, input_y / 10, 0.0f };
-//  float up[3] = { 0.0f, 1.0f, 0.0f };
 
   float eye[3] = { ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 1.0f + input_z };
   float center[3] = { ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 0.0f + input_z };
   float up[3] = { 0.0f, 1.0f, 0.0f };
-
-//  float eye[3] = { 10.0f, 4.0f, 1.0f };
-//  float center[3] = { 10.0f, 4.0f, 0.0f };
-//  float up[3] = { 0.0f, 1.0f, 0.0f };
 
   mat4x4_look_at(view_matrix, eye, center, up);
 
@@ -494,9 +440,6 @@ void on_draw() {
   mat4x4_identity(model_scale_matrix);
 
   mat4x4_rotate_Y(model_scale_matrix, model_matrix, rotation);
-
-//  mat4x4_scale(model_scale_matrix, model_matrix, input_y);
-//  mat4x4_translate_in_place(model_scale_matrix, 0.0f, 0.0f, input_x);
 
   mat4x4 view_projection_matrix;
 
@@ -516,7 +459,7 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 0.0f, 0.08f);
-  //draw("C", model_view_projection_matrix);
+  draw("C", model_view_projection_matrix);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
@@ -530,14 +473,14 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 40.0f, 0.08f);
-  //draw(my::type_cast<my::string>(input_y), letter);
+  draw(my::type_cast<my::string>(input_y), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
-  //draw(my::type_cast<my::string>(input_z), letter);
+  draw(my::type_cast<my::string>(input_z), letter);
 
 }
 
