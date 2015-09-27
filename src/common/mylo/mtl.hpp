@@ -18,7 +18,7 @@ public:
     }
 
     my::vector<char *> lines = my::segment((char *)context->buffer.raw(), '\n');
-    for (int i = 0; i < lines.size(); i++) {
+    for (unsigned int i = 0; i < lines.size(); i++) {
       if (lines[i][0] == '#') {
         continue;
       }

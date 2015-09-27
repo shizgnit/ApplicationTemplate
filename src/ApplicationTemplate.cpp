@@ -317,18 +317,6 @@ void on_startup(void *asset_manager) {
   gbackground->xy_projection(img, 0, 0, 256, 256);
   compile(gbackground);
 
-//  gbackground = my::primitive::quad(256, 256);
-//  my::image *img = new my::tga;
-//  *img << my::asset("models/obj/sphere1_auv.tga");
-//  gbackground->xy_projection(img, 0, 0, 1024, 1024);
-//  compile(gbackground);
-
-//  gbackground = my::primitive::quad(256, 256);
-//  my::image *img = new my::png;
-//  *img << my::asset("models/obj/cube1_auv.png");
-//  gbackground->xy_projection(img, 0, 0, 1024, 1024);
-//  compile(gbackground);
-
   //
   // Default the inputs
   //
@@ -409,12 +397,12 @@ void on_draw() {
 
   mat4x4_scale( scale , identity, 0.01f);
   scale[3][3] = 1.0f;
-  mat4x4_translate_in_place( scale, -130.0f, -120.0f, input_z);
+  mat4x4_translate_in_place(scale, -130.0f, -120.0f, 1000.1f);// input_z);
 
   //
   // render background
   //
-  //draw(gbackground, scale);
+  draw(gbackground, scale);
 
   //
   // position

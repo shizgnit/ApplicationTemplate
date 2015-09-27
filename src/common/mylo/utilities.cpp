@@ -150,15 +150,12 @@ __MYLO_DLL_EXPORT my::vector<char *> segment(char *input, char delimiter) {
     bool seg = false;
     while (*current) {
       if (*current == delimiter) {
-	DEBUG_TRACE<<"zero "<<(current - input)<<my::endl;
         *current = '\0';
         while (*(current + 1) == delimiter) {
           current++;
-	  DEBUG_TRACE<<"zero "<<(current - input)<<my::endl;
           *current = '\0';
         }
         if (delimiter == '\n' && *(current - 1) == '\r') {
-	  DEBUG_TRACE<<"zero "<<(current - 1 - input)<<my::endl;
           *(current - 1) = '\0';
         }
         seg = true;

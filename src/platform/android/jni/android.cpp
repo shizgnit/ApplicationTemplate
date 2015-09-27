@@ -65,9 +65,9 @@ JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateI
 }
 
 JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1press(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y) {
-	on_touch_press(normalized_x, normalized_y);
+	on_touch_press(normalized_x*100+240, normalized_y*100+320);
 }
 
 JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1drag(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y) {
-	on_touch_drag(normalized_x, normalized_y);
+	on_touch_drag(normalized_x*100+240, normalized_y*100+320);
 }

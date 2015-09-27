@@ -1,4 +1,3 @@
-c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\ApplicationTemplate.ap_ \
  : c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\res\values\strings.xml \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\arial2_0.png \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\fonts \

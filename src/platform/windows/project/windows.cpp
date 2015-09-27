@@ -259,9 +259,6 @@ void OnTimer() {
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-
-  std::cout << "starting up..." << std::endl;
-
   int nNoOfDevices = 0;
   POINT p;
 
@@ -280,24 +277,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch (uMsg) {
 	  case WM_CREATE:
       AllocConsole();
-      std::cout << "WM_CREATE" << std::endl;
 
       freopen("CONIN$", "r", stdin);
       freopen("CONOUT$", "w", stdout);
       freopen("CONOUT$", "w", stderr);
-      
-      //std::cout << "WM_CREATE2" << std::endl;
 
       UINT nDevices;
       PRAWINPUTDEVICELIST pRawInputDeviceList;
       GetRawInputDeviceList(NULL, &nDevices, sizeof(RAWINPUTDEVICELIST));
-      //std::cout << "WM_CREATE3" << std::endl;
 
       pRawInputDeviceList = (PRAWINPUTDEVICELIST)malloc(sizeof(RAWINPUTDEVICELIST)* nDevices);
-      //std::cout << "WM_CREATE4" << std::endl;
 
       nNoOfDevices = GetRawInputDeviceList(pRawInputDeviceList, &nDevices, sizeof(RAWINPUTDEVICELIST));
-      //std::cout << "WM_CREATE5" << std::endl;
 
       RID_DEVICE_INFO rdi;
       rdi.cbSize = sizeof(RID_DEVICE_INFO);
@@ -365,7 +356,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       break;
 
 	case WM_INPUT:
-    //std::cout << "WM_INPUT" << std::endl;
     // https://msdn.microsoft.com/en-us/library/windows/desktop/ms645546(v=vs.85).aspx
 
     handle = reinterpret_cast<HRAWINPUT>(lParam);

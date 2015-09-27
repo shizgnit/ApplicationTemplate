@@ -53,14 +53,14 @@ public:
     }
 
     my::vector<char *> lines = my::segment((char *)context->buffer.raw(), '\n');
-    for (int i = 0; i < lines.size(); i++) {
+    for (unsigned int i = 0; i < lines.size(); i++) {
       if (lines[i][0] == '#') {
         continue;
       }
       my::vector<char *> line = my::segment(lines[i], ' ');
 
       if (strcmp(line[0], "info") == 0) {
-        for (int j = 1; j < line.size(); j++) {
+        for (unsigned int j = 1; j < line.size(); j++) {
           my::vector<char *> parameter = my::segment(line[j], '=');
 
           if (strcmp(parameter[0], "face") == 0) {
@@ -105,7 +105,7 @@ public:
 
       if (strcmp(line[0], "char") == 0) {
         font::glyph *glyph = context->glyphs[i];
-        for (int j = 1; j < line.size(); j++) {
+        for (unsigned int j = 1; j < line.size(); j++) {
           my::vector<char *> parameter = my::segment(line[j], '=');
           if (strcmp(parameter[0], "id") == 0) {
             int id = type_cast<int>(parameter[1]);
@@ -146,7 +146,7 @@ public:
 
       if (strcmp(line[0], "kerning") == 0) {
         font::kerning *kerning = new font::kerning();
-        for (int j = 1; j < line.size(); j++) {
+        for (unsigned int j = 1; j < line.size(); j++) {
           my::vector<char *> parameter = my::segment(line[j], '=');
 
           if (strcmp(parameter[0], "first") == 0) {

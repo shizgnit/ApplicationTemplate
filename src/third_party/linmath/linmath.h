@@ -37,13 +37,14 @@ static inline float vec##n##_len(vec##n const v) \
 } \
 static inline void vec##n##_norm(vec##n r, vec##n const v) \
 { \
-	float k = 1.0 / vec##n##_len(v); \
+	float k = (float)(1.0 / vec##n##_len(v)); \
 	vec##n##_scale(r, v, k); \
 }
 
 LINMATH_H_DEFINE_VEC(2)
 LINMATH_H_DEFINE_VEC(3)
 LINMATH_H_DEFINE_VEC(4)
+
 
 static inline void vec3_mul_cross(vec3 r, vec3 const a, vec3 const b)
 {
@@ -322,7 +323,7 @@ static inline void mat4x4_frustum(mat4x4 M, float l, float r, float b, float t, 
   M[0][0] = 2.f*n / (r - l);
   M[0][1] = M[0][2] = M[0][3] = 0.f;
 
-  M[1][1] = 2.*n / (t - b);
+  M[1][1] = (float)(2.*n / (t - b));
   M[1][0] = M[1][2] = M[1][3] = 0.f;
 
   M[2][0] = (r + l) / (r - l);
