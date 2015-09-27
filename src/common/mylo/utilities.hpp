@@ -35,10 +35,24 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __UTILITIES_HPP
 #define __UTILITIES_HPP
 
+/// <summary>
+/// Syntactic sugar for lists of strings to a vector.
+/// </summary>
 __MYLO_DLL_EXPORT my::vector<my::string> operator , (my::string left, my::string right);
+
+/// <summary>
+/// Syntactic sugar for a vector and string to a vector.
+/// </summary>
 __MYLO_DLL_EXPORT my::vector<my::string> operator , (my::vector<my::string> left, my::string right);
 
+/// <summary>
+/// Syntactic sugar for lists of wide strings to a vector.
+/// </summary>
 __MYLO_DLL_EXPORT my::vector<my::wstring> operator , (my::wstring left, my::wstring right);
+
+/// <summary>
+/// Syntactic sugar for a vector and wide string to a vector.
+/// </summary>
 __MYLO_DLL_EXPORT my::vector<my::wstring> operator , (my::vector<my::wstring> left, my::wstring right);
 
 __MYLO_NAMESPACE_BEGIN

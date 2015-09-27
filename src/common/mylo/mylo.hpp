@@ -30,6 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
+//  https://www.stack.nl/~dimitri/doxygen/manual/xmlcmds.html
+
 #ifndef __MYLO_HPP
 #define __MYLO_HPP
 
@@ -90,7 +92,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __MYLO_NAMESPACE_BEGIN namespace my {
 #define __MYLO_NAMESPACE_END }
 
-//#if defined(__MYLO_WINDOWS)
 #if defined __MYLO_WINDOWS
 #  include <winsock2.h>
 #  include <rpc.h>
@@ -98,9 +99,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #  include <lmerr.h>
 #  define fseeko fseek
 #  define ftello ftell
-//#endif
-
-//#if defined(__MYLO_POSIX)
 #else
 #  include <unistd.h>
 #  include <fcntl.h>
@@ -121,8 +119,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #  endif
 #endif
 
-//#include <fstream>
-//#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
