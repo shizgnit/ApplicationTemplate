@@ -210,7 +210,7 @@ __MYLO_NAMESPACE_END
 #include "configuration.hpp"
 #include "functor.hpp"
 
-#include "datatype.hpp"
+#include "dto/datatype.hpp"
 //#include "archive.hpp"
 #include "dto/image.hpp"
 #include "dto/shader.hpp"
