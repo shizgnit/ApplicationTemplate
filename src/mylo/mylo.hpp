@@ -212,14 +212,14 @@ __MYLO_NAMESPACE_END
 
 #include "datatype.hpp"
 //#include "archive.hpp"
-#include "image.hpp"
-#include "shader.hpp"
-#include "material.hpp"
-#include "object.hpp"
-#include "primitives.hpp"
-#include "entity.hpp"
-#include "font.hpp"
-#include "audio.hpp"
+#include "dto/image.hpp"
+#include "dto/shader.hpp"
+#include "dto/material.hpp"
+#include "dto/object.hpp"
+#include "dto/primitives.hpp"
+#include "dto/entity.hpp"
+#include "dto/font.hpp"
+#include "dto/audio.hpp"
 
 #if defined(__MYLO_MYSQL) && defined(__MYLO_PTHREAD)
 #include "db.hpp"
