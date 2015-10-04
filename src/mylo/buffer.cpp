@@ -87,7 +87,7 @@ __MYLO_DLL_EXPORT off_t buffer::write(unsigned char *data, off_t size) {
 
   *(&m_cache + m_cache_used) = 0; 
  
-  DEBUG_TRACE << "buffer size " << m_cache_used << " (" << size << ", " << m_cache_allocated << ")" << my::endl;
+  //DEBUG_TRACE << "buffer size " << m_cache_used << " (" << size << ", " << m_cache_allocated << ")" << my::endl;
 
   return(size);
 }

@@ -65,7 +65,6 @@ my::wav sound;
 
 
 GLuint compile(my::shader *shader, GLuint type) { DEBUG_SCOPE;
-
   DEBUG_TRACE << "compile shader: " << type << my::endl;
 
   shader->context = glCreateShader(type);
@@ -397,7 +396,7 @@ void on_draw() {
 
   mat4x4_scale( scale , identity, 0.01f);
   scale[3][3] = 1.0f;
-  mat4x4_translate_in_place(scale, -130.0f, -120.0f, 1000.1f);// input_z);
+  mat4x4_translate_in_place(scale, -130.0f, -120.0f, 1000.1f); // input_z);
 
   //
   // render background
@@ -469,7 +468,6 @@ void on_draw() {
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
   draw(my::type_cast<my::string>(input_z), letter);
-
 }
 
 void on_touch_press(float normalized_x, float normalized_y) {
