@@ -19,7 +19,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 TOP_PATH := $(LOCAL_PATH)/../../../
-COMMON_PATH := $(TOP_PATH)/common
+COMMON_PATH := $(TOP_PATH)/
 THIRD_PARTY_PATH := $(TOP_PATH)/third_party
 
 LOCAL_CFLAGS :=

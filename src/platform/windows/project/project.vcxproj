@@ -86,7 +86,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\common\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -121,7 +121,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\common\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -152,19 +152,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ApplicationTemplate.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\asset.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\buffer.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\compression.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\configuration.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\filesystem.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\identity.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\regex.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\stream.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\timer.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\trace.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\utilities.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\xml.cpp" />
-    <ClCompile Include="..\..\..\common\mylo\xpath.cpp" />
+    <ClCompile Include="..\..\..\mylo\asset.cpp" />
+    <ClCompile Include="..\..\..\mylo\buffer.cpp" />
+    <ClCompile Include="..\..\..\mylo\compression.cpp" />
+    <ClCompile Include="..\..\..\mylo\configuration.cpp" />
+    <ClCompile Include="..\..\..\mylo\filesystem.cpp" />
+    <ClCompile Include="..\..\..\mylo\identity.cpp" />
+    <ClCompile Include="..\..\..\mylo\regex.cpp" />
+    <ClCompile Include="..\..\..\mylo\stream.cpp" />
+    <ClCompile Include="..\..\..\mylo\timer.cpp" />
+    <ClCompile Include="..\..\..\mylo\trace.cpp" />
+    <ClCompile Include="..\..\..\mylo\utilities.cpp" />
+    <ClCompile Include="..\..\..\mylo\xml.cpp" />
+    <ClCompile Include="..\..\..\mylo\xpath.cpp" />
     <ClCompile Include="..\..\..\third_party\png\png.c" />
     <ClCompile Include="..\..\..\third_party\png\pngerror.c" />
     <ClCompile Include="..\..\..\third_party\png\pngget.c" />
@@ -184,51 +184,51 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\ApplicationTemplate.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\asset.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\audio.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\buffer.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\compression.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\configuration.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\datatype.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\debug.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\entity.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\factory.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\filesystem.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\fnt.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\font.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\frag.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\functor.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\identity.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\image.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\iterator.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\linear.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\map.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\material.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\mtl.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\mylo.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\obj.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\object.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\pair.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\png.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\primitives.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\program.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\regex.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\shader.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\shared_ptr.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\stream.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\string.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\tga.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\timer.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\trace.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\typecast.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\typetraits.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\utilities.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\variant.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\vector.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\vert.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\wav.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\xml.hpp" />
-    <ClInclude Include="..\..\..\common\mylo\xpath.hpp" />
+    <ClInclude Include="..\..\..\mylo\asset.hpp" />
+    <ClInclude Include="..\..\..\mylo\buffer.hpp" />
+    <ClInclude Include="..\..\..\mylo\compression.hpp" />
+    <ClInclude Include="..\..\..\mylo\configuration.hpp" />
+    <ClInclude Include="..\..\..\mylo\debug.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\audio.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\datatype.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\entity.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\font.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\image.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\material.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\object.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\primitives.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\program.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\shader.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\fnt.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\frag.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\mtl.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\obj.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\png.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\tga.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\vert.hpp" />
+    <ClInclude Include="..\..\..\mylo\dto\types\wav.hpp" />
+    <ClInclude Include="..\..\..\mylo\factory.hpp" />
+    <ClInclude Include="..\..\..\mylo\filesystem.hpp" />
+    <ClInclude Include="..\..\..\mylo\functor.hpp" />
+    <ClInclude Include="..\..\..\mylo\identity.hpp" />
+    <ClInclude Include="..\..\..\mylo\iterator.hpp" />
+    <ClInclude Include="..\..\..\mylo\linear.hpp" />
+    <ClInclude Include="..\..\..\mylo\map.hpp" />
+    <ClInclude Include="..\..\..\mylo\mylo.hpp" />
+    <ClInclude Include="..\..\..\mylo\pair.hpp" />
+    <ClInclude Include="..\..\..\mylo\regex.hpp" />
+    <ClInclude Include="..\..\..\mylo\shared_ptr.hpp" />
+    <ClInclude Include="..\..\..\mylo\stream.hpp" />
+    <ClInclude Include="..\..\..\mylo\string.hpp" />
+    <ClInclude Include="..\..\..\mylo\timer.hpp" />
+    <ClInclude Include="..\..\..\mylo\trace.hpp" />
+    <ClInclude Include="..\..\..\mylo\typecast.hpp" />
+    <ClInclude Include="..\..\..\mylo\typetraits.hpp" />
+    <ClInclude Include="..\..\..\mylo\utilities.hpp" />
+    <ClInclude Include="..\..\..\mylo\variant.hpp" />
+    <ClInclude Include="..\..\..\mylo\vector.hpp" />
+    <ClInclude Include="..\..\..\mylo\xml.hpp" />
+    <ClInclude Include="..\..\..\mylo\xpath.hpp" />
     <ClInclude Include="..\..\..\third_party\png\config.h" />
     <ClInclude Include="..\..\..\third_party\png\png.h" />
     <ClInclude Include="..\..\..\third_party\png\pngconf.h" />

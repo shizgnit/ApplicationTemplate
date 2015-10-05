@@ -225,16 +225,16 @@ __MYLO_NAMESPACE_END
 #include "db.hpp"
 #endif
 
-#include "tga.hpp"
-#include "png.hpp"
-#include "mtl.hpp"
-#include "obj.hpp"
-#include "vert.hpp"
-#include "frag.hpp"
-#include "fnt.hpp"
-#include "wav.hpp"
+#include "dto/types/tga.hpp"
+#include "dto/types/png.hpp"
+#include "dto/types/mtl.hpp"
+#include "dto/types/obj.hpp"
+#include "dto/types/vert.hpp"
+#include "dto/types/frag.hpp"
+#include "dto/types/fnt.hpp"
+#include "dto/types/wav.hpp"
 
-#include "program.hpp"
+#include "dto/program.hpp"
 
 
 #endif
