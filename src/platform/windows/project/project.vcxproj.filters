@@ -239,9 +239,6 @@
     <ClInclude Include="..\..\..\mylo\dto\types\vert.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\datatype.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\mylo\dto\entity.hpp">
       <Filter>mylo\dto</Filter>
     </ClInclude>
@@ -262,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\third_party\png\pngpriv.h">
       <Filter>third_party\png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mylo\datatype.hpp">
+      <Filter>mylo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

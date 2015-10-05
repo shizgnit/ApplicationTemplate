@@ -188,9 +188,9 @@
     <ClInclude Include="..\..\..\mylo\buffer.hpp" />
     <ClInclude Include="..\..\..\mylo\compression.hpp" />
     <ClInclude Include="..\..\..\mylo\configuration.hpp" />
+    <ClInclude Include="..\..\..\mylo\datatype.hpp" />
     <ClInclude Include="..\..\..\mylo\debug.hpp" />
     <ClInclude Include="..\..\..\mylo\dto\audio.hpp" />
-    <ClInclude Include="..\..\..\mylo\dto\datatype.hpp" />
     <ClInclude Include="..\..\..\mylo\dto\entity.hpp" />
     <ClInclude Include="..\..\..\mylo\dto\font.hpp" />
     <ClInclude Include="..\..\..\mylo\dto\image.hpp" />
