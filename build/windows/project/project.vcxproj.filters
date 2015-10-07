@@ -10,258 +10,255 @@
     <Filter Include="mylo\dto\types">
       <UniqueIdentifier>{dd4b5b56-3bcd-400f-8791-caa0b2636eb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform">
-      <UniqueIdentifier>{a07b7ae8-7554-4713-9148-5887498817a6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="third_party">
       <UniqueIdentifier>{89d90170-1361-466f-8f36-18abf7b7e973}</UniqueIdentifier>
     </Filter>
     <Filter Include="third_party\png">
       <UniqueIdentifier>{0e2767cd-e659-4974-81be-c2eabeb4d908}</UniqueIdentifier>
     </Filter>
+    <Filter Include="application">
+      <UniqueIdentifier>{a07b7ae8-7554-4713-9148-5887498817a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="windows.cpp">
-      <Filter>platform</Filter>
+      <Filter>application</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ApplicationTemplate.cpp">
-      <Filter>platform</Filter>
+    <ClCompile Include="..\..\..\src\ApplicationTemplate.cpp">
+      <Filter>application</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\asset.cpp">
+    <ClCompile Include="..\..\..\src\mylo\asset.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\buffer.cpp">
+    <ClCompile Include="..\..\..\src\mylo\buffer.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\compression.cpp">
+    <ClCompile Include="..\..\..\src\mylo\compression.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\configuration.cpp">
+    <ClCompile Include="..\..\..\src\mylo\configuration.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\filesystem.cpp">
+    <ClCompile Include="..\..\..\src\mylo\filesystem.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\identity.cpp">
+    <ClCompile Include="..\..\..\src\mylo\identity.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\regex.cpp">
+    <ClCompile Include="..\..\..\src\mylo\regex.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\stream.cpp">
+    <ClCompile Include="..\..\..\src\mylo\stream.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\timer.cpp">
+    <ClCompile Include="..\..\..\src\mylo\timer.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\trace.cpp">
+    <ClCompile Include="..\..\..\src\mylo\trace.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\utilities.cpp">
+    <ClCompile Include="..\..\..\src\mylo\utilities.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\xml.cpp">
+    <ClCompile Include="..\..\..\src\mylo\xml.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\mylo\xpath.cpp">
+    <ClCompile Include="..\..\..\src\mylo\xpath.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\png.c">
+    <ClCompile Include="..\..\..\src\third_party\png\png.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngerror.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngerror.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngget.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngget.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngmem.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngmem.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngpread.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngpread.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngread.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngread.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngrio.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngrio.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngrtran.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngrtran.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngrutil.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngrutil.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngset.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngset.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngtrans.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngtrans.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngwio.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngwio.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngwrite.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngwrite.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngwtran.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngwtran.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\third_party\png\pngwutil.c">
+    <ClCompile Include="..\..\..\src\third_party\png\pngwutil.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\ApplicationTemplate.hpp">
-      <Filter>platform</Filter>
+    <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp">
+      <Filter>application</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\asset.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\buffer.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\compression.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\configuration.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\debug.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\factory.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\filesystem.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\functor.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\identity.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\iterator.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\linear.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\map.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\mylo.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\pair.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\regex.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\shared_ptr.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\stream.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\string.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\timer.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\trace.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\typecast.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\typetraits.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\utilities.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\variant.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\vector.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\xml.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\xpath.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\audio.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\font.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\image.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\material.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\object.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\program.hpp">
-      <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\fnt.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\mtl.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\frag.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\obj.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\mtl.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\png.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\obj.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\tga.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\png.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\wav.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\tga.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\frag.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\vert.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\types\vert.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\types\wav.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\entity.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\audio.hpp">
       <Filter>mylo\dto</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\primitives.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\entity.hpp">
       <Filter>mylo\dto</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\mylo\dto\shader.hpp">
+    <ClInclude Include="..\..\..\src\mylo\dto\font.hpp">
       <Filter>mylo\dto</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\third_party\png\config.h">
+    <ClInclude Include="..\..\..\src\mylo\dto\image.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\material.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\object.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\primitives.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\program.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\shader.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\asset.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\buffer.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\compression.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\configuration.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\datatype.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\debug.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\factory.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\filesystem.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\functor.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\identity.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\iterator.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\map.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\mylo.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\pair.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\regex.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\shared_ptr.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\stream.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\string.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\timer.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\trace.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\typecast.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\typetraits.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\utilities.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\variant.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\vector.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\xml.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\xpath.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\third_party\png\config.h">
       <Filter>third_party\png</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\third_party\png\png.h">
+    <ClInclude Include="..\..\..\src\third_party\png\png.h">
       <Filter>third_party\png</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\third_party\png\pngconf.h">
+    <ClInclude Include="..\..\..\src\third_party\png\pngconf.h">
       <Filter>third_party\png</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\third_party\png\pngpriv.h">
+    <ClInclude Include="..\..\..\src\third_party\png\pngpriv.h">
       <Filter>third_party\png</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\mylo\datatype.hpp">
-      <Filter>mylo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

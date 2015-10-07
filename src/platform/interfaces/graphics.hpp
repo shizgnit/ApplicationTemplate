@@ -33,6 +33,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __GRAPHICS_HPP
 #define __GRAPHICS_HPP
 
+#include "mylo.hpp"
+
+__PLATFORM_NAMESPACE_BEGIN
+
+class graphics {
+public: virtual void compile(my::shader *shader, unsigned int type) = 0;
+public: virtual void compile(my::program &program) = 0;
+public: virtual void compile(my::object> &object) = 0;
+public: virtual void compile(my::objects &objects) = 0;
+public: virtual void draw(my::object &object, mat4x4 matrix) {
+public: virtual void draw(my::objects &objects, mat4x4 matrix) {
+public: virtual void draw(my::string text, mat4x4 matrix) {
+};
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 

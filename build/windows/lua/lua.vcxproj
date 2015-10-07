@@ -19,64 +19,67 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\third_party\lua\lapi.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lauxlib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lbaselib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lbitlib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lcode.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lcorolib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lctype.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ldblib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ldebug.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ldo.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ldump.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lfunc.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lgc.c" />
-    <ClCompile Include="..\..\..\third_party\lua\linit.c" />
-    <ClCompile Include="..\..\..\third_party\lua\liolib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\llex.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lmathlib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lmem.c" />
-    <ClCompile Include="..\..\..\third_party\lua\loadlib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lobject.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lopcodes.c" />
-    <ClCompile Include="..\..\..\third_party\lua\loslib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lparser.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lstate.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lstring.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lstrlib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ltable.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ltablib.c" />
-    <ClCompile Include="..\..\..\third_party\lua\ltm.c" />
-    <ClCompile Include="..\..\..\third_party\lua\luac.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lundump.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lvm.c" />
-    <ClCompile Include="..\..\..\third_party\lua\lzio.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lapi.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lauxlib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lbaselib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lbitlib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lcode.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lcorolib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lctype.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ldblib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ldebug.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ldo.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ldump.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lfunc.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lgc.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\linit.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\liolib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\llex.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lmathlib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lmem.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\loadlib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lobject.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lopcodes.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\loslib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lparser.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lstate.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lstring.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lstrlib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ltable.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ltablib.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\ltm.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lua.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\luac.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lundump.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lvm.c" />
+    <ClCompile Include="..\..\..\src\third_party\lua\lzio.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\third_party\lua\lapi.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lauxlib.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lcode.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lctype.h" />
-    <ClInclude Include="..\..\..\third_party\lua\ldebug.h" />
-    <ClInclude Include="..\..\..\third_party\lua\ldo.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lfunc.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lgc.h" />
-    <ClInclude Include="..\..\..\third_party\lua\llex.h" />
-    <ClInclude Include="..\..\..\third_party\lua\llimits.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lmem.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lobject.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lopcodes.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lparser.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lstate.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lstring.h" />
-    <ClInclude Include="..\..\..\third_party\lua\ltable.h" />
-    <ClInclude Include="..\..\..\third_party\lua\ltm.h" />
-    <ClInclude Include="..\..\..\third_party\lua\luaconf.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lualib.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lundump.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lvm.h" />
-    <ClInclude Include="..\..\..\third_party\lua\lzio.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lapi.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lauxlib.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lcode.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lctype.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\ldebug.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\ldo.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lfunc.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lgc.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\llex.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\llimits.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lmem.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lobject.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lopcodes.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lparser.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lstate.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lstring.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\ltable.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\ltm.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lua.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lua.hpp" />
+    <ClInclude Include="..\..\..\src\third_party\lua\luaconf.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lualib.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lundump.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lvm.h" />
+    <ClInclude Include="..\..\..\src\third_party\lua\lzio.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}</ProjectGuid>
@@ -134,6 +137,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

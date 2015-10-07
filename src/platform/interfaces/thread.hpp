@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __AUDIO_HPP
-#define __AUDIO_HPP
+#ifndef __THREAD_HPP
+#define __THREAD_HPP
 
 
 #endif

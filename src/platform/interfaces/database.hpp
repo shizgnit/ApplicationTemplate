@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __NETWORK_HPP
-#define __NETWORK_HPP
+#ifndef __DATABASE_HPP
+#define __DATABASE_HPP
 
 
 #endif
