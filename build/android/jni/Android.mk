@@ -19,8 +19,10 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 TOP_PATH := $(LOCAL_PATH)/../../../
-COMMON_PATH := $(TOP_PATH)/
-THIRD_PARTY_PATH := $(TOP_PATH)/third_party
+SRC_PATH := $(TOP_PATH)/src/
+PLATFORM_PATH := $(SRC_PATH)/platform/
+COMMON_PATH := $(SRC_PATH)/
+THIRD_PARTY_PATH := $(SRC_PATH)/third_party
 
 LOCAL_CFLAGS :=
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
@@ -80,7 +82,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := -fpermissive
-LOCAL_C_INCLUDES += $(TOP_PATH)
+LOCAL_C_INCLUDES += $(SRC_PATH)
 LOCAL_C_INCLUDES += $(COMMON_PATH)/mylo
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/linmath
@@ -90,8 +92,8 @@ LOCAL_STATIC_LIBRARIES := libmylo libpng libz
 
 LOCAL_MODULE    := ApplicationTemplate
 #LOCAL_CFLAGS    := -Werror
-LOCAL_SRC_FILES := android.cpp \
-                   $(TOP_PATH)/ApplicationTemplate.cpp
+LOCAL_SRC_FILES := $(PLATFORM_PATH)/android.cpp \
+                   $(SRC_PATH)/ApplicationTemplate.cpp
 LOCAL_LDLIBS    := -llog -lGLESv2 -landroid -lz
 
 include $(BUILD_SHARED_LIBRARY)

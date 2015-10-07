@@ -16,17 +16,17 @@
     <Filter Include="third_party\png">
       <UniqueIdentifier>{0e2767cd-e659-4974-81be-c2eabeb4d908}</UniqueIdentifier>
     </Filter>
-    <Filter Include="application">
+    <Filter Include="platform">
       <UniqueIdentifier>{a07b7ae8-7554-4713-9148-5887498817a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\interfaces">
+      <UniqueIdentifier>{2d8fa2be-5493-40a3-8c48-f5490704bfea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\implementation">
+      <UniqueIdentifier>{2e331ab7-9b8c-4e13-8f2d-534ee78d7a64}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="windows.cpp">
-      <Filter>application</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\ApplicationTemplate.cpp">
-      <Filter>application</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\mylo\asset.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
@@ -111,11 +111,18 @@
     <ClCompile Include="..\..\..\src\third_party\png\pngwutil.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\platform\windows.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ApplicationTemplate.cpp" />
+    <ClCompile Include="..\..\..\src\platform\implementation\opengl.cpp">
+      <Filter>platform\implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\platform\implementation\openal.cpp">
+      <Filter>platform\implementation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp">
-      <Filter>application</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp">
       <Filter>mylo\dto\types</Filter>
     </ClInclude>
@@ -259,6 +266,49 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\third_party\png\pngpriv.h">
       <Filter>third_party\png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\windows.hpp">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\audio.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\database.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\filesystem.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\graphics.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\input.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\network.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\thread.hpp">
+      <Filter>platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\implementation\openal.hpp">
+      <Filter>platform\implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\implementation\opengl.hpp">
+      <Filter>platform\implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\implementation\opensles.hpp">
+      <Filter>platform\implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\implementation\posix.hpp">
+      <Filter>platform\implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\platform.hpp">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\platform\interfaces\asset.hpp">
+      <Filter>platform\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

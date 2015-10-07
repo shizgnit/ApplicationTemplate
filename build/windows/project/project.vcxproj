@@ -86,7 +86,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -165,6 +165,9 @@
     <ClCompile Include="..\..\..\src\mylo\utilities.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xml.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xpath.cpp" />
+    <ClCompile Include="..\..\..\src\platform\implementation\openal.cpp" />
+    <ClCompile Include="..\..\..\src\platform\implementation\opengl.cpp" />
+    <ClCompile Include="..\..\..\src\platform\windows.cpp" />
     <ClCompile Include="..\..\..\src\third_party\png\png.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngerror.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngget.c" />
@@ -180,7 +183,6 @@
     <ClCompile Include="..\..\..\src\third_party\png\pngwrite.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngwtran.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngwutil.c" />
-    <ClCompile Include="windows.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp" />
@@ -228,6 +230,20 @@
     <ClInclude Include="..\..\..\src\mylo\vector.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xml.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xpath.hpp" />
+    <ClInclude Include="..\..\..\src\platform\implementation\openal.hpp" />
+    <ClInclude Include="..\..\..\src\platform\implementation\opengl.hpp" />
+    <ClInclude Include="..\..\..\src\platform\implementation\opensles.hpp" />
+    <ClInclude Include="..\..\..\src\platform\implementation\posix.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\asset.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\audio.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\database.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\filesystem.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\graphics.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\input.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\network.hpp" />
+    <ClInclude Include="..\..\..\src\platform\interfaces\thread.hpp" />
+    <ClInclude Include="..\..\..\src\platform\platform.hpp" />
+    <ClInclude Include="..\..\..\src\platform\windows.hpp" />
     <ClInclude Include="..\..\..\src\third_party\png\config.h" />
     <ClInclude Include="..\..\..\src\third_party\png\png.h" />
     <ClInclude Include="..\..\..\src\third_party\png\pngconf.h" />
