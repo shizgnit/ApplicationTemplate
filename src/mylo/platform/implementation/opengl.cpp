@@ -34,7 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __PLATFORM_NAMESPACE_BEGIN
 
-void opengl::init(void) {
+void opengl::graphics::init(void) {
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
   //glDisable(GL_DEPTH_TEST);
@@ -47,12 +47,12 @@ void opengl::init(void) {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void opengl::clear(void) {
+void opengl::graphics::clear(void) {
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 }
 
-void opengl::compile(my::shader *shader, unsigned int type) { DEBUG_SCOPE;
+void opengl::graphics::compile(my::shader *shader, unsigned int type) { DEBUG_SCOPE;
   DEBUG_TRACE << "compile shader: " << type << my::endl;
 
   shader->context = glCreateShader(type);
@@ -82,7 +82,7 @@ void opengl::compile(my::shader *shader, unsigned int type) { DEBUG_SCOPE;
   }
 }
 
-void opengl::compile(my::program &program) {
+void opengl::graphics::compile(my::program &program) {
   compile(program.vertex, GL_VERTEX_SHADER);
   compile(program.fragment, GL_FRAGMENT_SHADER);
 
@@ -112,7 +112,7 @@ void opengl::compile(my::program &program) {
   }
 }
 
-void opengl::compile(my::object &object) {
+void opengl::graphics::compile(my::object &object) {
   glGenBuffers(1, &object.context);
   glBindBuffer(GL_ARRAY_BUFFER, object.context);
   glBufferData(GL_ARRAY_BUFFER, sizeof(my::object::vertex) * object.vertices.size(), object.vertices.pointer, GL_STATIC_DRAW);
@@ -127,14 +127,14 @@ void opengl::compile(my::object &object) {
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void opengl::compile(my::objects &objects) {
+void opengl::graphics::compile(my::objects &objects) {
   for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
     compile(*it->second);
   }
 }
 
-void opengl::draw(my::object &object, mat4x4 matrix) {
-  glUseProgram(program.context);
+void opengl::graphics::draw(my::object &object, mat4x4 matrix) {
+  glUseProgram(program->context);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, object.texture->context);
@@ -154,50 +154,56 @@ void opengl::draw(my::object &object, mat4x4 matrix) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void opengl::draw(my::objects &objects, mat4x4 matrix) {
+void opengl::graphics::draw(my::objects &objects, mat4x4 matrix) {
   for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
     draw(*it->second, matrix);
   }
 }
 
-void opengl::draw(my::string text, mat4x4 matrix) {
+void opengl::graphics::draw(my::string text, mat4x4 matrix) {
   int prior = 0;
   for (unsigned int i = 0; i < text.length(); i++) {
-    mat4x4_translate_in_place(matrix, (float)font.kern(prior, text[i]), 0.0f, 0.0f);
+    mat4x4_translate_in_place(matrix, (float)font->kern(prior, text[i]), 0.0f, 0.0f);
     mat4x4 temporary;
     mat4x4_dup(temporary, matrix);
-    mat4x4_translate_in_place(temporary, (float)font.glyphs[text[i]]->xoffset, 0.0f, 0.0f);
+    mat4x4_translate_in_place(temporary, (float)font->glyphs[text[i]]->xoffset, 0.0f, 0.0f);
     //mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, font.glyphs[text[i]]->yoffset, 0.0f);
-    draw(*font.glyphs[text[i]]->quad, temporary);
-    mat4x4_translate_in_place(matrix, (float)font.glyphs[text[i]]->xadvance, 0.0f, 0.0f);
+    draw(*font->glyphs[text[i]]->quad, temporary);
+    mat4x4_translate_in_place(matrix, (float)font->glyphs[text[i]]->xadvance, 0.0f, 0.0f);
     prior = text[i];
   }
 }
 
-void opengl::set_font(my::string file) {
-  font << my::asset(file);
-  int x = font.glyphs.size();
-  for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
-    if (font.glyphs[i]->identifier) {
-      compile(*font.glyphs[i]->quad);
+void opengl::graphics::set_font(my::string file) {
+  font = new my::fnt();
+  *font << my::asset(file);
+  int x = font->glyphs.size();
+  for (unsigned int i = font->glyphs.offset(); i < font->glyphs.size(); i++) {
+    if (font->glyphs[i]->identifier) {
+      compile(*font->glyphs[i]->quad);
     }
   }
 }
 
-void opengl::set_program(my::string vert_file, my::string frag_file) {
-  program << frag << my::asset(frag_file);
-  program << vert << my::asset(vert_file);
+void opengl::graphics::set_program(my::string vert_file, my::string frag_file) {
+  program = new my::program();
+
+  program->fragment = new my::frag();
+  program->vertex = new my::vert();
+
+  *program->fragment << my::asset(frag_file);
+  *program->vertex << my::asset(vert_file);
 
   DEBUG_TRACE << "attempting to compile" << my::endl;
 
-  compile(program);
+  compile(*program);
 
   DEBUG_TRACE << "compiled" << my::endl;
 
-  a_position_location = glGetAttribLocation(program.context, "a_Position");
-  a_texture_coordinates_location = glGetAttribLocation(program.context, "a_TextureCoordinates");
-  u_mvp_matrix_location = glGetUniformLocation(program.context, "u_MvpMatrix");
-  u_texture_unit_location = glGetUniformLocation(program.context, "u_TextureUnit");
+  a_position_location = glGetAttribLocation(program->context, "a_Position");
+  a_texture_coordinates_location = glGetAttribLocation(program->context, "a_TextureCoordinates");
+  u_mvp_matrix_location = glGetUniformLocation(program->context, "u_MvpMatrix");
+  u_texture_unit_location = glGetUniformLocation(program->context, "u_TextureUnit");
 }
 
 

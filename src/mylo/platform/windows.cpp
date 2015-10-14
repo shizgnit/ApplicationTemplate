@@ -32,6 +32,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "windows.hpp"
 
+#include "ApplicationTemplate.hpp"
+
 #include <iostream>
 
 #define ID_TRAY_APP_ICON                5000

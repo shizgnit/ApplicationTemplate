@@ -35,8 +35,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if defined WIN32
 #define __PLATFORM_WINDOWS 1
-#else
-#define __PLATFORM_POSIX 1
 #endif
 
 #if defined __ANDROID__
@@ -52,17 +50,80 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 #endif
 
+#if defined __PLATFORM_WINDOWS
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <rpc.h>
+#include <windows.h>
+#include <lmerr.h>
+#define fseeko fseek
+#define ftello ftell
+#include <stdio.h>
+#define GLEW_STATIC
+#include <GL\glew.h>
+#include <GL\gl.h>
+#include <GL\glu.h>
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
+#include <shellapi.h>
+#endif
+
+#if defined __PLATFORM_ANDROID
+#  include <unistd.h>
+#  include <fcntl.h>
+#  include <sys/mman.h>
+#  include <sys/socket.h>
+#  include <netinet/in.h>
+#  include <arpa/inet.h>
+#  include <dirent.h>
+#  include <utime.h>
+#  include <netdb.h>
+#  include <resolv.h>
+#  include <cstring>
+#  ifndef MAP_FILE
+#    define MAP_FILE 0
+#  endif
+#  if defined(__MYLO_UUID)
+#     include <uuid/uuid.h>
+#  endif
+#endif
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <ctype.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/timeb.h>
+#include <stdarg.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include <errno.h>
+
+#if defined(__MOVE_THESE_HEADERS)
+
+#if defined(__MYLO_PTHREAD)
+#include <pthread.h>
+#endif
+
+#if defined(__MYLO_MYSQL)
+#include <mysql/mysql.h>
+#endif
+
+#if defined(__MYLO_LUA)
+extern "C"
+{
+#include <lua.h>
+#include <lauxlib.h>
+#include <lualib.h>
+}
+#endif
+
+#endif
 
 #define __PLATFORM_NAMESPACE_BEGIN namespace platform {
 #define __PLATFORM_NAMESPACE_END }
-
-#if defined _WIN32
-#include "windows.hpp"
-#endif
-
-#if defined __ANDROID__
-#include "android.hpp"
-#endif
 
 
 #endif

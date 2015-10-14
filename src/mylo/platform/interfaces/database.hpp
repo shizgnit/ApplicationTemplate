@@ -31,7 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
 #ifndef __DATABASE_INTERFACE_HPP
 #define __DATABASE_INTERFACE_HPP

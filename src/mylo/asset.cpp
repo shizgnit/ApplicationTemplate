@@ -63,7 +63,7 @@ __MYLO_DLL_EXPORT bool asset::open(my::string in) {
 #endif
 #endif
 
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
   my::string source = my::string((char *)m_manager);
   source.append(my::substitute(in, "/", "\\", true));
   m_buffer << my::file(source);

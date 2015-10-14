@@ -31,12 +31,32 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
 #ifndef __FILESYSTEM_INTERFACE_HPP
 #define __FILESYSTEM_INTERFACE_HPP
 
+__PLATFORM_NAMESPACE_BEGIN
 
+class filesystem_interface {
+public:
+  virtual bool rm(my::string filename) = 0;
+  virtual bool mv(my::string src, my::string dest) = 0;
+  virtual bool cp(my::string src, my::string dest) = 0;
+
+  virtual bool mkdir(my::string path, my::vector<my::string> mask) = 0;
+  virtual bool rmdir(my::string path) = 0;
+
+  virtual my::string pwd(my::string path="") = 0;
+
+  virtual my::vector<unsigned long> stat(my::string path) = 0;
+  virtual my::vector<unsigned long> lstat(my::string path) = 0;
+
+  virtual bool exists(my::string path) = 0;
+
+  virtual my::string filetype(my::string path) = 0;
+};
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 

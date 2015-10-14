@@ -41,29 +41,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define __MYLO_RELEASE $(__MYLO_BUILD_MAJOR).$(__MYLO_BUILD_MINOR).$(__MYLO_BUILD_REV)
 
-#if defined WIN32
-#define __MYLO_WINDOWS 1
-#else
-#define __MYLO_POSIX 1
-#endif
+#include "platform/platform.hpp"
 
-#if defined __ANDROID__
-#define __MYLO_ANDROID 1
-#endif
-
-#if defined(__MYLO_WINDOWS)
-#ifndef _UNICODE
-#error Set "Use Unicode Character Set" in the general project settings
-#endif
-#define WIDE 1
-#define _CRT_SECURE_NO_WARNINGS
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
-#endif
-
-//
-//-[ MACROS ]-----------------------------------------------------------
-//
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 #define __MYLO_STATIC 1
 #  if defined __MYLO_STATIC
 #    define __MYLO_DLL_EXPORT
@@ -92,65 +72,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __MYLO_NAMESPACE_BEGIN namespace my {
 #define __MYLO_NAMESPACE_END }
 
-#if defined __MYLO_WINDOWS
-#  include <winsock2.h>
-#  include <rpc.h>
-#  include <windows.h>
-#  include <lmerr.h>
-#  define fseeko fseek
-#  define ftello ftell
-#else
-#  include <unistd.h>
-#  include <fcntl.h>
-#  include <sys/mman.h>
-#  include <sys/socket.h>
-#  include <netinet/in.h>
-#  include <arpa/inet.h>
-#  include <dirent.h>
-#  include <utime.h>
-#  include <netdb.h>
-#  include <resolv.h>
-#  include <cstring>
-#  ifndef MAP_FILE
-#    define MAP_FILE 0
-#  endif
-#  if defined(__MYLO_UUID)
-#     include <uuid/uuid.h>
-#  endif
-#endif
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <ctype.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <sys/timeb.h>
-#include <stdarg.h>
-#include <math.h>
-#include <errno.h>
-
-#if defined(__MOVE_THESE_HEADERS)
-
-#if defined(__MYLO_PTHREAD)
-#include <pthread.h>
-#endif
-
-#if defined(__MYLO_MYSQL)
-#include <mysql/mysql.h>
-#endif
-
-#if defined(__MYLO_LUA)
-extern "C"
-{
-  #include <lua.h>
-  #include <lauxlib.h>
-  #include <lualib.h>
-}
-#endif
-
-#endif
-
 __MYLO_NAMESPACE_BEGIN
 
 typedef int                 INT;
@@ -167,14 +88,14 @@ typedef char                CHAR;
 typedef unsigned char       BYTE;
 typedef bool                BOOL;
 
-#if defined(__MYLO_WINDOWS)
+#if defined __PLATFORM_WINDOWS
 typedef __int64             INT64;
 typedef unsigned __int64    UINT64;
 #define OMANIP(var) ostream& (__cdecl * var)(ostream&)
 #define MANIP(var) ios& (__cdecl * var)(ios&)
 #endif
 
-#if defined(__MYLO_POSIX)
+#if defined __PLATFORM_ANDROID
 typedef long long           INT64;
 typedef unsigned long long  UINT64;
 #define OMANIP(var) ostream& (*var)(ostream&)
@@ -185,7 +106,7 @@ typedef unsigned long long  UINT64;
 __MYLO_NAMESPACE_END
 
 #include "string.hpp"
-#include "typetraits.hpp"
+#include "type_traits.hpp"
 #include "shared_ptr.hpp"
 #include "iterator.hpp"
 #include "pair.hpp"
@@ -193,14 +114,13 @@ __MYLO_NAMESPACE_END
 #include "map.hpp"
 #include "stream.hpp"
 #include "buffer.hpp"
-#include "typecast.hpp"
+#include "type_cast.hpp"
 #include "trace.hpp"
 #include "debug.hpp"
 
 #include "variant.hpp"
 #include "regex.hpp"
 #include "utilities.hpp"
-#include "filesystem.hpp"
 #include "asset.hpp"
 #include "compression.hpp"
 #include "timer.hpp"
@@ -210,6 +130,8 @@ __MYLO_NAMESPACE_END
 #include "configuration.hpp"
 #include "functor.hpp"
 #include "datatype.hpp"
+#include "file.hpp"
+#include "directory.hpp"
 //#include "archive.hpp"
 
 #include "dto/image.hpp"
@@ -220,9 +142,14 @@ __MYLO_NAMESPACE_END
 #include "dto/entity.hpp"
 #include "dto/font.hpp"
 #include "dto/audio.hpp"
+#include "dto/program.hpp"
 
-#if defined(__MYLO_MYSQL) && defined(__MYLO_PTHREAD)
-#include "db.hpp"
+#if defined __PLATFORM_WINDOWS
+#include "platform/windows.hpp"
+#endif
+
+#if defined __PLATFORM_ANDROID
+#include "platform/android.hpp"
 #endif
 
 #include "dto/types/tga.hpp"
@@ -233,8 +160,6 @@ __MYLO_NAMESPACE_END
 #include "dto/types/frag.hpp"
 #include "dto/types/fnt.hpp"
 #include "dto/types/wav.hpp"
-
-#include "dto/program.hpp"
 
 
 #endif

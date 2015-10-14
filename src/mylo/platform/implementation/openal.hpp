@@ -31,9 +31,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
-#include "interfaces/audio.hpp"
+#include "platform/interfaces/audio.hpp"
 
 #ifndef __OPENAL_HPP
 #define __OPENAL_HPP
@@ -43,13 +42,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __PLATFORM_NAMESPACE_BEGIN
 
-class openal : public audio_interface {
-public:
-  void init(void);
-  void compile(my::audio &sound);
-  void play(my::audio &sound);
-  void shutdown(void);
-};
+namespace openal {
+
+  class audio : public audio_interface {
+  public:
+    void init(void);
+    void compile(my::audio &sound);
+    void play(my::audio &sound);
+    void shutdown(void);
+  };
+
+}
 
 __PLATFORM_NAMESPACE_END
 

@@ -32,7 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "trace.hpp"
 
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 #endif
 #if defined __MYLO_ANDROID
@@ -111,7 +111,7 @@ void trace::file::output(vector<string> content) {
   for (unsigned int i = 0; i < content.size(); i++) {
     text.append(content[i].c_str());
   }
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 #endif
 #if defined __MYLO_ANDROID
@@ -124,7 +124,7 @@ void trace::console::output(vector<string> content) {
   for (unsigned int i = 0; i < content.size(); i++) {
     text.append(content[i].c_str());
   }
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
   printf("%s", text.c_str());
 #endif
 #if defined __MYLO_POSIX

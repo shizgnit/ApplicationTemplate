@@ -36,7 +36,7 @@ __MYLO_NAMESPACE_BEGIN
 
 class directory_handle {
   public:
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
   HANDLE handle;
   WIN32_FIND_DATA *last;
 #else
@@ -47,7 +47,7 @@ class directory_handle {
 
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool cp(my::string srcfile, my::string dest) {
   DWORD dwAttrs;
@@ -123,7 +123,7 @@ bool cp(my::string src, my::string dest) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool rm(my::string filename) {
 #if defined WIDE
@@ -143,7 +143,7 @@ bool rm(my::string filename) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool mv(my::string srcfile, my::string dest) {
 #if defined WIDE
@@ -163,7 +163,7 @@ bool mv(my::string src, my::string dest) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool mkdir(my::string path) {
   return(CreateDirectory(type_cast<my::wstring>(path).c_str(), NULL) ? true : false);
@@ -217,7 +217,7 @@ bool mkdir(my::string path, my::string mask) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool rmdir(my::string path) {
 #if defined WIDE
@@ -236,7 +236,7 @@ bool rmdir(my::string path) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT my::string pwd(my::string path) {
   static wchar_t current[2048];
@@ -268,7 +268,7 @@ my::string pwd(my::string path) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT my::vector<unsigned long> stat(my::string path) {
   my::vector<unsigned long> results;
@@ -374,7 +374,7 @@ my::vector<unsigned long> lstat(my::string path) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT my::string filetype(my::string path) {
   my::string result = "unknown";
@@ -458,7 +458,7 @@ __MYLO_DLL_EXPORT directory::operator my::vector<my::string> (void) {
 }
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool directory::open(my::string path) {
   this->close();
@@ -500,7 +500,7 @@ bool directory::open(my::string path) {
 #endif
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT bool directory::close() {
   if(m_dha->last) {
@@ -530,7 +530,7 @@ bool directory::close() {
 
 
 //------------------------------------------------------------------------------
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 __MYLO_DLL_EXPORT my::string directory::next() {
   my::string value;
@@ -604,7 +604,7 @@ __MYLO_DLL_EXPORT bool file::open(my::string in, file::modes mode) {
       }
     }
     if(m_fp != NULL) {
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
       m_fd = _fileno(m_fp);
 #else
       m_fd = fileno(m_fp);
@@ -632,7 +632,7 @@ __MYLO_DLL_EXPORT bool file::seek(off_t pos) {
 }
 
 __MYLO_DLL_EXPORT bool file::exists(my::string file) {
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
   struct _stat sst;
   return(_stat(file.c_str(), &sst) == 0);
 #else

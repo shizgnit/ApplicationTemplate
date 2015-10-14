@@ -32,8 +32,8 @@
 
 #include "mylo.hpp"
 
-#ifndef __TYPETRAITS_HPP
-#define __TYPETRAITS_HPP
+#ifndef __TYPE_TRAITS_HPP
+#define __TYPE_TRAITS_HPP
 
 __MYLO_NAMESPACE_BEGIN
 

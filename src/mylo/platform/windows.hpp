@@ -33,40 +33,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __WINDOWS_HPP
 #define __WINDOWS_HPP
 
-#include <winsock2.h>
-#include <rpc.h>
-#include <windows.h>
-#include <lmerr.h>
-#define fseeko fseek
-#define ftello ftell
-
-#include <stdio.h>
-
-#define GLEW_STATIC
-#include <GL\glew.h>
-#include <GL\gl.h>
-#include <GL\glu.h>
-#include <stdio.h>
-#include <io.h>
-#include <fcntl.h>
-#include <shellapi.h>
-
-#include "mylo.hpp"
-
 #include "interfaces/graphics.hpp"
 #include "implementation/opengl.hpp"
 
 #include "interfaces/audio.hpp"
 #include "implementation/openal.hpp"
 
+#include "interfaces/filesystem.hpp"
+#include "implementation/winapi.hpp"
+
 __PLATFORM_NAMESPACE_BEGIN
 
-static platform::graphics_interface *graphics = new platform::opengl();
-static platform::audio_interface *audio = new platform::openal();
+static platform::graphics_interface *graphics = new platform::opengl::graphics();
+static platform::audio_interface *audio = new platform::openal::audio();
+static platform::filesystem_interface *filesystem = new platform::winapi::filesystem();
+//static platform::asset_interface *asset = new platform::();
 
 __PLATFORM_NAMESPACE_END
-
-#include "ApplicationTemplate.hpp"
 
 #endif
 

@@ -33,7 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "compression.hpp"
 
 #if defined(__MYLO_ZLIB)
-#  if defined(__MYLO_WINDOWS)
+#  if defined(__PLATFORM_WINDOWS)
 //#    define ZLIB_WINAPI
 #  endif
 #  include <zlib.h>

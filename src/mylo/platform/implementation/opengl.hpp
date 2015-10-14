@@ -31,9 +31,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
-#include "interfaces/graphics.hpp"
+#include "platform/interfaces/graphics.hpp"
 
 #ifndef __OPENGL_HPP
 #define __OPENGL_HPP
@@ -59,28 +58,32 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __PLATFORM_NAMESPACE_BEGIN
 
-#define BUFFER_OFFSET(i) ((void*)(i))
+namespace opengl {
 
-static inline float deg_to_radf(float deg) {
-  return deg * (float)M_PI / 180.0f;
+  #define BUFFER_OFFSET(i) ((void*)(i))
+
+  static inline float deg_to_radf(float deg) {
+    return deg * (float)M_PI / 180.0f;
+  }
+
+  class graphics : public graphics_interface {
+  public:
+    void init(void);
+    void clear(void);
+
+    void compile(my::shader *shader, unsigned int type);
+    void compile(my::program &program);
+    void compile(my::object &object);
+    void compile(my::objects &objects);
+    void draw(my::object &object, mat4x4 matrix);
+    void draw(my::objects &objects, mat4x4 matrix);
+    void draw(my::string text, mat4x4 matrix);
+
+    void set_font(my::string file);
+    void set_program(my::string vert, my::string frag);
+  };
+
 }
-
-class opengl : public graphics_interface {
-public:
-  void init(void);
-  void clear(void);
-
-  void compile(my::shader *shader, unsigned int type);
-  void compile(my::program &program);
-  void compile(my::object &object);
-  void compile(my::objects &objects);
-  void draw(my::object &object, mat4x4 matrix);
-  void draw(my::objects &objects, mat4x4 matrix);
-  void draw(my::string text, mat4x4 matrix);
-
-  void set_font(my::string file);
-  void set_program(my::string vert, my::string frag);
-};
 
 __PLATFORM_NAMESPACE_END
 

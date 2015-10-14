@@ -88,6 +88,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -156,8 +157,13 @@
     <ClCompile Include="..\..\..\src\mylo\buffer.cpp" />
     <ClCompile Include="..\..\..\src\mylo\compression.cpp" />
     <ClCompile Include="..\..\..\src\mylo\configuration.cpp" />
-    <ClCompile Include="..\..\..\src\mylo\filesystem.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\directory.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\file.cpp" />
     <ClCompile Include="..\..\..\src\mylo\identity.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\openal.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\opengl.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\winapi.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\platform\windows.cpp" />
     <ClCompile Include="..\..\..\src\mylo\regex.cpp" />
     <ClCompile Include="..\..\..\src\mylo\stream.cpp" />
     <ClCompile Include="..\..\..\src\mylo\timer.cpp" />
@@ -165,9 +171,6 @@
     <ClCompile Include="..\..\..\src\mylo\utilities.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xml.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xpath.cpp" />
-    <ClCompile Include="..\..\..\src\platform\implementation\openal.cpp" />
-    <ClCompile Include="..\..\..\src\platform\implementation\opengl.cpp" />
-    <ClCompile Include="..\..\..\src\platform\windows.cpp" />
     <ClCompile Include="..\..\..\src\third_party\png\png.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngerror.c" />
     <ClCompile Include="..\..\..\src\third_party\png\pngget.c" />
@@ -192,6 +195,7 @@
     <ClInclude Include="..\..\..\src\mylo\configuration.hpp" />
     <ClInclude Include="..\..\..\src\mylo\datatype.hpp" />
     <ClInclude Include="..\..\..\src\mylo\debug.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\directory.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\audio.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\entity.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\font.hpp" />
@@ -210,40 +214,40 @@
     <ClInclude Include="..\..\..\src\mylo\dto\types\vert.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\types\wav.hpp" />
     <ClInclude Include="..\..\..\src\mylo\factory.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\filesystem.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\file.hpp" />
     <ClInclude Include="..\..\..\src\mylo\functor.hpp" />
     <ClInclude Include="..\..\..\src\mylo\identity.hpp" />
     <ClInclude Include="..\..\..\src\mylo\iterator.hpp" />
     <ClInclude Include="..\..\..\src\mylo\map.hpp" />
     <ClInclude Include="..\..\..\src\mylo\mylo.hpp" />
     <ClInclude Include="..\..\..\src\mylo\pair.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\openal.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\opengl.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\opensles.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\winapi.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\asset.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\audio.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\database.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\filesystem.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\graphics.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\input.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\network.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\thread.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\platform.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\windows.hpp" />
     <ClInclude Include="..\..\..\src\mylo\regex.hpp" />
     <ClInclude Include="..\..\..\src\mylo\shared_ptr.hpp" />
     <ClInclude Include="..\..\..\src\mylo\stream.hpp" />
     <ClInclude Include="..\..\..\src\mylo\string.hpp" />
     <ClInclude Include="..\..\..\src\mylo\timer.hpp" />
     <ClInclude Include="..\..\..\src\mylo\trace.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\typecast.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\typetraits.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\type_cast.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\type_traits.hpp" />
     <ClInclude Include="..\..\..\src\mylo\utilities.hpp" />
     <ClInclude Include="..\..\..\src\mylo\variant.hpp" />
     <ClInclude Include="..\..\..\src\mylo\vector.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xml.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xpath.hpp" />
-    <ClInclude Include="..\..\..\src\platform\implementation\openal.hpp" />
-    <ClInclude Include="..\..\..\src\platform\implementation\opengl.hpp" />
-    <ClInclude Include="..\..\..\src\platform\implementation\opensles.hpp" />
-    <ClInclude Include="..\..\..\src\platform\implementation\posix.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\asset.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\audio.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\database.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\filesystem.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\graphics.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\input.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\network.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\thread.hpp" />
-    <ClInclude Include="..\..\..\src\platform\platform.hpp" />
-    <ClInclude Include="..\..\..\src\platform\windows.hpp" />
     <ClInclude Include="..\..\..\src\third_party\png\config.h" />
     <ClInclude Include="..\..\..\src\third_party\png\png.h" />
     <ClInclude Include="..\..\..\src\third_party\png\pngconf.h" />

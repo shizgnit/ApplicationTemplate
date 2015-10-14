@@ -31,16 +31,39 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
 #ifndef __POSIX_HPP
 #define __POSIX_HPP
 
+__PLATFORM_NAMESPACE_BEGIN
 
+namespace posix {
+
+  class filesystem : public filesystem_interface {
+  public:
+    bool rm(my::string filename);
+    bool mv(my::string src, my::string dest);
+    bool cp(my::string src, my::string dest);
+
+    bool mkdir(my::string path, my::vector<my::string> mask);
+    bool rmdir(my::string path);
+
+    my::string pwd(my::string path = "");
+
+    my::vector<unsigned long> stat(my::string path);
+    my::vector<unsigned long> lstat(my::string path);
+
+    bool exists(my::string path);
+
+    my::string filetype(my::string path);
+  };
+
+}
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 
 // Local Variables:
 // mode:C++
 // End:
-

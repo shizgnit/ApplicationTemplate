@@ -31,7 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "mylo.hpp"
-#include "platform.hpp"
 
 #ifndef __GRAPHICS_INTERFACE_HPP
 #define __GRAPHICS_INTERFACE_HPP
@@ -62,11 +61,8 @@ class graphics_interface {
     int u_mvp_matrix_location;
     int u_texture_unit_location;
 
-    my::fnt font;
-
-    my::program program;
-    my::frag frag;
-    my::vert vert;
+    my::shared_ptr<my::font> font;
+    my::shared_ptr<my::program> program;
 };
 
 __PLATFORM_NAMESPACE_END

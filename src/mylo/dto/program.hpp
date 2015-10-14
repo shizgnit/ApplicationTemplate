@@ -37,6 +37,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __MYLO_NAMESPACE_BEGIN
 
+class frag;
+class vert;
+
 class __MYLO_DLL_EXPORT program {
 public:
   program() {
@@ -44,8 +47,8 @@ public:
     vertex = NULL;
   }
 
-  my::frag *fragment;
-  my::vert *vertex;
+  my::shared_ptr<my::frag> fragment;
+  my::shared_ptr<my::vert> vertex;
 
   my::frag &operator << (my::frag &rval) {
     fragment = &rval;

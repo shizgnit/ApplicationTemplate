@@ -16,14 +16,14 @@
     <Filter Include="third_party\png">
       <UniqueIdentifier>{0e2767cd-e659-4974-81be-c2eabeb4d908}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform">
-      <UniqueIdentifier>{a07b7ae8-7554-4713-9148-5887498817a6}</UniqueIdentifier>
+    <Filter Include="mylo\platform">
+      <UniqueIdentifier>{50f99a4c-af44-411f-a26e-4b28c62aa067}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform\interfaces">
-      <UniqueIdentifier>{2d8fa2be-5493-40a3-8c48-f5490704bfea}</UniqueIdentifier>
+    <Filter Include="mylo\platform\interfaces">
+      <UniqueIdentifier>{23bb14c1-65e9-4ac3-85ee-9d0d1a38407d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="platform\implementation">
-      <UniqueIdentifier>{2e331ab7-9b8c-4e13-8f2d-534ee78d7a64}</UniqueIdentifier>
+    <Filter Include="mylo\platform\implementation">
+      <UniqueIdentifier>{d6e0783d-44a3-4608-856b-66d31abcf2d1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +37,6 @@
       <Filter>mylo</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\mylo\configuration.cpp">
-      <Filter>mylo</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\mylo\filesystem.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\mylo\identity.cpp">
@@ -111,15 +108,24 @@
     <ClCompile Include="..\..\..\src\third_party\png\pngwutil.c">
       <Filter>third_party\png</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\platform\windows.cpp">
-      <Filter>platform</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\ApplicationTemplate.cpp" />
-    <ClCompile Include="..\..\..\src\platform\implementation\opengl.cpp">
-      <Filter>platform\implementation</Filter>
+    <ClCompile Include="..\..\..\src\mylo\platform\windows.cpp">
+      <Filter>mylo\platform</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\platform\implementation\openal.cpp">
-      <Filter>platform\implementation</Filter>
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\openal.cpp">
+      <Filter>mylo\platform\implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\opengl.cpp">
+      <Filter>mylo\platform\implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\directory.cpp">
+      <Filter>mylo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\file.cpp">
+      <Filter>mylo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\platform\implementation\winapi.cpp">
+      <Filter>mylo\platform\implementation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +201,6 @@
     <ClInclude Include="..\..\..\src\mylo\factory.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\filesystem.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\functor.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
@@ -234,12 +237,6 @@
     <ClInclude Include="..\..\..\src\mylo\trace.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\typecast.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\typetraits.hpp">
-      <Filter>mylo</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\utilities.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
@@ -267,48 +264,60 @@
     <ClInclude Include="..\..\..\src\third_party\png\pngpriv.h">
       <Filter>third_party\png</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\windows.hpp">
-      <Filter>platform</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp" />
-    <ClInclude Include="..\..\..\src\platform\interfaces\audio.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\platform.hpp">
+      <Filter>mylo\platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\database.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\windows.hpp">
+      <Filter>mylo\platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\filesystem.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\openal.hpp">
+      <Filter>mylo\platform\implementation</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\graphics.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\opengl.hpp">
+      <Filter>mylo\platform\implementation</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\input.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\opensles.hpp">
+      <Filter>mylo\platform\implementation</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\network.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\asset.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\thread.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\audio.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\implementation\openal.hpp">
-      <Filter>platform\implementation</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\database.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\implementation\opengl.hpp">
-      <Filter>platform\implementation</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\filesystem.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\implementation\opensles.hpp">
-      <Filter>platform\implementation</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\graphics.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\implementation\posix.hpp">
-      <Filter>platform\implementation</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\input.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\platform.hpp">
-      <Filter>platform</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\network.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\platform\interfaces\asset.hpp">
-      <Filter>platform\interfaces</Filter>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\thread.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\directory.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\file.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\platform\implementation\winapi.hpp">
+      <Filter>mylo\platform\implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\type_cast.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\type_traits.hpp">
+      <Filter>mylo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

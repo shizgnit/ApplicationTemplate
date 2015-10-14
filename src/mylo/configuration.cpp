@@ -176,7 +176,7 @@ __MYLO_DLL_EXPORT bool configuration::ini(my::string filename, my::string catego
 
 __MYLO_DLL_EXPORT bool configuration::registry(my::string path, bool traverse) {
 
-#if defined __MYLO_WINDOWS
+#if defined __PLATFORM_WINDOWS
 
 #define MAX_BUFFER 4096
 

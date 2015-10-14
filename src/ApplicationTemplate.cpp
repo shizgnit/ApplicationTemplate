@@ -1,10 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define _USE_MATH_DEFINES
-#include <math.h>
-
-#include "platform.hpp"
 #include "mylo.hpp"
 
 #include "linmath.h"
@@ -31,6 +24,7 @@ my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
   platform::graphics->init();
+  platform::audio->init();
 
   my::asset::manager(asset_manager);
 
@@ -41,8 +35,8 @@ void on_startup(void *asset_manager) {
   //
   // Just testing out some file system abstractions
   //
-  DEBUG_TRACE << "pwd: " << my::pwd() << my::endl;
-  my::directory dir(my::pwd());
+  DEBUG_TRACE << "pwd: " << platform::filesystem->pwd() << my::endl;
+  my::directory dir(platform::filesystem->pwd());
   while(my::string current = dir.next()) {
     DEBUG_TRACE << "contents: " << current << my::endl;
   }
