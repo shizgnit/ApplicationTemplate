@@ -43,7 +43,7 @@ public:
   virtual void search(my::string path) = 0;
   virtual my::buffer retrieve(my::string request, my::string path="") = 0;
 
-  void *manager_instance;
+  static void *manager_instance;
   my::map<my::string, int> search_paths;
 };
 

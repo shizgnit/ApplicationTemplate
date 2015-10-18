@@ -36,6 +36,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __PLATFORM_NAMESPACE_BEGIN
 
+void * platform::asset_interface::manager_instance = NULL;
+
 void art::asset::manager(void *instance) {
   manager_instance = instance;
 }

@@ -271,9 +271,6 @@
     <ClInclude Include="..\..\..\src\mylo\platform\implementation\opengl.hpp">
       <Filter>mylo\platform\implementation</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\platform\implementation\opensles.hpp">
-      <Filter>mylo\platform\implementation</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\asset.hpp">
       <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>

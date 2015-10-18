@@ -90,19 +90,9 @@ static unsigned nextSize;
 static int nextCount;
 
 
-// synthesize a mono sawtooth wave and place it into a buffer (called automatically on load)
-__attribute__((constructor)) static void onDlOpen(void)
-{
-    unsigned i;
-    for (i = 0; i < SAWTOOTH_FRAMES; ++i) {
-        sawtoothBuffer[i] = 32768 - ((i % 100) * 660);
-    }
-}
-
-
 // this callback handler is called every time a buffer finishes playing
-void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
-{
+void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context) { DEBUG_SCOPE;
+	DEBUG_TRACE << "player callback" << my::endl;
     //assert(bq == bqPlayerBufferQueue);
     //assert(NULL == context);
     // for streaming playback, replace this test by logic to find and fill the next buffer
@@ -118,8 +108,8 @@ void bqPlayerCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
 
 
 // this callback handler is called every time a buffer finishes recording
-void bqRecorderCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
-{
+void bqRecorderCallback(SLAndroidSimpleBufferQueueItf bq, void *context) { DEBUG_SCOPE;
+	DEBUG_TRACE << "recorder callback" << my::endl;
     //assert(bq == bqRecorderBufferQueue);
     //assert(NULL == context);
     // for streaming recording, here we would call Enqueue to give recorder the next buffer to fill
@@ -134,18 +124,22 @@ void bqRecorderCallback(SLAndroidSimpleBufferQueueItf bq, void *context)
 
 __PLATFORM_NAMESPACE_BEGIN
 
-void opensl::audio::init(void) {
+void opensl::audio::init(void) { DEBUG_SCOPE;
+	DEBUG_TRACE << "audio init" << my::endl;
 	SLresult result;
 
 	// create engine
+	DEBUG_TRACE << "create engine" << my::endl;
 	result = slCreateEngine(&engineObject, 0, NULL, 0, NULL, NULL);
 	//assert(SL_RESULT_SUCCESS == result);
 
 	// realize the engine
+	DEBUG_TRACE << "realize" << my::endl;
 	result = (*engineObject)->Realize(engineObject, SL_BOOLEAN_FALSE);
 	//assert(SL_RESULT_SUCCESS == result);
 
 	// get the engine interface, which is needed in order to create other objects
+	DEBUG_TRACE << "get interface" << my::endl;
 	result = (*engineObject)->GetInterface(engineObject, SL_IID_ENGINE, &engineEngine);
 	//assert(SL_RESULT_SUCCESS == result);
 
@@ -172,8 +166,11 @@ void opensl::audio::init(void) {
 	// ignore unsuccessful result codes for environmental reverb, as it is optional for this example
 }
 
-void opensl::audio::compile(my::audio &sound) {
+void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
+	DEBUG_TRACE << "audio compile" << my::endl;
 	SLresult result;
+	
+	DEBUG_TRACE << "loading buffer " << sound.size << " bytes" << my::endl;
 	result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, reinterpret_cast<short *>(*sound.data), sound.size);
 	if (SL_RESULT_SUCCESS != result) {
 		//return JNI_FALSE;
@@ -182,6 +179,7 @@ void opensl::audio::compile(my::audio &sound) {
     //SLresult result;
 
     // configure audio source
+	DEBUG_TRACE << "buffer queue" << my::endl;
     SLDataLocator_AndroidSimpleBufferQueue loc_bufq = {SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE, 2};
     SLDataFormat_PCM format_pcm = {SL_DATAFORMAT_PCM, 1, SL_SAMPLINGRATE_8,
         SL_PCMSAMPLEFORMAT_FIXED_16, SL_PCMSAMPLEFORMAT_FIXED_16,
@@ -242,7 +240,8 @@ void opensl::audio::play(my::audio &sound) {
     //assert(SL_RESULT_SUCCESS == result);
 }
 
-void opensl::audio::shutdown(void) {
+void opensl::audio::shutdown(void) { DEBUG_SCOPE;
+	DEBUG_TRACE << "audio shutdown" << my::endl;
 
     // destroy buffer queue audio player object, and invalidate all associated interfaces
     if (bqPlayerObject != NULL) {

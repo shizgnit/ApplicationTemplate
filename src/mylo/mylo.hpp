@@ -161,16 +161,16 @@ public:
 __PLATFORM_NAMESPACE_END
 
 #if defined __PLATFORM_WINDOWS
-#include "implementation/opengl.hpp"
-#include "implementation/openal.hpp"
-#include "implementation/winapi.hpp"
+#include "platform/implementation/opengl.hpp"
+#include "platform/implementation/openal.hpp"
+#include "platform/implementation/winapi.hpp"
 #endif
 
 #if defined __PLATFORM_ANDROID
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensl.hpp"
-#include "implementation/art.hpp"
+#include "platform/implementation/posix.hpp"
+#include "platform/implementation/opengl.hpp"
+#include "platform/implementation/opensl.hpp"
+#include "platform/implementation/art.hpp"
 #endif
 
 #include "dto/types/tga.hpp"

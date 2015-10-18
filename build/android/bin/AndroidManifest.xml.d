@@ -1,2 +1,2 @@
-c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\AndroidManifest.xml : \
-c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\AndroidManifest.xml \
+c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\build\android\bin\AndroidManifest.xml : \
+c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\build\android\AndroidManifest.xml \

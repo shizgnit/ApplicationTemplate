@@ -114,7 +114,7 @@ void trace::file::output(vector<string> content) {
 #if defined __PLATFORM_WINDOWS
 
 #endif
-#if defined __MYLO_ANDROID
+#if defined __PLATFORM_ANDROID
   __android_log_print(ANDROID_LOG_INFO,"ApplicationTemplate", "%s", text.c_str());
 #endif
 }
@@ -127,10 +127,10 @@ void trace::console::output(vector<string> content) {
 #if defined __PLATFORM_WINDOWS
   printf("%s", text.c_str());
 #endif
-#if defined __MYLO_POSIX
+#if defined __PLATFORM_POSIX
   printf("%s", text.c_str());
 #endif
-#if defined __MYLO_ANDROID
+#if defined __PLATFORM_ANDROID
   __android_log_print(ANDROID_LOG_INFO, "ApplicationTemplate", "%s", text.c_str());
 #endif
 }

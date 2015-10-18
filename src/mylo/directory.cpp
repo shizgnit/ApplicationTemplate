@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "filesystem.hpp"
+#include "directory.hpp"
 
 __MYLO_NAMESPACE_BEGIN
 

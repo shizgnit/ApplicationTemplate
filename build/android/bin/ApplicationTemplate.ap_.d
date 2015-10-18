@@ -1,4 +1,5 @@
- : c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\res\values\strings.xml \
+c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\build\android\bin\ApplicationTemplate.ap_ \
+ : c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\build\android\res\values\strings.xml \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\arial2_0.png \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\fonts \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\models \
@@ -47,4 +48,4 @@ c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\sounds
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\textures\landscape.jpg \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\textures\landscape2.png \
 c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\assets\textures\landscape2.tga \
-c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform\android\bin\AndroidManifest.xml \
+c:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\build\android\bin\AndroidManifest.xml \

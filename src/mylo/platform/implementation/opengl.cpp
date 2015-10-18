@@ -185,7 +185,10 @@ void opengl::graphics::set_font(my::string file) {
   }
 }
 
-void opengl::graphics::set_program(my::string vert_file, my::string frag_file) {
+void opengl::graphics::set_program(my::string vert_file, my::string frag_file) { DEBUG_SCOPE;
+  DEBUG_TRACE << "setting program" << my::endl;
+  DEBUG_TRACE << "frag: " << frag_file << my::endl;
+  DEBUG_TRACE << "vert: " << vert_file << my::endl;
   program = new my::program();
 
   program->fragment = new my::frag();
