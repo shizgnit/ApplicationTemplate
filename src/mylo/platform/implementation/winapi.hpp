@@ -30,22 +30,47 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "mylo.hpp"
 
-//#define GLEW_STATIC
+#ifndef __WINAPI_HPP
+#define __WINAPI_HPP
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__PLATFORM_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+namespace winapi {
+
+  class asset : public asset_interface {
+  public:
+    void manager(void *instance);
+    void search(my::string path);
+    my::buffer retrieve(my::string request, my::string path = "");
+  };
+
+  class filesystem : public filesystem_interface {
+  public:
+    bool rm(my::string filename);
+    bool mv(my::string src, my::string dest);
+    bool cp(my::string src, my::string dest);
+
+    bool mkdir(my::string path, my::vector<my::string> mask);
+    bool rmdir(my::string path);
+
+    my::string pwd(my::string path = "");
+
+    my::vector<unsigned long> stat(my::string path);
+    my::vector<unsigned long> lstat(my::string path);
+
+    bool exists(my::string path);
+
+    my::string filetype(my::string path);
+  };
+
+}
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 
 // Local Variables:
 // mode:C++
 // End:
-

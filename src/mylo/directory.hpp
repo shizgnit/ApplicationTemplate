@@ -30,22 +30,37 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "mylo.hpp"
 
-//#define GLEW_STATIC
+#ifndef __FILESYSTEM_HPP
+#define __FILESYSTEM_HPP
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__MYLO_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+class directory_handle;
+
+class __MYLO_DLL_EXPORT directory {
+public:
+  directory(my::string path);
+  ~directory(void);
+
+  bool open(my::string path);
+  bool close();
+
+  my::string next();
+
+  operator my::vector<my::string> (void);
+
+private:
+  my::string m_path;
+
+  directory_handle *m_dha;
+};
+
+__MYLO_NAMESPACE_END
 
 #endif
 
 // Local Variables:
 // mode:C++
 // End:
-

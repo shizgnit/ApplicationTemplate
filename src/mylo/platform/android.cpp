@@ -1,3 +1,13 @@
+#include "mylo.hpp"
+
+#include "ApplicationTemplate.hpp"
+
+platform::filesystem_interface *platform::api::filesystem = new posix::filesystem();
+platform::graphics_interface *platform::api::graphics = new opengl::graphics();
+platform::audio_interface *platform::api::audio = new opensles::audio();
+platform::asset_interface *platform::api::asset = new art::asset();
+
+
 #include <jni.h>
 
 #include <android/log.h>
@@ -6,12 +16,6 @@
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 
-#include "ApplicationTemplate.hpp"
-
-platform::filesystem_interface *platform::api::filesystem = new posix::filesystem();
-platform::graphics_interface *platform::api::graphics = new opengl::graphics();
-platform::audio_interface *platform::api::audio = new opensles::audio();
-platform::asset_interface *platform::api::asset = new art::asset();
 
 extern "C" {
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1startup(JNIEnv * env, jclass cls, jobject java_asset_manager);

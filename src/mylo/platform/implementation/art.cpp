@@ -30,22 +30,46 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "art.hpp"
 
-//#define GLEW_STATIC
+#include <android/asset_manager_jni.h>
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__PLATFORM_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+void art::asset::manager(void *instance) {
+  manager_instance = instance;
+}
 
-#endif
+void art::asset::search(my::string path) {
+  search_paths[my::substitute(path, "/", "\\", true)] = 1;
+}
+
+my::buffer art::asset::retrieve(my::string request, my::string path) { DEBUG_SCOPE;
+  my::buffer data;
+  
+  DEBUG_TRACE << "Attempting to find resource: " << in << endl;
+  AAsset* asset = AAssetManager_open((AAssetManager*)manager_instance, in, AASSET_MODE_STREAMING);
+  m_ptr = asset;
+  if(asset) {
+    DEBUG_TRACE << "Found resource " << (int)AAsset_getLength(asset) << " bytes" << endl;
+//    DEBUG_TRACE << "Contents: " << (char *)AAsset_getBuffer(asset) << endl;
+//    DEBUG_TRACE << "Contents length: " << strlen((char *)AAsset_getBuffer(asset)) << endl;
+    m_buffer.write((unsigned char *)AAsset_getBuffer(asset), AAsset_getLength(asset));
+  }
+  else {
+    DEBUG_TRACE << "Failure to load resource" << endl;
+  }
+  
+  return(data);
+}
+
+void asset::close(void) { DEBUG_SCOPE;
+  AAsset_close((AAsset*)m_ptr);
+}
+
+__PLATFORM_NAMESPACE_END
+
 
 // Local Variables:
 // mode:C++
 // End:
-

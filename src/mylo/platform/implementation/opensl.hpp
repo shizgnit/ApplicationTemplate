@@ -30,18 +30,27 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "mylo.hpp"
 
-//#define GLEW_STATIC
+#ifndef __OPENSL_HPP
+#define __OPENSL_HPP
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__PLATFORM_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+namespace opensl {
+
+  class audio : public audio_interface {
+  public:
+    void init(void);
+    void compile(my::audio &sound);
+    void play(my::audio &sound);
+    void shutdown(void);
+  };
+
+}
+
+__PLATFORM_NAMESPACE_END
+
 
 #endif
 

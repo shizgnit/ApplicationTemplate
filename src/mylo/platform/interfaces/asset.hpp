@@ -30,18 +30,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "mylo.hpp"
 
-//#define GLEW_STATIC
+#ifndef __ASSET_INTERFACE_HPP
+#define __ASSET_INTERFACE_HPP
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__PLATFORM_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+class asset_interface {
+public:
+  virtual void manager(void *instance) = 0;
+  virtual void search(my::string path) = 0;
+  virtual my::buffer retrieve(my::string request, my::string path="") = 0;
+
+  void *manager_instance;
+  my::map<my::string, int> search_paths;
+};
+
+__PLATFORM_NAMESPACE_END
+
+
 
 #endif
 

@@ -30,22 +30,83 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "file.hpp"
 
-//#define GLEW_STATIC
+__MYLO_NAMESPACE_BEGIN
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
-
+__MYLO_DLL_EXPORT bool file::open(my::string in, file::modes mode) {
+  if(m_fp == NULL) {
+    m_size = 0;
+    m_file = in;
+    if(mode & file::wo && !exists(m_file)) {
+      FILE *init;
+      if(init = fopen(m_file.c_str(), "wb+")) {
+        fclose(init);
+      }
+    }
+    if(mode & file::ro) {
+      if(mode & file::wo) {
+        m_fp = fopen(m_file.c_str(), "rb+");
+      }
+      if(!m_fp) {
+        m_fp = fopen(m_file.c_str(), "rb");
+      }
+      if(m_fp) {
+        fseeko(m_fp, 0, SEEK_END);
+        m_size = location();
+        fseeko(m_fp, 0, SEEK_SET);
+      }
+    }
+    if(m_fp != NULL) {
+#if defined __PLATFORM_WINDOWS
+      m_fd = _fileno(m_fp);
+#else
+      m_fd = fileno(m_fp);
 #endif
+    }
+  }
+  return(m_fp ? true : false);
+}
+
+__MYLO_DLL_EXPORT void file::close(void) {
+  if(m_fp != NULL) {
+    fflush(m_fp);
+    fclose(m_fp);
+  }
+  m_fp = NULL;
+}
+
+__MYLO_DLL_EXPORT off_t file::location(void) {
+  return(ftello(m_fp));
+}
+
+__MYLO_DLL_EXPORT bool file::seek(off_t pos) {
+  bool success = (fseeko(m_fp, pos, SEEK_SET) == 0);
+  return(success);
+}
+
+__MYLO_DLL_EXPORT bool file::exists(my::string file) {
+#if defined __PLATFORM_WINDOWS
+  struct _stat sst;
+  return(_stat(file.c_str(), &sst) == 0);
+#else
+  struct stat sst;
+  return(stat(file.c_str(), &sst) == 0);
+#endif
+}
+
+__MYLO_DLL_EXPORT off_t file::read(unsigned char *buffer, off_t bytes) {
+  off_t request = bytes + location() > m_size ? m_size - location() : bytes; 
+  return(feof(m_fp) ? 0 : fread(buffer, 1, request, m_fp));
+}
+
+__MYLO_DLL_EXPORT off_t file::write(unsigned char *buffer, off_t size) {
+  return(fwrite(buffer, 1, size, m_fp));
+}
+
+__MYLO_NAMESPACE_END
 
 // Local Variables:
 // mode:C++
 // End:
-

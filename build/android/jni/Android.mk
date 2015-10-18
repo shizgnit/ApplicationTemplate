@@ -20,7 +20,7 @@ include $(CLEAR_VARS)
 
 TOP_PATH := $(LOCAL_PATH)/../../../
 SRC_PATH := $(TOP_PATH)/src/
-PLATFORM_PATH := $(SRC_PATH)/platform/
+PLATFORM_PATH := $(SRC_PATH)/mylo/platform/
 COMMON_PATH := $(SRC_PATH)/
 THIRD_PARTY_PATH := $(SRC_PATH)/third_party
 
@@ -63,8 +63,6 @@ LOCAL_SRC_FILES := \
   $(COMMON_PATH)/mylo/buffer.cpp \
   $(COMMON_PATH)/mylo/compression.cpp \
   $(COMMON_PATH)/mylo/configuration.cpp \
-  $(COMMON_PATH)/mylo/filesystem.cpp \
-  $(COMMON_PATH)/mylo/asset.cpp \
   $(COMMON_PATH)/mylo/identity.cpp \
   $(COMMON_PATH)/mylo/regex.cpp \
   $(COMMON_PATH)/mylo/stream.cpp \

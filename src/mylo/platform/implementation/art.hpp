@@ -32,14 +32,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "mylo.hpp"
 
-#ifndef __OPENSLES_HPP
-#define __OPENSLES_HPP
+#ifndef __ART_HPP
+#define __ART_HPP
 
+__PLATFORM_NAMESPACE_BEGIN
 
+namespace art {
+
+  class asset : public asset_interface {
+  public:
+    void manager(void *instance);
+    void search(my::string path);
+    my::buffer retrieve(my::string request, my::string path = "");
+  };
+
+}
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 
 // Local Variables:
 // mode:C++
 // End:
-

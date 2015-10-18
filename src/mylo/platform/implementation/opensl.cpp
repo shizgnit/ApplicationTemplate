@@ -30,20 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "opensles.hpp"
 
-//#define GLEW_STATIC
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
-
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
-
-#endif
 
 // Local Variables:
 // mode:C++

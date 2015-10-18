@@ -30,22 +30,58 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#ifndef __ANDROID_HPP
-#define __ANDROID_HPP
+#include "mylo.hpp"
 
-//#define GLEW_STATIC
+#ifndef __FILE_HPP
+#define __FILE_HPP
 
-//#include <GLES2/gl2.h>
-//#include <android/log.h>
+__MYLO_NAMESPACE_BEGIN
 
-#include "implementation/posix.hpp"
-#include "implementation/opengl.hpp"
-#include "implementation/opensles.hpp"
-#include "implementation/art.hpp"
+class __MYLO_DLL_EXPORT file : public my::serializable {
+public:
+  enum modes {
+    ro = 0x01,
+    wo = 0x02,
+    rw = 0x03,
+  };
+
+  file(void) : m_fp(NULL) { /* NULL */ }
+  file(my::string in) : m_fp(NULL) {
+    open(in);
+  }
+
+  ~file(void) {
+    close();
+  }
+  
+  bool open() { 
+    return(open(m_file)); 
+  }
+  bool open(my::string in, modes mode = rw);
+  
+  void close(void);
+
+  off_t location(void);
+  bool seek(off_t pos);
+  
+  off_t read(unsigned char *buffer, off_t bytes);
+  off_t write(unsigned char *buffer, off_t bytes);
+  
+  static bool exists(my::string file);
+  
+protected:
+  my::string m_file;
+  
+  off_t m_size;
+  
+  FILE *m_fp;
+  int m_fd;
+};
+
+__MYLO_NAMESPACE_END
 
 #endif
 
 // Local Variables:
 // mode:C++
 // End:
-
