@@ -30,9 +30,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "windows.hpp"
+#include "mylo.hpp"
 
 #include "ApplicationTemplate.hpp"
+
+platform::filesystem_interface *platform::api::filesystem = new winapi::filesystem();
+platform::graphics_interface *platform::api::graphics = new opengl::graphics();
+platform::audio_interface *platform::api::audio = new openal::audio();
+platform::asset_interface *platform::api::asset = new winapi::asset();
 
 #include <iostream>
 

@@ -153,7 +153,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\ApplicationTemplate.cpp" />
-    <ClCompile Include="..\..\..\src\mylo\asset.cpp" />
     <ClCompile Include="..\..\..\src\mylo\buffer.cpp" />
     <ClCompile Include="..\..\..\src\mylo\compression.cpp" />
     <ClCompile Include="..\..\..\src\mylo\configuration.cpp" />
@@ -189,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\ApplicationTemplate.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\asset.hpp" />
     <ClInclude Include="..\..\..\src\mylo\buffer.hpp" />
     <ClInclude Include="..\..\..\src\mylo\compression.hpp" />
     <ClInclude Include="..\..\..\src\mylo\configuration.hpp" />

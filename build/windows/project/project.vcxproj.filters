@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\mylo\asset.cpp">
-      <Filter>mylo</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\mylo\buffer.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
@@ -179,9 +176,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\dto\shader.hpp">
       <Filter>mylo\dto</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\asset.hpp">
-      <Filter>mylo</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\buffer.hpp">
       <Filter>mylo</Filter>

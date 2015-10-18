@@ -176,7 +176,7 @@ void opengl::graphics::draw(my::string text, mat4x4 matrix) {
 
 void opengl::graphics::set_font(my::string file) {
   font = new my::fnt();
-  *font << my::asset(file);
+  *font << platform::api::asset->retrieve(file);
   int x = font->glyphs.size();
   for (unsigned int i = font->glyphs.offset(); i < font->glyphs.size(); i++) {
     if (font->glyphs[i]->identifier) {
@@ -191,8 +191,8 @@ void opengl::graphics::set_program(my::string vert_file, my::string frag_file) {
   program->fragment = new my::frag();
   program->vertex = new my::vert();
 
-  *program->fragment << my::asset(frag_file);
-  *program->vertex << my::asset(vert_file);
+  *program->fragment << platform::api::asset->retrieve(frag_file);
+  *program->vertex << platform::api::asset->retrieve(vert_file);
 
   DEBUG_TRACE << "attempting to compile" << my::endl;
 

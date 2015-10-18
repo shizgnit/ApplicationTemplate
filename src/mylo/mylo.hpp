@@ -121,7 +121,7 @@ __MYLO_NAMESPACE_END
 #include "variant.hpp"
 #include "regex.hpp"
 #include "utilities.hpp"
-#include "asset.hpp"
+//#include "asset.hpp"
 #include "compression.hpp"
 #include "timer.hpp"
 #include "identity.hpp"

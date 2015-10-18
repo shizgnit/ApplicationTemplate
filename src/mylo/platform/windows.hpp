@@ -33,21 +33,24 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __WINDOWS_HPP
 #define __WINDOWS_HPP
 
-#include "interfaces/graphics.hpp"
-#include "implementation/opengl.hpp"
-
-#include "interfaces/audio.hpp"
-#include "implementation/openal.hpp"
-
 #include "interfaces/filesystem.hpp"
+#include "interfaces/graphics.hpp"
+#include "interfaces/audio.hpp"
+#include "interfaces/asset.hpp"
+
+#include "implementation/opengl.hpp"
+#include "implementation/openal.hpp"
 #include "implementation/winapi.hpp"
 
 __PLATFORM_NAMESPACE_BEGIN
 
-static platform::graphics_interface *graphics = new platform::opengl::graphics();
-static platform::audio_interface *audio = new platform::openal::audio();
-static platform::filesystem_interface *filesystem = new platform::winapi::filesystem();
-//static platform::asset_interface *asset = new platform::();
+class api {
+public:
+  static filesystem_interface *filesystem;
+  static graphics_interface *graphics;
+  static audio_interface *audio;
+  static asset_interface *asset;
+};
 
 __PLATFORM_NAMESPACE_END
 

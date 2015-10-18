@@ -82,7 +82,11 @@ public:
     if (strcmp(command, "mtllib") == 0) { //material
       context->mats = new my::mtl;
       context->mats->search_path = context->search_path;
-      *context->mats << my::asset(my::join("/", (context->search_path, arguments[1])));
+      my::string file = context->search_path;
+      file.append("/");
+      file.append(arguments[1]);
+
+      *context->mats << platform::api::asset->retrieve(join("/", (context->search_path, arguments[1])));
     }
     if (strcmp(command, "o") == 0) { //entity
       context->active = new my::object;

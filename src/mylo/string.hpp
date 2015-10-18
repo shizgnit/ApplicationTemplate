@@ -77,6 +77,30 @@ public:
     return(*this);
   }
 
+  basic_string operator + (const basic_string in) {
+    basic_string<T> result;
+    result = *this;
+    result.append(in);
+    return(result);
+  }
+  
+  basic_string operator + (const T *in) {
+    basic_string<T> result;
+    result = *this;
+    result.append(in);
+    return(result);
+  }
+
+  basic_string &operator += (const basic_string &in) {
+    *this->append(in);
+    return(*this);
+  }
+
+  basic_string &operator += (const T *in) {
+    *this->append(in);
+    return(*this);
+  }
+
   bool operator == (const T *in) {
     if(in == NULL || m_data == NULL) {
       return(in == m_data);

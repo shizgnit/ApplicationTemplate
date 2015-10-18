@@ -23,20 +23,20 @@ float input_z;
 my::trace::console tracer;
 
 void on_startup(void *asset_manager) {
-  platform::graphics->init();
-  platform::audio->init();
+  platform::api::graphics->init();
+  platform::api::audio->init();
 
-  my::asset::manager(asset_manager);
+  platform::api::asset->manager(asset_manager);
 
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
-  platform::graphics->set_program("shaders/texture_alpha_shader.vert", "shaders/texture_alpha_shader.frag");
+  platform::api::graphics->set_program("shaders/texture_alpha_shader.vert", "shaders/texture_alpha_shader.frag");
 
   //
   // Just testing out some file system abstractions
   //
-  DEBUG_TRACE << "pwd: " << platform::filesystem->pwd() << my::endl;
-  my::directory dir(platform::filesystem->pwd());
+  DEBUG_TRACE << "pwd: " << platform::api::filesystem->pwd() << my::endl;
+  my::directory dir(platform::api::filesystem->pwd());
   while(my::string current = dir.next()) {
     DEBUG_TRACE << "contents: " << current << my::endl;
   }
@@ -45,23 +45,23 @@ void on_startup(void *asset_manager) {
   // Load up an apple
   //
   gapple.search_path = "models/obj";
-  gapple << my::asset("models/obj/apple.obj");
+  gapple << platform::api::asset->retrieve("models/obj/apple.obj");
 
-  platform::graphics->compile(gapple);
+  platform::api::graphics->compile(gapple);
 
   //
   // Load up the font
   //
-  platform::graphics->set_font("fonts/arial2.fnt");
+  platform::api::graphics->set_font("fonts/arial2.fnt");
 
   //
   // Load up the background
   //
   gbackground = my::primitive::quad(256, 256);
   my::image *img = new my::png;
-  *img << my::asset("textures/landscape2.png");
+  *img << platform::api::asset->retrieve("textures/landscape2.png");
   gbackground->xy_projection(img, 0, 0, 256, 256);
-  platform::graphics->compile(*gbackground);
+  platform::api::graphics->compile(*gbackground);
 
   //
   // Default the inputs
@@ -74,8 +74,8 @@ void on_startup(void *asset_manager) {
   // Init sound
   //
 #ifndef __ANDROID__
-  sound << my::asset("sounds/mind_is_going.wav");
-  platform::audio->compile(sound);
+  sound << platform::api::asset->retrieve("sounds/mind_is_going.wav");
+  platform::api::audio->compile(sound);
 #endif
 }
 
@@ -107,7 +107,7 @@ void pprint(mat4x4 mat) {
 
 
 void on_draw() {
-  platform::graphics->clear();
+  platform::api::graphics->clear();
 
   static float angle = 0.0f;
   angle -= 0.1f;
@@ -128,7 +128,7 @@ void on_draw() {
   //
   // render background
   //
-  platform::graphics->draw(*gbackground, scale);
+  platform::api::graphics->draw(*gbackground, scale);
 
   //
   // position
@@ -161,7 +161,7 @@ void on_draw() {
 
   mat4x4_mul(model_view_projection_matrix, view_projection_matrix, model_scale_matrix);
 
-  platform::graphics->draw(gapple, model_view_projection_matrix);
+  platform::api::graphics->draw(gapple, model_view_projection_matrix);
 
   //
   // font 
@@ -173,35 +173,35 @@ void on_draw() {
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 0.0f, 0.08f);
-  platform::graphics->draw("C", model_view_projection_matrix);
+  platform::api::graphics->draw("C", model_view_projection_matrix);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 20.0f, 0.08f);
-  platform::graphics->draw(my::type_cast<my::string>(input_x), letter);
+  platform::api::graphics->draw(my::type_cast<my::string>(input_x), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 40.0f, 0.08f);
-  platform::graphics->draw(my::type_cast<my::string>(input_y), letter);
+  platform::api::graphics->draw(my::type_cast<my::string>(input_y), letter);
 
   mat4x4_identity(letter);
   letter[0][0] = 0.01f;
   letter[1][1] = 0.01f;
   letter[2][2] = 0.01f;
   mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
-  platform::graphics->draw(my::type_cast<my::string>(input_z), letter);
+  platform::api::graphics->draw(my::type_cast<my::string>(input_z), letter);
 }
 
 void on_touch_press(float normalized_x, float normalized_y) {
   input_x = normalized_x;
   input_y = normalized_y;
 
-  platform::audio->play(sound);
+  platform::api::audio->play(sound);
 }
 
 void on_touch_drag(float normalized_x, float normalized_y) {

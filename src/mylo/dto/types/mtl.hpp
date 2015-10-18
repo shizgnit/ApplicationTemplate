@@ -122,7 +122,7 @@ public:
       if (strcmp(arguments[1] + strlen(arguments[1]) - 4, ".png") == 0) {
         context->active->map = new png();
       }
-      *context->active->map << my::asset(my::join("/", (context->search_path, arguments[1])));
+      *context->active->map << platform::api::asset->retrieve(my::join("/", (context->search_path, arguments[1])));
     }
   }
 
