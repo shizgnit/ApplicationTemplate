@@ -45,7 +45,7 @@ namespace posix {
     bool mv(my::string src, my::string dest);
     bool cp(my::string src, my::string dest);
 
-    bool mkdir(my::string path, my::vector<my::string> mask);
+    bool mkdir(my::string path, my::string mask);
     bool rmdir(my::string path);
 
     my::string pwd(my::string path = "");

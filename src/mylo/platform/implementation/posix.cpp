@@ -153,7 +153,7 @@ my::vector<unsigned long> posix::filesystem::stat(my::string path) {
     return(results);
   }
 
-  if(stat(path, &sst) < 0) {
+  if(::stat(path, &sst) < 0) {
     return(results);
   }
 
@@ -184,7 +184,7 @@ my::vector<unsigned long> posix::filesystem::lstat(my::string path) {
     return(results);
   }
 
-  if(lstat(path, &sst) < 0) {
+  if(::lstat(path, &sst) < 0) {
     return(results);
   }
 
@@ -206,6 +206,12 @@ my::vector<unsigned long> posix::filesystem::lstat(my::string path) {
 
   return(results);
 }
+
+bool posix::filesystem::exists(my::string path) {
+  struct stat sst;
+  return(::stat(path, &sst) == 0);
+}
+
 
 my::string posix::filesystem::filetype(my::string path) {
   my::string result;

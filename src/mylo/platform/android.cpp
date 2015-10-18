@@ -4,7 +4,7 @@
 
 platform::filesystem_interface *platform::api::filesystem = new posix::filesystem();
 platform::graphics_interface *platform::api::graphics = new opengl::graphics();
-platform::audio_interface *platform::api::audio = new opensles::audio();
+platform::audio_interface *platform::api::audio = new opensl::audio();
 platform::asset_interface *platform::api::asset = new art::asset();
 
 

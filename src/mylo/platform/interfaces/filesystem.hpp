@@ -39,11 +39,13 @@ __PLATFORM_NAMESPACE_BEGIN
 
 class filesystem_interface {
 public:
+  virtual ~filesystem_interface() {};
+
   virtual bool rm(my::string filename) = 0;
   virtual bool mv(my::string src, my::string dest) = 0;
   virtual bool cp(my::string src, my::string dest) = 0;
 
-  virtual bool mkdir(my::string path, my::vector<my::string> mask) = 0;
+  virtual bool mkdir(my::string path, my::string mask) = 0;
   virtual bool rmdir(my::string path) = 0;
 
   virtual my::string pwd(my::string path="") = 0;

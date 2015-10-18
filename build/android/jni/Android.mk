@@ -70,7 +70,14 @@ LOCAL_SRC_FILES := \
   $(COMMON_PATH)/mylo/timer.cpp \
   $(COMMON_PATH)/mylo/utilities.cpp \
   $(COMMON_PATH)/mylo/xml.cpp \
-  $(COMMON_PATH)/mylo/xpath.cpp
+  $(COMMON_PATH)/mylo/xpath.cpp \
+  $(COMMON_PATH)/mylo/file.cpp \
+  $(COMMON_PATH)/mylo/directory.cpp \
+  $(PLATFORM_PATH)/implementation/art.cpp \
+  $(PLATFORM_PATH)/implementation/opengl.cpp \
+  $(PLATFORM_PATH)/implementation/opensl.cpp \
+  $(PLATFORM_PATH)/implementation/posix.cpp
+  
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -92,6 +99,6 @@ LOCAL_MODULE    := ApplicationTemplate
 #LOCAL_CFLAGS    := -Werror
 LOCAL_SRC_FILES := $(PLATFORM_PATH)/android.cpp \
                    $(SRC_PATH)/ApplicationTemplate.cpp
-LOCAL_LDLIBS    := -llog -lGLESv2 -landroid -lz
+LOCAL_LDLIBS    := -llog -lGLESv2 -landroid -lz -lOpenSLES
 
 include $(BUILD_SHARED_LIBRARY)

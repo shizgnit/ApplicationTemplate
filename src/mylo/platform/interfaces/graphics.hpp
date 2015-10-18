@@ -41,6 +41,8 @@ __PLATFORM_NAMESPACE_BEGIN
 
 class graphics_interface {
   public: 
+    virtual ~graphics_interface() {};
+  
     virtual void init(void) = 0;
     virtual void clear(void) = 0;
 

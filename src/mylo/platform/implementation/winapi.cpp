@@ -104,7 +104,7 @@ bool winapi::filesystem::mv(my::string srcfile, my::string dest) {
   return(true);
 }
 
-bool winapi::filesystem::mkdir(my::string path, my::vector<my::string> mask) {
+bool winapi::filesystem::mkdir(my::string path, my::string mask) {
   return(CreateDirectory(my::type_cast<my::wstring>(path).c_str(), NULL) ? true : false);
   //return(CreateDirectory(my::type_cast<my::string>(path).c_str(), NULL) ? true : false);
 }

@@ -47,25 +47,25 @@ void art::asset::search(my::string path) {
 my::buffer art::asset::retrieve(my::string request, my::string path) { DEBUG_SCOPE;
   my::buffer data;
   
-  DEBUG_TRACE << "Attempting to find resource: " << in << endl;
-  AAsset* asset = AAssetManager_open((AAssetManager*)manager_instance, in, AASSET_MODE_STREAMING);
-  m_ptr = asset;
+  DEBUG_TRACE << "Attempting to find resource: " << request << my::endl;
+  AAsset* asset = AAssetManager_open((AAssetManager*)manager_instance, request, AASSET_MODE_STREAMING);
+  //m_ptr = asset;
   if(asset) {
-    DEBUG_TRACE << "Found resource " << (int)AAsset_getLength(asset) << " bytes" << endl;
-//    DEBUG_TRACE << "Contents: " << (char *)AAsset_getBuffer(asset) << endl;
-//    DEBUG_TRACE << "Contents length: " << strlen((char *)AAsset_getBuffer(asset)) << endl;
-    m_buffer.write((unsigned char *)AAsset_getBuffer(asset), AAsset_getLength(asset));
+    DEBUG_TRACE << "Found resource " << (int)AAsset_getLength(asset) << " bytes" << my::endl;
+//    DEBUG_TRACE << "Contents: " << (char *)AAsset_getBuffer(asset) << my::endl;
+//    DEBUG_TRACE << "Contents length: " << strlen((char *)AAsset_getBuffer(asset)) << my::endl;
+    data.write((unsigned char *)AAsset_getBuffer(asset), AAsset_getLength(asset));
   }
   else {
-    DEBUG_TRACE << "Failure to load resource" << endl;
+    DEBUG_TRACE << "Failure to load resource" << my::endl;
   }
   
   return(data);
 }
 
-void asset::close(void) { DEBUG_SCOPE;
-  AAsset_close((AAsset*)m_ptr);
-}
+//void asset::close(void) { DEBUG_SCOPE;
+//  AAsset_close((AAsset*)m_ptr);
+//}
 
 __PLATFORM_NAMESPACE_END
 
