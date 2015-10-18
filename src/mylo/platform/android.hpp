@@ -38,11 +38,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <GLES2/gl2.h>
 #include <android/log.h>
 
-__PLATFORM_NAMESPACE_BEGIN
-
-static audio_interface *audio = new openal();
-
-__PLATFORM_NAMESPACE_END
+#include "implementation/posix.hpp"
+#include "implementation/opengl.hpp"
+#include "implementation/opensles.hpp"
+#include "implementation/art.hpp"
 
 #endif
 

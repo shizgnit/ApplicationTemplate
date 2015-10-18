@@ -8,9 +8,10 @@
 
 #include "ApplicationTemplate.hpp"
 
-//void on_startup(AAssetManager* asset_manager) {
-//  on_startup((void *)asset_manager);
-//}
+platform::filesystem_interface *platform::api::filesystem = new posix::filesystem();
+platform::graphics_interface *platform::api::graphics = new opengl::graphics();
+platform::audio_interface *platform::api::audio = new opensles::audio();
+platform::asset_interface *platform::api::asset = new art::asset();
 
 extern "C" {
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1startup(JNIEnv * env, jclass cls, jobject java_asset_manager);

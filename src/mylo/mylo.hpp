@@ -144,6 +144,23 @@ __MYLO_NAMESPACE_END
 #include "dto/audio.hpp"
 #include "dto/program.hpp"
 
+#include "platform/interfaces/filesystem.hpp"
+#include "platform/interfaces/graphics.hpp"
+#include "platform/interfaces/audio.hpp"
+#include "platform/interfaces/asset.hpp"
+
+__PLATFORM_NAMESPACE_BEGIN
+
+class api {
+public:
+  static filesystem_interface *filesystem;
+  static graphics_interface *graphics;
+  static audio_interface *audio;
+  static asset_interface *asset;
+};
+
+__PLATFORM_NAMESPACE_END
+
 #if defined __PLATFORM_WINDOWS
 #include "platform/windows.hpp"
 #endif

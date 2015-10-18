@@ -33,26 +33,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __WINDOWS_HPP
 #define __WINDOWS_HPP
 
-#include "interfaces/filesystem.hpp"
-#include "interfaces/graphics.hpp"
-#include "interfaces/audio.hpp"
-#include "interfaces/asset.hpp"
-
 #include "implementation/opengl.hpp"
 #include "implementation/openal.hpp"
 #include "implementation/winapi.hpp"
-
-__PLATFORM_NAMESPACE_BEGIN
-
-class api {
-public:
-  static filesystem_interface *filesystem;
-  static graphics_interface *graphics;
-  static audio_interface *audio;
-  static asset_interface *asset;
-};
-
-__PLATFORM_NAMESPACE_END
 
 #endif
 
