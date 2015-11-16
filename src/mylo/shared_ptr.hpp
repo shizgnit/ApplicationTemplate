@@ -136,6 +136,8 @@ private:
   void release(void) {
     if(m_count != NULL && *m_count) {
       if((*m_count -= 1) == 0) {
+        delete(m_count);
+        m_count = NULL;
         if(m_ptr != NULL && traits_second::is_allocation) {
           if(traits_second::is_array) {
             delete [] (m_ptr);
@@ -145,8 +147,6 @@ private:
           }
           m_ptr = NULL;
         }
-        delete(m_count);
-        m_count = NULL;
       }
     }
   }

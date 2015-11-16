@@ -240,6 +240,7 @@ private:
 
     ~node() {
       delete(entry);
+      entry = NULL;
     }
 
   public:
@@ -270,7 +271,8 @@ private:
   }
 
   void release() {
-    delete(m_head);
+    m_head = NULL;
+    m_tail = NULL;
   }
 };
 

@@ -136,6 +136,11 @@ class text {
 public:
   text() {}
 
+  ~text() {
+    int i = 0;
+
+  }
+
   void display() {
     my::spatial::matrix text;
     text.identity();
