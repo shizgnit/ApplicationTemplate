@@ -4,8 +4,6 @@ static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
 }
 
-////static mat4x4 projection_matrix;
-
 my::shared_ptr<my::object> gbackground;
 
 my::png gtexture;
@@ -98,21 +96,8 @@ void on_resize(int width, int height) {
   
   screen_width = width;
   screen_height = height;
-
-  //mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, 0.0f, 20.0f);
-///  mat4x4_perspective(projection_matrix, deg_to_radf(90), (float)width / (float)height, -1.0f, 1.0f);
 }
 
-
-///static mat4x4 identity;
-/*
-void pprint(mat4x4 mat) {
-  printf("----------------------------\n");
-  for (int i = 0; i < 4; i++) {
-    printf( "%f,%f,%f,%f\n", mat[i][0], mat[i][1], mat[i][2], mat[i][3] );
-  }
-}
-*/
 
 void pprint(my::spatial::matrix mat) {
   printf("----------------------------\n");
@@ -120,10 +105,6 @@ void pprint(my::spatial::matrix mat) {
     printf("%f,%f,%f,%f\n", mat.r[i][0], mat.r[i][1], mat.r[i][2], mat.r[i][3]);
   }
 }
-
-///void pprint(vec4 vec) {
-///  printf("%f,\t%f,\t%f,\t%f\n", vec[0], vec[1], vec[2], vec[3]);
-///}
 
 void pprint(my::spatial::vector vec) {
   printf("%f,\t%f,\t%f,\t%f\n", vec.x, vec.y, vec.z, vec.w);
@@ -206,55 +187,26 @@ void on_draw() {
     angle = 0.0f;
   }
 
-///  mat4x4_identity(identity);
-
-///  mat4x4 scale;
-
-///  mat4x4_identity(scale);
-
-///  mat4x4_scale( scale , identity, 0.01f);
-///  scale[3][3] = 1.0f;
-///  mat4x4_translate_in_place(scale, -130.0f, -120.0f, 1000.1f); // input_z);
-
   //
   // render background
   //
   my::spatial::matrix background;
   background.identity();
-  background *= 0.01f;
+  background.scale(0.01f);
   background.translate(-130.0f, -120.0f, 1000.1f);
+
   platform::api::graphics->draw(*gbackground, background);
 
   //
   // position
   //
-///  static mat4x4 view_matrix;
-
   my::spatial::vector eye( ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 1.0f + input_z );
   my::spatial::vector center( ((input_x - (screen_width / 2)) / 10) * -1, (input_y - (screen_height / 2)) / 10, 0.0f + input_z);
   my::spatial::vector up(0.0f, 1.0f, 0.0f);
 
-///  mat4x4_look_at(view_matrix, eye, center, up);
-
-///  mat4x4 model_view_projection_matrix;
-///  mat4x4 model_matrix;
-
-///  mat4x4_identity(model_matrix);
-
   static float rotation = 0.0f;
 
   rotation += 0.05f;
-
-//  mat4x4 model_scale_matrix;
-//  mat4x4_identity(model_scale_matrix);
-
-//  mat4x4_rotate_Y(model_scale_matrix, model_matrix, rotation);
-
-//  mat4x4 view_projection_matrix;
-
-//  mat4x4_mul(view_projection_matrix, projection_matrix, view_matrix);
-
-//  mat4x4_mul(model_view_projection_matrix, view_projection_matrix, model_scale_matrix);
 
   my::spatial::matrix view;
 
@@ -274,58 +226,13 @@ void on_draw() {
 
   platform::api::graphics->draw(gapple, mvp);
 
-  //platform::api::graphics->draw(gapple, model_view_projection_matrix);
-
   //
   // font 
   //
-///  mat4x4 letter;
-
-///  mat4x4_identity(letter);
-///  letter[0][0] = 0.01f;
-///  letter[1][1] = 0.01f;
-///  letter[2][2] = 0.01f;
-///  mat4x4_translate_in_place(letter, -100.0f, 0.0f, 0.08f);
-//  platform::api::graphics->draw("C", model_view_projection_matrix);
-
-  /*
-  mat4x4_identity(letter);
-  letter[0][0] = 0.01f;
-  letter[1][1] = 0.01f;
-  letter[2][2] = 0.01f;
-  mat4x4_translate_in_place(letter, -100.0f, 20.0f, 0.08f);
-  mat4x4 letter_scaled;
-  mat4x4_identity(letter_scaled);
-  letter_scaled[0][0] = 0.01f;
-  letter_scaled[1][1] = 0.01f;
-  letter_scaled[2][2] = 0.01f;
-  mat4x4_scale(letter_scaled, letter, 0.1f);
-  */
-
-  /*
-  my::spatial::matrix letterm;
-  letterm.r[0][0] = 0.003f;
-  letterm.r[1][1] = 0.003f;
-  letterm.r[2][2] = 1.0f;
-  letterm.r[3][3] = 1.0f;
-  letterm.translate(-200.0f, 60.0f, 0.08f);
-
-  platform::api::graphics->draw(my::type_cast<my::string>(input_x), letterm);
-
-  letterm.translate(0.0f, 50.0f, 0.0f);
-  platform::api::graphics->draw(my::type_cast<my::string>(input_y), letterm);
-  */
   static int counter = 0;
   tbuffer << counter++ << ") " << input_x << "," << input_y << my::endl;
 
   tbuffer.display();
-
-///  mat4x4_identity(letter);
-///  letter[0][0] = 0.01f;
-///  letter[1][1] = 0.01f;
-///  letter[2][2] = 0.01f;
-///  mat4x4_translate_in_place(letter, -100.0f, 60.0f, 0.08f);
-  //platform::api::graphics->draw(my::type_cast<my::string>(input_z), letter);
 }
 
 void on_touch_press(float normalized_x, float normalized_y) {
