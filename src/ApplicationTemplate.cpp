@@ -141,16 +141,11 @@ public:
     text.identity();
     text.scale(0.003f);
 
-    //text.r[0][0] = 0.003f;
-    //text.r[1][1] = 0.003f;
-    //text.r[2][2] = 1.0f;
-    //text.r[3][3] = 1.0f;
-
-    //text.translate(-50.0f, 0.0f, 0.0f);
+    text.translate(-300.0f, 300.0f, 0.0f);
 
     my::list<my::string>::iterator it = buffer.begin();
     for (; it != buffer.end(); it++) {
-      //text.translate(0.0f, 20.0f, 0.0f);
+      text.translate(0.0f, -30.0f, 0.0f);
       if (it->second.length()) {
         platform::api::graphics->draw(it->second, text);
       }

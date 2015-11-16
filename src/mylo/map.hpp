@@ -45,7 +45,6 @@ public:
   
 public:
   map() {
-    //DEBUG<< this << "->map()" << std::endl;
     initialize();
   }
   
@@ -55,7 +54,6 @@ public:
   }
 
   ~map() {
-    //DEBUG<< this << "->~map()" << std::endl;
     release();
   }
 
@@ -65,18 +63,15 @@ public:
   }
 
   S &operator[](const T &key) {
-    //DEBUG<< this << "->operator[](const T &key)" << std::endl;
     return(this->index(key));
   }
   
   S &index(const T &key) {
-    //DEBUG<< this << "->index(const T &key)" << std::endl;
     node *current = locator(key, true);
     return(current->entry->second);
   };
   
   bool exists(const T &key) {
-    //DEBUG<< this << "->exists(T key)" << std::endl;
     if(m_root == NULL) {
       return(false);
     }
@@ -90,7 +85,6 @@ public:
   };
   
   basic_iterator< pair<T, S> > begin() const {
-    //DEBUG<< this << "->begin()" << std::endl;
     size_t allocation = allocated(m_root);
     if(allocation == 0) {
       return(basic_iterator< pair<T, S> >::terminator);

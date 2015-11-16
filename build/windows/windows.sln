@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApplicationTemplate", "project\project.vcxproj", "{A0302457-0BF5-49D3-9085-8C58F48CB5BC}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApplicationTemplate", "proj
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,14 @@ Global
 		{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}.Release|Win32.Build.0 = Release|Win32
 		{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}.Release|x64.ActiveCfg = Release|x64
 		{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}.Release|x64.Build.0 = Release|x64
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Debug|Win32.Build.0 = Debug|Win32
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Debug|x64.ActiveCfg = Debug|x64
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Debug|x64.Build.0 = Debug|x64
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Release|Win32.ActiveCfg = Release|Win32
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Release|Win32.Build.0 = Release|Win32
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Release|x64.ActiveCfg = Release|x64
+		{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
