@@ -124,6 +124,9 @@
     <ClCompile Include="..\..\..\src\mylo\platform\implementation\winapi.cpp">
       <Filter>mylo\platform\implementation</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\spatial.cpp">
+      <Filter>mylo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp">
@@ -262,9 +265,6 @@
     <ClInclude Include="..\..\..\src\mylo\platform\platform.hpp">
       <Filter>mylo\platform</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\mylo\platform\windows.hpp">
-      <Filter>mylo\platform</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\platform\implementation\openal.hpp">
       <Filter>mylo\platform\implementation</Filter>
     </ClInclude>
@@ -308,6 +308,12 @@
       <Filter>mylo</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\type_traits.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\spatial.hpp">
+      <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\list.hpp">
       <Filter>mylo</Filter>
     </ClInclude>
   </ItemGroup>

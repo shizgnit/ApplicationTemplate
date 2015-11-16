@@ -45,7 +45,7 @@ public:
 
 private:
 
-  static off_t write(audio *context, unsigned char *buffer, off_t bytes) {
+  static off_t write(audio *context, unsigned char *buffer, off_t bytes) { DEBUG_SCOPE;
     if(bytes) {
       context->buffer.write(buffer, bytes);
       return(bytes);
@@ -68,14 +68,17 @@ private:
       unsigned int data_size;
     } metadata;
 
-    unsigned char *allocation = new unsigned char[context->buffer.alloc];
+    size_t size = context->buffer.size();
 
-    context->buffer.read(allocation, context->buffer.alloc);
-
+	  DEBUG_TRACE << size << " bytes" << my::endl;
+	
+    unsigned char *allocation = new unsigned char[size];
+    context->buffer.read(allocation, size);
+	
     memcpy(&metadata, allocation, sizeof(metadata));
 
     context->data = allocation;
-    context->size = context->buffer.alloc;
+    context->size = size;
 
     context->header.sample_rate = metadata.sample_rate;
     context->header.bits_per_sample = metadata.bits_per_sample;

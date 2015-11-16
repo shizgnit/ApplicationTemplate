@@ -57,11 +57,14 @@ void opengl::graphics::compile(my::shader *shader, unsigned int type) { DEBUG_SC
 
   shader->context = glCreateShader(type);
   if (!shader->context) {
+	DEBUG_TRACE << "failed to create shader context" << my::endl;
     return;
   }
 
+  DEBUG_TRACE << "pulling shader text" << my::endl;
   GLchar *text = shader->text.c_str();
   GLint length = strlen(text);
+  DEBUG_TRACE << length << " bytes" << my::endl;
   glShaderSource(shader->context, 1, (const GLchar **)&text, &length);
 
   glCompileShader(shader->context);
@@ -133,13 +136,13 @@ void opengl::graphics::compile(my::objects &objects) {
   }
 }
 
-void opengl::graphics::draw(my::object &object, mat4x4 matrix) {
+void opengl::graphics::draw(my::object &object, const my::spatial::matrix &matrix) {
   glUseProgram(program->context);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, object.texture->context);
 
-  glUniformMatrix4fv(u_mvp_matrix_location, 1, GL_FALSE, (GLfloat*)matrix);
+  glUniformMatrix4fv(u_mvp_matrix_location, 1, GL_FALSE, (GLfloat *)matrix.r);
   glUniform1i(u_texture_unit_location, 0);
 
   glBindBuffer(GL_ARRAY_BUFFER, object.context);
@@ -154,22 +157,21 @@ void opengl::graphics::draw(my::object &object, mat4x4 matrix) {
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void opengl::graphics::draw(my::objects &objects, mat4x4 matrix) {
+void opengl::graphics::draw(my::objects &objects, const my::spatial::matrix &matrix) {
   for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
     draw(*it->second, matrix);
   }
 }
 
-void opengl::graphics::draw(my::string text, mat4x4 matrix) {
+void opengl::graphics::draw(my::string text, const my::spatial::matrix &matrix) {
   int prior = 0;
+  my::spatial::matrix position = matrix;
   for (unsigned int i = 0; i < text.length(); i++) {
-    mat4x4_translate_in_place(matrix, (float)font->kern(prior, text[i]), 0.0f, 0.0f);
-    mat4x4 temporary;
-    mat4x4_dup(temporary, matrix);
-    mat4x4_translate_in_place(temporary, (float)font->glyphs[text[i]]->xoffset, 0.0f, 0.0f);
-    //mat4x4_translate_in_place(temporary, font.glyphs[text[i]]->xoffset, font.glyphs[text[i]]->yoffset, 0.0f);
-    draw(*font->glyphs[text[i]]->quad, temporary);
-    mat4x4_translate_in_place(matrix, (float)font->glyphs[text[i]]->xadvance, 0.0f, 0.0f);
+    position.translate(my::spatial::vector((float)font->kern(prior, text[i]), 0.0f, 0.0f));
+    my::spatial::matrix relative = position;
+    relative.translate(my::spatial::vector((float)font->glyphs[text[i]]->xoffset, 0.0f, 0.0f));
+    draw(*font->glyphs[text[i]]->quad, relative);
+    position.translate(my::spatial::vector((float)font->glyphs[text[i]]->xadvance, 0.0f, 0.0f));
     prior = text[i];
   }
 }

@@ -35,14 +35,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __GRAPHICS_INTERFACE_HPP
 #define __GRAPHICS_INTERFACE_HPP
 
-#include "linmath.h"
-
 __PLATFORM_NAMESPACE_BEGIN
 
 class graphics_interface {
   public: 
-    virtual ~graphics_interface() {};
-  
     virtual void init(void) = 0;
     virtual void clear(void) = 0;
 
@@ -50,9 +46,9 @@ class graphics_interface {
     virtual void compile(my::program &program) = 0;
     virtual void compile(my::object &object) = 0;
     virtual void compile(my::objects &objects) = 0;
-    virtual void draw(my::object &object, mat4x4 matrix) = 0;
-    virtual void draw(my::objects &objects, mat4x4 matrix) = 0;
-    virtual void draw(my::string text, mat4x4 matrix) = 0;
+    virtual void draw(my::object &object, const my::spatial::matrix & matrix) = 0;
+    virtual void draw(my::objects &objects, const my::spatial::matrix & matrix) = 0;
+    virtual void draw(my::string text, const my::spatial::matrix & matrix) = 0;
 
     virtual void set_font(my::string file) = 0;
     virtual void set_program(my::string vert, my::string frag) = 0;

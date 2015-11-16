@@ -4,5 +4,6 @@ void on_draw();
 void on_touch_press(float normalized_x, float normalized_y);
 void on_touch_release(float normalized_x, float normalized_y);
 void on_touch_drag(float normalized_x, float normalized_y);
+void on_touch_scale(float normalized_x, float normalized_y, float normalized_z);
 void on_touch_zoom_in();
 void on_touch_zoom_out();

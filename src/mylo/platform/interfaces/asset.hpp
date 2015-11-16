@@ -39,7 +39,7 @@ __PLATFORM_NAMESPACE_BEGIN
 
 class asset_interface {
 public:
-  virtual void manager(void *instance) = 0;
+  virtual void init(void *instance) = 0;
   virtual void search(my::string path) = 0;
   virtual my::buffer retrieve(my::string request, my::string path="") = 0;
 

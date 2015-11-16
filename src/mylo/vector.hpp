@@ -33,13 +33,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "mylo.hpp"
 
-/*
-
-BUGS: The shift for whatever reason is skipping pointers with null values for whatever reason... might break something later.
-
-*/
-
-
 #ifndef __VECTOR_HPP
 #define __VECTOR_HPP
 
@@ -98,66 +91,84 @@ public:
   }
   
   T &index(const S &relative_index) {
-    if(pointer && m_storage_size && relative_index <= m_relative_back && relative_index >= m_relative_front) {
-      return(pointer[relative_index-m_relative_front]);
+    S storage_index = relative_index - m_storage_offset;
+
+    if(pointer && m_storage_size && relative_index >= m_storage_offset && storage_index < m_storage_size) {
+      if (storage_index > m_relative_back) {
+        m_relative_back = storage_index;
+      }
+      return(pointer[storage_index]);
     }
     
 	  S allocation = 0;
 	  S move       = 0;
 	  
-	  S delta = relative_index > m_relative_front ? relative_index - m_relative_front : m_relative_front - relative_index;
-	  
+    S delta = 0;
+
+    if (relative_index >= m_storage_offset) {
+      if (storage_index + 1 > m_storage_size) {
+        delta = storage_index + 1 - m_storage_size;
+      }
+    }
+    else {
+      delta = m_storage_offset - relative_index;
+    }
+
 	  if(!pointer) {
-	    m_relative_front = relative_index;
-	    allocation = 1;
+		  m_relative_front = relative_index;
+      m_relative_back = relative_index;
+      m_storage_offset = relative_index;
+      storage_index -= m_storage_offset;
+		  allocation = 1;
 	  }
 	  else {
-	    if(relative_index < m_relative_front) {
-	      m_relative_front = relative_index;
-	      allocation = delta + m_storage_size;
-	      move = 1;
-	    }
-	    if(relative_index > m_relative_front && delta+1 > m_storage_size) {
-	      allocation = m_storage_size + (delta+1 - m_storage_size);
-	    }
+		  if(relative_index < m_storage_offset) {
+        m_storage_offset = relative_index;
+			  m_relative_front = relative_index;
+        storage_index = 0;
+			  allocation = delta + m_storage_size;
+			  move = 1;
+		  }
+		  if(relative_index > m_storage_offset && delta) {
+			  allocation = m_storage_size + delta;
+		  }
 	  }
 	  
 	  if(allocation) {
-	    T *new_buffer = new T[allocation];
-	    for(size_t i=0; i<allocation; i++) {
-	      traits_first::initialize(new_buffer[i]);
-	    }
-	    if(pointer) {
-	      for(size_t i=0, offset=delta * move; i<m_storage_size; i++) {
-	        new_buffer[i + offset] = pointer[i];
-	      }
-	      delete [] (pointer);
-	    }
-	    m_storage_size  = allocation;
-	    pointer = new_buffer;
+		  T *new_buffer = new T[allocation];
+		  for(size_t i=0; i<allocation; i++) {
+			  traits_first::initialize(new_buffer[i]);
+		  }
+		  if(pointer) {
+			  for(size_t i=0, offset=delta * move; i<m_storage_size; i++) {
+				  new_buffer[i + offset] = pointer[i];
+			  }
+			  delete [] (pointer);
+		  }
+		  m_storage_size  = allocation;
+		  pointer = new_buffer;
 	  }
-	  
-	  S target = relative_index - m_relative_front;
 	  
 	  if(relative_index > m_relative_back) {
-	     m_relative_back = relative_index;
+	      m_relative_back = relative_index;
 	  }
 	  
-	  return(pointer[target]);
+	  return(pointer[storage_index]);
   }
   
   bool exists(S relative_index) {
-    if(pointer && m_storage_size && relative_index <= m_relative_back && relative_index >= m_relative_front) {
-      return(pointer[relative_index]);
-    }
-    return(false);
+	  S storage_index = relative_index + m_relative_front - m_storage_offset;
+	  if (pointer && m_storage_size && relative_index >= m_storage_offset && storage_index < m_storage_size) {
+		  return(pointer[storage_index]);
+	  }
+	  return(false);
   }
   
   void insert(basic_iterator< pair<S, T> > &it, const T &value) {
     S target = it->first;
-    S storage_index = m_storage_size-1;
-    for(; storage_index+m_relative_front > it->first; storage_index--) {
-      (*this)[m_relative_front+storage_index+1] = (*this)[m_relative_front+storage_index];
+    S move = m_relative_back;
+    for(; move > target; move--) {
+      (*this)[move +1] = (*this)[move];
     }
     (*this)[target] = value;
   }
@@ -166,72 +177,62 @@ public:
     push(value);
   }
   
-  void push(const T &value) {    
-    (*this)[m_storage_size?m_relative_back+1:0] = value;
+  void push(const T &value) {
+    (*this)[m_storage_size?m_relative_back - m_relative_front + m_storage_offset + 1:0] = value;
   }
   
   basic_iterator< pair<S, T> > pop_back() {
     return(pop());
   }
   basic_iterator< pair<S, T> > pop() {
+    if(m_relative_back < m_relative_front) {
+      return(basic_iterator< pair<S, T> >::terminator);
+    }
+    
+    pair<S, T> *array = new pair<S, T>[1];
+    
+    S storage_index = m_relative_back - m_storage_offset;
+    for(; storage_index>m_storage_offset; storage_index--) {
+      m_relative_back -= 1;
+      if(traits_first::is_pointer && !traits_first::has_value(pointer[storage_index])) {
+        continue;
+      }
+      array[0].first = storage_index + m_storage_offset;
+      array[0].second = pointer[storage_index];
+      break;
+    }
+
+    basic_iterator< pair<S, T> > result(array, 1);
+    
+    return(result);
+  }
+
+  basic_iterator< pair<S, T> > shift() {
     if(m_relative_front > m_relative_back) {
       return(basic_iterator< pair<S, T> >::terminator);
     }
     
     pair<S, T> *array = new pair<S, T>[1];
     
-    S storage_index = m_relative_back - m_relative_front;
-    for(; storage_index>m_storage_offset; storage_index--) {
-      if(traits_first::is_pointer && !traits_first::has_value(pointer[storage_index])) {
+    S storage_index = m_relative_front - m_storage_offset;
+    for (; storage_index < m_relative_back - m_storage_offset; storage_index++) {
+      m_relative_front += 1;
+      if (traits_first::is_pointer && !traits_first::has_value(pointer[storage_index])) {
         continue;
       }
-      array[0].first = m_relative_front + storage_index;
+      array[0].first = storage_index + m_storage_offset;
       array[0].second = pointer[storage_index];
-      break;
-    }
-    if(storage_index == m_storage_offset) {
-      array[0].first = m_relative_front;
-      array[0].second = pointer[storage_index];
-    }
-    
-    basic_iterator< pair<S, T> > result(array, 1);
-    
-    m_relative_back = m_relative_front + storage_index - 1;
-    
-    return(result);
-  }
-
-  basic_iterator< pair<S, T> > shift() {
-    if(m_storage_offset >= m_storage_size || m_relative_front > m_relative_back) {
-      return(basic_iterator< pair<S, T> >::terminator);
-    }
-    
-    pair<S, T> *array = new pair<S, T>[1];
-    
-    S storage_index = m_storage_offset;
-    while(storage_index<=m_storage_size-1) {
-      // why the hell is this here???  ... still can't remember 2015/02
-      //if(traits_first::is_pointer && !traits_first::has_value(pointer[storage_index])) {
-      //  storage_index += 1;
-      //  continue;
-      //}
-      array[0].first = m_relative_front + storage_index - m_storage_offset;
-      array[0].second = pointer[storage_index];
-      storage_index += 1;
       break;
     }
     
     basic_iterator< pair<S, T> > result(array, 1);
-    
-    m_relative_front += storage_index - m_storage_offset;
-    m_storage_offset = storage_index;
     
     return(result);
   }
 
 
   T &last() {
-    return((*this)[m_relative_back]);
+    return((*this)[m_relative_back-m_storage_offset]);
   }
   
   size_t capacity() const {
@@ -251,9 +252,9 @@ public:
   }  
   
   S offset() {
-    return(m_relative_front);
+    return(m_relative_front - m_storage_offset);
   }
-  
+
   basic_iterator< pair<S, T> > begin() const {
     size_t allocation = allocated();
     if(allocation == 0) {
@@ -263,11 +264,11 @@ public:
     pair<S, T> *array = new pair<S, T>[allocation];
 
     S size = 0;
-    for(S storage_index=m_storage_offset, end=m_relative_back-m_relative_front; storage_index<=end; storage_index++) {
+    for(S storage_index=m_relative_front - m_storage_offset, end=m_relative_back - m_storage_offset; storage_index<=end; storage_index++) {
       if(traits_first::is_pointer && !traits_first::has_value(pointer[storage_index])) {
         continue;
       }
-      array[size].first = m_relative_front + storage_index;
+      array[size].first = storage_index + m_storage_offset;
       array[size].second = pointer[storage_index];
       size += 1;
     }

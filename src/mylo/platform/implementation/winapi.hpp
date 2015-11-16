@@ -41,7 +41,7 @@ namespace winapi {
 
   class asset : public asset_interface {
   public:
-    void manager(void *instance);
+    void init(void *instance);
     void search(my::string path);
     my::buffer retrieve(my::string request, my::string path = "");
   };

@@ -54,8 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <GL\glu.h>
 #endif
 
-#include "linmath.h"
-
 __PLATFORM_NAMESPACE_BEGIN
 
 namespace opengl {
@@ -75,9 +73,9 @@ namespace opengl {
     void compile(my::program &program);
     void compile(my::object &object);
     void compile(my::objects &objects);
-    void draw(my::object &object, mat4x4 matrix);
-    void draw(my::objects &objects, mat4x4 matrix);
-    void draw(my::string text, mat4x4 matrix);
+    void draw(my::object &object, const my::spatial::matrix &matrix);
+    void draw(my::objects &objects, const my::spatial::matrix &matrix);
+    void draw(my::string text, const my::spatial::matrix & matrix);
 
     void set_font(my::string file);
     void set_program(my::string vert, my::string frag);

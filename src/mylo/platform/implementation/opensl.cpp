@@ -131,37 +131,55 @@ void opensl::audio::init(void) { DEBUG_SCOPE;
 	// create engine
 	DEBUG_TRACE << "create engine" << my::endl;
 	result = slCreateEngine(&engineObject, 0, NULL, 0, NULL, NULL);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
+	
 	//assert(SL_RESULT_SUCCESS == result);
 
 	// realize the engine
-	DEBUG_TRACE << "realize" << my::endl;
+	DEBUG_TRACE << "realize engine" << my::endl;
 	result = (*engineObject)->Realize(engineObject, SL_BOOLEAN_FALSE);
-	//assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
 	// get the engine interface, which is needed in order to create other objects
-	DEBUG_TRACE << "get interface" << my::endl;
+	DEBUG_TRACE << "get engine interface" << my::endl;
 	result = (*engineObject)->GetInterface(engineObject, SL_IID_ENGINE, &engineEngine);
-	//assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
 	// create output mix, with environmental reverb specified as a non-required interface
+	DEBUG_TRACE << "create mixer" << my::endl;
 	const SLInterfaceID ids[1] = {SL_IID_ENVIRONMENTALREVERB};
 	const SLboolean req[1] = {SL_BOOLEAN_FALSE};
 	result = (*engineEngine)->CreateOutputMix(engineEngine, &outputMixObject, 1, ids, req);
-	//assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
 	// realize the output mix
+	DEBUG_TRACE << "realize mixer" << my::endl;
 	result = (*outputMixObject)->Realize(outputMixObject, SL_BOOLEAN_FALSE);
-	//assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
 	// get the environmental reverb interface
 	// this could fail if the environmental reverb effect is not available,
 	// either because the feature is not present, excessive CPU load, or
 	// the required MODIFY_AUDIO_SETTINGS permission was not requested and granted
+	DEBUG_TRACE << "get reverb interface" << my::endl;
 	result = (*outputMixObject)->GetInterface(outputMixObject, SL_IID_ENVIRONMENTALREVERB,
 			&outputMixEnvironmentalReverb);
 	if (SL_RESULT_SUCCESS == result) {
 		result = (*outputMixEnvironmentalReverb)->SetEnvironmentalReverbProperties(
 				outputMixEnvironmentalReverb, &reverbSettings);
+	}
+	else {
+		DEBUG_TRACE << "failed" << my::endl;
 	}
 	// ignore unsuccessful result codes for environmental reverb, as it is optional for this example
 }
@@ -170,20 +188,25 @@ void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
 	DEBUG_TRACE << "audio compile" << my::endl;
 	SLresult result;
 	
-	DEBUG_TRACE << "loading buffer " << sound.size << " bytes" << my::endl;
-	result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, reinterpret_cast<short *>(*sound.data), sound.size);
-	if (SL_RESULT_SUCCESS != result) {
-		//return JNI_FALSE;
-	}
-	
     //SLresult result;
 
     // configure audio source
 	DEBUG_TRACE << "buffer queue" << my::endl;
     SLDataLocator_AndroidSimpleBufferQueue loc_bufq = {SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE, 2};
-    SLDataFormat_PCM format_pcm = {SL_DATAFORMAT_PCM, 1, SL_SAMPLINGRATE_8,
-        SL_PCMSAMPLEFORMAT_FIXED_16, SL_PCMSAMPLEFORMAT_FIXED_16,
-        SL_SPEAKER_FRONT_CENTER, SL_BYTEORDER_LITTLEENDIAN};
+    SLDataFormat_PCM format_pcm;
+	format_pcm.formatType = SL_DATAFORMAT_PCM;
+	//format_pcm.numChannels = 1;
+	//format_pcm.samplesPerSec = SL_SAMPLINGRATE_8;
+	//format_pcm.bitsPerSample = SL_PCMSAMPLEFORMAT_FIXED_8;
+	//format_pcm.containerSize = SL_PCMSAMPLEFORMAT_FIXED_8;
+	format_pcm.numChannels = sound.header.channels;
+	format_pcm.samplesPerSec = sound.header.sample_rate * 1000;
+	format_pcm.bitsPerSample = sound.header.bits_per_sample;
+	format_pcm.containerSize = sound.header.bits_per_sample;
+	
+	format_pcm.channelMask = SL_SPEAKER_FRONT_CENTER;
+	format_pcm.endianness = SL_BYTEORDER_LITTLEENDIAN;
+
     SLDataSource audioSrc = {&loc_bufq, &format_pcm};
 
     // configure audio sink
@@ -191,52 +214,93 @@ void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
     SLDataSink audioSnk = {&loc_outmix, NULL};
 
     // create audio player
+	DEBUG_TRACE << "create player" << my::endl;
     const SLInterfaceID ids[3] = {SL_IID_BUFFERQUEUE, SL_IID_EFFECTSEND,
             /*SL_IID_MUTESOLO,*/ SL_IID_VOLUME};
     const SLboolean req[3] = {SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE,
             /*SL_BOOLEAN_TRUE,*/ SL_BOOLEAN_TRUE};
     result = (*engineEngine)->CreateAudioPlayer(engineEngine, &bqPlayerObject, &audioSrc, &audioSnk,
             3, ids, req);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
     // realize the player
+	DEBUG_TRACE << "realize player" << my::endl;
     result = (*bqPlayerObject)->Realize(bqPlayerObject, SL_BOOLEAN_FALSE);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
     // get the play interface
+	DEBUG_TRACE << "get player interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_PLAY, &bqPlayerPlay);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
     // get the buffer queue interface
+	DEBUG_TRACE << "get buffer queue interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_BUFFERQUEUE,
             &bqPlayerBufferQueue);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
     // register callback on the buffer queue
+	DEBUG_TRACE << "register callback" << my::endl;
     result = (*bqPlayerBufferQueue)->RegisterCallback(bqPlayerBufferQueue, bqPlayerCallback, NULL);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
     // get the effect send interface
+	DEBUG_TRACE << "get effect interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_EFFECTSEND,
             &bqPlayerEffectSend);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 
 #if 0   // mute/solo is not supported for sources that are known to be mono, as this is
     // get the mute/solo interface
+	DEBUG_TRACE << "get mono/solo interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_MUTESOLO, &bqPlayerMuteSolo);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
 #endif
 
     // get the volume interface
+	DEBUG_TRACE << "get volume interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_VOLUME, &bqPlayerVolume);
-    //assert(SL_RESULT_SUCCESS == result);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
+	
+    int header = sizeof(sound.header);
+	
+	DEBUG_TRACE << "buffer: " << sound.size - header << " bytes, " << sound.size << " bytes total" << my::endl;
+	DEBUG_TRACE << "channels: " << sound.header.channels << my::endl;
+	DEBUG_TRACE << "bits_per_sample: " << sound.header.bits_per_sample << my::endl;
+	DEBUG_TRACE << "sample_rate: " << sound.header.sample_rate << my::endl;
+	
+	result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, reinterpret_cast<short *>(&sound.data + header), sound.size - header);
+	//result = (*bqPlayerBufferQueue)->Enqueue(bqPlayerBufferQueue, reinterpret_cast<short *>(*sound.data + header), sound.size - header);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
+	
 }
 
-void opensl::audio::play(my::audio &sound) {
+void opensl::audio::play(my::audio &sound) { DEBUG_SCOPE;
     SLresult result;
 	
-    // set the player's state to playing
+	DEBUG_TRACE << "audio play" << my::endl;
     result = (*bqPlayerPlay)->SetPlayState(bqPlayerPlay, SL_PLAYSTATE_PLAYING);
+	if(result != SL_RESULT_SUCCESS) {
+		DEBUG_TRACE << "failed" << my::endl;
+	}
     //assert(SL_RESULT_SUCCESS == result);
 }
 
@@ -297,6 +361,77 @@ void opensl::audio::shutdown(void) { DEBUG_SCOPE;
     }
 
 }
+
+/*
+
+void engine_init () {
+// create OpenSL ES engine
+  SLEngineOption EngineOption[] = {(SLuint32) SL_ENGINEOPTION_THREADSAFE, (SLuint32) SL_BOOLEAN_TRUE};
+  const SLInterfaceID lEngineMixIIDs[] = {SL_IID_ENGINE};
+  const SLboolean lEngineMixReqs[] = {SL_BOOLEAN_TRUE};
+  SLresult res = slCreateEngine(&mEngineObj, 1, EngineOption, 1, lEngineMixIIDs, lEngineMixReqs);
+  res = (*mEngineObj)->Realize(mEngineObj, SL_BOOLEAN_FALSE);
+  res = (*mEngineObj)->GetInterface(mEngineObj, SL_IID_ENGINE, &mEngine);   // get 'engine' interface
+  // create output mix (AKA playback; this represents speakers, headset etc.)
+  res = (*mEngine)->CreateOutputMix(mEngine, &mOutputMixObj, 0,NULL, NULL);
+  res = (*mOutputMixObj)->Realize(mOutputMixObj, SL_BOOLEAN_FALSE);
+}
+
+void player_init() {
+SLresult lRes;
+  // Set-up sound audio source.
+  SLDataLocator_AndroidSimpleBufferQueue lDataLocatorIn;
+  lDataLocatorIn.locatorType = SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE;
+  lDataLocatorIn.numBuffers = 1;   // 1 buffer for a one-time load
+  // analyze and set correct PCM format
+  SLDataFormat_PCM lDataFormat;
+  lDataFormat.formatType = SL_DATAFORMAT_PCM;
+
+  lDataFormat.numChannels = audio->wav.channels;     // etc. 1,2
+  lDataFormat.samplesPerSec = audio->wav.sampleRate * 1000;   // etc. 44100 * 1000
+  lDataFormat.bitsPerSample = audio->wav.bitsPerSample;   // etc. 16
+  lDataFormat.containerSize = audio->wav.bitsPerSample;
+  lDataFormat.channelMask = SL_SPEAKER_FRONT_CENTER;
+  lDataFormat.endianness = SL_BYTEORDER_LITTLEENDIAN;
+
+  SLDataSource lDataSource;
+  lDataSource.pLocator = &lDataLocatorIn;
+  lDataSource.pFormat = &lDataFormat;
+
+  SLDataLocator_OutputMix lDataLocatorOut;
+  lDataLocatorOut.locatorType = SL_DATALOCATOR_OUTPUTMIX;
+  lDataLocatorOut.outputMix = mOutputMixObj;
+
+  SLDataSink lDataSink;
+  lDataSink.pLocator = &lDataLocatorOut;
+  lDataSink.pFormat = NULL;
+
+  const SLInterfaceID lSoundPlayerIIDs[] = { SL_IID_PLAY, SL_IID_ANDROIDSIMPLEBUFFERQUEUE };
+  const SLboolean lSoundPlayerReqs[] = { SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE };
+  lRes = (*mEngine)->CreateAudioPlayer(mEngine, &mPlayerObj, &lDataSource, &lDataSink, 2, lSoundPlayerIIDs, lSoundPlayerReqs);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+  lRes = (*mPlayerObj)->Realize(mPlayerObj, SL_BOOLEAN_FALSE);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+  lRes = (*mPlayerObj)->GetInterface(mPlayerObj, SL_IID_PLAY, &mPlayer);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+
+  lRes = (*mPlayerObj)->GetInterface(mPlayerObj, SL_IID_ANDROIDSIMPLEBUFFERQUEUE, &mPlayerQueue);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+  // register callback on the buffer queue
+  lRes = (*mPlayerQueue)->RegisterCallback(mPlayerQueue, bqPlayerQueueCallback, NULL);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+  lRes = (*mPlayer)->SetCallbackEventsMask(mPlayer, SL_PLAYEVENT_HEADATEND);
+  if (lRes != SL_RESULT_SUCCESS) { return; }
+
+  // ..fetch the data in 'audio->data' from opened FILE* stream and set 'datasize'
+
+  // feed the buffer with data
+  lRes = (*mPlayerQueue)->Clear(mPlayerQueue);   // remove any sound from buffer
+  lRes = (*mPlayerQueue)->Enqueue(mPlayerQueue, audio->data, datasize);}
+
+}
+
+*/
 
 __PLATFORM_NAMESPACE_END
 

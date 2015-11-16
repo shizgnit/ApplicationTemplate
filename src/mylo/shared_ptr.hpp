@@ -76,9 +76,11 @@ public:
     return(*m_ptr);
   }
 
+  /*
   operator T () {
     return(*m_ptr);
   }
+  */
 
   T *operator & () const {
     return(m_ptr);

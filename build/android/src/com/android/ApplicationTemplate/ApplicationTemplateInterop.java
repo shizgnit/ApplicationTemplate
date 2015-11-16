@@ -16,6 +16,16 @@ public class ApplicationTemplateInterop implements Renderer {
 		System.loadLibrary("ApplicationTemplate");
 	}
 
+    private static ApplicationTemplateInterop instance = null;
+    public static void createInstance(Context context) {
+        instance = new ApplicationTemplateInterop(context);
+    }	
+    public static ApplicationTemplateInterop getInstance() {
+        return instance;
+    }
+		
+	//private final Context context = Context.getApplicationContext();
+	
 	private final Context context;
 
 	public ApplicationTemplateInterop(Context context) {
@@ -36,7 +46,7 @@ public class ApplicationTemplateInterop implements Renderer {
 		}
 		*/
 
-		on_startup(context.getAssets());
+		on_startup(this.context.getAssets());
 	}
 
 	@Override
@@ -49,12 +59,16 @@ public class ApplicationTemplateInterop implements Renderer {
 		on_draw();
 	}
 
-	public void handleTouchPress(float normalizedX, float normalizedY) {
+	public void onTouchPress(float normalizedX, float normalizedY) {
 		on_touch_press(normalizedX, normalizedY);
 	}
 
-	public void handleTouchDrag(float normalizedX, float normalizedY) {
+	public void onTouchDrag(float normalizedX, float normalizedY) {
 		on_touch_drag(normalizedX, normalizedY);
+	}
+	
+	public void onTouchScale(float normalizedX, float normalizedY, float normalizedZ) {
+		on_touch_scale(normalizedX, normalizedY, normalizedZ);
 	}
 
 	private static native void on_startup(AssetManager asset_manager);
@@ -66,4 +80,6 @@ public class ApplicationTemplateInterop implements Renderer {
 	private static native void on_touch_press(float normalized_x, float normalized_y);
 
 	private static native void on_touch_drag(float normalized_x, float normalized_y);
+	
+	private static native void on_touch_scale(float normalized_x, float normalized_y, float normalized_z);
 }

@@ -111,6 +111,7 @@ __MYLO_NAMESPACE_END
 #include "iterator.hpp"
 #include "pair.hpp"
 #include "vector.hpp"
+#include "list.hpp"
 #include "map.hpp"
 #include "stream.hpp"
 #include "buffer.hpp"
@@ -131,6 +132,7 @@ __MYLO_NAMESPACE_END
 #include "datatype.hpp"
 #include "file.hpp"
 #include "directory.hpp"
+#include "spatial.hpp"
 //#include "archive.hpp"
 
 #include "dto/image.hpp"

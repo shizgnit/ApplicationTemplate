@@ -190,6 +190,7 @@ protected:
     
     node *current = m_root;
     for(size_t index=0, length=traits_first::size(key); index < length; index++) {
+      node *temp = current->children[bytes[index]];
       if(current->children[bytes[index]] == NULL) {
         if(create) {
           current->children[bytes[index]] = new node();

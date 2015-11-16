@@ -34,7 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __PLATFORM_NAMESPACE_BEGIN
 
-void winapi::asset::manager(void *instance) {
+void winapi::asset::init(void *instance) {
   search((char *)instance);
 }
 

@@ -12,10 +12,79 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
+import android.util.AttributeSet;
+
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+
+import android.view.ScaleGestureDetector;
+
+
 public class ApplicationTemplateActivity extends Activity {
 	private GLSurfaceView glSurfaceView;
 	private boolean rendererSet;
+	
+    private ScaleGestureDetector mScaleGestureDetector;
+    private GestureDetector mGestureDetector;
+	
+	public ApplicationTemplateInterop renderer;
+	
+    /**
+     * The scale listener, used for handling multi-finger scale gestures.
+     */
+    private final ScaleGestureDetector.OnScaleGestureListener mScaleGestureListener
+            = new ScaleGestureDetector.SimpleOnScaleGestureListener() {
+        /**
+         * This is the active focal point in terms of the viewport. Could be a local
+         * variable but kept here to minimize per-frame allocations.
+         */
+        //private PointF viewportFocus = new PointF();
+        private float lastSpanX;
+        private float lastSpanY;
 
+   	    //final ApplicationTemplateInterop rendererWrapper = new ApplicationTemplateInterop(this);
+		
+        @Override
+        public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            lastSpanX = scaleGestureDetector.getCurrentSpanX();//ScaleGestureDetectorCompat.getCurrentSpanX(scaleGestureDetector);
+            lastSpanY = scaleGestureDetector.getCurrentSpanY();//ScaleGestureDetectorCompat.getCurrentSpanY(scaleGestureDetector);
+            return true;
+        }
+
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            float spanX = scaleGestureDetector.getCurrentSpanX();//ScaleGestureDetectorCompat.getCurrentSpanX(scaleGestureDetector);
+            float spanY = scaleGestureDetector.getCurrentSpanY();//ScaleGestureDetectorCompat.getCurrentSpanY(scaleGestureDetector);
+
+            //float newWidth = lastSpanX / spanX * mCurrentViewport.width();
+            //float newHeight = lastSpanY / spanY * mCurrentViewport.height();
+
+            //float focusX = scaleGestureDetector.getFocusX();
+            //float focusY = scaleGestureDetector.getFocusY();
+            //hitTest(focusX, focusY, viewportFocus);
+/*
+            mCurrentViewport.set(
+                    viewportFocus.x
+                            - newWidth * (focusX - mContentRect.left)
+                            / mContentRect.width(),
+                    viewportFocus.y
+                            - newHeight * (mContentRect.bottom - focusY)
+                            / mContentRect.height(),
+                    0,
+                    0);
+            mCurrentViewport.right = mCurrentViewport.left + newWidth;
+            mCurrentViewport.bottom = mCurrentViewport.top + newHeight;
+            constrainViewport();
+            ViewCompat.postInvalidateOnAnimation(InteractiveLineGraphView.this);
+*/
+			ApplicationTemplateInterop.getInstance().onTouchScale(0.0f, 0.0f, lastSpanX - spanX);
+
+            lastSpanX = spanX;
+            lastSpanY = spanY;
+            return true;
+        }
+    };
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,48 +104,55 @@ public class ApplicationTemplateActivity extends Activity {
 				glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 			}
 
-			final ApplicationTemplateInterop rendererWrapper = new ApplicationTemplateInterop(this);
+			//final ApplicationTemplateInterop rendererWrapper = new ApplicationTemplateInterop(this);
 			glSurfaceView.setEGLContextClientVersion(2);
-			glSurfaceView.setRenderer(rendererWrapper);
+			
+			ApplicationTemplateInterop.createInstance(this);
+			
+			glSurfaceView.setRenderer(ApplicationTemplateInterop.getInstance());
 			rendererSet = true;
 			setContentView(glSurfaceView);
 
 			glSurfaceView.setOnTouchListener(new OnTouchListener() {
 	            @Override
 	            public boolean onTouch(View v, MotionEvent event) {
-	                if (event != null) {
-	                    // Convert touch coordinates into normalized device
-	                    // coordinates, keeping in mind that Android's Y
-	                    // coordinates are inverted.
-	                    final float normalizedX =
-	                        (event.getX() / (float) v.getWidth()) * 2 - 1;
-	                    final float normalizedY =
-	                        -((event.getY() / (float) v.getHeight()) * 2 - 1);
+	                if(event == null) {
+						return false;
+					}
+					final int action = event.getActionMasked();
+					// Get the index of the pointer associated with the action.
+					final int index = event.getActionIndex();
+					
+					int xPos = -1;
+					int yPos = -1;
+					
+					final float normalizedX = ((event.getX() / (float) v.getWidth()) * 2 - 1);
+					final float normalizedY = ((event.getY() / (float) v.getHeight()) * 2 - 1) * -1;
 
-	                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-	                        glSurfaceView.queueEvent(new Runnable() {
-	                            @Override
-	                            public void run() {
-	                            	rendererWrapper.handleTouchPress(
-	                                    normalizedX, normalizedY);
-	                            }
-	                        });
-	                    } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-	                        glSurfaceView.queueEvent(new Runnable() {
-	                            @Override
-	                            public void run() {
-	                            	rendererWrapper.handleTouchDrag(
-	                                    normalizedX, normalizedY);
-	                            }
-	                        });
-	                    }
+					if (event.getAction() == MotionEvent.ACTION_DOWN) {
+						glSurfaceView.queueEvent(new Runnable() {
+							@Override
+							public void run() {
+								ApplicationTemplateInterop.getInstance().onTouchPress(normalizedX, normalizedY);
+							}
+						});
+					} 
+					if (event.getAction() == MotionEvent.ACTION_MOVE) {
+						glSurfaceView.queueEvent(new Runnable() {
+							@Override
+							public void run() {
+								ApplicationTemplateInterop.getInstance().onTouchDrag(normalizedX, normalizedY);
+							}
+						});
+					}
 
-	                    return true;
-	                } else {
-	                    return false;
-	                }
+					return true;
 	            }
 	        });
+			
+            mScaleGestureDetector = new ScaleGestureDetector(this, mScaleGestureListener);
+	
+			
 		//} else {
 			// Should never be seen in production, since the manifest filters
 			// unsupported devices.
@@ -113,4 +189,5 @@ public class ApplicationTemplateActivity extends Activity {
 			glSurfaceView.onResume();
 		}
 	}
+	
 }

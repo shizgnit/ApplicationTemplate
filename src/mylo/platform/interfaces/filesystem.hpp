@@ -39,8 +39,6 @@ __PLATFORM_NAMESPACE_BEGIN
 
 class filesystem_interface {
 public:
-  virtual ~filesystem_interface() {};
-
   virtual bool rm(my::string filename) = 0;
   virtual bool mv(my::string src, my::string dest) = 0;
   virtual bool cp(my::string src, my::string dest) = 0;

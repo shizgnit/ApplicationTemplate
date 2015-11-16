@@ -38,7 +38,7 @@ __PLATFORM_NAMESPACE_BEGIN
 
 void * platform::asset_interface::manager_instance = NULL;
 
-void art::asset::manager(void *instance) {
+void art::asset::init(void *instance) {
   manager_instance = instance;
 }
 

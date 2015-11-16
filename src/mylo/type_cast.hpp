@@ -103,7 +103,7 @@ public:
   type_cast(double &in)         { sprintf_s(m_buffer, "%f", in); m_data = m_buffer; }
   type_cast(unsigned char &in)  { sprintf_s(m_buffer, "%c", in); m_data = m_buffer; }
   type_cast(char &in)           { sprintf_s(m_buffer, "%c", in); m_data = m_buffer; }
-  type_cast(time_t &in)         { sprintf_s(m_buffer, "%u", in); m_data = m_buffer; }
+  type_cast(time_t &in)         { sprintf_s(m_buffer, "%llu", in); m_data = m_buffer; }
 #else
   type_cast(short &in)          { sprintf(m_buffer, "%d", in); m_data = m_buffer; }
   type_cast(int &in)            { sprintf(m_buffer, "%d", in); m_data = m_buffer; }
