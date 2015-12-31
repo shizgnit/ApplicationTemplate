@@ -39,7 +39,7 @@ __PLATFORM_NAMESPACE_BEGIN
 
 class audio_interface {
   public: 
-    virtual void init(void) = 0;
+    virtual void init(int sources) = 0;
     virtual void compile(my::audio &sound) = 0;
     virtual void play(my::audio &sound) = 0;
     virtual void shutdown(void) = 0;

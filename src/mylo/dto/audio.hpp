@@ -51,7 +51,6 @@ public:
   my::shared_ptr<unsigned char, allocation_array> data;
   unsigned int size;
 
-  unsigned int source;
   unsigned int context;
 
   my::buffer buffer;

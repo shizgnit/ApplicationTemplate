@@ -127,6 +127,9 @@
     <ClCompile Include="..\..\..\src\mylo\spatial.cpp">
       <Filter>mylo</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\platform\keys.cpp">
+      <Filter>mylo\platform</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp">

@@ -35,7 +35,88 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __INPUT_INTERFACE_HPP
 #define __INPUT_INTERFACE_HPP
 
+__PLATFORM_NAMESPACE_BEGIN
 
+class input_interface {
+public:
+  input_interface() {
+    reset();
+  }
+
+  void reset() {
+    mouse_x = 0;
+    mouse_y = 0;
+    memset(keys, 0, 256);
+  }
+
+  virtual void touch_press(float x, float y) = 0;
+  virtual void touch_release(float x, float y) = 0;
+  virtual void touch_drag(float x, float y) = 0;
+  virtual void touch_scale(float x, float y, float z) = 0;
+  virtual void touch_zoom_in() = 0;
+  virtual void touch_zoom_out() = 0;
+
+  virtual void key_down(int key) = 0;
+  virtual void key_up(int key) = 0;
+
+  virtual void mouse_move(long int x, long int y) = 0;
+
+public:
+  long int mouse_x;
+  long int mouse_y;
+  char keys[256];
+
+  struct def_struct {
+    char *label;
+    int value;
+    char *description;
+  };
+
+  static def_struct def[256];
+};
+
+namespace generic {
+
+  class input : public input_interface {
+  public:
+    void touch_press(float x, float y) {
+      on_touch_press(x, y);
+    }
+    void touch_release(float x, float y) {
+      on_touch_release(x, y);
+    }
+    void touch_drag(float x, float y) {
+      on_touch_drag(x, y);
+    }
+    void touch_scale(float x, float y, float z) {
+      on_touch_scale(x, y, z);
+    }
+    void touch_zoom_in() {
+      on_touch_zoom_in();
+    }
+    void touch_zoom_out() {
+      on_touch_zoom_out();
+    }
+
+    void key_down(int key) {
+      keys[key] = 1;
+      on_key_down(key);
+    }
+    void key_up(int key) {
+      keys[key] = 0;
+      on_key_up(key);
+    }
+
+    void mouse_move(long int x, long int y) {
+      mouse_x = x;
+      mouse_y = y;
+      on_mouse_move(x, y);
+    }
+  };
+
+}
+
+__PLATFORM_NAMESPACE_END
 
 #endif
 

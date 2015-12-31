@@ -70,7 +70,7 @@ private:
 
     size_t size = context->buffer.size();
 
-	  DEBUG_TRACE << size << " bytes" << my::endl;
+	DEBUG_TRACE << size << " bytes" << my::endl;
 	
     unsigned char *allocation = new unsigned char[size];
     context->buffer.read(allocation, size);

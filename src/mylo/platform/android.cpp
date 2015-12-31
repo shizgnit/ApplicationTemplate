@@ -6,6 +6,7 @@ platform::filesystem_interface *platform::api::filesystem = new posix::filesyste
 platform::graphics_interface *platform::api::graphics = new opengl::graphics();
 platform::audio_interface *platform::api::audio = new opensl::audio();
 platform::asset_interface *platform::api::asset = new art::asset();
+platform::input_interface *platform::api::input = new generic::input();
 
 
 #include <jni.h>
@@ -21,6 +22,7 @@ extern "C" {
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1startup(JNIEnv * env, jclass cls, jobject java_asset_manager);
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1resize(JNIEnv * env, jclass cls, jint width, jint height);
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1draw(JNIEnv* env, jclass cls);
+	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1proc(JNIEnv* env, jclass cls);
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1press(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y);
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1drag(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y);
 	JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1scale(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y, jfloat normalized_z);
@@ -70,14 +72,18 @@ JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateI
 	on_draw();
 }
 
+JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1proc(JNIEnv* env, jclass cls) {
+	on_proc();
+}
+
 JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1press(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y) {
-	on_touch_press(normalized_x, normalized_y);
+	platform::api::input->touch_press(normalized_x, normalized_y);
 }
 
 JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1drag(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y) {
-	on_touch_drag(normalized_x, normalized_y);
+	platform::api::input->touch_drag(normalized_x, normalized_y);
 }
 
 JNIEXPORT void JNICALL Java_com_android_ApplicationTemplate_ApplicationTemplateInterop_on_1touch_1scale(JNIEnv* env, jclass cls, jfloat normalized_x, jfloat normalized_y, jfloat normalized_z) {
-	on_touch_scale(normalized_x, normalized_y, normalized_z);
+	platform::api::input->touch_scale(normalized_x, normalized_y, normalized_z);
 }

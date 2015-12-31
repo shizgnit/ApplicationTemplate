@@ -63,7 +63,9 @@ __MYLO_DLL_EXPORT my::string trim(my::string in);
 
 __MYLO_DLL_EXPORT my::string lc(my::string in);
 __MYLO_DLL_EXPORT my::string uc(my::string in);
-  
+
+__MYLO_DLL_EXPORT my::string format(my::string str, ...);
+
 __MYLO_DLL_EXPORT my::string join(my::string, my::vector<my::string> arguments);
 __MYLO_DLL_EXPORT my::wstring join(my::wstring, my::vector<my::wstring> arguments);
 __MYLO_DLL_EXPORT my::vector<my::string> split(my::string expression, my::string buffer, int limit=0);

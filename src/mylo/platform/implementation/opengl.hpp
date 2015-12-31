@@ -69,16 +69,15 @@ namespace opengl {
     void init(void);
     void clear(void);
 
-    void compile(my::shader *shader, unsigned int type);
+    void compile(my::shader &shader, unsigned int type);
     void compile(my::program &program);
     void compile(my::object &object);
     void compile(my::objects &objects);
-    void draw(my::object &object, const my::spatial::matrix &matrix);
-    void draw(my::objects &objects, const my::spatial::matrix &matrix);
-    void draw(my::string text, const my::spatial::matrix & matrix);
+    void compile(my::font &font);
 
-    void set_font(my::string file);
-    void set_program(my::string vert, my::string frag);
+    void draw(my::object &object, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection);
+    void draw(my::objects &objects, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection);
+    void draw(my::string text, my::font &font, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection);
   };
 
 }

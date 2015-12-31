@@ -43,6 +43,19 @@ public:
   my::string text;
 
   unsigned int context;
+
+  shader() {
+    callback_write("SHADER", write);
+  }
+
+  static off_t write(shader *context, unsigned char *buffer, off_t bytes) {
+    if (bytes) {
+      context->buffer.write(buffer, bytes);
+      return(bytes);
+    }
+    context->text = context->buffer;
+    return(0);
+  }
 };
 
 __MYLO_NAMESPACE_END

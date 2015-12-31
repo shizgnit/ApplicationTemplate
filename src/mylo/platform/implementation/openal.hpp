@@ -46,10 +46,14 @@ namespace openal {
 
   class audio : public audio_interface {
   public:
-    void init(void);
+    void init(int sources);
     void compile(my::audio &sound);
     void play(my::audio &sound);
     void shutdown(void);
+
+  protected:
+    int sources;
+    unsigned int *identifiers;
   };
 
 }

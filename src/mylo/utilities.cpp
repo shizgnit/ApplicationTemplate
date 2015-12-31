@@ -116,6 +116,28 @@ __MYLO_DLL_EXPORT my::string uc(my::string in) {
   return(my::string(translated.pointer, translated.size()));
 }
 
+__MYLO_DLL_EXPORT my::string format(my::string str, ...) {
+  my::string result;
+
+  va_list args;
+  va_start(args, str);
+
+  char buffer[buffer::alloc];
+  memset(buffer, 0, buffer::alloc);
+
+#if defined __PLATFORM_WINDOWS
+  vsprintf_s(buffer, str, args);
+#else
+  sprintf(buffer, str, args);
+#endif
+
+  va_end(args);
+
+  result = buffer;
+
+  return(result);
+}
+
 __MYLO_DLL_EXPORT my::string join(my::string delimiter, my::vector<my::string> arguments) {
   my::string result;
 

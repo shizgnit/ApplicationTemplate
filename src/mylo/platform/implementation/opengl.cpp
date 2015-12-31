@@ -52,35 +52,35 @@ void opengl::graphics::clear(void) {
   glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 }
 
-void opengl::graphics::compile(my::shader *shader, unsigned int type) { DEBUG_SCOPE;
+void opengl::graphics::compile(my::shader &shader, unsigned int type) { DEBUG_SCOPE;
   DEBUG_TRACE << "compile shader: " << type << my::endl;
 
-  shader->context = glCreateShader(type);
-  if (!shader->context) {
+  shader.context = glCreateShader(type);
+  if (!shader.context) {
 	DEBUG_TRACE << "failed to create shader context" << my::endl;
     return;
   }
 
   DEBUG_TRACE << "pulling shader text" << my::endl;
-  GLchar *text = shader->text.c_str();
+  GLchar *text = shader.text.c_str();
   GLint length = strlen(text);
   DEBUG_TRACE << length << " bytes" << my::endl;
-  glShaderSource(shader->context, 1, (const GLchar **)&text, &length);
+  glShaderSource(shader.context, 1, (const GLchar **)&text, &length);
 
-  glCompileShader(shader->context);
+  glCompileShader(shader.context);
 
-  GLint compiled = 0;
-  glGetShaderiv(shader->context, GL_COMPILE_STATUS, &compiled);
-  if (!compiled) {
-    glGetShaderiv(shader->context, GL_INFO_LOG_LENGTH, &length);
+  GLint compiled = GL_FALSE;
+  glGetShaderiv(shader.context, GL_COMPILE_STATUS, &compiled);
+  if (compiled == GL_FALSE) {
+    glGetShaderiv(shader.context, GL_INFO_LOG_LENGTH, &length);
     if (length) {
       char *info = (char*)malloc(length);
-      glGetShaderInfoLog(shader->context, length, NULL, info);
+      glGetShaderInfoLog(shader.context, length, NULL, info);
       DEBUG_TRACE << "Could not compile shader " << type << ", " << info;
 
       free(info);
-      glDeleteShader(shader->context);
-      shader->context = 0;
+      glDeleteShader(shader.context);
+      shader.context = 0;
     }
   }
 }
@@ -94,15 +94,15 @@ void opengl::graphics::compile(my::program &program) {
     return;
   }
 
-  glAttachShader(program.context, program.vertex->context);
+  glAttachShader(program.context, program.vertex.context);
 
-  glAttachShader(program.context, program.fragment->context);
+  glAttachShader(program.context, program.fragment.context);
 
   glLinkProgram(program.context);
 
-  GLint linkStatus = GL_FALSE;
-  glGetProgramiv(program.context, GL_LINK_STATUS, &linkStatus);
-  if (linkStatus != GL_TRUE) {
+  GLint linked = GL_FALSE;
+  glGetProgramiv(program.context, GL_LINK_STATUS, &linked);
+  if (linked != GL_TRUE) {
     GLint length = 0;
     glGetProgramiv(program.context, GL_INFO_LOG_LENGTH, &length);
     if (length) {
@@ -113,6 +113,20 @@ void opengl::graphics::compile(my::program &program) {
     glDeleteProgram(program.context);
     program.context = 0;
   }
+
+  program.a_Vertex = glGetAttribLocation(program.context, "a_Vertex");
+  program.a_Texture = glGetAttribLocation(program.context, "a_Texture");
+  program.a_Normal = glGetAttribLocation(program.context, "a_Normal");
+
+  program.u_ModelMatrix = glGetUniformLocation(program.context, "u_ModelMatrix");
+  program.u_ViewMatrix = glGetUniformLocation(program.context, "u_ViewMatrix");
+  program.u_ProjectionMatrix = glGetUniformLocation(program.context, "u_ProjectionMatrix");
+
+  program.u_SurfaceTextureUnit = glGetUniformLocation(program.context, "u_SurfaceTextureUnit");
+
+  program.u_AmbientLight = glGetUniformLocation(program.context, "u_AmbientLight");
+  program.u_DirectionalLight = glGetUniformLocation(program.context, "u_DirectionalLight");
+  program.u_DirectionalLightPosition = glGetUniformLocation(program.context, "u_DirectionalLightPosition");
 }
 
 void opengl::graphics::compile(my::object &object) {
@@ -136,20 +150,40 @@ void opengl::graphics::compile(my::objects &objects) {
   }
 }
 
-void opengl::graphics::draw(my::object &object, const my::spatial::matrix &matrix) {
-  glUseProgram(program->context);
+void opengl::graphics::compile(my::font &font) {
+  int x = font.glyphs.size();
+  for (unsigned int i = font.glyphs.offset(); i < font.glyphs.size(); i++) {
+    if (font.glyphs[i]->identifier) {
+      compile(*font.glyphs[i]->quad);
+    }
+  }
+}
+
+
+void opengl::graphics::draw(my::object &object, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) {
+  glUseProgram(shader.context);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, object.texture->context);
 
-  glUniformMatrix4fv(u_mvp_matrix_location, 1, GL_FALSE, (GLfloat *)matrix.r);
-  glUniform1i(u_texture_unit_location, 0);
+  glUniformMatrix4fv(shader.u_ModelMatrix, 1, GL_FALSE, (GLfloat *)model.r);
+  glUniformMatrix4fv(shader.u_ViewMatrix, 1, GL_FALSE, (GLfloat *)view.r);
+  glUniformMatrix4fv(shader.u_ProjectionMatrix, 1, GL_FALSE, (GLfloat *)projection.r);
+  glUniform1i(shader.u_SurfaceTextureUnit, 0);
+
+  glUniform4f(shader.u_AmbientLight, 0.0f, 0.0f, 0.0f, 1.0f);
+
+  glUniform4f(shader.u_DirectionalLight, 0.0f, 0.0f, 0.0f, 1.0f);
+  glUniform4f(shader.u_DirectionalLightPosition, 1.0f, 1.0f, 0.1f, 1.0f);
 
   glBindBuffer(GL_ARRAY_BUFFER, object.context);
-  glVertexAttribPointer(a_position_location, 4, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(0));
-  glVertexAttribPointer(a_texture_coordinates_location, 2, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
-  glEnableVertexAttribArray(a_position_location);
-  glEnableVertexAttribArray(a_texture_coordinates_location);
+  glVertexAttribPointer(shader.a_Vertex, 4, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(0));
+  glVertexAttribPointer(shader.a_Texture, 4, GL_FLOAT, GL_FALSE, sizeof(my::object::vertex), BUFFER_OFFSET(4 * sizeof(GL_FLOAT)));
+  glVertexAttribPointer(shader.a_Normal, 4, GL_FLOAT, GL_TRUE, sizeof(my::object::vertex), BUFFER_OFFSET(8 * sizeof(GL_FLOAT)));
+
+  glEnableVertexAttribArray(shader.a_Vertex);
+  glEnableVertexAttribArray(shader.a_Texture);
+  glEnableVertexAttribArray(shader.a_Normal);
 
   //glDrawArrays(GL_TRIANGLE_FAN, 0, object.vertices.size());
   glDrawArrays(GL_TRIANGLES, 0, object.vertices.size());
@@ -157,58 +191,23 @@ void opengl::graphics::draw(my::object &object, const my::spatial::matrix &matri
   glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void opengl::graphics::draw(my::objects &objects, const my::spatial::matrix &matrix) {
+void opengl::graphics::draw(my::objects &objects, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) {
   for (my::map<my::string, my::shared_ptr<my::object> >::iterator it = objects.object.begin(); it != objects.object.end(); it++) {
-    draw(*it->second, matrix);
+    draw(*it->second, shader, model, view, projection);
   }
 }
 
-void opengl::graphics::draw(my::string text, const my::spatial::matrix &matrix) {
+void opengl::graphics::draw(my::string text, my::font &font, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) {
   int prior = 0;
-  my::spatial::matrix position = matrix;
+  my::spatial::matrix position = model;
   for (unsigned int i = 0; i < text.length(); i++) {
-    position.translate(my::spatial::vector((float)font->kern(prior, text[i]), 0.0f, 0.0f));
+    position.translate(my::spatial::vector((float)font.kern(prior, text[i]), 0.0f, 1.0f));
     my::spatial::matrix relative = position;
-    relative.translate(my::spatial::vector((float)font->glyphs[text[i]]->xoffset, 0.0f, 0.0f));
-    draw(*font->glyphs[text[i]]->quad, relative);
-    position.translate(my::spatial::vector((float)font->glyphs[text[i]]->xadvance, 0.0f, 0.0f));
+    relative.translate(my::spatial::vector((float)font.glyphs[text[i]]->xoffset, 0.0f, 1.0f));
+    draw(*font.glyphs[text[i]]->quad, shader, relative, view, projection);
+    position.translate(my::spatial::vector((float)font.glyphs[text[i]]->xadvance, 0.0f, 1.0f));
     prior = text[i];
   }
-}
-
-void opengl::graphics::set_font(my::string file) {
-  font = new my::fnt();
-  *font << platform::api::asset->retrieve(file);
-  int x = font->glyphs.size();
-  for (unsigned int i = font->glyphs.offset(); i < font->glyphs.size(); i++) {
-    if (font->glyphs[i]->identifier) {
-      compile(*font->glyphs[i]->quad);
-    }
-  }
-}
-
-void opengl::graphics::set_program(my::string vert_file, my::string frag_file) { DEBUG_SCOPE;
-  DEBUG_TRACE << "setting program" << my::endl;
-  DEBUG_TRACE << "frag: " << frag_file << my::endl;
-  DEBUG_TRACE << "vert: " << vert_file << my::endl;
-  program = new my::program();
-
-  program->fragment = new my::frag();
-  program->vertex = new my::vert();
-
-  *program->fragment << platform::api::asset->retrieve(frag_file);
-  *program->vertex << platform::api::asset->retrieve(vert_file);
-
-  DEBUG_TRACE << "attempting to compile" << my::endl;
-
-  compile(*program);
-
-  DEBUG_TRACE << "compiled" << my::endl;
-
-  a_position_location = glGetAttribLocation(program->context, "a_Position");
-  a_texture_coordinates_location = glGetAttribLocation(program->context, "a_TextureCoordinates");
-  u_mvp_matrix_location = glGetUniformLocation(program->context, "u_MvpMatrix");
-  u_texture_unit_location = glGetUniformLocation(program->context, "u_TextureUnit");
 }
 
 

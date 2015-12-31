@@ -42,25 +42,15 @@ class graphics_interface {
     virtual void init(void) = 0;
     virtual void clear(void) = 0;
 
-    virtual void compile(my::shader *shader, unsigned int type) = 0;
+    virtual void compile(my::shader &shader, unsigned int type) = 0;
     virtual void compile(my::program &program) = 0;
     virtual void compile(my::object &object) = 0;
     virtual void compile(my::objects &objects) = 0;
-    virtual void draw(my::object &object, const my::spatial::matrix & matrix) = 0;
-    virtual void draw(my::objects &objects, const my::spatial::matrix & matrix) = 0;
-    virtual void draw(my::string text, const my::spatial::matrix & matrix) = 0;
+    virtual void compile(my::font &font) = 0;
 
-    virtual void set_font(my::string file) = 0;
-    virtual void set_program(my::string vert, my::string frag) = 0;
-
-  protected:
-    int a_position_location;
-    int a_texture_coordinates_location;
-    int u_mvp_matrix_location;
-    int u_texture_unit_location;
-
-    my::shared_ptr<my::font> font;
-    my::shared_ptr<my::program> program;
+    virtual void draw(my::object &object, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
+    virtual void draw(my::objects &objects, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
+    virtual void draw(my::string text, my::font &font, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
 };
 
 __PLATFORM_NAMESPACE_END

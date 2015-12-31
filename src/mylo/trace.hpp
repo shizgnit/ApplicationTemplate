@@ -191,6 +191,14 @@ namespace trace {
     void output(vector<string> content);
   };
   
+  class buffer : public device {
+  public:
+    buffer() : device("buffer"), maxlines(1024) {}
+    void output(vector<string> content);
+    
+    int maxlines;
+    list<string> contents;
+  };
 }
 
 __MYLO_NAMESPACE_END

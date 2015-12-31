@@ -86,7 +86,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\glu\src\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\glu\include\GL;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\..\src\mylo\platform\implementation\openal.cpp" />
     <ClCompile Include="..\..\..\src\mylo\platform\implementation\opengl.cpp" />
     <ClCompile Include="..\..\..\src\mylo\platform\implementation\winapi.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\platform\keys.cpp" />
     <ClCompile Include="..\..\..\src\mylo\platform\windows.cpp" />
     <ClCompile Include="..\..\..\src\mylo\regex.cpp" />
     <ClCompile Include="..\..\..\src\mylo\spatial.cpp" />

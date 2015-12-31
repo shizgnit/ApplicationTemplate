@@ -41,7 +41,7 @@ namespace opensl {
 
   class audio : public audio_interface {
   public:
-    void init(void);
+    void init(int players);
     void compile(my::audio &sound);
     void play(my::audio &sound);
     void shutdown(void);

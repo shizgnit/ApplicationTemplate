@@ -52,7 +52,8 @@ include $(BUILD_STATIC_LIBRARY)
 #
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS := -fpermissive -D_DEBUG
+LOCAL_CFLAGS := -fpermissive -D_DEBUG -Wwrite-strings
+LOCAL_C_INCLUDES += $(SRC_PATH)
 LOCAL_C_INCLUDES += $(COMMON_PATH)/mylo
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/png
 LOCAL_C_INCLUDES += $(THIRD_PARTY_PATH)/linmath
@@ -73,6 +74,8 @@ LOCAL_SRC_FILES := \
   $(COMMON_PATH)/mylo/xpath.cpp \
   $(COMMON_PATH)/mylo/file.cpp \
   $(COMMON_PATH)/mylo/directory.cpp \
+  $(COMMON_PATH)/mylo/spatial.cpp \
+  $(PLATFORM_PATH)/keys.cpp \
   $(PLATFORM_PATH)/implementation/art.cpp \
   $(PLATFORM_PATH)/implementation/opengl.cpp \
   $(PLATFORM_PATH)/implementation/opensl.cpp \

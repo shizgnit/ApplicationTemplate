@@ -42,24 +42,24 @@ class vert;
 
 class __MYLO_DLL_EXPORT program {
 public:
-  program() {
-    fragment = NULL;
-    vertex = NULL;
-  }
-
-  my::shared_ptr<my::frag> fragment;
-  my::shared_ptr<my::vert> vertex;
-
-  my::frag &operator << (my::frag &rval) {
-    fragment = &rval;
-    return(rval);
-  }
-  my::vert &operator << (my::vert &rval) {
-    vertex = &rval;
-    return(rval);
-  }
+  my::shader fragment;
+  my::shader vertex;
 
   unsigned int context;
+
+  int a_Vertex;
+  int a_Texture;
+  int a_Normal;
+
+  int u_ModelMatrix;
+  int u_ViewMatrix;
+  int u_ProjectionMatrix;
+
+  int u_SurfaceTextureUnit;
+
+  int u_AmbientLight;
+  int u_DirectionalLight;
+  int u_DirectionalLightPosition;
 };
 
 __MYLO_NAMESPACE_END

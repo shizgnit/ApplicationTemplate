@@ -12,11 +12,21 @@ my::obj gapple;
 
 my::wav sound;
 
+my::fnt font;
+
+my::program shader_with_lighting;
+my::program shader_basic;
+
 float input_x;
 float input_y;
 float input_z;
 
+float mouse_x;
+float mouse_y;
+
 my::trace::console tracer;
+
+my::spatial::position camera;
 
 void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
@@ -26,7 +36,7 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "audio init" << my::endl;
 
-  platform::api::audio->init();
+  platform::api::audio->init(4);
 
   
   DEBUG_TRACE << "asset init" << my::endl;
@@ -35,7 +45,13 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
-  platform::api::graphics->set_program("shaders/texture_alpha_shader.vert", "shaders/texture_alpha_shader.frag");
+  shader_basic.vertex << platform::api::asset->retrieve("shaders/shader_basic.vert");
+  shader_basic.fragment << platform::api::asset->retrieve("shaders/shader_basic.frag");
+  platform::api::graphics->compile(shader_basic);
+
+  shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/shader_with_lighting.vert");
+  shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/shader_with_lighting.frag");
+  platform::api::graphics->compile(shader_with_lighting);
 
   //
   // Just testing out some file system abstractions
@@ -57,7 +73,8 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   //
   // Load up the font
   //
-  platform::api::graphics->set_font("fonts/arial2.fnt");
+  font << platform::api::asset->retrieve("fonts/arial2.fnt");
+  platform::api::graphics->compile(font);
 
   //
   // Load up the background
@@ -83,6 +100,8 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   DEBUG_TRACE << "sound file loaded " << sound.size << " bytes" << my::endl;
   
   platform::api::audio->compile(sound);
+
+  camera.move(4.0f);
 }
 
 void on_shutdown() {
@@ -99,19 +118,38 @@ void on_resize(int width, int height) {
 }
 
 
-void pprint(my::spatial::matrix mat) {
-  printf("----------------------------\n");
+void print(float x, float y, my::spatial::matrix mat) {
+  my::spatial::matrix placement;
+  placement.identity();
+  placement.scale(0.003f);
+
+  placement.translate(x, y, 0.0f);
+
   for (int i = 0; i < 4; i++) {
-    printf("%f,%f,%f,%f\n", mat.r[i][0], mat.r[i][1], mat.r[i][2], mat.r[i][3]);
+    my::string text = my::format("%f, %f, %f, %f", mat.r[i][0], mat.r[i][1], mat.r[i][2], mat.r[i][3]);
+    platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
+    placement.translate(0.0f, -30.0f, 0.0f);
   }
 }
 
-void pprint(my::spatial::vector vec) {
-  printf("%f,\t%f,\t%f,\t%f\n", vec.x, vec.y, vec.z, vec.w);
+void print(float x, float y, my::spatial::vector vec) {
+  my::spatial::matrix placement;
+  placement.identity();
+  placement.scale(0.003f);
+
+  placement.translate(x, y, 0.0f);
+  my::string text = my::format("%f, %f, %f, %f", vec.x, vec.y, vec.z);
+  platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
 }
 
-my::spatial::position camera;
+void print(float x, float y, my::string text) {
+  my::spatial::matrix placement;
+  placement.identity();
+  placement.scale(0.003f);
 
+  placement.translate(x, y, 0.0f);
+  platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
+}
 
 class text {
 public:
@@ -133,7 +171,7 @@ public:
     for (; it != buffer.end(); it++) {
       text.translate(0.0f, -30.0f, 0.0f);
       if (it->second.length()) {
-        platform::api::graphics->draw(it->second, text);
+        platform::api::graphics->draw(it->second, font, shader_basic, text, my::spatial::matrix(), my::spatial::matrix());
       }
     }
   }
@@ -178,6 +216,9 @@ private:
 
 text tbuffer;
 
+my::spatial::position pos;
+
+
 void on_draw() {
   platform::api::graphics->clear();
 
@@ -195,22 +236,17 @@ void on_draw() {
   background.scale(0.01f);
   background.translate(-130.0f, -120.0f, 1000.1f);
 
-  platform::api::graphics->draw(*gbackground, background);
+  platform::api::graphics->draw(*gbackground, shader_basic, background, my::spatial::matrix(), my::spatial::matrix());
 
   //
   // position
   //
-  my::spatial::vector eye( ((input_x - (screen_width/2)) / 10) * -1, (input_y - (screen_height/2)) / 10, 1.0f + input_z );
-  my::spatial::vector center( ((input_x - (screen_width / 2)) / 10) * -1, (input_y - (screen_height / 2)) / 10, 0.0f + input_z);
-  my::spatial::vector up(0.0f, 1.0f, 0.0f);
-
   static float rotation = 0.0f;
 
-  rotation += 0.05f;
+  rotation += 1.0f;
 
   my::spatial::matrix view;
 
-  //view.lookat(eye, center, up);
   view.lookat(camera.eye, camera.center, camera.up);
 
   my::spatial::matrix projection;
@@ -220,50 +256,141 @@ void on_draw() {
 
   my::spatial::matrix model;
   model.identity();
-  model.rotate_y(rotation);
+
+  // position 
+  pos.rotate(1.0f, 0.0f);
+  pos.move(0.02f);
+  model.translate(pos.eye, pos.center, pos.up);
+
+  // direct
+  //model.translate()
+  //model.rotate_x(rotation);
+
+  //quaternion
+  //my::spatial::quaternion quat;
+  //my::spatial::vector vec;
+  //quat.euler(rotation, 0.0f, 0.0f, 0.0f);
+  //vec.x = rotation;
+  //quat += vec;
+  //quat.euler(1.0f, 0.0f, 0.0f, rotation);
+  //model = quat;
 
   my::spatial::matrix mvp = view_projection * model;
 
-  platform::api::graphics->draw(gapple, mvp);
+  platform::api::graphics->draw(gapple, shader_with_lighting, model, view, projection);
+
+  print(-300, -60, mvp);
+
+  print(-300, -220, my::format("input: %f, %f", input_x, input_y));
+  print(-300, -250, my::format("mouse: %f, %f", mouse_x, mouse_y));
 
   //
   // font 
   //
-  static int counter = 0;
-  tbuffer << counter++ << ") " << input_x << "," << input_y << my::endl;
+  //static int counter = 0;
+  //tbuffer << counter++ << ") " << input_x << "," << input_y << my::endl;
 
   tbuffer.display();
 }
 
-void on_touch_press(float normalized_x, float normalized_y) {
-  input_x = normalized_x - (screen_width / 2);
-  input_y = normalized_y - (screen_height / 2);
+float move_scale = 0.2f;
+float rotate_scale = 1.0f;
 
-  platform::api::audio->play(sound);
+void on_proc() {
+  static int count = 0;
+  //tbuffer << "process loop: " << count++ << my::endl;
+
+  if (platform::api::input->keys[37]) { // left
+    camera.rotate(0.0f, rotate_scale * -1.0f);
+  }
+  if (platform::api::input->keys[38]) { // up
+    camera.rotate(rotate_scale, 0.0f, 0.0f);
+  }
+  if (platform::api::input->keys[39]) { // right
+    camera.rotate(0.0f, rotate_scale);
+  }
+  if (platform::api::input->keys[40]) { // down
+    camera.rotate(rotate_scale * -1.0f, 0.0f, 0.0f);
+  }
+
+  if (platform::api::input->keys[87]) { // W
+    camera.vertical(move_scale * -1.0f);
+  }
+  if (platform::api::input->keys[83]) { // S
+    camera.vertical(move_scale);
+  }
+  if (platform::api::input->keys[65]) { // A
+    camera.strafe(move_scale * -1.0f);
+  }
+  if (platform::api::input->keys[68]) { // D
+    camera.strafe(move_scale);
+  }
+
+  if (platform::api::input->keys[32]) { // Space
+    shader_with_lighting = my::program();
+    shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/shader_with_lighting.vert");
+    shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/shader_with_lighting.frag");
+    platform::api::graphics->compile(shader_with_lighting);
+  }
+
 }
 
-void on_touch_drag(float normalized_x, float normalized_y) {
-  input_x = normalized_x - (screen_width / 2);
-  input_y = normalized_y - (screen_height / 2);
+void on_touch_press(float x, float y) {
+  input_x = x - (screen_width / 2);
+  input_y = y - (screen_height / 2);
 
-  camera.rotate(normalized_x, normalized_y);
+  tbuffer << "press: " << input_x << ", " << input_y << my::endl;
+
+  //platform::api::audio->play(sound);
 }
 
-void on_touch_release(float normalized_x, float normalized_y) {
-  //input_x = normalized_x;
-  //input_y = normalized_y;
+void on_touch_drag(float x, float y) {
+  input_x = x - (screen_width / 2);
+  input_y = y - (screen_height / 2);
+
+  tbuffer << "drag: " << input_x << ", " << input_y << my::endl;
+
+  //camera.rotate(input_x > 0.0f ? 1.0f : -1.0f, input_y > 0.0f ? -1.0f : 1.0f);
+
+  //camera.rotate(input_x / 100,  input_y / 100);
+  //camera.rotate(0.1f, 0.1f);
+}
+
+void on_touch_release(float x, float y) {
+  //input_x = x;
+  //input_y = y;
 }
 
 void on_touch_zoom_in() {
-  camera.move(0.01f);
+  camera.move(move_scale);
+  tbuffer << "zoom in" << my::endl;
   input_z += 0.1f;
 }
 
 void on_touch_zoom_out() {
-  camera.move(-0.01f);
+  camera.move(move_scale * -1.0f);
+  tbuffer << "zoom out" << my::endl;
   input_z -= 0.1f;
 }
 
-void on_touch_scale(float normalized_x, float normalized_y, float normalized_z) {
-  input_z += normalized_z;
+void on_touch_scale(float x, float y, float z) {
+  input_z += z;
+  //camera.move(input_z >= 0 ? 1.0f : -1.0f);
+}
+
+void on_key_down(int key) {
+  tbuffer << "key down: " << key << my::endl;
+
+}
+
+void on_key_up(int key) {
+  tbuffer << "key up: " << key << my::endl;
+  //platform::api::audio->play(sound);
+
+  //camera.rotate(input_x, input_y);
+}
+
+void on_mouse_move(long int x, long int y) {
+  mouse_x = x;
+  mouse_y = y;
 }

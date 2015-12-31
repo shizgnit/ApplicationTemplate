@@ -135,6 +135,16 @@ void trace::console::output(vector<string> content) {
 #endif
 }
 
+void trace::buffer::output(vector<string> content) {
+  my::string text;
+  for (unsigned int i = 0; i < content.size(); i++) {
+    text.append(content[i].c_str());
+  }
+  if (contents.size() > maxlines) {
+    contents.shift();
+  }
+  contents.push(text);
+}
 
 __MYLO_NAMESPACE_END
 

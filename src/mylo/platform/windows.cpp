@@ -30,14 +30,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "mylo.hpp"
-
 #include "ApplicationTemplate.hpp"
+
+#include "mylo.hpp"
 
 platform::filesystem_interface *platform::api::filesystem = new winapi::filesystem();
 platform::graphics_interface *platform::api::graphics = new opengl::graphics();
 platform::audio_interface *platform::api::audio = new openal::audio();
 platform::asset_interface *platform::api::asset = new winapi::asset();
+platform::input_interface *platform::api::input = new generic::input();
 
 #include <iostream>
 
@@ -284,6 +285,7 @@ void OnInit() {
 }
 
 void OnTimer() {
+  on_proc();
   on_draw();
   SwapBuffers(window->DC());
 }
@@ -421,12 +423,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       std::cout << std::endl;
     }
 
+    if (input.header.dwType == RIM_TYPEKEYBOARD && (input.data.keyboard.Flags == 0 || input.data.keyboard.Flags == 2))
+    {
+      platform::api::input->key_down(input.data.keyboard.VKey);
+    }
+    if (input.header.dwType == RIM_TYPEKEYBOARD && (input.data.keyboard.Flags == 1 || input.data.keyboard.Flags == 3))
+    {
+      platform::api::input->key_up(input.data.keyboard.VKey);
+    }
+
+    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.ulButtons == 0)
+    {
+      GetCursorPos(&p);
+      ScreenToClient(hWnd, &p);
+      platform::api::input->mouse_move(p.x, p.y);
+    }
     if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0001)
     {
       GetCursorPos(&p);
       ScreenToClient(hWnd, &p);
-
-      on_touch_press((float)p.x, (float)p.y);
+      platform::api::input->touch_press((float)p.x, (float)p.y);
       LBUTTONDOWN = true;
     }
     if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0002)
@@ -436,10 +452,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0400)
     {
       if (input.data.mouse.usButtonData == 0xFF88) { // 65416
-        on_touch_zoom_in();
+        platform::api::input->touch_zoom_in();
       }
       if (input.data.mouse.usButtonData == 0x0078) { // 120
-        on_touch_zoom_out();
+        platform::api::input->touch_zoom_out();
       }
     }
 
@@ -465,7 +481,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       OnTimer();
       return 0;
     }
-
+    
     case WM_CLOSE: {
       KillTimer(hWnd, 1);
       running = false;

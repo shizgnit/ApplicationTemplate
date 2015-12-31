@@ -7,6 +7,8 @@ import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -29,15 +31,14 @@ public class ApplicationTemplateActivity extends Activity {
 	
 	public ApplicationTemplateInterop renderer;
 	
+	private Handler handler;
+	
     /**
      * The scale listener, used for handling multi-finger scale gestures.
      */
+	 /*
     private final ScaleGestureDetector.OnScaleGestureListener mScaleGestureListener
             = new ScaleGestureDetector.SimpleOnScaleGestureListener() {
-        /**
-         * This is the active focal point in terms of the viewport. Could be a local
-         * variable but kept here to minimize per-frame allocations.
-         */
         //private PointF viewportFocus = new PointF();
         private float lastSpanX;
         private float lastSpanY;
@@ -62,6 +63,7 @@ public class ApplicationTemplateActivity extends Activity {
             //float focusX = scaleGestureDetector.getFocusX();
             //float focusY = scaleGestureDetector.getFocusY();
             //hitTest(focusX, focusY, viewportFocus);
+			*/
 /*
             mCurrentViewport.set(
                     viewportFocus.x
@@ -76,14 +78,14 @@ public class ApplicationTemplateActivity extends Activity {
             mCurrentViewport.bottom = mCurrentViewport.top + newHeight;
             constrainViewport();
             ViewCompat.postInvalidateOnAnimation(InteractiveLineGraphView.this);
-*/
+*//*
 			ApplicationTemplateInterop.getInstance().onTouchScale(0.0f, 0.0f, lastSpanX - spanX);
 
             lastSpanX = spanX;
             lastSpanY = spanY;
             return true;
         }
-    };
+    };*/
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +152,7 @@ public class ApplicationTemplateActivity extends Activity {
 	            }
 	        });
 			
-            mScaleGestureDetector = new ScaleGestureDetector(this, mScaleGestureListener);
+            //mScaleGestureDetector = new ScaleGestureDetector(this, mScaleGestureListener);
 	
 			
 		//} else {
@@ -172,6 +174,37 @@ public class ApplicationTemplateActivity extends Activity {
     return(false);
 	}
 
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		handler = new Handler(){
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				ApplicationTemplateInterop.getInstance().onProcessLoop();
+			}
+		};
+
+		new Thread(
+			new Runnable() {
+				public void run() {
+					while(true) {
+						try {
+							Thread.sleep(100);
+							handler.sendEmptyMessage(0);
+						}
+						catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		).start();		
+	}
+	
+	
 	@Override
 	protected void onPause() {
 		super.onPause();

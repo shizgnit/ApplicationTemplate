@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define __MYLO_RELEASE $(__MYLO_BUILD_MAJOR).$(__MYLO_BUILD_MINOR).$(__MYLO_BUILD_REV)
 
+#include "ApplicationTemplate.hpp"
+
 #include "platform/platform.hpp"
 
 #if defined __PLATFORM_WINDOWS
@@ -149,6 +151,7 @@ __MYLO_NAMESPACE_END
 #include "platform/interfaces/graphics.hpp"
 #include "platform/interfaces/audio.hpp"
 #include "platform/interfaces/asset.hpp"
+#include "platform/interfaces/input.hpp"
 
 __PLATFORM_NAMESPACE_BEGIN
 
@@ -158,6 +161,7 @@ public:
   static graphics_interface *graphics;
   static audio_interface *audio;
   static asset_interface *asset;
+  static input_interface *input;
 };
 
 __PLATFORM_NAMESPACE_END
@@ -183,7 +187,6 @@ __PLATFORM_NAMESPACE_END
 #include "dto/types/frag.hpp"
 #include "dto/types/fnt.hpp"
 #include "dto/types/wav.hpp"
-
 
 #endif
 

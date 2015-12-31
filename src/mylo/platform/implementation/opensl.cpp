@@ -124,7 +124,7 @@ void bqRecorderCallback(SLAndroidSimpleBufferQueueItf bq, void *context) { DEBUG
 
 __PLATFORM_NAMESPACE_BEGIN
 
-void opensl::audio::init(void) { DEBUG_SCOPE;
+void opensl::audio::init(int players) { DEBUG_SCOPE;
 	DEBUG_TRACE << "audio init" << my::endl;
 	SLresult result;
 
@@ -215,12 +215,9 @@ void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
 
     // create audio player
 	DEBUG_TRACE << "create player" << my::endl;
-    const SLInterfaceID ids[3] = {SL_IID_BUFFERQUEUE, SL_IID_EFFECTSEND,
-            /*SL_IID_MUTESOLO,*/ SL_IID_VOLUME};
-    const SLboolean req[3] = {SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE,
-            /*SL_BOOLEAN_TRUE,*/ SL_BOOLEAN_TRUE};
-    result = (*engineEngine)->CreateAudioPlayer(engineEngine, &bqPlayerObject, &audioSrc, &audioSnk,
-            3, ids, req);
+    const SLInterfaceID ids[3] = {SL_IID_BUFFERQUEUE, SL_IID_EFFECTSEND, /*SL_IID_MUTESOLO,*/ SL_IID_VOLUME};
+    const SLboolean req[3] = {SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE, /*SL_BOOLEAN_TRUE,*/ SL_BOOLEAN_TRUE};
+    result = (*engineEngine)->CreateAudioPlayer(engineEngine, &bqPlayerObject, &audioSrc, &audioSnk, 3, ids, req);
 	if(result != SL_RESULT_SUCCESS) {
 		DEBUG_TRACE << "failed" << my::endl;
 	}
@@ -241,8 +238,7 @@ void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
 
     // get the buffer queue interface
 	DEBUG_TRACE << "get buffer queue interface" << my::endl;
-    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_BUFFERQUEUE,
-            &bqPlayerBufferQueue);
+    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_BUFFERQUEUE, &bqPlayerBufferQueue);
 	if(result != SL_RESULT_SUCCESS) {
 		DEBUG_TRACE << "failed" << my::endl;
 	}
@@ -256,13 +252,13 @@ void opensl::audio::compile(my::audio &sound) { DEBUG_SCOPE;
 
     // get the effect send interface
 	DEBUG_TRACE << "get effect interface" << my::endl;
-    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_EFFECTSEND,
-            &bqPlayerEffectSend);
+    result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_EFFECTSEND, &bqPlayerEffectSend);
 	if(result != SL_RESULT_SUCCESS) {
 		DEBUG_TRACE << "failed" << my::endl;
 	}
 
-#if 0   // mute/solo is not supported for sources that are known to be mono, as this is
+#if 0   
+    // mute/solo is not supported for sources that are known to be mono, as this is
     // get the mute/solo interface
 	DEBUG_TRACE << "get mono/solo interface" << my::endl;
     result = (*bqPlayerObject)->GetInterface(bqPlayerObject, SL_IID_MUTESOLO, &bqPlayerMuteSolo);

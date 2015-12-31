@@ -19,7 +19,7 @@ public class ApplicationTemplateInterop implements Renderer {
     private static ApplicationTemplateInterop instance = null;
     public static void createInstance(Context context) {
         instance = new ApplicationTemplateInterop(context);
-    }	
+    }
     public static ApplicationTemplateInterop getInstance() {
         return instance;
     }
@@ -59,6 +59,10 @@ public class ApplicationTemplateInterop implements Renderer {
 		on_draw();
 	}
 
+	public void onProcessLoop() {
+		on_proc();
+	}
+	
 	public void onTouchPress(float normalizedX, float normalizedY) {
 		on_touch_press(normalizedX, normalizedY);
 	}
@@ -77,6 +81,8 @@ public class ApplicationTemplateInterop implements Renderer {
 
 	private static native void on_draw();
 
+	private static native void on_proc();
+	
 	private static native void on_touch_press(float normalized_x, float normalized_y);
 
 	private static native void on_touch_drag(float normalized_x, float normalized_y);
