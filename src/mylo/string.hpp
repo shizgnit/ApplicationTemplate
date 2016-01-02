@@ -130,8 +130,8 @@ public:
   //int operator [] (const size_t &pos)        { return(get(pos)); }
 
   virtual int get(size_t pos) const {
-    int rval = m_data[pos];
-    return(rval);
+    int operand = m_data[pos];
+    return(operand);
   }
 
   virtual void set(size_t pos, int byte) {
@@ -235,8 +235,8 @@ public:
     return(result);
   }
 
-  virtual int compare(const T *rval) {
-    return(strcmp((char *)m_data, (char *)rval));
+  virtual int compare(const T *operand) {
+    return(strcmp((char *)m_data, (char *)operand));
   }
 
   virtual void clear() {

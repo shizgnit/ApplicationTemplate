@@ -62,14 +62,14 @@ public:
     m_chain = new my::vector<my::serializable *>();
   }
   
-  stream(const my::serializable *lval, const my::serializable *rval);
+  stream(const my::serializable *lval, const my::serializable *operand);
 
   stream(const stream &in);
   
   ~stream();
   
-  stream &operator << (const my::serializable &rval);
-  stream &operator >> (const my::serializable &rval);
+  stream &operator << (const my::serializable &operand);
+  stream &operator >> (const my::serializable &operand);
   
 private:
   my::shared_ptr< my::vector<my::serializable *> > m_chain;
@@ -82,11 +82,11 @@ public:
   serializable();
   virtual ~serializable();
   
-  stream operator << (const serializable &rval) {
-    return(stream(&rval, this));
+  stream operator << (const serializable &operand) {
+    return(stream(&operand, this));
   }
-  stream operator >> (const serializable &rval) {
-    return(stream(this, &rval));
+  stream operator >> (const serializable &operand) {
+    return(stream(this, &operand));
   }
 
   virtual off_t expect(void) {

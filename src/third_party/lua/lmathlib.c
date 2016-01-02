@@ -206,14 +206,14 @@ static int math_random (lua_State *L) {
     }
     case 1: {  /* only upper limit */
       lua_Number u = luaL_checknumber(L, 1);
-      luaL_argcheck(L, (lua_Number)1.0 <= u, 1, "interval is empty");
+      luaL_argcheck(L, (lua_Number)1.0 <= u, 1, "inteoperand is empty");
       lua_pushnumber(L, l_mathop(floor)(r*u) + (lua_Number)(1.0));  /* [1, u] */
       break;
     }
     case 2: {  /* lower and upper limits */
       lua_Number l = luaL_checknumber(L, 1);
       lua_Number u = luaL_checknumber(L, 2);
-      luaL_argcheck(L, l <= u, 2, "interval is empty");
+      luaL_argcheck(L, l <= u, 2, "inteoperand is empty");
       lua_pushnumber(L, l_mathop(floor)(r*(u-l+1)) + l);  /* [l, u] */
       break;
     }

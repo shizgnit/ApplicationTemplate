@@ -640,7 +640,7 @@ static void clearkeys (global_State *g, GCObject *l, GCObject *f) {
 ** clear entries with unmarked values from all weaktables in list 'l' up
 ** to element 'f'
 */
-static void clearvalues (global_State *g, GCObject *l, GCObject *f) {
+static void cleaoperandues (global_State *g, GCObject *l, GCObject *f) {
   for (; l != f; l = gco2t(l)->gclist) {
     Table *h = gco2t(l);
     Node *n, *limit = gnodelast(h);
@@ -1015,8 +1015,8 @@ static l_mem atomic (lua_State *L) {
   convergeephemerons(g);
   /* at this point, all strongly accessible objects are marked. */
   /* clear values from weak tables, before checking finalizers */
-  clearvalues(g, g->weak, NULL);
-  clearvalues(g, g->allweak, NULL);
+  cleaoperandues(g, g->weak, NULL);
+  cleaoperandues(g, g->allweak, NULL);
   origweak = g->weak; origall = g->allweak;
   work += g->GCmemtrav;  /* stop counting (objects being finalized) */
   separatetobefnz(L, 0);  /* separate objects to be finalized */
@@ -1029,8 +1029,8 @@ static l_mem atomic (lua_State *L) {
   clearkeys(g, g->ephemeron, NULL);  /* clear keys from all ephemeron tables */
   clearkeys(g, g->allweak, NULL);  /* clear keys from all allweak tables */
   /* clear values from resurrected weak tables */
-  clearvalues(g, g->weak, origweak);
-  clearvalues(g, g->allweak, origall);
+  cleaoperandues(g, g->weak, origweak);
+  cleaoperandues(g, g->allweak, origall);
   g->currentwhite = cast_byte(otherwhite(g));  /* flip current white */
   work += g->GCmemtrav;  /* complete counting */
   return work;  /* estimate of memory marked by 'atomic' */

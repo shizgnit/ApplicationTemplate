@@ -39,7 +39,7 @@ __MYLO_NAMESPACE_BEGIN
 
 class abstract_functor {
 public:
-  virtual void exec(my::vector<my::variant> params, my::variant &rval) {}
+  virtual void exec(my::vector<my::variant> params, my::variant &operand) {}
 
   abstract_functor(my::string name, my::string desc): _name(name), _desc(desc) {}
   
@@ -62,8 +62,8 @@ template <class R> struct functor< R (*)() > : public abstract_functor {
     return(_fp());
   }
   
-  void exec(my::vector<my::variant> params, my::variant &rval) {
-//    rval = _fp();
+  void exec(my::vector<my::variant> params, my::variant &operand) {
+//    operand = _fp();
   }
   
   R (*_fp)();
@@ -96,8 +96,8 @@ template <class R, class P1> struct functor< R (*)(P1) > : public abstract_funct
     return(_fp(var1));
   }
   
-  void exec(my::vector<my::variant> params, my::variant &rval) {
-    //rval = _fp(params[0]);
+  void exec(my::vector<my::variant> params, my::variant &operand) {
+    //operand = _fp(params[0]);
   }
   
   R (*_fp)(P1);
@@ -132,8 +132,8 @@ template <class R, class P1, class P2> struct functor< R (*)(P1, P2) > : public 
     return(_fp(var1, var2));
   }
   
-  void exec(my::vector<my::variant> params, my::variant &rval) {
-//    rval = _fp(params[0], params[1]);
+  void exec(my::vector<my::variant> params, my::variant &operand) {
+//    operand = _fp(params[0], params[1]);
   }
   
   R (*_fp)(P1, P2);
@@ -170,8 +170,8 @@ template <class R, class P1, class P2, class P3> struct functor< R (*)(P1, P2, P
     return(_fp(var1, var2, var3));
   }
   
-  void exec(my::vector<my::variant> params, my::variant &rval) {
-//    rval = _fp(params[0], params[1], params[2]);
+  void exec(my::vector<my::variant> params, my::variant &operand) {
+//    operand = _fp(params[0], params[1], params[2]);
   }
   
   R (*_fp)(P1, P2, P3);

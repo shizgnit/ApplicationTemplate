@@ -71,66 +71,66 @@ namespace spatial {
     this->w = ref.w;
   }
 
-  vector &vector::operator = (const vector &rval) {
-    this->x = rval.x;
-    this->y = rval.y;
-    this->z = rval.z;
-    this->w = rval.w;
+  vector &vector::operator = (const vector &operand) {
+    this->x = operand.x;
+    this->y = operand.y;
+    this->z = operand.z;
+    this->w = operand.w;
     return(*this);
   }
 
-  vector &vector::operator += (const vector &rval) {
-    return (*this = (*this) + rval);
+  vector &vector::operator += (const vector &operand) {
+    return (*this = (*this) + operand);
   }
-  vector vector::operator + (const vector &rval) {
+  vector vector::operator + (const vector &operand) {
     vector result;
-    result.x = x + rval.x;
-    result.y = y + rval.y;
-    result.z = z + rval.z;
+    result.x = x + operand.x;
+    result.y = y + operand.y;
+    result.z = z + operand.z;
     return result;
   }
 
-  vector &vector::operator -= (const vector &rval) {
-    return (*this = (*this) - rval);
+  vector &vector::operator -= (const vector &operand) {
+    return (*this = (*this) - operand);
   }
-  vector vector::operator - (const vector &rval) const {
+  vector vector::operator - (const vector &operand) const {
     vector result;
-    result.x = x - rval.x;
-    result.y = y - rval.y;
-    result.z = z - rval.z;
+    result.x = x - operand.x;
+    result.y = y - operand.y;
+    result.z = z - operand.z;
     return result;
   }
 
-  vector &vector::operator *= (const vector &rval) {
-    return (*this = (*this) * rval);
+  vector &vector::operator *= (const vector &operand) {
+    return (*this = (*this) * operand);
   }
-  vector vector::operator * (const vector &rval) const {
+  vector vector::operator * (const vector &operand) const {
     vector result;
-    result.x = x * rval.x;
-    result.y = y * rval.y;
-    result.z = z * rval.z;
+    result.x = x * operand.x;
+    result.y = y * operand.y;
+    result.z = z * operand.z;
     return result;
   }
 
-  vector &vector::operator /= (const vector &rval) {
-    return (*this = (*this) / rval);
+  vector &vector::operator /= (const vector &operand) {
+    return (*this = (*this) / operand);
   }
-  vector vector::operator / (const vector &rval) const {
+  vector vector::operator / (const vector &operand) const {
     vector result;
-    result.x = x / (rval.x ? rval.x : 1.0f);
-    result.y = y / (rval.y ? rval.y : 1.0f);
-    result.z = z / (rval.z ? rval.z : 1.0f);
+    result.x = x / (operand.x ? operand.x : 1.0f);
+    result.y = y / (operand.y ? operand.y : 1.0f);
+    result.z = z / (operand.z ? operand.z : 1.0f);
     return result;
   }
 
-  vector &vector::operator %= (const vector &rval) {
-    return (*this = (*this) % rval);
+  vector &vector::operator %= (const vector &operand) {
+    return (*this = (*this) % operand);
   }
-  vector vector::operator % (const vector &rval) const {
+  vector vector::operator % (const vector &operand) const {
     vector result;
-    result.x = (y * rval.z) - (z * rval.y);
-    result.y = (z * rval.x) - (x * rval.z);
-    result.z = (x * rval.y) - (y * rval.x);
+    result.x = (y * operand.z) - (z * operand.y);
+    result.y = (z * operand.x) - (x * operand.z);
+    result.z = (x * operand.y) - (y * operand.x);
     return result;
   }
 
@@ -208,33 +208,33 @@ namespace spatial {
     return *this;
   }
 
-  matrix &matrix::operator *= (const matrix &rval) {
-    return (*this = (*this) * rval);
+  matrix &matrix::operator *= (const matrix &operand) {
+    return (*this = (*this) * operand);
   }
-  matrix matrix::operator * (const matrix &rval) const {
+  matrix matrix::operator * (const matrix &operand) const {
     //matrix result = *this;
 
     /*
-    result.r[0][0] = r[0][0] * rval.r[0][0] + r[1][0] * rval.r[0][1] + r[2][0] * rval.r[0][2] + r[3][0] * rval.r[0][3];
-    result.r[0][1] = r[0][1] * rval.r[0][0] + r[1][1] * rval.r[0][1] + r[2][1] * rval.r[0][2] + r[3][1] * rval.r[0][3];
-    result.r[0][2] = r[0][2] * rval.r[0][0] + r[1][2] * rval.r[0][1] + r[2][2] * rval.r[0][2] + r[3][2] * rval.r[0][3];
-    result.r[0][3] = r[0][3] * rval.r[0][0] + r[1][3] * rval.r[0][1] + r[2][3] * rval.r[0][2] + r[3][3] * rval.r[0][3];
+    result.r[0][0] = r[0][0] * operand.r[0][0] + r[1][0] * operand.r[0][1] + r[2][0] * operand.r[0][2] + r[3][0] * operand.r[0][3];
+    result.r[0][1] = r[0][1] * operand.r[0][0] + r[1][1] * operand.r[0][1] + r[2][1] * operand.r[0][2] + r[3][1] * operand.r[0][3];
+    result.r[0][2] = r[0][2] * operand.r[0][0] + r[1][2] * operand.r[0][1] + r[2][2] * operand.r[0][2] + r[3][2] * operand.r[0][3];
+    result.r[0][3] = r[0][3] * operand.r[0][0] + r[1][3] * operand.r[0][1] + r[2][3] * operand.r[0][2] + r[3][3] * operand.r[0][3];
 
-    result.r[1][0] = r[0][0] * rval.r[1][0] + r[1][0] * rval.r[1][1] + r[2][0] * rval.r[1][2] + r[3][0] * rval.r[1][3];
-    result.r[1][1] = r[0][1] * rval.r[1][0] + r[1][1] * rval.r[1][1] + r[2][1] * rval.r[1][2] + r[3][1] * rval.r[1][3];
-    result.r[1][2] = r[0][2] * rval.r[1][0] + r[1][2] * rval.r[1][1] + r[2][2] * rval.r[1][2] + r[3][2] * rval.r[1][3];
-    result.r[1][3] = r[0][3] * rval.r[1][0] + r[1][3] * rval.r[1][1] + r[2][3] * rval.r[1][2] + r[3][3] * rval.r[1][3];
+    result.r[1][0] = r[0][0] * operand.r[1][0] + r[1][0] * operand.r[1][1] + r[2][0] * operand.r[1][2] + r[3][0] * operand.r[1][3];
+    result.r[1][1] = r[0][1] * operand.r[1][0] + r[1][1] * operand.r[1][1] + r[2][1] * operand.r[1][2] + r[3][1] * operand.r[1][3];
+    result.r[1][2] = r[0][2] * operand.r[1][0] + r[1][2] * operand.r[1][1] + r[2][2] * operand.r[1][2] + r[3][2] * operand.r[1][3];
+    result.r[1][3] = r[0][3] * operand.r[1][0] + r[1][3] * operand.r[1][1] + r[2][3] * operand.r[1][2] + r[3][3] * operand.r[1][3];
 
-    result.r[2][0] = r[0][0] * rval.r[2][0] + r[1][0] * rval.r[2][1] + r[2][0] * rval.r[2][2] + r[3][0] * rval.r[2][3];
-    result.r[2][1] = r[0][1] * rval.r[2][0] + r[1][1] * rval.r[2][1] + r[2][1] * rval.r[2][2] + r[3][1] * rval.r[2][3];
-    result.r[2][2] = r[0][2] * rval.r[2][0] + r[1][2] * rval.r[2][1] + r[2][2] * rval.r[2][2] + r[3][2] * rval.r[2][3];
-    result.r[2][3] = r[0][3] * rval.r[2][0] + r[1][3] * rval.r[2][1] + r[2][3] * rval.r[2][2] + r[3][3] * rval.r[2][3];
+    result.r[2][0] = r[0][0] * operand.r[2][0] + r[1][0] * operand.r[2][1] + r[2][0] * operand.r[2][2] + r[3][0] * operand.r[2][3];
+    result.r[2][1] = r[0][1] * operand.r[2][0] + r[1][1] * operand.r[2][1] + r[2][1] * operand.r[2][2] + r[3][1] * operand.r[2][3];
+    result.r[2][2] = r[0][2] * operand.r[2][0] + r[1][2] * operand.r[2][1] + r[2][2] * operand.r[2][2] + r[3][2] * operand.r[2][3];
+    result.r[2][3] = r[0][3] * operand.r[2][0] + r[1][3] * operand.r[2][1] + r[2][3] * operand.r[2][2] + r[3][3] * operand.r[2][3];
 
-    result.r[3][0] = r[0][0] * rval.r[3][0] + r[1][0] * rval.r[3][1] + r[2][0] * rval.r[3][2] + r[3][0] * rval.r[3][3];
-    result.r[3][1] = r[0][1] * rval.r[3][0] + r[1][1] * rval.r[3][1] + r[2][1] * rval.r[3][2] + r[3][1] * rval.r[3][3];
-    result.r[3][2] = r[0][2] * rval.r[3][0] + r[1][2] * rval.r[3][1] + r[2][2] * rval.r[3][2] + r[3][2] * rval.r[3][3];
+    result.r[3][0] = r[0][0] * operand.r[3][0] + r[1][0] * operand.r[3][1] + r[2][0] * operand.r[3][2] + r[3][0] * operand.r[3][3];
+    result.r[3][1] = r[0][1] * operand.r[3][0] + r[1][1] * operand.r[3][1] + r[2][1] * operand.r[3][2] + r[3][1] * operand.r[3][3];
+    result.r[3][2] = r[0][2] * operand.r[3][0] + r[1][2] * operand.r[3][1] + r[2][2] * operand.r[3][2] + r[3][2] * operand.r[3][3];
 
-    //result.r[3][3] = r[0][3] * rval.r[3][0] + r[1][3] * rval.r[3][1] + r[2][3] * rval.r[3][2] + r[3][3] * rval.r[3][3];
+    //result.r[3][3] = r[0][3] * operand.r[3][0] + r[1][3] * operand.r[3][1] + r[2][3] * operand.r[3][2] + r[3][3] * operand.r[3][3];
 
     */
 
@@ -243,40 +243,40 @@ namespace spatial {
     for (c = 0; c<4; ++c) for (r = 0; r<4; ++r) {
       result.r[c][r] = 0.f;
       for (k = 0; k<4; ++k)
-        result.r[c][r] += this->r[k][r] * rval.r[c][k];
+        result.r[c][r] += this->r[k][r] * operand.r[c][k];
     }
 
     return result;
   }
 
-  matrix &matrix::scale(const float &rval) {
-    return(*this *= rval);
+  matrix &matrix::scale(const float &operand) {
+    return(*this *= operand);
   }
-  matrix &matrix::operator *= (const float &rval) {
-    return (*this = (*this) * rval);
+  matrix &matrix::operator *= (const float &operand) {
+    return (*this = (*this) * operand);
   }
-  matrix matrix::operator * (const float &rval) const {
+  matrix matrix::operator * (const float &operand) const {
     matrix result = *this;
 
-    result.r[0][0] *= rval;
-    result.r[0][1] *= rval;
-    result.r[0][2] *= rval;
-    result.r[0][3] *= rval;
+    result.r[0][0] *= operand;
+    result.r[0][1] *= operand;
+    result.r[0][2] *= operand;
+    result.r[0][3] *= operand;
 
-    result.r[1][0] *= rval;
-    result.r[1][1] *= rval;
-    result.r[1][2] *= rval;
-    result.r[1][3] *= rval;
+    result.r[1][0] *= operand;
+    result.r[1][1] *= operand;
+    result.r[1][2] *= operand;
+    result.r[1][3] *= operand;
 
-    result.r[2][0] *= rval;
-    result.r[2][1] *= rval;
-    result.r[2][2] *= rval;
-    result.r[2][3] *= rval;
+    result.r[2][0] *= operand;
+    result.r[2][1] *= operand;
+    result.r[2][2] *= operand;
+    result.r[2][3] *= operand;
 
-    result.r[3][0] *= rval;
-    result.r[3][1] *= rval;
-    result.r[3][2] *= rval;
-    //result.r[3][3] *= rval;
+    result.r[3][0] *= operand;
+    result.r[3][1] *= operand;
+    result.r[3][2] *= operand;
+    //result.r[3][3] *= operand;
 
     return result;
   }
@@ -398,6 +398,16 @@ namespace spatial {
     return *this;
   }
 
+  matrix &matrix::ortho(float left, float right, float bottom, float top) {
+    r[0][0] = 2.0f / (right - left);
+    r[1][1] = 2.f / (top - bottom);
+    r[2][2] = -1.0f;
+    r[3][0] = -(right + left) / (right - left);
+    r[3][1] = -(top + bottom) / (top - bottom);
+    r[3][3] = 1.0f;
+    return *this;
+  }
+
   matrix &matrix::lookat(const vector &eye, const vector &center, const vector &up) {
     vector f = (center - eye).unit();
     vector s = (f % up).unit();
@@ -419,6 +429,7 @@ namespace spatial {
   }
 
   matrix &matrix::translate(const vector &eye, const vector &center, const vector &up) {
+    
     vector f = (center - eye).unit();
     vector s = (f % up).unit();
     vector t = s % f;
@@ -525,7 +536,7 @@ namespace spatial {
   }
 
   void position::move(float t) {
-    vector diff = (eye - center) * t;
+    vector diff = (eye - center).unit() * t;
 
     center += diff;
     eye += diff;
@@ -622,13 +633,13 @@ namespace spatial {
 
   }
 
-  quaternion quaternion::operator *(const quaternion &rval){
+  quaternion quaternion::operator *(const quaternion &operand){
     quaternion result;
 
-    result.w = w*rval.w - x*rval.x - y*rval.y - z*rval.z;
-    result.x = w*rval.x + x*rval.w + y*rval.z - z*rval.y;
-    result.y = w*rval.y + y*rval.w + z*rval.x - x*rval.z;
-    result.z = w*rval.z + z*rval.w + x*rval.y - y*rval.x;
+    result.w = w*operand.w - x*operand.x - y*operand.y - z*operand.z;
+    result.x = w*operand.x + x*operand.w + y*operand.z - z*operand.y;
+    result.y = w*operand.y + y*operand.w + z*operand.x - x*operand.z;
+    result.z = w*operand.z + z*operand.w + x*operand.y - y*operand.x;
 
     return(result);
   }

@@ -47,23 +47,23 @@ static int db_setmetatable (lua_State *L) {
 }
 
 
-static int db_getuservalue (lua_State *L) {
+static int db_getuseoperandue (lua_State *L) {
   if (lua_type(L, 1) != LUA_TUSERDATA)
     lua_pushnil(L);
   else
-    lua_getuservalue(L, 1);
+    lua_getuseoperandue(L, 1);
   return 1;
 }
 
 
-static int db_setuservalue (lua_State *L) {
+static int db_setuseoperandue (lua_State *L) {
   if (lua_type(L, 1) == LUA_TLIGHTUSERDATA)
     luaL_argerror(L, 1, "full userdata expected, got light userdata");
   luaL_checktype(L, 1, LUA_TUSERDATA);
   if (!lua_isnoneornil(L, 2))
     luaL_checktype(L, 2, LUA_TTABLE);
   lua_settop(L, 2);
-  lua_setuservalue(L, 1);
+  lua_setuseoperandue(L, 1);
   return 1;
 }
 
@@ -372,7 +372,7 @@ static int db_traceback (lua_State *L) {
 
 static const luaL_Reg dblib[] = {
   {"debug", db_debug},
-  {"getuservalue", db_getuservalue},
+  {"getuseoperandue", db_getuseoperandue},
   {"gethook", db_gethook},
   {"getinfo", db_getinfo},
   {"getlocal", db_getlocal},
@@ -381,7 +381,7 @@ static const luaL_Reg dblib[] = {
   {"getupvalue", db_getupvalue},
   {"upvaluejoin", db_upvaluejoin},
   {"upvalueid", db_upvalueid},
-  {"setuservalue", db_setuservalue},
+  {"setuseoperandue", db_setuseoperandue},
   {"sethook", db_sethook},
   {"setlocal", db_setlocal},
   {"setmetatable", db_setmetatable},

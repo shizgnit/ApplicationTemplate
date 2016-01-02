@@ -28,6 +28,9 @@ my::trace::console tracer;
 
 my::spatial::position camera;
 
+int apples = 60;
+my::list<my::shared_ptr<my::spatial::position> > positions;
+
 void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "graphics init" << my::endl;
@@ -38,7 +41,6 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   platform::api::audio->init(4);
 
-  
   DEBUG_TRACE << "asset init" << my::endl;
   
   platform::api::asset->init(asset_manager);
@@ -102,6 +104,28 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   platform::api::audio->compile(sound);
 
   camera.move(4.0f);
+
+  //
+  // Randomize the object positions
+  //
+  for (int i = 0; i < apples; i++) {
+    my::spatial::position *instance = new my::spatial::position();
+
+    my::spatial::vector v;
+
+    float random = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+
+    v.x = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 6.0f)) - 3.0f;
+    v.y = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 6.0f)) - 3.0f;
+    v.z = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 6.0f)) - 3.0f;
+
+    instance->center += v;
+    instance->eye += v;
+
+    //instance->rotation.y = (float)(rand() % 20);
+
+    positions.push_back(instance);
+  }
 }
 
 void on_shutdown() {
@@ -176,11 +200,11 @@ public:
     }
   }
 
-  void append(const my::string &rval) {
+  void append(const my::string &value) {
     if (buffer.size() == 0) {
       newline();
     }
-    buffer.tail().append(rval);
+    buffer.tail().append(value);
   }
 
   void newline() {
@@ -190,22 +214,22 @@ public:
     buffer.push_back(my::string());
   }
 
-  text &operator << (int rval) {
-    append(my::type_cast<my::string>(rval));
+  text &operator << (int operand) {
+    append(my::type_cast<my::string>(operand));
     return(*this);
   }
 
-  text &operator << (float rval) {
-    append(my::type_cast<my::string>(rval));
+  text &operator << (float operand) {
+    append(my::type_cast<my::string>(operand));
     return(*this);
   }
 
-  text &operator << (const my::string &rval) {
-    append(rval);
+  text &operator << (const my::string &operand) {
+    append(operand);
     return(*this);
   }
 
-  text &operator << (const my::end_of_line &rval) {
+  text &operator << (const my::end_of_line &operand) {
     newline();
     return(*this);
   }
@@ -217,7 +241,6 @@ private:
 text tbuffer;
 
 my::spatial::position pos;
-
 
 void on_draw() {
   platform::api::graphics->clear();
@@ -236,7 +259,7 @@ void on_draw() {
   background.scale(0.01f);
   background.translate(-130.0f, -120.0f, 1000.1f);
 
-  platform::api::graphics->draw(*gbackground, shader_basic, background, my::spatial::matrix(), my::spatial::matrix());
+  //platform::api::graphics->draw(*gbackground, shader_basic, background, my::spatial::matrix(), my::spatial::matrix());
 
   //
   // position
@@ -249,11 +272,21 @@ void on_draw() {
 
   view.lookat(camera.eye, camera.center, camera.up);
 
-  my::spatial::matrix projection;
-  projection.perspective(deg_to_radf(90), (float)screen_width / (float)screen_height, -1.0f, 1.0f);
+  my::spatial::matrix perspective;
+  perspective.perspective(deg_to_radf(90), (float)screen_width / (float)screen_height, -1.0f, 1.0f);
 
-  my::spatial::matrix view_projection = projection * view;
+  my::spatial::matrix ortho;
+  ortho.ortho(0, screen_width, 0, screen_height);
 
+  my::spatial::matrix view_projection = perspective * view;
+
+  my::spatial::matrix b;
+  b.identity();
+  b.translate(10, 10, 0);
+
+  platform::api::graphics->draw(*gbackground, shader_basic, b, my::spatial::matrix(), ortho);
+
+  /*
   my::spatial::matrix model;
   model.identity();
 
@@ -278,11 +311,35 @@ void on_draw() {
   my::spatial::matrix mvp = view_projection * model;
 
   platform::api::graphics->draw(gapple, shader_with_lighting, model, view, projection);
+  */
 
-  print(-300, -60, mvp);
+  my::list<my::shared_ptr<my::spatial::position> >::iterator it = positions.begin();
+  for (float i=0; it != positions.end(); it++) {
+    my::spatial::matrix model;
+    model.identity();
+
+    it->second->rotate(1.0f, 0.0f); //  i++ / apples);
+
+    //float rotation_y = it->second->rotation.y;
+
+    it->second->move(0.02f);
+    model.translate(it->second->eye, it->second->center, it->second->up);
+
+    platform::api::graphics->draw(gapple, shader_with_lighting, model, view, perspective);
+  }
+
+
+  //print(-300, -60, mvp);
 
   print(-300, -220, my::format("input: %f, %f", input_x, input_y));
   print(-300, -250, my::format("mouse: %f, %f", mouse_x, mouse_y));
+
+  static int frame = 0;
+  static int start = time(NULL);
+
+  frame++;
+
+  print(-300, -280, my::format("fps: %f", (float) frame / (time(NULL) - start) ));
 
   //
   // font 

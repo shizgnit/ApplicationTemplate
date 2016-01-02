@@ -138,7 +138,7 @@ static int str_byte (lua_State *L) {
   int n, i;
   if (posi < 1) posi = 1;
   if (pose > l) pose = l;
-  if (posi > pose) return 0;  /* empty interval; return no values */
+  if (posi > pose) return 0;  /* empty inteoperand; return no values */
   n = (int)(pose -  posi + 1);
   if (posi + n <= pose)  /* (size_t -> int) overflow? */
     return luaL_error(L, "string slice too long");

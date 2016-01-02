@@ -712,7 +712,7 @@ LUA_API int lua_getmetatable (lua_State *L, int objindex) {
 }
 
 
-LUA_API void lua_getuservalue (lua_State *L, int idx) {
+LUA_API void lua_getuseoperandue (lua_State *L, int idx) {
   StkId o;
   lua_lock(L);
   o = index2addr(L, idx);
@@ -849,7 +849,7 @@ LUA_API int lua_setmetatable (lua_State *L, int objindex) {
 }
 
 
-LUA_API void lua_setuservalue (lua_State *L, int idx) {
+LUA_API void lua_setuseoperandue (lua_State *L, int idx) {
   StkId o;
   lua_lock(L);
   api_checknelems(L, 1);

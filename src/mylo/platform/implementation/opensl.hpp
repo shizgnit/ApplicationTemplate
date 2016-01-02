@@ -44,7 +44,7 @@ namespace opensl {
     void init(int players);
     void compile(my::audio &sound);
     void play(my::audio &sound);
-    void shutdown(void);
+    void shutdown(void);	
   };
 
 }

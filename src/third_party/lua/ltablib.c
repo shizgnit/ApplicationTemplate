@@ -103,7 +103,7 @@ static int tconcat (lua_State *L) {
     addfield(L, &b, i);
     luaL_addlstring(&b, sep, lsep);
   }
-  if (i == last)  /* add last value (if interval was not empty) */
+  if (i == last)  /* add last value (if inteoperand was not empty) */
     addfield(L, &b, i);
   luaL_pushresult(&b);
   return 1;

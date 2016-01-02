@@ -1,1884 +1,1055 @@
 --------- beginning of main
-[ 12-30 21:37:11.970  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.features.FeatureCache ]
-Caching feature IsolateApplication as false
+[ 01-01 13:20:14.498  6666: 6760 D/HeadsetStateMachine ]
+Disconnected process message: 10, size: 0
 
-[ 12-30 21:37:11.983  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-Cannot find amazon authenticator. returning null
-
-[ 12-30 21:37:11.983  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.utils.CentralApkUtils ]
-No central apk detected. This should be a 3P device.
-
-[ 12-30 21:37:11.984  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.storage.DataStorageFactoryImpl ]
-Creating new DataStorageFactoryImpl
-
-[ 12-30 21:37:11.985  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.storage.DataStorageFactoryImpl ]
-Initializing new DataStorage
-
-[ 12-30 21:37:11.987  6701: 6722 I/AmazonKindle.com.amazon.kindle.krx.KindleReaderSDKModule ]
-[ThreadPoolManager1-thread-2]: Initializing plugins
-
-
-[ 12-30 21:37:11.997  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.attribute.DeviceAttributeCache ]
-Setting device attribute CentralAPK to false
-
-[ 12-30 21:37:11.998  6701: 6721 I/com.amazon.kindle/com.amazon.identity.auth.device.storage.DataStorageFactoryImpl ]
-Creating and using new DistributedDataStorage
-
-[ 12-30 21:37:12.009  6701: 6729 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Get DataStorage instance for initialization
-
-[ 12-30 21:37:12.009  6701: 6729 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Initialize DataStorage instance
-
-[ 12-30 21:37:12.009  6701: 6729 I/com.amazon.kindle/com.amazon.identity.auth.device.framework.MAPInitTasks ]
-Setup DataStorage instance
-
-[ 12-30 21:37:12.027  6701: 6701 W/com.amazon.dcp.settings.SettingsCache ]
-Permission to read device settings doesn't exist. This is normal on third-party devices.
-
-[ 12-30 21:37:12.027  6701: 6701 I/com.amazon.dcp.settings.SettingsCache ]
-Always use default values for settings
-
-[ 12-30 21:37:12.048  6701: 6701 I/com.amazon.kindle/com.amazon.identity.auth.accounts.MultipleAccountPluginHolder ]
-Returning Default multiple profile settings
-
-[ 12-30 21:37:12.222  6701: 6729 I/com.amazon.kindle/com.amazon.identity.auth.device.storage.DistributedDataStorage ]
-Am not the latest application. Not creating alarm to clean database
-
-[ 12-30 21:37:12.261  6701: 6729 W/com.amazon.kindle/com.amazon.identity.auth.device.api.MAPInit ]
-AdsIdentity class not found.
-
-[ 12-30 21:37:12.514  6701: 6729 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.514  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.549  6701: 6734 E/AmazonKindle.com.amazon.kindle.services.authentication.MAPTokenCache ]
-[pool-6-thread-1]: Account removed while talking to MAP, aborting...
-
-
-[ 12-30 21:37:12.550  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.551  6701: 6734 E/AmazonKindle.com.amazon.kindle.services.authentication.MAPTokenCache ]
-[pool-6-thread-1]: Account removed while talking to MAP, aborting...
-
-
-[ 12-30 21:37:12.551  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.555  6701: 6727 I/com.amazon.kindle/com.amazon.identity.auth.device.attribute.DeviceAttributeCache ]
-Setting device attribute CentralDeviceType to A1MPSLFC7L5AFK
-
-[ 12-30 21:37:12.556  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.558  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.561  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.579  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.582  6701: 6738 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[USER_EMAIL_Fetcher]: <NoId> updated to QUEUED state
-
-
-[ 12-30 21:37:12.584  6701: 6739 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[DownloadManager-webserviceRequests2-thread-1]: <NoId> updated to DOWNLOADING state
-
+[ 01-01 13:20:15.991 13090:13120 I/GAV2     ]
+Thread[GAThread,5,main]: No campaign data found.
 
 --------- beginning of system
-[ 12-30 21:37:12.593  1909: 1925 D/WifiService ]
-acquireWifiLockLocked: WifiLock{ReddingWifiLock type=1 binder=android.os.BinderProxy@3282b59f}
+[ 01-01 13:20:16.309  1909: 2121 I/ActivityManager ]
+Killing 12605:com.google.android.apps.magazines/u0a74 (adj 15): empty #17
 
-[ 12-30 21:37:12.596  6701: 6739 W/ActivityThread ]
-ClassLoader.loadClass: The class loader returned by Thread.getContextClassLoader() may fail for processes that host multiple applications. You should explicitly specify a context class loader. For example: Thread.setContextClassLoader(getClass().getClassLoader());
+[ 01-01 13:20:17.374  1909: 2120 I/ActivityManager ]
+Killing 12675:com.amazon.kindle/u0a146 (adj 15): empty #17
 
-[ 12-30 21:37:12.630  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.630  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_ja
-
-
-[ 12-30 21:37:12.632  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.632  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_ja
-
-
-[ 12-30 21:37:12.635  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.635  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.637  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.637  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.639  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.640  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.642  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.642  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.644  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.644  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.645  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.646  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.647  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.648  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_zh
-
-
-[ 12-30 21:37:12.650  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.650  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_zh
-
-
-[ 12-30 21:37:12.652  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.652  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_zh
-
-
-[ 12-30 21:37:12.654  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.654  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_zh
-
-
-[ 12-30 21:37:12.659  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.659  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.661  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.661  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.689  6701: 6752 E/AmazonKindle.com.amazon.kindle.io.IOUtils ]
-[AsyncTask #1]: File not found
-
-
-[ 12-30 21:37:12.690  6701: 6745 I/SocialSharing ]
-com.amazon.kindle.socialsharing.SocialSharingPlugin: Initializing Social Sharing plugin
-
-[ 12-30 21:37:12.692  6701: 6752 E/AmazonKindle.com.amazon.kindle.io.IOUtils ]
-[AsyncTask #1]: File not found
-
-
-[ 12-30 21:37:12.692  6701: 6752 E/AmazonKindle.com.amazon.kindle.io.IOUtils ]
-[AsyncTask #1]: File not found
-
-
-[ 12-30 21:37:12.693  6701: 6752 E/AmazonKindle.com.amazon.kindle.io.IOUtils ]
-[AsyncTask #1]: File not found
-
-
-[ 12-30 21:37:12.693  6701: 6752 E/AmazonKindle.com.amazon.kindle.io.IOUtils ]
-[AsyncTask #1]: File not found
-
-
-[ 12-30 21:37:12.700  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.700  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.701  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.701  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_en-us
-
-
-[ 12-30 21:37:12.705  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.705  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_ja
-
-
-[ 12-30 21:37:12.706  6701: 6741 W/ResourceType ]
-Invalid package identifier when getting bag for resource number 0x00000000
-
-[ 12-30 21:37:12.706  6701: 6741 W/AmazonKindle.com.amazon.kindle.utils.StopWordSortFriendlyFormatter ]
-[pool-9-thread-1]: Couldn't find stop word array with name comparison_stop_words_ja
-
-
-[ 12-30 21:37:12.732  6701: 6701 I/AmazonKindle.com.amazon.kcp.application.ReddingApplication ]
-[main]: Kindle Application started
-
-
-[ 12-30 21:37:12.744  6701: 6722 I/com.amazon.kwis.client.KWISClient ]
-Initializing KWIS Client...
-
-[ 12-30 21:37:12.744  6701: 6722 D/com.amazon.kwis.client.KWISClient ]
-CustomerId: amzn1.account.AFYHM65WHJNCHTON7Q32JYGXE4XA Namespace: StandaloneAndroid AppType: KFA AppVersion: 4.19 Marketplace Id: ATVPDKIKX0DER Default Authentication: true
-
-[ 12-30 21:37:12.745  6701: 6722 I/com.amazon.kwis.client.KWISClient ]
-Initializing experiments to treatments map...
-
-[ 12-30 21:37:12.752  6701: 6722 V/com.amazon.kwis.client.dao.KWISClientDAO ]
-No rows deleted from experiment realm table
-
-[ 12-30 21:37:12.752  6701: 6722 V/com.amazon.kwis.client.dao.KWISClientDAO ]
-No rows deleted from experiment realm table
-
-[ 12-30 21:37:12.752  6701: 6722 V/com.amazon.kwis.client.dao.KWISClientDAO ]
-No rows deleted from experiment realm table
-
-[ 12-30 21:37:12.754  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:12.755  6701: 6751 I/com.audible.hushpuppy.plugin.ApplicationPlugin ]
-iLogger has not yet been set, falling back to Android Log for message: HP-AppStart: Initializing Hushpuppy for KRX
-
-[ 12-30 21:37:12.755  6701: 6751 I/com.audible.hushpuppy.plugin.ApplicationPlugin ]
-iLogger has not yet been set, falling back to Android Log for message: HP-AppStart: Initializingcom.audible.hushpuppy.ApplicationPlugin
-
-[ 12-30 21:37:12.772  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: BaseMetricsServiceFactory, truncated name: BaseMetricsServiceFacto
-
-[ 12-30 21:37:12.773  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: MetricsConfigurationParser, truncated name: MetricsConfigurationPar
-
-[ 12-30 21:37:12.774  6701: 6701 I/MetricsConfigurationPar ]
-MetricsConfigurationParser - Picking configuration; Domain: prod, Build: user, isDebuggable: false
-
-[ 12-30 21:37:12.784  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: TComm.HttpClientSrrManager, truncated name: TComm.HttpClientSrrMana
-
-[ 12-30 21:37:12.785  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: AndroidDeviceInfoManager, truncated name: AndroidDeviceInfoManage
-
-[ 12-30 21:37:12.786  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.extensions.ExtensionsFactoryProducer ]
-[pool-2-thread-4]: getting Hushpuppy Extensions Factory class name
-
-
-[ 12-30 21:37:12.787  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.extensions.ExtensionsFactoryProducer ]
-[pool-2-thread-4]: getting Hushpuppy Extensions Factory class com.audible.android.kcp.AiRExtensionsFactory
-
-
-[ 12-30 21:37:12.787  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.extensions.ExtensionsFactoryProducer ]
-[pool-2-thread-4]: getting Hushpuppy Extensions Factory constructor com.audible.android.kcp.AiRExtensionsFactory
-
-
-[ 12-30 21:37:12.787  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.extensions.ExtensionsFactoryProducer ]
-[pool-2-thread-4]: constructing Hushpuppy Extensions Factory com.audible.android.kcp.AiRExtensionsFactory
-
-
-[ 12-30 21:37:12.787  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.extensions.ExtensionsFactoryProducer ]
-[pool-2-thread-4]: Hushpuppy Extensions Factory is class com.audible.android.kcp.AiRExtensionsFactory
-
-
-[ 12-30 21:37:12.789  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BoundedByteArrayQueue, truncated name: Metrics:BoundedByteArra
-
-[ 12-30 21:37:12.789  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:NonVolatileBoundedByteArrayQueue, truncated name: Metrics:NonVolatileBoun
-
-[ 12-30 21:37:12.800  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Inject retry policy
-
-
-[ 12-30 21:37:12.805  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:BatchTransmitter, truncated name: Metrics:BatchTransmitte
-
-[ 12-30 21:37:12.806  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:ThreadPoolBatchTransmitter, truncated name: Metrics:ThreadPoolBatch
-
-[ 12-30 21:37:12.806  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: PeriodicBatchTransmitter, truncated name: PeriodicBatchTransmitte
-
-[ 12-30 21:37:12.808  6701: 6748 I/System.out ]
-INFO: com.amazon.ea.EndActionsPlugin Initializing EA Plugin
-
-[ 12-30 21:37:12.813  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: Metrics:UrgentBatchTransmitter, truncated name: Metrics:UrgentBatchTran
-
-[ 12-30 21:37:12.814  6701: 6701 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_LOCATION_SERVICE:  because no configuration is provided.
-
-[ 12-30 21:37:12.814  6701: 6701 W/BaseMetricsServiceFacto ]
-createMetricsService - Skipping batch pipeline setup for ; RESERVED_FOR_NON_ANONYMOUS_METRICS:  because no configuration is provided.
-
-[ 12-30 21:37:12.816  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: MetricsBroadcastReceiver, truncated name: MetricsBroadcastReceive
-
-[ 12-30 21:37:12.819  6701: 6701 I/AmazonKindle.com.amazon.kcp.application.ReddingApplication ]
-[main]: Starting Kindle application
-
-
-[ 12-30 21:37:12.820  6701: 6774 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of NORMAL queue batches sent: 0
-
-[ 12-30 21:37:12.820  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module NewsstandModule
-
-
-[ 12-30 21:37:12.820  6701: 6745 I/SocialSharing ]
-com.amazon.kindle.socialsharing.SocialSharingPlugin: RELEASE BUILD
-
-[ 12-30 21:37:12.825  6701: 6775 I/Metrics:BatchTransmitte ]
-QueuePusher.sendBatches - Drained batch queue.; Number of HIGH queue batches sent: 0
-
-[ 12-30 21:37:12.834  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Inject download on wifi or wan policy
-
-
-[ 12-30 21:37:12.836  6701: 6748 I/AmazonKindle.com.amazon.startactions.plugin.receiver.AccountChangeListener ]
-[pool-2-thread-3]: Initialized
-
-
-[ 12-30 21:37:12.847  6701: 6748 I/AmazonKindle.com.amazon.startactions.plugin.StartActionsController ]
-[pool-2-thread-3]: Setting IPanelContentProvider for Start Actions. [priority=600]
-
-
-[ 12-30 21:37:12.852  6701: 6722 D/com.amazon.kwis.client.OAuthTokenFetcher ]
- Token Key: com.amazon.kindle/com.amazon.dcp.sso.token.oauth.amazon.access_token
-
-[ 12-30 21:37:12.852  6701: 6722 D/com.amazon.kwis.client.KWISClient ]
-Starting thread for fetching experiments...
-
-[ 12-30 21:37:12.867  6701: 6744 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-2-thread-1]: Initializing plugin com.audible.hushpuppy.plugin.UpsellPlugin
-
-
-[ 12-30 21:37:12.869  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering ContentTypeStorageLocationStrategy
-
-
-[ 12-30 21:37:12.871  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering CoverArtTypeFactory
-
-
-[ 12-30 21:37:12.876  6701: 6744 I/AmazonKindle.com.audible.hushpuppy.model.write.UpsellModel ]
-[pool-2-thread-1]: Upsell model reset
-
-
-[ 12-30 21:37:12.876  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering NotificationFactoryProvider
-
-
-[ 12-30 21:37:12.877  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: NewsstandModule initialized
-
-
-[ 12-30 21:37:12.877  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module KindleContentProvider
-
-
-[ 12-30 21:37:12.878  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: KindleContentProvider initialized
-
-
-[ 12-30 21:37:12.878  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module MangaViewerModule
-
-
-[ 12-30 21:37:12.879  6701: 6744 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.model.ModelChangedEvent
-
-[ 12-30 21:37:12.879  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: MangaViewerModule initialized
-
-
-[ 12-30 21:37:12.879  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module StandAloneReaderModule
-
-
-[ 12-30 21:37:12.879  6701: 6744 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.model.ModelChangedEvent
-
-[ 12-30 21:37:12.879  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering IdentityManager
-
-
-[ 12-30 21:37:12.879  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering DownloadManager
-
-
-[ 12-30 21:37:12.879  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: StandAloneReaderModule initialized
-
-
-[ 12-30 21:37:12.879  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module krf4
-
-
-[ 12-30 21:37:12.880  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering DownloaderFactory
-
-
-[ 12-30 21:37:12.880  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering MediaButtonManager
-
-
-[ 12-30 21:37:12.880  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering ActivationDataRepository
-
-
-[ 12-30 21:37:12.880  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering HeadsetPolicy
-
-
-[ 12-30 21:37:12.880  6701: 6722 I/AmazonKindle.com.amazon.bookwizard.BookWizardProvider ]
-[ThreadPoolManager1-thread-2]: Registering StartupProvider
-
-
-[ 12-30 21:37:12.882  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering PlayerNotificationFactory
-
-
-[ 12-30 21:37:12.892  6701: 6745 I/SocialSharing ]
-com.amazon.kindle.socialsharing.SocialSharingPlugin: Registering button providers
-
-[ 12-30 21:37:12.892  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: krf4 initialized
-
-
-[ 12-30 21:37:12.892  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module rendering
-
-
-[ 12-30 21:37:12.893  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: rendering initialized
-
-
-[ 12-30 21:37:12.893  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module annotations
-
-
-[ 12-30 21:37:12.893  6701: 6745 I/AmazonKindle.com.amazon.dcapsmodule.DcapsPlugin ]
-[pool-2-thread-2]: dcaps plugin init
-
-
-[ 12-30 21:37:12.895  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: annotations initialized
-
-
-[ 12-30 21:37:12.895  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module StandaloneDefinitionContainerModule
-
-
-[ 12-30 21:37:12.895  6701: 6748 I/com.amazon.reader.EbookDownloadPlugin ]
-Initializing hushpuppy plugin for EbookDownloadPlugin
-
-[ 12-30 21:37:12.896  6701: 6748 I/AmazonKindle.com.amazon.kcp.wordwise.plugin.WordWisePlugin ]
-[pool-2-thread-3]: initializing
-
-
-[ 12-30 21:37:12.898  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering MetricManager
-
-
-[ 12-30 21:37:12.899  6701: 6751 I/AmazonKindle.com.amazon.kindle.AapConfiguration ]
-[pool-2-thread-4]: Registering PlayerManager
-
-
-[ 12-30 21:37:12.901  6701: 6748 I/AmazonKindle.com.amazon.kcp.wordwise.download.WordWiseContentStatus ]
-[pool-2-thread-3]: Initializing
-
-
-[ 12-30 21:37:12.903  6701: 6748 I/AmazonKindle.com.amazon.kcp.wordwise.download.WordWiseSynchronizationManager ]
-[pool-2-thread-3]: Dictionary Directory: /data/data/com.amazon.kindle/databases/wordwise
-
-
-[ 12-30 21:37:12.903  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: StandaloneDefinitionContainerModule initialized
-
-
-[ 12-30 21:37:12.903  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module AttributionModule
-
-
-[ 12-30 21:37:12.929  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: AttributionModule initialized
-
-
-[ 12-30 21:37:12.929  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: Initializing module ContentManagementSystem
-
-
-[ 12-30 21:37:12.931  6701: 6701 I/AmazonKindle.com.amazon.kindle.config.AbstractModuleInitializer ]
-[main]: ContentManagementSystem initialized
-
-
-[ 12-30 21:37:12.977  2246: 2246 W/MediaRemoteController ]
-sendMetadataToWatch got null metadata
-
-[ 12-30 21:37:12.995  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-2-thread-4]: HP-AppStart: Checking user logged in or not
-
-
-[ 12-30 21:37:12.997  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[pool-2-thread-4]: HP-AppStart: PFM-UPDATE - starting
-
-
-[ 12-30 21:37:12.998  6701: 6807 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmTestHook ]
-[pool-20-thread-1]: HP-AppStart: PFM-UPDATE - test hook disabled
-
-
-[ 12-30 21:37:13.002  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.service.db.HushpuppyStorage ]
-[pool-2-thread-4]: HP-AppStart: PFM-GET: found pfm ATVPDKIKX0DER pfm_config={pfm=ATVPDKIKX0DER pfm_readable=US - www.amazon.com - PROD {}}
-
-
-[ 12-30 21:37:13.003  6701: 6807 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[pool-20-thread-1]: PFM-UPDATE: pfm last update Tue Dec 15 04:05:37 MST 2015
-
-
-[ 12-30 21:37:13.005  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.service.network.PfmEndpointFactory ]
-[pool-2-thread-4]: HP-AppStart: PFM-GET: found pfm ATVPDKIKX0DER
-
-
-[ 12-30 21:37:13.005  6701: 6751 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-2-thread-4]: New HushpuppyState ENABLED
-
-
-[ 12-30 21:37:13.006  6701: 6722 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[ThreadPoolManager1-thread-2]: Initializing plugin com.audible.hushpuppy.plugin.DebugPlugin
-
-
-[ 12-30 21:37:13.006  6701: 6745 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-2-thread-2]: Initializing plugin com.audible.hushpuppy.plugin.LibraryPlugin
-
-
-[ 12-30 21:37:13.006  6701: 6748 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-2-thread-3]: Initializing plugin com.audible.hushpuppy.plugin.ContentDownloadPlugin
-
-
-[ 12-30 21:37:13.007  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-13-thread-1]: HP-AppStart: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.007  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.UpsellPlugin ]
-[pool-13-thread-1]: HP-AppStart: Enabling com.audible.hushpuppy.UpsellPlugin
-
-
-[ 12-30 21:37:13.008  6701: 6807 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmKrxDownloadRequest ]
-[pool-20-thread-1]: requesting Pfm Download with If-Modified-Since: Tue, 15 Dec 2015 11:05:37 GMT+00:00
-
-
-[ 12-30 21:37:13.009  6701: 6807 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[pool-20-thread-1]: <NoId> updated to QUEUED state
-
-
-[ 12-30 21:37:13.049  6701: 6722 I/AmazonKindle.com.audible.hushpuppy.plugin.DebugPlugin ]
-[ThreadPoolManager1-thread-2]: DebugPlugin won't be initialized in release build!
-
-
-[ 12-30 21:37:13.052  6701: 6748 I/AmazonKindle.com.audible.hushpuppy.plugin.ContentDownloadPlugin ]
-[pool-2-thread-3]: HP-AppStart: Initializing com.audible.hushpuppy.ContentDownloadPlugin
-
-
-[ 12-30 21:37:13.056  6701: 6808 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.enable.PluginEnabledEvent
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: HushpuppyStateChangeEvent ENABLED. Registering listeners
-
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Registering Global sync broadcast receiver
-
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Registering Reader library event listener
-
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Registering Reader navigation and activity lifecycle listeners
-
-
-[ 12-30 21:37:13.056  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Registering Reader TOC Listener for table of content load callbacks
-
-
-[ 12-30 21:37:13.057  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ApplicationPlugin ]
-[pool-13-thread-1]: Registering Start Page Provider to provide LPR **
-
-
-[ 12-30 21:37:13.057  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-13-thread-1]: HP-AppStart: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.057  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-13-thread-1]: HP-AppStart: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.057  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.ContentDownloadPlugin ]
-[pool-13-thread-1]: HP-AppStart: Enabling com.audible.hushpuppy.ContentDownloadPlugin
-
-
-[ 12-30 21:37:13.057  6701: 6745 W/ResourceType ]
-No known package when getting value for resource number 0xffffffff
-
-[ 12-30 21:37:13.057  6701: 6745 E/AmazonKindle.com.audible.android.kcp.leftnav.IconPanelComponent ]
-[pool-2-thread-2]: Resource not found exception thrown - unable to get the drawable
-
-
-[ 12-30 21:37:13.057  6701: 6808 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.enable.PluginEnabledEvent
-
-[ 12-30 21:37:13.062  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-13-thread-1]: HP-AppStart: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.062  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.LibraryPlugin ]
-[pool-13-thread-1]: HP-AppStart: Enabling com.audible.hushpuppy.LibraryPlugin
-
-
-[ 12-30 21:37:13.062  6701: 6722 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[ThreadPoolManager1-thread-2]: Initializing plugin com.audible.hushpuppy.plugin.RelationshipPlugin
-
-
-[ 12-30 21:37:13.063  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.controller.audible.library.manager.util.metadata.Hushpupp[pool-13-thread-1]: HP-AppStart: Hushpuppy loading companion mapping cache
-
-
-[ 12-30 21:37:13.068  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.controller.audible.library.manager.util.metadata.Hushpupp[pool-13-thread-1]: HP-AppStart: Hushpuppy reset companion mapping cache
-
-
-[ 12-30 21:37:13.070  6701: 6808 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.enable.PluginEnabledEvent
-
-[ 12-30 21:37:13.070  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.HushpuppyReaderPluginBase ]
-[pool-13-thread-1]: HP-AppStart: Received HushpuppyStateChangeEvent
-
-
-[ 12-30 21:37:13.070  6701: 6808 I/AmazonKindle.com.audible.hushpuppy.plugin.RelationshipPlugin ]
-[pool-13-thread-1]: HP-AppStart: Enabling com.audible.hushpuppy.RelationshipPlugin
-
-
-[ 12-30 21:37:13.072  6701: 6808 D/Event    ]
-No subscribers registered for event class com.audible.hushpuppy.common.event.enable.PluginEnabledEvent
-
-[ 12-30 21:37:13.083  6701: 6701 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: CrashDescriptorStorageUtil, truncated name: CrashDescriptorStorageU
-
-[ 12-30 21:37:13.127  6701: 6701 I/CrashDescriptorStorageU ]
-loadFromSharedPreferences - No keys retrieved from shared preferences.;
-
-[ 12-30 21:37:13.129  6701: 6701 I/com.amazon.device.crashmanager.CrashDetectionHelper ]
-Installing crash detector as default exception handler.
-
-[ 12-30 21:37:13.142  6701: 6811 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: AbstractDetArtifactProcessor, truncated name: AbstractDetArtifactProc
-
-[ 12-30 21:37:13.143  6701: 6701 I/AmazonKindle.com.amazon.kindle.sync.SynchronizationManager ]
-[main]: Received APP_STARTUP_SYNC request, but the sync metadata was throttled
-
-
-[ 12-30 21:37:13.143  6701: 6811 I/DPLogger ]
-DPLogger - Name was too long. Truncating; original name: JavaCrashArtifactProcessor, truncated name: JavaCrashArtifactProces
-
-[ 12-30 21:37:13.144  6701: 6701 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[main]: Mobile Analytics >>initialized appID and identityPool to release values
-
-
-[ 12-30 21:37:13.185  6701: 6811 I/CrashDescriptorStorageU ]
-saveToSharedPreferences - Added last cleared cache to shared preferences = ; 1442982105558
-
-[ 12-30 21:37:13.185  6701: 6811 I/CrashDescriptorStorageU ]
-saveToSharedPreferences - Number of keys stored in shared preferences = ; 0
-
-[ 12-30 21:37:13.185  6701: 6811 I/ArtifactUploader ]
-uploadCrashEntries - Finished uploading artifacts. Uploaded 0 artifacts.;
-
-[ 12-30 21:37:13.185  6701: 6811 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.194  6701: 6812 D/CognitoCachingCredentialsProvider ]
-Loading credentials from SharedPreferences
-
-[ 12-30 21:37:13.196  6701: 6701 D/ChannelsManager ]
-Reading channel settings from /data/data/com.amazon.kindle/files/notificationChannels.json
-
-[ 12-30 21:37:13.213  6701: 6817 I/com.amazon.reader.notifications.impl.RegistrationTaskThirdParty ]
-Registering with GCM..
-
-[ 12-30 21:37:13.220  6701: 6812 I/AmazonWebServiceClient ]
-{mobileanalytics, us-east-1} was not found in region metadata, trying to construct an endpoint using the standard pattern for this region: 'mobileanalytics.us-east-1.amazonaws.com'.
-
-[ 12-30 21:37:13.229  6701: 6812 I/InactiveSessionState ]
-InactiveSession starting
-
-[ 12-30 21:37:13.230  6701: 6812 V/SessionClientState ]
-Firing Session Event: _session.start
-
-[ 12-30 21:37:13.232  3574: 3976 D/GCM      ]
-GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
-
-[ 12-30 21:37:13.233  6701: 6812 D/MobileAnalyticsManager ]
-Amazon Mobile Analytics SDK(2.2.2) initialization successfully completed
-
-[ 12-30 21:37:13.233  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>adding network attributes to event SyncThrottled
-
-
-[ 12-30 21:37:13.233  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>creating event SyncThrottled
-
-
-[ 12-30 21:37:13.233  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>recording event SyncThrottled
-
-
-[ 12-30 21:37:13.236  6701: 6822 I/DefaultDeliveryClient ]
-Event: '_sess...' recorded to local filestore
-
-[ 12-30 21:37:13.236  6701: 6822 D/DefaultDeliveryClient ]
-Time of enqueueEventForDelivery: 2
-
-[ 12-30 21:37:13.236  6701: 6822 I/DefaultDeliveryClient ]
-Event: 'SyncT...' recorded to local filestore
-
-[ 12-30 21:37:13.237  6701: 6822 D/DefaultDeliveryClient ]
-Time of enqueueEventForDelivery: 0
-
-[ 12-30 21:37:13.240  1909: 2121 W/BackupManagerService ]
-dataChanged but no participant pkg='com.amazon.kindle' uid=10146
-
-[ 12-30 21:37:13.249  1909: 2757 W/ActivityManager ]
-getRunningAppProcesses: caller 10146 does not hold REAL_GET_TASKS; limiting output
-
-[ 12-30 21:37:13.249  6701: 6701 I/AmazonKindle.com.amazon.kcp.application.ReddingApplication ]
-[main]: Process started: com.amazon.kindle
-
-
-[ 12-30 21:37:13.254  6701: 6825 W/AmazonKindle.com.amazon.kindle.services.events.DeadEventHandler ]
-[pool-29-thread-1]: dead message detected: com.amazon.kindle.persistence.SettingsChangedEvent@2c34e7e0
-
-
-[ 12-30 21:37:13.256  6701: 6701 W/DownloadReceiver ]
- received intent action: android.intent.action.PACKAGE_REPLACED
-
-[ 12-30 21:37:13.298  1909: 2456 I/ActivityManager ]
-Start proc 6832:com.ezardlabs.warframe/u0a182 for broadcast com.ezardlabs.warframe/.alerts.BootOrUpdateReceiver
-
-[ 12-30 21:37:13.350  6701: 6701 W/PackageParser ]
-No actions in intent filter at /data/app/com.amazon.kindle-1/base.apk Binary XML file line #482
-
-[ 12-30 21:37:13.352  6850: 6850 D/libEGL   ]
-loaded /vendor/lib/egl/libEGL_adreno.so
-
-[ 12-30 21:37:13.372  6701: 6701 D/AmazonDownloadManager ]
-connection to download service established
-
-[ 12-30 21:37:13.373  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.375  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.391  1909: 2757 I/ActivityManager ]
-Killing 6347:com.android.defcontainer/u0a9 (adj 15): empty #17
-
-[ 12-30 21:37:13.392  6850: 6850 D/libEGL   ]
-loaded /vendor/lib/egl/libGLESv1_CM_adreno.so
-
-[ 12-30 21:37:13.463  6850: 6850 D/libEGL   ]
-loaded /vendor/lib/egl/libGLESv2_adreno.so
-
-[ 12-30 21:37:13.480  6701: 6739 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[DownloadManager-webserviceRequests2-thread-1]: <NoId> updated to COMPLETE state
-
-
-[ 12-30 21:37:13.480  6701: 6739 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[DownloadManager-webserviceRequests2-thread-1]: <NoId> updated to DOWNLOADING state
-
-
-[ 12-30 21:37:13.482  1909: 2334 D/WifiService ]
-acquireWifiLockLocked: WifiLock{ReddingWifiLock type=1 binder=android.os.BinderProxy@308dc44d}
-
-[ 12-30 21:37:13.482  1909: 2120 D/WifiService ]
-releaseWifiLockLocked: WifiLock{ReddingWifiLock type=1 binder=android.os.BinderProxy@3282b59f}
-
-[ 12-30 21:37:13.493  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.495  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.512  3574: 3897 D/GCM      ]
-GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
-
-[ 12-30 21:37:13.519  6701: 6727 D/AbstractMetricsFactoryImpl ]
-record : No data points in metrics event
-
-[ 12-30 21:37:13.574  6850: 6850 I/Adreno   ]
-EGLInit: QTI Build: 01/29/15, 1bccc5d, I0ba6dce82d
-
-[ 12-30 21:37:13.657  6850: 6861 E/libEGL   ]
-validate_display:255 error 3008 (EGL_BAD_DISPLAY)
-
-[ 12-30 21:37:13.659  6850: 6850 E/libEGL   ]
-validate_display:255 error 3008 (EGL_BAD_DISPLAY)
-
-[ 12-30 21:37:13.686  6832: 6832 E/         ]
-BootOrUpdateReceiver
-
-[ 12-30 21:37:13.697  6701: 6722 I/AmazonKindle.com.amazon.kcp.application.HardwareInfoLogger ]
-[ThreadPoolManager1-thread-2]: The result of sniff test: 0
-
-
-[ 12-30 21:37:13.697  6701: 6722 I/AmazonKindle.com.amazon.kcp.application.HardwareInfoLogger ]
-[ThreadPoolManager1-thread-2]: TestVersion: 1.0.0.2 
- TestResult: 0 
- GLRenderer: Adreno (TM) 420 
- GLVersion: OpenGL ES 3.1V@104.0 (GIT@I0ba6dce82d) 
- GLVendor: Qualcomm 
- GLExtensions: GL_EXT_debug_marker GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_vertex_half_float GL_OES_framebuffer_object GL_OES_rgb8_rgba8 GL_OES_compressed_ETC1_RGB8_texture GL_AMD_compressed_ATC_texture GL_KHR_texture_compression_astc_ldr GL_OES_texture_npot GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_OES_texture_3D GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_QCOM_alpha_test GL_OES_depth24 GL_OES_packed_depth_stencil GL_OES_depth_texture GL_OES_depth_texture_cube_map GL_EXT_sRGB GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_EXT_texture_type_2_10_10_10_REV GL_EXT_texture_sRGB_decode GL_OES_element_index_uint GL_EXT_copy_image GL_EXT_geometry_shader GL_EXT_tessellation_shader GL_OES_texture_stencil8 GL_EXT_shader_io_blocks GL_OES_shader_image_atomic GL_OES_sample_variables GL_EXT_texture_border_clamp GL_EXT_multisampled_render_to_texture GL_OES_shader_multisample_interpolation GL_EXT_texture_cube_map_array GL_EXT_draw_buffers_indexed GL_EXT_gpu_shader5 GL_EXT_robustness GL_EXT_texture_buffer GL_OES_texture_storage_multisample_2d_array GL_OES_sample_shading GL_OES_get_program_binary GL_EXT_debug_label GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_QCOM_tiled_rendering GL_ANDROID_extension_pack_es31a GL_EXT_primitive_bounding_box GL_OES_standard_derivatives GL_OES_vertex_array_object GL_EXT_disjoint_timer_query GL_KHR_debug GL_EXT_sRGB_write_control 
-
-
-[ 12-30 21:37:13.697  6701: 6722 I/AmazonKindle.com.amazon.kcp.application.HardwareInfoLogger ]
-[ThreadPoolManager1-thread-2]: CPUFeatures:swp half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt 
- Processor: null 
- CPU Architecture: 7 
- CPU InstructionSets: [armeabi-v7a, armeabi] 
- Manufacturer: motorola 
- Hardware: shamu 
- Model: Nexus 6 
- Brand: google 
- OS Version: 5.1.1 
- API Level: 22
-
-
-[ 12-30 21:37:13.698  1909: 2120 W/BackupManagerService ]
-dataChanged but no participant pkg='com.amazon.kindle' uid=10146
-
-[ 12-30 21:37:13.699  6701: 6722 I/AmazonKindle.com.amazon.kcp.application.HardwareInfoLogger ]
-[ThreadPoolManager1-thread-2]: Logging hardware info to Mobile Analytics
-
-
-[ 12-30 21:37:13.699  6701: 6722 I/AmazonKindle.com.amazon.kcp.application.HardwareInfoLogger ]
-[ThreadPoolManager1-thread-2]: Logging hardware info to Reading Streams
-
-
-[ 12-30 21:37:13.700  6701: 6825 W/AmazonKindle.com.amazon.kindle.services.events.DeadEventHandler ]
-[pool-29-thread-1]: dead message detected: com.amazon.kindle.persistence.SettingsChangedEvent@2cac502f
-
-
-[ 12-30 21:37:13.701  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>adding network attributes to event ContextSwitchFailed
-
-
-[ 12-30 21:37:13.701  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>creating event ContextSwitchFailed
-
-
-[ 12-30 21:37:13.701  6701: 6812 W/EventConstraintDecorator ]
-The attribute value has been trimmed to a length of 200 characters
-
-[ 12-30 21:37:13.702  6701: 6812 I/AmazonKindle.com.amazon.kindle.analytics.AnalyticsUtils ]
-[pool-24-thread-1]: Mobile Analytics >>recording event ContextSwitchFailed
-
-
-[ 12-30 21:37:13.705  6701: 6822 I/DefaultDeliveryClient ]
-Event: 'Conte...' recorded to local filestore
-
-[ 12-30 21:37:13.705  6701: 6822 D/DefaultDeliveryClient ]
-Time of enqueueEventForDelivery: 3
-
-[ 12-30 21:37:13.725  1909: 2755 I/ActivityManager ]
-Start proc 6862:com.intangibleobject.securesettings.plugin/u0a140 for broadcast com.intangibleobject.securesettings.plugin/.Receivers.ObserverStatusReceiver
-
-[ 12-30 21:37:13.726  1909: 2755 I/ActivityManager ]
-Killing 6392:com.android.keychain/1000 (adj 15): empty #17
-
-[ 12-30 21:37:13.890  6701: 6817 D/CognitoCachingCredentialsProvider ]
-Loading credentials from SharedPreferences
-
-[ 12-30 21:37:13.890  6862: 6862 I/SecureSettings.App ]
-onCreate::App Starting
-
-[ 12-30 21:37:13.910  6701: 6817 I/ReaderNotificationsSNSClient ]
-Retrieving endpoint data for arn:aws:sns:us-east-1:921586775002:endpoint/GCM/ReaderNotificationsGCM/4bc5cec0-3c18-3db4-9090-03bdb17f4f6a
-
-[ 12-30 21:37:13.911  6862: 6862 D/ACRA     ]
-ACRA is enabled for com.intangibleobject.securesettings.plugin, intializing...
-
-[ 12-30 21:37:13.921  6701: 6739 E/AmazonKindle.com.amazon.kindle.webservices.BaseWebRequestExecutor ]
-[DownloadManager-webserviceRequests2-thread-1]: Error 304
-
-
-[ 12-30 21:37:13.922  6701: 6739 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[DownloadManager-webserviceRequests2-thread-1]: HP-AppStart: PFM-UPDATE - download compete status FAILED
-
-
-[ 12-30 21:37:13.922  6701: 6739 I/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[DownloadManager-webserviceRequests2-thread-1]: HP-AppStart: PFM-UPDATE - http status 304
-
-
-[ 12-30 21:37:13.922  6701: 6739 E/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[DownloadManager-webserviceRequests2-thread-1]: HP-AppStart: PFM-UPDATE - download failed
-
-
-[ 12-30 21:37:13.922  6701: 6739 E/AmazonKindle.com.audible.hushpuppy.service.network.pfm.download.PfmDownloadClient ]
-[DownloadManager-webserviceRequests2-thread-1]: HP-AppStart: PFM-UPDATE - ERROR
-
-
-[ 12-30 21:37:13.923  6701: 6739 I/AmazonKindle.com.amazon.kindle.services.download.ReaderDownloadManager ]
-[DownloadManager-webserviceRequests2-thread-1]: <NoId> updated to ERROR state
-
-
-[ 12-30 21:37:13.927  6862: 6862 D/ACRA     ]
-Looking for error files in /data/data/com.intangibleobject.securesettings.plugin/files
-
-[ 12-30 21:37:13.927  6862: 6862 D/ACRA     ]
-Looking for error files in /data/data/com.intangibleobject.securesettings.plugin/files
-
-[ 12-30 21:37:13.930  6862: 6862 W/SecureSettings.f ]
-b::Permission 'android.permission.WRITE_SECURE_SETTINGS' status wasn't granted to com.intangibleobject.securesettings.plugin
-
-[ 12-30 21:37:13.939  6862: 6862 W/SecureSettings.f ]
-b::Permission 'android.permission.WRITE_SECURE_SETTINGS' status wasn't granted to com.intangibleobject.securesettings.plugin
-
-[ 12-30 21:37:13.978  6862: 6862 I/SecureSettings.ObserverStatusReceiver ]
-onReceive::Package Upgraded
-
-[ 12-30 21:37:14.014  1909: 2618 I/ActivityManager ]
-Start proc 6890:com.google.android.apps.gmoney/u0a133 for broadcast com.google.android.apps.gmoney/com.google.android.apps.wallet.init.OnBootOrUpgradeReceiver
-
-[ 12-30 21:37:14.014  1909: 2618 I/ActivityManager ]
-Killing 6213:com.natewren.piptecgreen/u0a177 (adj 15): empty #17
-
-[ 12-30 21:37:14.155  6890: 6890 W/ResourcesManager ]
-Asset path '/system/framework/com.android.media.remotedisplay.jar' does not exist or contains no resources.
-
-[ 12-30 21:37:14.156  6890: 6890 W/ResourcesManager ]
-Asset path '/system/framework/com.android.location.provider.jar' does not exist or contains no resources.
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-org.json.JSONException: Unterminated object at character 54 of {"autoprompt_disabled":false,"uvts":"3zb6vE8MHA37cvPh"
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at org.json.JSONTokener.syntaxError(JSONTokener.java:450)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at org.json.JSONTokener.readObject(JSONTokener.java:394)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at org.json.JSONTokener.nextValue(JSONTokener.java:100)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at org.json.JSONObject.<init>(JSONObject.java:156)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at org.json.JSONObject.<init>(JSONObject.java:173)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at com.uservoice.uservoicesdk.a.d.a(BabayagaTask.java:80)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at com.uservoice.uservoicesdk.a.d.doInBackground(BabayagaTask.java:1)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at android.os.AsyncTask$2.call(AsyncTask.java:292)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:237)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:231)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1112)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
-
-[ 12-30 21:37:14.179  6862: 6886 W/System.err ]
-	at java.lang.Thread.run(Thread.java:818)
-
-[ 12-30 21:37:14.180  6862: 6886 E/UV       ]
-org.json.JSONException: Unterminated object at character 54 of {"autoprompt_disabled":false,"uvts":"3zb6vE8MHA37cvPh"
-
-[ 12-30 21:37:14.184  6890: 6890 V/JNIHelp  ]
-Registering com/google/android/gms/org/conscrypt/NativeCrypto's 254 native methods...
-
-[ 12-30 21:37:14.217  6890: 6890 I/ProviderInstaller ]
-Installed default security provider GmsCore_OpenSSL
-
-[ 12-30 21:37:14.265  6890: 6890 W/GoogleTagManager ]
-Failed to extract the container from the resource file. Resource is a UTF-8 encoded string but doesn't contain a JSON container
-
-[ 12-30 21:37:14.286  6890: 6890 E/GoogleTagManager ]
-Invalid macro: _gtm.loadEventEnabled
-
-[ 12-30 21:37:14.296  6890: 6921 E/GoogleTagManager ]
-Invalid macro: _gtm.loadEventEnabled
-
-[ 12-30 21:37:14.357  1909: 2302 I/ActivityManager ]
-Killing 6537:com.google.android.partnersetup/u0a19 (adj 15): empty #17
-
-[ 12-30 21:37:14.571  1909: 1925 I/ActivityManager ]
+[ 01-01 13:20:17.697  1909: 4059 I/ActivityManager ]
 START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.ApplicationTemplate/.ApplicationTemplateActivity (has extras)} from uid 10034 on display 0
 
-[ 12-30 21:37:14.575  1909: 1925 V/WindowManager ]
-addAppToken: AppWindowToken{3c94f214 token=Token{25e78467 ActivityRecord{27c87026 u0 com.android.ApplicationTemplate/.ApplicationTemplateActivity t236}}} to stack=1 task=236 at 0
+[ 01-01 13:20:17.700  1909: 4059 V/WindowManager ]
+addAppToken: AppWindowToken{5ab1ed4 token=Token{2d7b6c27 ActivityRecord{24a01ee6 u0 com.android.ApplicationTemplate/.ApplicationTemplateActivity t245}}} to stack=1 task=245 at 0
 
-[ 12-30 21:37:14.580  1909: 1954 V/WindowManager ]
-Based on layer: Adding window Window{3236995f u0 Starting com.android.ApplicationTemplate} at 3 of 10
+[ 01-01 13:20:17.705  1909: 1954 V/WindowManager ]
+Based on layer: Adding window Window{7708f79 u0 Starting com.android.ApplicationTemplate} at 3 of 10
 
-[ 12-30 21:37:14.588  3574: 4230 D/GCM      ]
-GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
-
-[ 12-30 21:37:14.607  6890: 6920 W/GoogleTagManager ]
-IOException getting Ad Id Info
-
-[ 12-30 21:37:14.652  6930: 6930 I/art      ]
+[ 01-01 13:20:17.765 13267:13267 I/art      ]
 Late-enabling -Xcheck:jni
 
-[ 12-30 21:37:14.656  1909: 2300 I/ActivityManager ]
-Start proc 6930:com.android.ApplicationTemplate/u0a203 for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity
+[ 01-01 13:20:17.767  1909: 2739 I/ActivityManager ]
+Start proc 13267:com.android.ApplicationTemplate/u0a203 for activity com.android.ApplicationTemplate/.ApplicationTemplateActivity
 
-[ 12-30 21:37:14.660  1909: 2755 I/ActivityManager ]
-Killing 6414:com.google.android.apps.plus/u0a81 (adj 15): empty #17
+[ 01-01 13:20:17.793  1522: 1522 I/art      ]
+Explicit concurrent mark sweep GC freed 713(30KB) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 317us total 22.663ms
 
-[ 12-30 21:37:14.693  6890: 6890 E/GoogleTagManager ]
-Unsupported Value Escaping: 3
+[ 01-01 13:20:17.796  1909: 2120 I/ActivityManager ]
+Killing 12784:com.ezardlabs.warframe/u0a182 (adj 15): empty #17
 
-[ 12-30 21:37:14.781  2081: 2081 V/PhoneStatusBar ]
+[ 01-01 13:20:17.815  1522: 1522 I/art      ]
+Explicit concurrent mark sweep GC freed 5(160B) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 316us total 21.007ms
+
+[ 01-01 13:20:17.820 12886:12015 D/ClClient ]
+D	2016-01-01T13:20:17.819-0700	[ci=WtLntlUEO2]	pool-7-thread-1  	ClClient       	Not sending keepalive.  Current connection state=STOPPED
+
+[ 01-01 13:20:17.832  1522: 1522 I/art      ]
+Explicit concurrent mark sweep GC freed 5(160B) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 321us total 16.522ms
+
+[ 01-01 13:20:18.029  2081: 2081 V/PhoneStatusBar ]
 setLightsOn(true)
 
-[ 12-30 21:37:14.851  1909: 2456 V/WindowManager ]
-Adding window Window{33142ae u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity} at 3 of 11 (before Window{3236995f u0 Starting com.android.ApplicationTemplate})
+[ 01-01 13:20:18.090  1909: 1924 V/WindowManager ]
+Adding window Window{34364d70 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity} at 3 of 11 (before Window{7708f79 u0 Starting com.android.ApplicationTemplate})
 
-[ 12-30 21:37:14.875  6701: 6817 D/com.amazon.reader.notifications.impl.SettingsTask ]
-Storing new Endpoint ARN arn:aws:sns:us-east-1:921586775002:endpoint/GCM/ReaderNotificationsGCM/4bc5cec0-3c18-3db4-9090-03bdb17f4f6a
+[ 01-01 13:20:18.107  1909: 2300 V/WindowManager ]
+Adding window Window{997396e u0 SurfaceView} at 3 of 12 (before Window{34364d70 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity})
 
-[ 12-30 21:37:14.883  1909: 2300 V/WindowManager ]
-Adding window Window{13491bdc u0 SurfaceView} at 3 of 12 (before Window{33142ae u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity})
-
-[ 12-30 21:37:14.892  6930: 6954 I/Adreno   ]
+[ 01-01 13:20:18.114 13267:13286 I/Adreno   ]
 EGLInit: QTI Build: 01/29/15, 1bccc5d, I0ba6dce82d
 
-[ 12-30 21:37:14.900  1909: 2121 I/ActivityManager ]
-Start proc 6957:stericson.busybox.donate/u0a98 for broadcast stericson.busybox.donate/.receivers.OnUpgradeReceiver
-
-[ 12-30 21:37:14.926  1522: 1522 I/art      ]
-Explicit concurrent mark sweep GC freed 706(30KB) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 1.309ms total 26.076ms
-
-[ 12-30 21:37:14.940  3574: 4230 D/GCM      ]
-GcmService start Intent { act=com.google.android.c2dm.intent.REGISTER pkg=com.google.android.gms cmp=com.google.android.gms/.gcm.GcmService (has extras) } com.google.android.c2dm.intent.REGISTER
-
-[ 12-30 21:37:14.942  1909: 1954 I/ActivityManager ]
-Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +328ms
-
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 graphics init
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 Attempting to create the draw surface
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 audio init
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 audio init
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 create engine
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 realize engine
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 get engine interface
 
 
-[ 12-30 21:37:14.944  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.158 13267:13286 I/ApplicationTemplate ]
 create mixer
 
 
-[ 12-30 21:37:14.951  2439: 2439 I/Keyboard.Facilitator ]
+[ 01-01 13:20:18.158  1909: 1954 I/ActivityManager ]
+Displayed com.android.ApplicationTemplate/.ApplicationTemplateActivity: +432ms
+
+[ 01-01 13:20:18.162  2439: 2439 I/Keyboard.Facilitator ]
 onFinishInput()
 
-[ 12-30 21:37:14.951  1522: 1522 I/art      ]
-Explicit concurrent mark sweep GC freed 5(160B) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 1.542ms total 24.346ms
-
-[ 12-30 21:37:14.953  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.169 13267:13286 I/ApplicationTemplate ]
 realize mixer
 
 
-[ 12-30 21:37:14.955  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.171 13267:13286 I/ApplicationTemplate ]
 get reverb interface
 
 
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-asset init
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Attempting to create the draw surface
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: shaders/shader_basic.vert
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Found resource 597 bytes
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Serialize to string
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Bytes available 597
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Length 0
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Further termination of serializable characters at 597
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Bytes available 0
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Assign to string
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Cleanup
-
-
-[ 12-30 21:37:14.957  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: shaders/shader_basic.frag
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Found resource 388 bytes
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Serialize to string
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Bytes available 388
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Length 0
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Further termination of serializable characters at 388
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Bytes available 0
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Assign to string
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-Cleanup
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-compile shader: 35633
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-pulling shader text
-
-
-[ 12-30 21:37:14.958  6930: 6954 I/ApplicationTemplate ]
-597 bytes
-
-
-[ 12-30 21:37:14.963  1522: 1522 I/art      ]
-Explicit concurrent mark sweep GC freed 5(160B) AllocSpace objects, 0(0B) LOS objects, 40% free, 21MB/36MB, paused 195us total 11ms
-
-[ 12-30 21:37:14.969  1909: 2121 I/ActivityManager ]
-Killing 6462:com.google.android.apps.docs/u0a53 (adj 15): empty #17
-
-[ 12-30 21:37:14.970  6930: 6954 I/ApplicationTemplate ]
-compile shader: 35632
-
-
-[ 12-30 21:37:14.970  6930: 6954 I/ApplicationTemplate ]
-pulling shader text
-
-
-[ 12-30 21:37:14.970  6930: 6954 I/ApplicationTemplate ]
-388 bytes
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: shaders/shader_with_lighting.vert
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Found resource 628 bytes
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Serialize to string
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Bytes available 628
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Length 0
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Further termination of serializable characters at 628
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Bytes available 0
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Assign to string
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Cleanup
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: shaders/shader_with_lighting.frag
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Found resource 805 bytes
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Serialize to string
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Bytes available 805
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Length 0
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Further termination of serializable characters at 805
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Reading data...
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Bytes available 0
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Assign to string
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-Cleanup
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-compile shader: 35633
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-pulling shader text
-
-
-[ 12-30 21:37:14.975  6930: 6954 I/ApplicationTemplate ]
-628 bytes
-
-
-[ 12-30 21:37:14.986  6930: 6954 I/ApplicationTemplate ]
-compile shader: 35632
-
-
-[ 12-30 21:37:14.986  6930: 6954 I/ApplicationTemplate ]
-pulling shader text
-
-
-[ 12-30 21:37:14.986  6930: 6954 I/ApplicationTemplate ]
-805 bytes
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/Adreno   ]
-ERROR: 0:23: '=' :  cannot convert from 'float' to '4-component vector of float'
-ERROR: 1 compilation errors.  No code generated.
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-Could not compile shader 35632, ERROR: 0:23: '=' :  cannot convert from 'float' to '4-component vector of float'
-ERROR: 1 compilation errors.  No code generated.
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-pwd: /
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-contents: .
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-contents: ..
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-contents: tmp-mksh
-
-
-[ 12-30 21:37:14.988  6930: 6954 I/ApplicationTemplate ]
-contents: fsg
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: sdcard
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: persist
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: oem
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: storage
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: config
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: cache
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: acct
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: vendor
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: d
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: etc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: tombstones
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: firmware
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: mnt
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: verity_key
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: ueventd.shamu.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: ueventd.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: system
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: sys
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: service_contexts
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: sepolicy
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: selinux_version
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: seapp_contexts
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: sbin
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: res
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: property_contexts
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: proc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.zygote32.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.usb.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.trace.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.shamu.usb.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.shamu.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.shamu.power.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.shamu.diag.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.mmi.touch.sh
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init.environ.rc
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: init
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: fstab.shamu
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: file_contexts
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: default.prop
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: data
-
-
-[ 12-30 21:37:14.989  6930: 6954 I/ApplicationTemplate ]
-contents: charger
-
-
-[ 12-30 21:37:14.990  6930: 6954 I/ApplicationTemplate ]
-contents: root
-
-
-[ 12-30 21:37:14.990  6930: 6954 I/ApplicationTemplate ]
-contents: dev
-
-
-[ 12-30 21:37:14.990  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: models/obj/apple.obj
-
-
-[ 12-30 21:37:14.990  6930: 6954 I/ApplicationTemplate ]
-Found resource 73311 bytes
-
-
-[ 12-30 21:37:14.999  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: models/obj/apple.mtl
-
-
-[ 12-30 21:37:14.999  6930: 6954 I/ApplicationTemplate ]
-Found resource 636 bytes
-
-
-[ 12-30 21:37:15.000  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: models/obj/cylinder3_auv.tga
-
-
-[ 12-30 21:37:15.000  6930: 6954 I/ApplicationTemplate ]
-Found resource 3145746 bytes
-
-
-[ 12-30 21:37:15.158  6701: 6817 I/AmazonKindle.com.amazon.kcp.notifications.util.PushNotificationHelper ]
-[pool-25-thread-1]: Successfully registered for push notifications.
-
-
-[ 12-30 21:37:15.159  6701: 6817 I/AmazonKindle.com.amazon.kcp.notifications.util.PushNotificationHelper ]
-[pool-25-thread-1]: Successfully registered for push notifications.
-
-
-[ 12-30 21:37:15.175  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: models/obj/sphere1_auv.tga
-
-
-[ 12-30 21:37:15.175  6930: 6954 I/ApplicationTemplate ]
-Found resource 3145772 bytes
-
-
-[ 12-30 21:37:15.359  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: models/obj/sphere5_auv.tga
-
-
-[ 12-30 21:37:15.359  6930: 6954 I/ApplicationTemplate ]
-Found resource 3145746 bytes
-
-
-[ 12-30 21:37:15.579  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: fonts/arial2.fnt
-
-
-[ 12-30 21:37:15.579  6930: 6954 I/ApplicationTemplate ]
-Found resource 25912 bytes
-
-
-[ 12-30 21:37:15.581  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: fonts/arial2_0.png
-
-
-[ 12-30 21:37:15.581  6930: 6954 I/ApplicationTemplate ]
-Found resource 19358 bytes
-
-
-[ 12-30 21:37:15.841  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: textures/landscape2.png
-
-
-[ 12-30 21:37:15.842  6930: 6954 I/ApplicationTemplate ]
-Found resource 106239 bytes
-
-
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
-Attempting to find resource: sounds/mind_is_going.wav
-
-
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
-Found resource 58412 bytes
-
-
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
-58412 bytes
-
-
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
-sound file loaded 58412 bytes
-
-
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.172 13267:13286 I/ApplicationTemplate ]
 audio compile
 
 
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.172 13267:13286 I/ApplicationTemplate ]
 buffer queue
 
 
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.172 13267:13286 I/ApplicationTemplate ]
 create player
 
 
-[ 12-30 21:37:15.849  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.172 13267:13286 I/ApplicationTemplate ]
 realize player
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
 get player interface
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
 get buffer queue interface
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
 register callback
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
 get effect interface
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
 get volume interface
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
-buffer: 58392 bytes, 58412 bytes total
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
+audio compile
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
-channels: 1
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
+buffer queue
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
-bits_per_sample: 8
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
+create player
 
 
-[ 12-30 21:37:15.851  6930: 6954 I/ApplicationTemplate ]
-sample_rate: 11025
+[ 01-01 13:20:18.174 13267:13286 I/ApplicationTemplate ]
+realize player
 
 
-[ 12-30 21:37:17.918  2081: 2081 W/ResourceType ]
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+get player interface
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+get buffer queue interface
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+register callback
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+get effect interface
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+get volume interface
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+audio compile
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+buffer queue
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+create player
+
+
+[ 01-01 13:20:18.176 13267:13286 I/ApplicationTemplate ]
+realize player
+
+
+[ 01-01 13:20:18.177 13267:13286 I/ApplicationTemplate ]
+get player interface
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+get buffer queue interface
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+register callback
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+get effect interface
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+get volume interface
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+audio compile
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+buffer queue
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+create player
+
+
+[ 01-01 13:20:18.178 13267:13286 I/ApplicationTemplate ]
+realize player
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+get player interface
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+get buffer queue interface
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+register callback
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+get effect interface
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+get volume interface
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+asset init
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+Attempting to create the draw surface
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: shaders/shader_basic.vert
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+Found resource 597 bytes
+
+
+[ 01-01 13:20:18.183 13267:13286 I/ApplicationTemplate ]
+Serialize to string
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Bytes available 597
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Length 0
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Further termination of serializable characters at 597
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Bytes available 0
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Assign to string
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Cleanup
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: shaders/shader_basic.frag
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Found resource 388 bytes
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Serialize to string
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Bytes available 388
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Length 0
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Further termination of serializable characters at 388
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Bytes available 0
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Assign to string
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+Cleanup
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+compile shader: 35633
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+pulling shader text
+
+
+[ 01-01 13:20:18.184 13267:13286 I/ApplicationTemplate ]
+597 bytes
+
+
+[ 01-01 13:20:18.196 13267:13286 I/ApplicationTemplate ]
+compile shader: 35632
+
+
+[ 01-01 13:20:18.196 13267:13286 I/ApplicationTemplate ]
+pulling shader text
+
+
+[ 01-01 13:20:18.196 13267:13286 I/ApplicationTemplate ]
+388 bytes
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: shaders/shader_with_lighting.vert
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Found resource 628 bytes
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Serialize to string
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Bytes available 628
+
+
+[ 01-01 13:20:18.204 13267:13286 I/ApplicationTemplate ]
+Length 0
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Further termination of serializable characters at 628
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Bytes available 0
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Assign to string
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Cleanup
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: shaders/shader_with_lighting.frag
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Found resource 840 bytes
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Serialize to string
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Bytes available 840
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Length 0
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Further termination of serializable characters at 840
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Reading data...
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Bytes available 0
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Assign to string
+
+
+[ 01-01 13:20:18.205 13267:13286 I/ApplicationTemplate ]
+Cleanup
+
+
+[ 01-01 13:20:18.206 13267:13286 I/ApplicationTemplate ]
+compile shader: 35633
+
+
+[ 01-01 13:20:18.206 13267:13286 I/ApplicationTemplate ]
+pulling shader text
+
+
+[ 01-01 13:20:18.206 13267:13286 I/ApplicationTemplate ]
+628 bytes
+
+
+[ 01-01 13:20:18.220 13267:13286 I/ApplicationTemplate ]
+compile shader: 35632
+
+
+[ 01-01 13:20:18.220 13267:13286 I/ApplicationTemplate ]
+pulling shader text
+
+
+[ 01-01 13:20:18.220 13267:13286 I/ApplicationTemplate ]
+840 bytes
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+pwd: /
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: .
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: ..
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: tmp-mksh
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: fsg
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: sdcard
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: persist
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: oem
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: storage
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: config
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: cache
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: acct
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: vendor
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: d
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: etc
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: tombstones
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: firmware
+
+
+[ 01-01 13:20:18.229 13267:13286 I/ApplicationTemplate ]
+contents: mnt
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: verity_key
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: ueventd.shamu.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: ueventd.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: system
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: sys
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: service_contexts
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: sepolicy
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: selinux_version
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: seapp_contexts
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: sbin
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: res
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: property_contexts
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: proc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.zygote32.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.usb.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.trace.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.shamu.usb.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.shamu.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.shamu.power.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.shamu.diag.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.mmi.touch.sh
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init.environ.rc
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: init
+
+
+[ 01-01 13:20:18.230 13267:13286 I/ApplicationTemplate ]
+contents: fstab.shamu
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: file_contexts
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: default.prop
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: data
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: charger
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: root
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+contents: dev
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: models/obj/apple.obj
+
+
+[ 01-01 13:20:18.231 13267:13286 I/ApplicationTemplate ]
+Found resource 73311 bytes
+
+
+[ 01-01 13:20:18.246 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: models/obj/apple.mtl
+
+
+[ 01-01 13:20:18.246 13267:13286 I/ApplicationTemplate ]
+Found resource 636 bytes
+
+
+[ 01-01 13:20:18.246 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: models/obj/cylinder3_auv.tga
+
+
+[ 01-01 13:20:18.246 13267:13286 I/ApplicationTemplate ]
+Found resource 3145746 bytes
+
+
+[ 01-01 13:20:18.432 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: models/obj/sphere1_auv.tga
+
+
+[ 01-01 13:20:18.432 13267:13286 I/ApplicationTemplate ]
+Found resource 3145772 bytes
+
+
+[ 01-01 13:20:18.590 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: models/obj/sphere5_auv.tga
+
+
+[ 01-01 13:20:18.591 13267:13286 I/ApplicationTemplate ]
+Found resource 3145746 bytes
+
+
+[ 01-01 13:20:18.803 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: fonts/arial2.fnt
+
+
+[ 01-01 13:20:18.803 13267:13286 I/ApplicationTemplate ]
+Found resource 25912 bytes
+
+
+[ 01-01 13:20:18.805 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: fonts/arial2_0.png
+
+
+[ 01-01 13:20:18.805 13267:13286 I/ApplicationTemplate ]
+Found resource 19358 bytes
+
+
+[ 01-01 13:20:19.081 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: textures/landscape2.png
+
+
+[ 01-01 13:20:19.081 13267:13286 I/ApplicationTemplate ]
+Found resource 106239 bytes
+
+
+[ 01-01 13:20:19.091 13267:13286 I/ApplicationTemplate ]
+Attempting to find resource: sounds/mind_is_going.wav
+
+
+[ 01-01 13:20:19.091 13267:13286 I/ApplicationTemplate ]
+Found resource 58412 bytes
+
+
+[ 01-01 13:20:19.092 13267:13286 I/ApplicationTemplate ]
+58412 bytes
+
+
+[ 01-01 13:20:19.092 13267:13286 I/ApplicationTemplate ]
+sound file loaded 58412 bytes
+
+
+[ 01-01 13:20:20.183 13267:13286 I/ApplicationTemplate ]
+selecting
+
+
+[ 01-01 13:20:20.183 13267:13286 I/ApplicationTemplate ]
+Player 0 selected
+
+
+[ 01-01 13:20:20.183 13267:13286 I/ApplicationTemplate ]
+audio play
+
+
+[ 01-01 13:20:20.192  1514: 2017 D/audio_hw_primary ]
+out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: routing=2
+
+[ 01-01 13:20:20.193 13267:13286 I/ApplicationTemplate ]
+Player 1 selected
+
+
+[ 01-01 13:20:20.193 13267:13286 I/ApplicationTemplate ]
+audio play
+
+
+[ 01-01 13:20:20.194 13267:13286 I/ApplicationTemplate ]
+Player 2 selected
+
+
+[ 01-01 13:20:20.194 13267:13286 I/ApplicationTemplate ]
+audio play
+
+
+[ 01-01 13:20:20.194 13267:13286 I/ApplicationTemplate ]
+Player 3 selected
+
+
+[ 01-01 13:20:20.194 13267:13286 I/ApplicationTemplate ]
+audio play
+
+
+[ 01-01 13:20:20.203  1514: 1947 D/audio_hw_primary ]
+select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+
+[ 01-01 13:20:20.203  1514: 1947 D/msm8974_platform ]
+platform_send_audio_calibration: sending audio calibration for snd_device(2) acdb_id(15)
+
+[ 01-01 13:20:20.203  1514: 1947 E/ACDB-LOADER ]
+Error: ACDB AFE returned = -19
+
+
+[ 01-01 13:20:20.203  1514: 1947 D/audio_hw_primary ]
+enable_snd_device: snd_device(2: speaker)
+
+[ 01-01 13:20:20.206  1514: 1947 D/audio_hw_primary ]
+enable_audio_route: apply and update mixer path: low-latency-playback speaker
+
+[ 01-01 13:20:21.022 13267:13286 I/ApplicationTemplate ]
+selecting
+
+
+[ 01-01 13:20:21.022 13267:13286 I/ApplicationTemplate ]
+Player 0 is busy
+
+
+[ 01-01 13:20:21.022 13267:13286 I/ApplicationTemplate ]
+Player 1 is busy
+
+
+[ 01-01 13:20:21.022 13267:13286 I/ApplicationTemplate ]
+Player 2 is busy
+
+
+[ 01-01 13:20:21.022 13267:13286 I/ApplicationTemplate ]
+Player 3 is busy
+
+
+[ 01-01 13:20:21.744 13267:13286 I/ApplicationTemplate ]
+selecting
+
+
+[ 01-01 13:20:21.744 13267:13286 I/ApplicationTemplate ]
+Player 0 is busy
+
+
+[ 01-01 13:20:21.744 13267:13286 I/ApplicationTemplate ]
+Player 1 is busy
+
+
+[ 01-01 13:20:21.744 13267:13286 I/ApplicationTemplate ]
+Player 2 is busy
+
+
+[ 01-01 13:20:21.744 13267:13286 I/ApplicationTemplate ]
+Player 3 is busy
+
+
+[ 01-01 13:20:22.458 13267:13286 I/ApplicationTemplate ]
+selecting
+
+
+[ 01-01 13:20:22.458 13267:13286 I/ApplicationTemplate ]
+Player 0 is busy
+
+
+[ 01-01 13:20:22.458 13267:13286 I/ApplicationTemplate ]
+Player 1 is busy
+
+
+[ 01-01 13:20:22.458 13267:13286 I/ApplicationTemplate ]
+Player 2 is busy
+
+
+[ 01-01 13:20:22.458 13267:13286 I/ApplicationTemplate ]
+Player 3 is busy
+
+
+[ 01-01 13:20:23.167 13267:13286 I/ApplicationTemplate ]
+selecting
+
+
+[ 01-01 13:20:23.167 13267:13286 I/ApplicationTemplate ]
+Player 0 is busy
+
+
+[ 01-01 13:20:23.167 13267:13286 I/ApplicationTemplate ]
+Player 1 is busy
+
+
+[ 01-01 13:20:23.167 13267:13286 I/ApplicationTemplate ]
+Player 2 is busy
+
+
+[ 01-01 13:20:23.167 13267:13286 I/ApplicationTemplate ]
+Player 3 is busy
+
+
+[ 01-01 13:20:23.795  5265: 5458 V/node.js  ]
+[index.js] node is alive:  13710
+
+[ 01-01 13:20:24.356  2081: 2081 W/ResourceType ]
 No package identifier when getting value for resource number 0x00000000
 
-[ 12-30 21:37:17.918  2081: 2081 W/PackageManager ]
+[ 01-01 13:20:24.356  2081: 2081 W/PackageManager ]
 Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
 
-[ 12-30 21:37:17.918  2081: 2081 W/ResourceType ]
+[ 01-01 13:20:24.356  2081: 2081 W/ResourceType ]
 No package identifier when getting value for resource number 0x00000000
 
-[ 12-30 21:37:17.918  2081: 2081 W/PackageManager ]
+[ 01-01 13:20:24.356  2081: 2081 W/PackageManager ]
 Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
 
-[ 12-30 21:37:17.925  1909: 2755 I/ActivityManager ]
+[ 01-01 13:20:24.363  1909: 2752 I/ActivityManager ]
 START u0 {act=com.android.systemui.recents.SHOW_RECENTS flg=0x10804000 cmp=com.android.systemui/.recents.RecentsActivity} from uid 10029 on display 0
 
-[ 12-30 21:37:18.039  2439: 2439 I/Keyboard.Facilitator ]
+[ 01-01 13:20:24.471  1909: 2752 I/art      ]
+Explicit concurrent mark sweep GC freed 16423(789KB) AllocSpace objects, 1(16KB) LOS objects, 26% free, 44MB/60MB, paused 1.967ms total 106.083ms
+
+[ 01-01 13:20:24.608  2439: 2439 I/Keyboard.Facilitator ]
 onFinishInput()
 
-[ 12-30 21:37:18.954  2081: 2081 W/ResourceType ]
-No package identifier when getting value for resource number 0x00000000
+[ 01-01 13:20:25.480  1909: 2121 I/ActivityManager ]
+Killing 12821:com.intangibleobject.securesettings.plugin/u0a140 (adj 15): empty #17
 
-[ 12-30 21:37:18.954  2081: 2081 W/PackageManager ]
-Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
+[ 01-01 13:20:25.587  1909: 2121 I/ActivityManager ]
+Killing 13267:com.android.ApplicationTemplate/u0a203 (adj 9): remove task
 
-[ 12-30 21:37:18.954  2081: 2081 W/ResourceType ]
-No package identifier when getting value for resource number 0x00000000
+[ 01-01 13:20:25.691  1909: 2300 I/WindowState ]
+WIN DEATH: Window{34364d70 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
 
-[ 12-30 21:37:18.954  2081: 2081 W/PackageManager ]
-Failure retrieving resources for com.android.ApplicationTemplate: Resource ID #0x0
+[ 01-01 13:20:25.691  1909: 2300 W/WindowManager ]
+Force-removing child win Window{997396e u0 SurfaceView} from container Window{34364d70 u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
 
-[ 12-30 21:37:18.959  1909: 4518 D/WifiService ]
-releaseWifiLockLocked: WifiLock{ReddingWifiLock type=1 binder=android.os.BinderProxy@308dc44d}
-
-[ 12-30 21:37:19.158  1909: 2300 I/ActivityManager ]
-Killing 6570:com.aboutmycode.NotificationsOff/u0a148 (adj 15): empty #17
-
-[ 12-30 21:37:19.212  1909: 2300 I/ActivityManager ]
-Killing 6930:com.android.ApplicationTemplate/u0a203 (adj 9): remove task
-
-[ 12-30 21:37:19.341  1909: 2456 I/WindowState ]
-WIN DEATH: Window{33142ae u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
-
-[ 12-30 21:37:19.341  1909: 2456 W/WindowManager ]
-Force-removing child win Window{13491bdc u0 SurfaceView} from container Window{33142ae u0 com.android.ApplicationTemplate/com.android.ApplicationTemplate.ApplicationTemplateActivity}
-
-[ 12-30 21:37:19.345  1909: 1925 W/WindowManager ]
+[ 01-01 13:20:25.706  1909: 2302 W/WindowManager ]
 Failed looking up window
-java.lang.IllegalArgumentException: Requested window android.os.BinderProxy@1ede984f does not exist
+java.lang.IllegalArgumentException: Requested window android.os.BinderProxy@1b5748e9 does not exist
 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:8539)
 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:8530)
 	at com.android.server.wm.WindowState$DeathRecipient.binderDied(WindowState.java:1142)
 	at android.os.BinderProxy.sendDeathNotice(Binder.java:551)
 
 
-[ 12-30 21:37:19.345  1909: 1925 I/WindowState ]
+[ 01-01 13:20:25.706  1909: 2302 I/WindowState ]
 WIN DEATH: null
 
-[ 12-30 21:37:19.424  1909: 2121 I/ActivityManager ]
+[ 01-01 13:20:25.765  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12788
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioFlinger ]
+session id 12784 not found for pid 13267
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioFlinger ]
+removeEffect_l() 0xb59c4000 cannot promote chain for effect 0xb406ea80
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12788
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12790
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioFlinger ]
+session id 12785 not found for pid 13267
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioFlinger ]
+removeEffect_l() 0xb59c4000 cannot promote chain for effect 0xb406e180
+
+[ 01-01 13:20:25.765  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12790
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12792
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioFlinger ]
+session id 12787 not found for pid 13267
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioFlinger ]
+removeEffect_l() 0xb59c4000 cannot promote chain for effect 0xb406ec00
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12792
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12791
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioFlinger ]
+session id 12786 not found for pid 13267
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioFlinger ]
+removeEffect_l() 0xb59c4000 cannot promote chain for effect 0xb4d53600
+
+[ 01-01 13:20:25.766  1514: 1941 W/AudioPolicyManager ]
+unregisterEffect() unknown effect ID 12791
+
+[ 01-01 13:20:25.800  1909: 1925 I/ActivityManager ]
 START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.google.android.googlequicksearchbox/com.google.android.launcher.GEL} from uid 10029 on display 0
 
-[ 12-30 21:37:19.455  2540: 2540 I/GEL      ]
+[ 01-01 13:20:25.847  2540: 2540 I/GEL      ]
 handleIntent(Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10600000 cmp=com.google.android.googlequicksearchbox/com.google.android.launcher.GEL })
 
-[ 12-30 21:37:19.502  2439: 2439 I/Keyboard.Facilitator ]
+[ 01-01 13:20:25.961  2439: 2439 I/Keyboard.Facilitator ]
 onFinishInput()
 
-[ 12-30 21:37:19.509 12886:12015 D/ClClient ]
-D	2015-12-30T21:37:19.509-0700	[ci=WtLntlUEO2]	pool-7-thread-1  	ClClient       	Not sending keepalive.  Current connection state=STOPPED
-
-[ 12-30 21:37:19.523 25412:25412 I/MicroDetectionWrkImpl ]
+[ 01-01 13:20:25.991 10994:10994 I/MicroDetectionWrkImpl ]
 Micro detection mode: 1.
 
-[ 12-30 21:37:19.570 25412:25412 I/MicroDetectionWrkImpl ]
+[ 01-01 13:20:26.023 10994:10994 I/MicroDetectionWrkImpl ]
 Micro detection mode: 2.
 
-[ 12-30 21:37:19.575 25412:25480 E/TrainingQuestionManager ]
-Question missing fingerprint: 6614020359132042300
-
-[ 12-30 21:37:19.585 25412: 6987 I/MicroRecognitionRnrImpl ]
+[ 01-01 13:20:26.037 10994:13302 I/MicroRecognitionRnrImpl ]
 Starting detection.
 
-[ 12-30 21:37:19.587 25412: 6988 I/MicrophoneInputStream ]
-mic_starting com.google.android.apps.gsa.speech.audio.y@3f6c656e
+[ 01-01 13:20:26.043 10994:13303 I/MicrophoneInputStream ]
+mic_starting com.google.android.apps.gsa.speech.audio.y@17c79d24
 
-[ 12-30 21:37:19.589  1514: 6990 I/AudioFlinger ]
-AudioFlinger's thread 0xb4145000 ready to run
+[ 01-01 13:20:26.044  1514:13305 I/AudioFlinger ]
+AudioFlinger's thread 0xb4124000 ready to run
 
-[ 12-30 21:37:19.592  1514: 2031 I/SoundTriggerHwService::Module ]
+[ 01-01 13:20:26.051  1514: 2031 I/SoundTriggerHwService::Module ]
 void android::SoundTriggerHwService::Module::onCallbackEvent(const android::sp<android::SoundTriggerHwService::CallbackEvent>&) mClient == 0
 
-[ 12-30 21:37:19.594 25412: 6988 I/MicrophoneInputStream ]
-mic_started com.google.android.apps.gsa.speech.audio.y@3f6c656e
+[ 01-01 13:20:26.053 10994:13303 I/MicrophoneInputStream ]
+mic_started com.google.android.apps.gsa.speech.audio.y@17c79d24
 
-[ 12-30 21:37:19.603  1514: 6990 D/audio_hw_primary ]
+[ 01-01 13:20:26.062  1514:13305 D/audio_hw_primary ]
 select_devices: out_snd_device(0: none) in_snd_device(55: voice-rec-mic)
 
-[ 12-30 21:37:19.603  1514: 6990 D/msm8974_platform ]
+[ 01-01 13:20:26.062  1514:13305 D/msm8974_platform ]
 platform_send_audio_calibration: sending audio calibration for snd_device(55) acdb_id(62)
 
-[ 12-30 21:37:19.603  1514: 6990 E/ACDB-LOADER ]
+[ 01-01 13:20:26.062  1514:13305 E/ACDB-LOADER ]
 Error: ACDB AudProc vol returned = -19
 
 
-[ 12-30 21:37:19.603  1514: 6990 D/audio_hw_primary ]
+[ 01-01 13:20:26.062  1514:13305 D/audio_hw_primary ]
 enable_snd_device: snd_device(55: voice-rec-mic)
 
-[ 12-30 21:37:19.611  1514: 6990 D/audio_hw_primary ]
+[ 01-01 13:20:26.071  1514:13305 D/audio_hw_primary ]
 enable_audio_route: apply and update mixer path: audio-record
 
-[ 12-30 21:37:19.649 24820:24845 I/Icing    ]
+[ 01-01 13:20:26.092 24820:24845 I/Icing    ]
 Usage reports 2 indexed 0 rejected 0 imm upload true
 
-[ 12-30 21:37:19.681 25412:25412 I/MicroDetectionWrkImpl ]
+[ 01-01 13:20:26.097 24820:24845 W/Icing    ]
+GetUsageReports fallback to slow seek
+
+[ 01-01 13:20:26.146 10994:10994 I/MicroDetectionWrkImpl ]
 onReady
 
-[ 12-30 21:37:19.682 25412:25412 I/MicroDetectionWrkImpl ]
+[ 01-01 13:20:26.147 10994:10994 I/MicroDetectionWrkImpl ]
 Micro detection mode: 1.
 
-[ 12-30 21:37:20.019  2540: 2892 W/OpenGLRenderer ]
+[ 01-01 13:20:26.409  2540: 2892 W/OpenGLRenderer ]
 Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
 
-[ 12-30 21:37:20.094  1909: 2061 D/TaskPersister ]
-removeObsoleteFile: deleting file=236_task.xml
+[ 01-01 13:20:26.428  1909: 2061 D/TaskPersister ]
+removeObsoleteFile: deleting file=245_task.xml
 
-[ 12-30 21:37:20.094  1909: 2061 D/TaskPersister ]
-removeObsoleteFile: deleting file=236_task_thumbnail.png
+[ 01-01 13:20:26.428  1909: 2061 D/TaskPersister ]
+removeObsoleteFile: deleting file=245_task_thumbnail.png
 
-[ 12-30 21:37:20.513  6666: 6760 D/HeadsetStateMachine ]
-Disconnected process message: 10, size: 0
-
-[ 12-30 21:37:20.784  1909: 2026 I/InputReader ]
-Reconfiguring input devices.  changes=0x00000010
-
-[ 12-30 21:37:20.824  1909: 2457 I/ActivityManager ]
-Start proc 6997:com.google.android.apps.plus/u0a81 for broadcast com.google.android.apps.plus/.service.PackagesMediaMonitor
-
-[ 12-30 21:37:20.844  3703: 3703 I/Babel_SMS ]
-MmsSendReceiveManager: no sender, skip checking
-
-[ 12-30 21:37:20.849  6997: 6997 W/ResourcesManager ]
-Asset path '/system/framework/com.google.android.maps.jar' does not exist or contains no resources.
+[ 01-01 13:20:27.826 12886:12015 D/ClClient ]
+D	2016-01-01T13:20:27.825-0700	[ci=WtLntlUEO2]	pool-7-thread-1  	ClClient       	Not sending keepalive.  Current connection state=STOPPED
 

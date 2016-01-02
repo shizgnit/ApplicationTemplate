@@ -49,22 +49,22 @@ namespace spatial {
     vector(float x, float y, float z, float w = 1.0f);
 
     vector(const vector &ref);
-    virtual vector &operator = (const vector &rval);
+    virtual vector &operator = (const vector &operand);
 
-    virtual vector &operator += (const vector &rval);
-    virtual vector operator + (const vector &rval);
+    virtual vector &operator += (const vector &operand);
+    virtual vector operator + (const vector &operand);
 
-    virtual vector &operator -= (const vector &rval);
-    virtual vector operator - (const vector &rval) const;
+    virtual vector &operator -= (const vector &operand);
+    virtual vector operator - (const vector &operand) const;
 
-    virtual vector &operator *= (const vector &rval);
-    virtual vector operator * (const vector &rval) const;
+    virtual vector &operator *= (const vector &operand);
+    virtual vector operator * (const vector &operand) const;
 
-    virtual vector &operator /= (const vector &rval);
-    virtual vector operator / (const vector &rval) const;
+    virtual vector &operator /= (const vector &operand);
+    virtual vector operator / (const vector &operand) const;
 
-    virtual vector &operator %= (const vector &rval);
-    virtual vector operator % (const vector &rval) const;
+    virtual vector &operator %= (const vector &operand);
+    virtual vector operator % (const vector &operand) const;
 
     vector &rotate_x(float rad);
 
@@ -94,11 +94,11 @@ namespace spatial {
 
     matrix &identity();
 
-    virtual matrix &operator *= (const matrix &rval);
-    matrix operator * (const matrix &rval) const;
-    matrix &scale(const float &rval);
-    matrix &operator *= (const float &rval);
-    matrix operator * (const float &rval) const;
+    virtual matrix &operator *= (const matrix &operand);
+    matrix operator * (const matrix &operand) const;
+    matrix &scale(const float &operand);
+    matrix &operator *= (const float &operand);
+    matrix operator * (const float &operand) const;
 
     matrix &rotate_x(float angle);
     matrix &rotate_y(float angle);
@@ -109,6 +109,7 @@ namespace spatial {
     matrix &translate(const vector &eye, const vector &center, const vector &up);
 
     matrix &perspective(float fov, float aspect, float n, float f);
+    matrix &ortho(float left, float right, float bottom, float top);
 
     matrix &lookat(const vector &eye, const vector &center, const vector &up);
 
@@ -159,7 +160,7 @@ namespace spatial {
     operator matrix();
     void euler(const float &x, const float &y, const float &z, const float &degrees);
 
-    quaternion operator *(const quaternion &rval);
+    quaternion operator *(const quaternion &operand);
   };
 }
 

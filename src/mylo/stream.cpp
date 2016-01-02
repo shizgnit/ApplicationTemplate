@@ -34,10 +34,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 __MYLO_NAMESPACE_BEGIN
 
-__MYLO_DLL_EXPORT stream::stream(const serializable *lval, const serializable *rval) {
+__MYLO_DLL_EXPORT stream::stream(const serializable *lval, const serializable *operand) {
   m_chain = new my::vector<serializable *>();
   m_chain->push_back(const_cast<serializable *>(lval));
-  m_chain->push_back(const_cast<serializable *>(rval));
+  m_chain->push_back(const_cast<serializable *>(operand));
   serializable *a = (*m_chain)[0];
   serializable *b = (*m_chain)[1];
 }
@@ -75,18 +75,18 @@ __MYLO_DLL_EXPORT stream::~stream() {
   } while(bytes_read || bytes_written);
 }
 
-__MYLO_DLL_EXPORT stream &stream::operator << (const serializable &rval) {
+__MYLO_DLL_EXPORT stream &stream::operator << (const serializable &operand) {
   m_chain->resize(m_chain->size()+1);
   for(int i=m_chain->size()-1; i>0; i--) {
     serializable *ptr = (*m_chain)[i-1];
     (*m_chain)[i] = (*m_chain)[i-1];
   }
-  (*m_chain)[0] = const_cast<serializable *>(&rval);
+  (*m_chain)[0] = const_cast<serializable *>(&operand);
   return(*this);
 }
 
-__MYLO_DLL_EXPORT stream &stream::operator >> (const serializable &rval) {
-  m_chain->push_back(const_cast<serializable *>(&rval));
+__MYLO_DLL_EXPORT stream &stream::operator >> (const serializable &operand) {
+  m_chain->push_back(const_cast<serializable *>(&operand));
   return(*this);
 }
 
