@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="datatypes.cpp" />
-    <ClCompile Include="spatial.cpp" />
+    <ClCompile Include="..\..\..\test\datatypes.cpp" />
+    <ClCompile Include="..\..\..\test\spatial.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.hpp" />
+    <ClInclude Include="..\..\..\test\test.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}</ProjectGuid>

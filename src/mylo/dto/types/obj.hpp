@@ -100,7 +100,7 @@ public:
     }
     if (strcmp(command, "vt") == 0) { //texture coordinates
       context->buffer_textures.push_back((float)atof(arguments[1]));
-      context->buffer_textures.push_back((float)atof(arguments[2]));
+      context->buffer_textures.push_back(1.0f - (float)atof(arguments[2]));
     }
     if (strcmp(command, "vn") == 0) { //normals
       context->buffer_normals.push_back((float)atof(arguments[1]));

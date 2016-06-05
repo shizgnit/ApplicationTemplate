@@ -9,6 +9,7 @@ my::shared_ptr<my::object> gbackground;
 my::png gtexture;
 
 my::obj gapple;
+my::obj bunny;
 
 my::wav sound;
 
@@ -51,8 +52,8 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   shader_basic.fragment << platform::api::asset->retrieve("shaders/shader_basic.frag");
   platform::api::graphics->compile(shader_basic);
 
-  shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/shader_with_lighting.vert");
-  shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/shader_with_lighting.frag");
+  shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
+  shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/texture_alpha_shader_toon_lighting.frag");
   platform::api::graphics->compile(shader_with_lighting);
 
   //
@@ -72,6 +73,12 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   platform::api::graphics->compile(gapple);
 
+  bunny.search_path = "models/bunny";
+  bunny << platform::api::asset->retrieve("models/bunny/lowpoly.armature..animation.texture.unwrapped.textured.obj");
+
+  platform::api::graphics->compile(bunny);
+
+
   //
   // Load up the font
   //
@@ -85,6 +92,8 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   my::image *img = new my::png;
   *img << platform::api::asset->retrieve("textures/landscape2.png");
   gbackground->xy_projection(img, 0, 0, 256, 256);
+  //*img << platform::api::asset->retrieve("models/bunny/lowpoly.armature..animation.texture.unwrapped.textured.png");
+  //gbackground->xy_projection(img, 0, 0, 2048, 2048);
   platform::api::graphics->compile(*gbackground);
 
   //
@@ -108,6 +117,7 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   //
   // Randomize the object positions
   //
+  /*
   for (int i = 0; i < apples; i++) {
     my::spatial::position *instance = new my::spatial::position();
 
@@ -126,6 +136,7 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
 
     positions.push_back(instance);
   }
+  */
 }
 
 void on_shutdown() {
@@ -313,6 +324,17 @@ void on_draw() {
   platform::api::graphics->draw(gapple, shader_with_lighting, model, view, projection);
   */
 
+  my::spatial::matrix model;
+  model.identity();
+
+  // position 
+  pos.rotate(1.0f, 0.0f);
+  pos.move(0.02f);
+  model.translate(pos.eye, pos.center, pos.up);
+
+  platform::api::graphics->draw(bunny, shader_with_lighting, model, view, perspective);
+
+  /*
   my::list<my::shared_ptr<my::spatial::position> >::iterator it = positions.begin();
   for (float i=0; it != positions.end(); it++) {
     my::spatial::matrix model;
@@ -327,7 +349,7 @@ void on_draw() {
 
     platform::api::graphics->draw(gapple, shader_with_lighting, model, view, perspective);
   }
-
+  */
 
   //print(-300, -60, mvp);
 
