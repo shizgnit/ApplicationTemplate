@@ -25,6 +25,9 @@
     <Filter Include="mylo\platform\implementation">
       <UniqueIdentifier>{d6e0783d-44a3-4608-856b-66d31abcf2d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="mylo\view">
+      <UniqueIdentifier>{dba17d2d-519a-4291-b71d-170fe2267b3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\mylo\buffer.cpp">
@@ -129,6 +132,21 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\mylo\platform\keys.cpp">
       <Filter>mylo\platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\controller.cpp">
+      <Filter>mylo\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\text.cpp">
+      <Filter>mylo\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\button.cpp">
+      <Filter>mylo\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\scene.cpp">
+      <Filter>mylo\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\widget.cpp">
+      <Filter>mylo\view</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +336,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\list.hpp">
       <Filter>mylo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\animation.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\controller.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\text.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\button.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\scene.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\widget.hpp">
+      <Filter>mylo\view</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

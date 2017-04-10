@@ -188,6 +188,13 @@ __PLATFORM_NAMESPACE_END
 #include "dto/types/fnt.hpp"
 #include "dto/types/wav.hpp"
 
+#include "view/widget.hpp"
+#include "view/button.hpp"
+#include "view/text.hpp"
+
+#include "view/controller.hpp"
+#include "view/scene.hpp"
+
 #endif
 
 // Local Variables:

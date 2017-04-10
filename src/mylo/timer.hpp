@@ -58,7 +58,7 @@ class __MYLO_DLL_EXPORT Timer {
 
     static time_t current(void) {
       timeb timebuffer;
-      ftime(&timebuffer);
+      //TODO: ftime(&timebuffer);
       if(m_offset == 0) {
         m_offset = timebuffer.time;
       }

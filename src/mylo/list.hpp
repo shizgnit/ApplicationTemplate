@@ -76,7 +76,8 @@ public:
   }
   
   void insert(basic_iterator< pair<S, T> > &it, const T &value) {
-    if (!it.first) {
+    // TODO: Look into why this method is only used for non-datatype classes
+    if (!it->first) {
       return; // case where attempts are made to add with a popped or shifted iterator
     }
 
@@ -86,13 +87,15 @@ public:
     n->entry->first = n;
     n->entry->second = value;
 
-    if (m_tail == it.first) {
+    if (m_tail == it->first) {
       m_tail = n;
     }
-    n->next = it.first->next;
-    n->prior = it.first;
-    
-    it.first->next = n;
+
+    node *f = (node *)(abstract_node *)it->first;
+    n->next = f->next;
+    n->prior = f;
+
+    f->next = n;
 
     m_count += 1;
   }
@@ -266,7 +269,7 @@ private:
     }
     my::basic_iterator< pair<S, T> > it = in.begin();
     for (; it != in.end(); it++) {
-      this->insert(it);
+      this->insert(it, it->second);
     }
   }
 

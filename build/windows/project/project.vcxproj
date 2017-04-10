@@ -170,6 +170,11 @@
     <ClCompile Include="..\..\..\src\mylo\timer.cpp" />
     <ClCompile Include="..\..\..\src\mylo\trace.cpp" />
     <ClCompile Include="..\..\..\src\mylo\utilities.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\button.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\controller.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\scene.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\text.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\widget.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xml.cpp" />
     <ClCompile Include="..\..\..\src\mylo\xpath.cpp" />
     <ClCompile Include="..\..\..\src\third_party\png\png.c" />
@@ -196,6 +201,7 @@
     <ClInclude Include="..\..\..\src\mylo\datatype.hpp" />
     <ClInclude Include="..\..\..\src\mylo\debug.hpp" />
     <ClInclude Include="..\..\..\src\mylo\directory.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\dto\animation.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\audio.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\entity.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\font.hpp" />
@@ -246,6 +252,11 @@
     <ClInclude Include="..\..\..\src\mylo\utilities.hpp" />
     <ClInclude Include="..\..\..\src\mylo\variant.hpp" />
     <ClInclude Include="..\..\..\src\mylo\vector.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\button.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\controller.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\scene.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\text.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\widget.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xml.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xpath.hpp" />
     <ClInclude Include="..\..\..\src\third_party\png\config.h" />

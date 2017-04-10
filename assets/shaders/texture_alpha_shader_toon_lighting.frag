@@ -25,7 +25,7 @@ void main()
    float c = 0.4;
    
    if (d > 0.95)
-	 c = 1.5;
+	 c = 0.8;
    else if (d > 0.5)
      c = 0.6;
    else if (d > 0.25)

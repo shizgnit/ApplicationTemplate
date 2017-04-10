@@ -13,7 +13,7 @@ my::obj bunny;
 
 my::wav sound;
 
-my::fnt font;
+my::text tbuffer;
 
 my::program shader_with_lighting;
 my::program shader_basic;
@@ -43,7 +43,7 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   platform::api::audio->init(4);
 
   DEBUG_TRACE << "asset init" << my::endl;
-  
+
   platform::api::asset->init(asset_manager);
 
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
@@ -74,16 +74,14 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   platform::api::graphics->compile(gapple);
 
   bunny.search_path = "models/bunny";
-  bunny << platform::api::asset->retrieve("models/bunny/lowpoly.armature..animation.texture.unwrapped.textured.obj");
+  bunny << platform::api::asset->retrieve("models/bunny/poly.obj");
 
   platform::api::graphics->compile(bunny);
-
 
   //
   // Load up the font
   //
-  font << platform::api::asset->retrieve("fonts/arial2.fnt");
-  platform::api::graphics->compile(font);
+  tbuffer.font("fonts/arial2.fnt");
 
   //
   // Load up the background
@@ -107,9 +105,9 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   // Init sound
   //
   sound << platform::api::asset->retrieve("sounds/mind_is_going.wav");
-  
+
   DEBUG_TRACE << "sound file loaded " << sound.size << " bytes" << my::endl;
-  
+
   platform::api::audio->compile(sound);
 
   camera.move(4.0f);
@@ -147,109 +145,11 @@ int screen_height;
 
 void on_resize(int width, int height) {
   glViewport(0, 0, width, height);
-  
+
   screen_width = width;
   screen_height = height;
 }
 
-
-void print(float x, float y, my::spatial::matrix mat) {
-  my::spatial::matrix placement;
-  placement.identity();
-  placement.scale(0.003f);
-
-  placement.translate(x, y, 0.0f);
-
-  for (int i = 0; i < 4; i++) {
-    my::string text = my::format("%f, %f, %f, %f", mat.r[i][0], mat.r[i][1], mat.r[i][2], mat.r[i][3]);
-    platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
-    placement.translate(0.0f, -30.0f, 0.0f);
-  }
-}
-
-void print(float x, float y, my::spatial::vector vec) {
-  my::spatial::matrix placement;
-  placement.identity();
-  placement.scale(0.003f);
-
-  placement.translate(x, y, 0.0f);
-  my::string text = my::format("%f, %f, %f, %f", vec.x, vec.y, vec.z);
-  platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
-}
-
-void print(float x, float y, my::string text) {
-  my::spatial::matrix placement;
-  placement.identity();
-  placement.scale(0.003f);
-
-  placement.translate(x, y, 0.0f);
-  platform::api::graphics->draw(text, font, shader_basic, placement, my::spatial::matrix(), my::spatial::matrix());
-}
-
-class text {
-public:
-  text() {}
-
-  ~text() {
-    int i = 0;
-
-  }
-
-  void display() {
-    my::spatial::matrix text;
-    text.identity();
-    text.scale(0.003f);
-
-    text.translate(-300.0f, 300.0f, 0.0f);
-
-    my::list<my::string>::iterator it = buffer.begin();
-    for (; it != buffer.end(); it++) {
-      text.translate(0.0f, -30.0f, 0.0f);
-      if (it->second.length()) {
-        platform::api::graphics->draw(it->second, font, shader_basic, text, my::spatial::matrix(), my::spatial::matrix());
-      }
-    }
-  }
-
-  void append(const my::string &value) {
-    if (buffer.size() == 0) {
-      newline();
-    }
-    buffer.tail().append(value);
-  }
-
-  void newline() {
-    if (buffer.size() >= 10) {
-      buffer.shift();
-    }
-    buffer.push_back(my::string());
-  }
-
-  text &operator << (int operand) {
-    append(my::type_cast<my::string>(operand));
-    return(*this);
-  }
-
-  text &operator << (float operand) {
-    append(my::type_cast<my::string>(operand));
-    return(*this);
-  }
-
-  text &operator << (const my::string &operand) {
-    append(operand);
-    return(*this);
-  }
-
-  text &operator << (const my::end_of_line &operand) {
-    newline();
-    return(*this);
-  }
-
-private:
-  my::list<my::string> buffer;
-};
-
-text tbuffer;
 
 my::spatial::position pos;
 
@@ -301,7 +201,7 @@ void on_draw() {
   my::spatial::matrix model;
   model.identity();
 
-  // position 
+  // position
   pos.rotate(1.0f, 0.0f);
   pos.move(0.02f);
   model.translate(pos.eye, pos.center, pos.up);
@@ -327,8 +227,8 @@ void on_draw() {
   my::spatial::matrix model;
   model.identity();
 
-  // position 
-  pos.rotate(1.0f, 0.0f);
+  // position
+  pos.rotate(0.0f, 1.0f);
   pos.move(0.02f);
   model.translate(pos.eye, pos.center, pos.up);
 
@@ -353,18 +253,18 @@ void on_draw() {
 
   //print(-300, -60, mvp);
 
-  print(-300, -220, my::format("input: %f, %f", input_x, input_y));
-  print(-300, -250, my::format("mouse: %f, %f", mouse_x, mouse_y));
+  tbuffer.print(-300, -220, my::format("input: %f, %f", input_x, input_y));
+  tbuffer.print(-300, -250, my::format("mouse: %f, %f", mouse_x, mouse_y));
 
   static int frame = 0;
   static int start = time(NULL);
 
   frame++;
 
-  print(-300, -280, my::format("fps: %f", (float) frame / (time(NULL) - start) ));
+  tbuffer.print(-300, -280, my::format("fps: %f", (float) frame / (time(NULL) - start) ));
 
   //
-  // font 
+  // font
   //
   //static int counter = 0;
   //tbuffer << counter++ << ") " << input_x << "," << input_y << my::endl;
@@ -459,13 +359,11 @@ void on_touch_scale(float x, float y, float z) {
 
 void on_key_down(int key) {
   tbuffer << "key down: " << key << my::endl;
-
 }
 
 void on_key_up(int key) {
   tbuffer << "key up: " << key << my::endl;
   //platform::api::audio->play(sound);
-
   //camera.rotate(input_x, input_y);
 }
 
