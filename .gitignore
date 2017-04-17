@@ -53,3 +53,13 @@ src/third_party/glu/
 src/third_party/jxcore/
 src/third_party/linmath/
 src/third_party/moderngl_camera/
+
+assets/models/                                                                               
+assets/sounds/                                                                               
+assets/textures/landscape2.tga                                                               
+build/android/bin/classes/com/android/ApplicationTemplate/ApplicationTemplateActivity$2.class
+build/android/bin/classes/com/android/ApplicationTemplate/ApplicationTemplateActivity$3.class
+build/android/bin/dexedLibs/                                                                 
+build/windows/windows.VC.VC.opendb                                                           
+build/windows/windows.VC.db                                                                  
+src/third_party/pcre2/                                                                       
