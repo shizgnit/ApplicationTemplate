@@ -39,10 +39,7 @@ __MYLO_NAMESPACE_BEGIN
 
 class __MYLO_DLL_EXPORT animation: public datatype<animation> {
 public:
-	
-
   my::string id;
-
   my::buffer buffer;
 };
 

@@ -56,6 +56,10 @@ public:
   virtual my::string filetype(my::string path) = 0;
 };
 
+class filesystem {
+public: static filesystem_interface *api;
+};
+
 __PLATFORM_NAMESPACE_END
 
 #endif

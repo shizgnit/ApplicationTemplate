@@ -602,9 +602,9 @@ namespace spatial {
     tr = m.r[0][0] + m.r[1][1] + m.r[2][2];
     // check the diagonal
     if (tr > 0.0) {
-      s = sqrt(tr + 1.0);
-      w = s / 2.0;
-      s = 0.5 / s;
+      s = (float)sqrt(tr + 1.0);
+      w = (float)(s / 2.0);
+      s = (float)0.5 / s;
       x = (m.r[1][2] - m.r[2][1]) * s;
       y = (m.r[2][0] - m.r[0][2]) * s;
       z = (m.r[0][1] - m.r[1][0]) * s;
@@ -616,9 +616,9 @@ namespace spatial {
       if (m.r[2][2] > m.r[i][i]) i = 2;
       j = nxt[i];
       k = nxt[j];
-      s = sqrt((m.r[i][i] - (m.r[j][j] + m.r[k][k])) + 1.0);
-      q[i] = s * 0.5;
-      if (s != 0.0) s = 0.5 / s;
+      s = (float)sqrt((m.r[i][i] - (m.r[j][j] + m.r[k][k])) + 1.0);
+      q[i] = (float)(s * 0.5);
+      if (s != 0.0) s = (float)(0.5 / s);
       q[3] = (m.r[j][k] - m.r[k][j]) * s;
       q[j] = (m.r[i][j] + m.r[j][i]) * s;
       q[k] = (m.r[i][k] + m.r[k][i]) * s;
@@ -659,12 +659,12 @@ namespace spatial {
   {
     float cr, cp, cy, sr, sp, sy, cpcy, spsy;
     // calculate trig identities
-    cr = cos(roll / 2);
-    cp = cos(pitch / 2);
-    cy = cos(yaw / 2);
-    sr = sin(roll / 2);
-    sp = sin(pitch / 2);
-    sy = sin(yaw / 2);
+    cr = (float)cos(roll / 2);
+    cp = (float)cos(pitch / 2);
+    cy = (float)cos(yaw / 2);
+    sr = (float)sin(roll / 2);
+    sp = (float)sin(pitch / 2);
+    sy = (float)sin(yaw / 2);
     cpcy = cp * cy;
     spsy = sp * sy;
     w = cr * cpcy + sr * spsy;

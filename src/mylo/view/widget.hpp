@@ -35,7 +35,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __WIDGET_HPP
 #define __WIDGET_HPP
 
-__MYLO_NAMESPACE_BEGIN
+__VIEW_NAMESPACE_BEGIN
 
 class widget {
 public:
@@ -54,6 +54,14 @@ public:
     prop.geometry.height = height;
   }
 
+  virtual void on_draw() {};
+
+  virtual void on_hover() {};
+
+  virtual void on_click() {};
+  virtual void on_click_down() {};
+  virtual void on_click_up() {};
+
 private:
   struct attributes {
     struct {
@@ -68,6 +76,6 @@ private:
   } prop;
 };
 
-__MYLO_NAMESPACE_END
+__VIEW_NAMESPACE_END
 
 #endif

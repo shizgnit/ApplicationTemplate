@@ -128,7 +128,7 @@ public:
         my::string file = file_parameter[1] + 1;
 
         my::image *page = new my::png();
-        *page << platform::api::asset->retrieve(file);
+        *page << platform::asset::api->retrieve(file);
         context->pages.push(page);
       }
 
@@ -231,7 +231,7 @@ public:
     node::NodeList::iterator pit = pages.begin();
     for(;pit != pages.end(); pit++) {
       my::image *page = new my::png();
-      *page << platform::api::asset->retrieve(pit->second.getAttribute("file"));
+      *page << platform::asset::api->retrieve(pit->second.getAttribute("file"));
       context->pages.push(page);
     }
 

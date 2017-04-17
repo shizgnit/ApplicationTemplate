@@ -148,6 +148,9 @@
     <ClCompile Include="..\..\..\src\mylo\view\widget.cpp">
       <Filter>mylo\view</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\mylo\view\resource.cpp">
+      <Filter>mylo\view</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp">
@@ -354,6 +357,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\mylo\view\widget.hpp">
       <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\view.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\view\resource.hpp">
+      <Filter>mylo\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\dto\reader.hpp">
+      <Filter>mylo\dto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\controller.hpp">
+      <Filter>mylo\platform\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

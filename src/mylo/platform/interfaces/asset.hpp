@@ -47,6 +47,10 @@ public:
   my::map<my::string, int> search_paths;
 };
 
+class asset {
+public: static asset_interface *api;
+};
+
 __PLATFORM_NAMESPACE_END
 
 

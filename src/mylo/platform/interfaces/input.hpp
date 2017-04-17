@@ -47,6 +47,7 @@ public:
     mouse_x = 0;
     mouse_y = 0;
     memset(keys, 0, 256);
+    memset(keys, 0, 20);
   }
 
   virtual void touch_press(float x, float y) = 0;
@@ -59,62 +60,83 @@ public:
   virtual void key_down(int key) = 0;
   virtual void key_up(int key) = 0;
 
+  virtual void mouse_down(int button, long int x, long int y) = 0;
+  virtual void mouse_up(int button, long int x, long int y) = 0;
+
   virtual void mouse_move(long int x, long int y) = 0;
 
 public:
   long int mouse_x;
   long int mouse_y;
+  char buttons[20];
   char keys[256];
 
-  struct def_struct {
+  struct metadata {
     char *label;
     int value;
     char *description;
   };
-
-  static def_struct def[256];
+  static metadata metadata_keys[256];
+  static metadata metadata_buttons[20];
 };
 
 namespace generic {
 
   class input : public input_interface {
   public:
-    void touch_press(float x, float y) {
-      on_touch_press(x, y);
+    virtual void touch_press(float x, float y) {
+      platform::controller::api->on_touch_press(x, y);
     }
-    void touch_release(float x, float y) {
-      on_touch_release(x, y);
+    virtual void touch_release(float x, float y) {
+      platform::controller::api->on_touch_release(x, y);
     }
-    void touch_drag(float x, float y) {
-      on_touch_drag(x, y);
+    virtual void touch_drag(float x, float y) {
+      platform::controller::api->on_touch_drag(x, y);
     }
-    void touch_scale(float x, float y, float z) {
-      on_touch_scale(x, y, z);
+    virtual void touch_scale(float x, float y, float z) {
+      platform::controller::api->on_touch_scale(x, y, z);
     }
-    void touch_zoom_in() {
-      on_touch_zoom_in();
+    virtual void touch_zoom_in() {
+      platform::controller::api->on_touch_zoom_in();
     }
-    void touch_zoom_out() {
-      on_touch_zoom_out();
+    virtual void touch_zoom_out() {
+      platform::controller::api->on_touch_zoom_out();
     }
 
-    void key_down(int key) {
+    virtual void key_down(int key) {
       keys[key] = 1;
-      on_key_down(key);
+      platform::controller::api->on_key_down(key);
     }
-    void key_up(int key) {
+    virtual void key_up(int key) {
       keys[key] = 0;
-      on_key_up(key);
+      platform::controller::api->on_key_up(key);
     }
 
-    void mouse_move(long int x, long int y) {
+    virtual void mouse_down(int button, long int x, long int y) {
       mouse_x = x;
       mouse_y = y;
-      on_mouse_move(x, y);
+      buttons[button] = 1;
+      platform::controller::api->on_mouse_down(button, x, y);
+    }
+    virtual void mouse_up(int button, long int x, long int y) {
+      mouse_x = x;
+      mouse_y = y;
+      buttons[button] = 0;
+      platform::controller::api->on_mouse_up(button, x, y);
+    }
+
+    virtual void mouse_move(long int x, long int y) {
+      mouse_x = x;
+      mouse_y = y;
+      platform::controller::api->on_mouse_move(x, y);
     }
   };
 
 }
+
+class input {
+public: static input_interface *api;
+};
 
 __PLATFORM_NAMESPACE_END
 

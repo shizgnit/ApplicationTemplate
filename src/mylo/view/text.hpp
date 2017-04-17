@@ -35,7 +35,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __TEXT_HPP
 #define __TEXT_HPP
 
-__MYLO_NAMESPACE_BEGIN
+__VIEW_NAMESPACE_BEGIN
 
 class text {
 public:
@@ -48,17 +48,17 @@ public:
   }
 
   void font(const my::string &ttf) {
-    m_font << platform::api::asset->retrieve(ttf);
-    platform::api::graphics->compile(m_font);
+    m_font << platform::asset::api->retrieve(ttf);
+    platform::graphics::api->compile(m_font);
 
-    m_shader.vertex << platform::api::asset->retrieve("shaders/shader_basic.vert");
-    m_shader.fragment << platform::api::asset->retrieve("shaders/shader_basic.frag");
-    platform::api::graphics->compile(m_shader);
+    m_shader.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
+    m_shader.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+    platform::graphics::api->compile(m_shader);
 
     m_ready = true;
   }
 
-  void display() {
+  void draw() {
     if(m_ready == false) {
       return;
     }
@@ -72,7 +72,7 @@ public:
     for (; it != buffer.end(); it++) {
       text.translate(0.0f, -30.0f, 0.0f);
       if (it->second.length()) {
-        platform::api::graphics->draw(it->second, m_font, m_shader, text, my::spatial::matrix(), my::spatial::matrix());
+        platform::graphics::api->draw(it->second, m_font, m_shader, text, my::spatial::matrix(), my::spatial::matrix());
       }
     }
   }
@@ -123,7 +123,7 @@ public:
 
     for (int i = 0; i < 4; i++) {
       my::string text = my::format("%f, %f, %f, %f", mat.r[i][0], mat.r[i][1], mat.r[i][2], mat.r[i][3]);
-      platform::api::graphics->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
+      platform::graphics::api->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
       placement.translate(0.0f, -30.0f, 0.0f);
     }
   }
@@ -138,7 +138,7 @@ public:
 
     placement.translate(x, y, 0.0f);
     my::string text = my::format("%f, %f, %f, %f", vec.x, vec.y, vec.z);
-    platform::api::graphics->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
+    platform::graphics::api->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
   }
 
   void print(float x, float y, my::string text) {
@@ -150,7 +150,7 @@ public:
     placement.scale(0.003f);
 
     placement.translate(x, y, 0.0f);
-    platform::api::graphics->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
+    platform::graphics::api->draw(text, m_font, m_shader, placement, my::spatial::matrix(), my::spatial::matrix());
   }
 
 private:
@@ -160,6 +160,6 @@ private:
   bool m_ready;
 };
 
-__MYLO_NAMESPACE_END
+__VIEW_NAMESPACE_END
 
 #endif

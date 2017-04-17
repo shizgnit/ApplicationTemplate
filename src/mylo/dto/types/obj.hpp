@@ -86,7 +86,7 @@ public:
       file.append("/");
       file.append(arguments[1]);
 
-      *context->mats << platform::api::asset->retrieve(join("/", (context->search_path, arguments[1])));
+      *context->mats << platform::asset::api->retrieve(join("/", (context->search_path, arguments[1])));
     }
     if (strcmp(command, "o") == 0) { //entity
       context->active = new my::object;

@@ -1,7 +1,7 @@
 /*
 ================================================================================
 
-Copyright (c) 2012, Dee E. Abbott
+Copyright (c) 2017, Dee E. Abbott
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -30,14 +30,42 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "controller.hpp"
+#include "mylo.hpp"
 
-__MYLO_NAMESPACE_BEGIN
+#ifndef __CONTROLLER_HPP
+#define __CONTROLLER_HPP
 
+__PLATFORM_NAMESPACE_BEGIN
 
+class controller_interface {
+public:
+  virtual void on_startup(void *asset_manager) = 0;
+  virtual void on_shutdown() = 0;
 
-__MYLO_NAMESPACE_END
+  virtual void on_resize(int width, int height) = 0;
+  virtual void on_draw() = 0;
 
-// Local Variables:
-// mode:C++
-// End:
+  virtual void on_proc() = 0;
+
+  virtual void on_touch_press(float x, float y) = 0;
+  virtual void on_touch_release(float x, float y) = 0;
+  virtual void on_touch_drag(float x, float y) = 0;
+  virtual void on_touch_scale(float x, float y, float z) = 0;
+  virtual void on_touch_zoom_in() = 0;
+  virtual void on_touch_zoom_out() = 0;
+
+  virtual void on_key_down(int key) = 0;
+  virtual void on_key_up(int key) = 0;
+
+  virtual void on_mouse_down(int button, long int x, long int y) = 0;
+  virtual void on_mouse_up(int button, long int x, long int y) = 0;
+  virtual void on_mouse_move(long int x, long int y) = 0;
+};
+
+class controller {
+public: static controller_interface *api;
+};
+
+__PLATFORM_NAMESPACE_END
+
+#endif

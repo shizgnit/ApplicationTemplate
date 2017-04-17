@@ -41,9 +41,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define __MYLO_RELEASE $(__MYLO_BUILD_MAJOR).$(__MYLO_BUILD_MINOR).$(__MYLO_BUILD_REV)
 
-#include "ApplicationTemplate.hpp"
-
 #include "platform/platform.hpp"
+#include "platform/interfaces/controller.hpp"
+
+#include "ApplicationTemplate.hpp"
 
 #if defined __PLATFORM_WINDOWS
 #define __MYLO_STATIC 1
@@ -153,19 +154,6 @@ __MYLO_NAMESPACE_END
 #include "platform/interfaces/asset.hpp"
 #include "platform/interfaces/input.hpp"
 
-__PLATFORM_NAMESPACE_BEGIN
-
-class api {
-public:
-  static filesystem_interface *filesystem;
-  static graphics_interface *graphics;
-  static audio_interface *audio;
-  static asset_interface *asset;
-  static input_interface *input;
-};
-
-__PLATFORM_NAMESPACE_END
-
 #if defined __PLATFORM_WINDOWS
 #include "platform/implementation/opengl.hpp"
 #include "platform/implementation/openal.hpp"
@@ -188,11 +176,10 @@ __PLATFORM_NAMESPACE_END
 #include "dto/types/fnt.hpp"
 #include "dto/types/wav.hpp"
 
+#include "view/view.hpp"
 #include "view/widget.hpp"
 #include "view/button.hpp"
 #include "view/text.hpp"
-
-#include "view/controller.hpp"
 #include "view/scene.hpp"
 
 #endif

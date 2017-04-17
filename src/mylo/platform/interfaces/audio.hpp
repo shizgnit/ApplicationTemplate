@@ -45,6 +45,10 @@ class audio_interface {
     virtual void shutdown(void) = 0;
 };
 
+class audio {
+public: static audio_interface *api;
+};
+
 __PLATFORM_NAMESPACE_END
 
 #endif

@@ -35,13 +35,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __BUTTON_HPP
 #define __BUTTON_HPP
 
-__MYLO_NAMESPACE_BEGIN
+__VIEW_NAMESPACE_BEGIN
 
-class button : public my::widget {
+class button : public view::widget {
 
+public:
+  void draw() {
+
+  }
   
 };
 
-__MYLO_NAMESPACE_END
+__VIEW_NAMESPACE_END
 
 #endif

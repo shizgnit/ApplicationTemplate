@@ -1,4 +1,4 @@
-#include "mylo.hpp"
+#include "ApplicationTemplate.hpp"
 
 static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
@@ -13,7 +13,7 @@ my::obj bunny;
 
 my::wav sound;
 
-my::text tbuffer;
+view::text tbuffer;
 
 my::program shader_with_lighting;
 my::program shader_basic;
@@ -32,35 +32,35 @@ my::spatial::position camera;
 int apples = 60;
 my::list<my::shared_ptr<my::spatial::position> > positions;
 
-void on_startup(void *asset_manager) { DEBUG_SCOPE;
+void main::on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "graphics init" << my::endl;
 
-  platform::api::graphics->init();
+  platform::graphics::api->init();
 
   DEBUG_TRACE << "audio init" << my::endl;
 
-  platform::api::audio->init(4);
+  platform::audio::api->init(4);
 
   DEBUG_TRACE << "asset init" << my::endl;
 
-  platform::api::asset->init(asset_manager);
+  platform::asset::api->init(asset_manager);
 
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
-  shader_basic.vertex << platform::api::asset->retrieve("shaders/shader_basic.vert");
-  shader_basic.fragment << platform::api::asset->retrieve("shaders/shader_basic.frag");
-  platform::api::graphics->compile(shader_basic);
+  shader_basic.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
+  shader_basic.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+  platform::graphics::api->compile(shader_basic);
 
-  shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
-  shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/texture_alpha_shader_toon_lighting.frag");
-  platform::api::graphics->compile(shader_with_lighting);
+  shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
+  shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.frag");
+  platform::graphics::api->compile(shader_with_lighting);
 
   //
   // Just testing out some file system abstractions
   //
-  DEBUG_TRACE << "pwd: " << platform::api::filesystem->pwd() << my::endl;
-  my::directory dir(platform::api::filesystem->pwd());
+  DEBUG_TRACE << "pwd: " << platform::filesystem::api->pwd() << my::endl;
+  my::directory dir(platform::filesystem::api->pwd());
   while(my::string current = dir.next()) {
     DEBUG_TRACE << "contents: " << current << my::endl;
   }
@@ -69,14 +69,14 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   // Load up an apple
   //
   gapple.search_path = "models/obj";
-  gapple << platform::api::asset->retrieve("models/obj/apple.obj");
+  gapple << platform::asset::api->retrieve("models/obj/apple.obj");
 
-  platform::api::graphics->compile(gapple);
+  platform::graphics::api->compile(gapple);
 
   bunny.search_path = "models/bunny";
-  bunny << platform::api::asset->retrieve("models/bunny/poly.obj");
+  bunny << platform::asset::api->retrieve("models/bunny/poly.obj");
 
-  platform::api::graphics->compile(bunny);
+  platform::graphics::api->compile(bunny);
 
   //
   // Load up the font
@@ -88,11 +88,11 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   //
   gbackground = my::primitive::quad(256, 256);
   my::image *img = new my::png;
-  *img << platform::api::asset->retrieve("textures/landscape2.png");
+  *img << platform::asset::api->retrieve("textures/landscape2.png");
   gbackground->xy_projection(img, 0, 0, 256, 256);
-  //*img << platform::api::asset->retrieve("models/bunny/lowpoly.armature..animation.texture.unwrapped.textured.png");
+  //*img << platform::asset::api->retrieve("models/bunny/lowpoly.armature..animation.texture.unwrapped.textured.png");
   //gbackground->xy_projection(img, 0, 0, 2048, 2048);
-  platform::api::graphics->compile(*gbackground);
+  platform::graphics::api->compile(*gbackground);
 
   //
   // Default the inputs
@@ -104,11 +104,11 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   //
   // Init sound
   //
-  sound << platform::api::asset->retrieve("sounds/mind_is_going.wav");
+  sound << platform::asset::api->retrieve("sounds/mind_is_going.wav");
 
   DEBUG_TRACE << "sound file loaded " << sound.size << " bytes" << my::endl;
 
-  platform::api::audio->compile(sound);
+  platform::audio::api->compile(sound);
 
   camera.move(4.0f);
 
@@ -137,13 +137,13 @@ void on_startup(void *asset_manager) { DEBUG_SCOPE;
   */
 }
 
-void on_shutdown() {
+void main::on_shutdown() {
 }
 
 int screen_width;
 int screen_height;
 
-void on_resize(int width, int height) {
+void main::on_resize(int width, int height) {
   glViewport(0, 0, width, height);
 
   screen_width = width;
@@ -153,8 +153,8 @@ void on_resize(int width, int height) {
 
 my::spatial::position pos;
 
-void on_draw() {
-  platform::api::graphics->clear();
+void main::on_draw() {
+  platform::graphics::api->clear();
 
   static float angle = 0.0f;
   angle -= 0.1f;
@@ -170,7 +170,7 @@ void on_draw() {
   background.scale(0.01f);
   background.translate(-130.0f, -120.0f, 1000.1f);
 
-  //platform::api::graphics->draw(*gbackground, shader_basic, background, my::spatial::matrix(), my::spatial::matrix());
+  //platform::graphics::api->draw(*gbackground, shader_basic, background, my::spatial::matrix(), my::spatial::matrix());
 
   //
   // position
@@ -195,7 +195,7 @@ void on_draw() {
   b.identity();
   b.translate(10, 10, 0);
 
-  platform::api::graphics->draw(*gbackground, shader_basic, b, my::spatial::matrix(), ortho);
+  platform::graphics::api->draw(*gbackground, shader_basic, b, my::spatial::matrix(), ortho);
 
   /*
   my::spatial::matrix model;
@@ -221,7 +221,7 @@ void on_draw() {
 
   my::spatial::matrix mvp = view_projection * model;
 
-  platform::api::graphics->draw(gapple, shader_with_lighting, model, view, projection);
+  platform::graphics::api->draw(gapple, shader_with_lighting, model, view, projection);
   */
 
   my::spatial::matrix model;
@@ -232,7 +232,7 @@ void on_draw() {
   pos.move(0.02f);
   model.translate(pos.eye, pos.center, pos.up);
 
-  platform::api::graphics->draw(bunny, shader_with_lighting, model, view, perspective);
+  platform::graphics::api->draw(bunny, shader_with_lighting, model, view, perspective);
 
   /*
   my::list<my::shared_ptr<my::spatial::position> >::iterator it = positions.begin();
@@ -247,7 +247,7 @@ void on_draw() {
     it->second->move(0.02f);
     model.translate(it->second->eye, it->second->center, it->second->up);
 
-    platform::api::graphics->draw(gapple, shader_with_lighting, model, view, perspective);
+    platform::graphics::api->draw(gapple, shader_with_lighting, model, view, perspective);
   }
   */
 
@@ -269,61 +269,61 @@ void on_draw() {
   //static int counter = 0;
   //tbuffer << counter++ << ") " << input_x << "," << input_y << my::endl;
 
-  tbuffer.display();
+  tbuffer.draw();
 }
 
 float move_scale = 0.2f;
 float rotate_scale = 1.0f;
 
-void on_proc() {
+void main::on_proc() {
   static int count = 0;
   //tbuffer << "process loop: " << count++ << my::endl;
 
-  if (platform::api::input->keys[37]) { // left
+  if (platform::input::api->keys[37]) { // left
     camera.rotate(0.0f, rotate_scale * -1.0f);
   }
-  if (platform::api::input->keys[38]) { // up
+  if (platform::input::api->keys[38]) { // up
     camera.rotate(rotate_scale, 0.0f, 0.0f);
   }
-  if (platform::api::input->keys[39]) { // right
+  if (platform::input::api->keys[39]) { // right
     camera.rotate(0.0f, rotate_scale);
   }
-  if (platform::api::input->keys[40]) { // down
+  if (platform::input::api->keys[40]) { // down
     camera.rotate(rotate_scale * -1.0f, 0.0f, 0.0f);
   }
 
-  if (platform::api::input->keys[87]) { // W
+  if (platform::input::api->keys[87]) { // W
     camera.vertical(move_scale * -1.0f);
   }
-  if (platform::api::input->keys[83]) { // S
+  if (platform::input::api->keys[83]) { // S
     camera.vertical(move_scale);
   }
-  if (platform::api::input->keys[65]) { // A
+  if (platform::input::api->keys[65]) { // A
     camera.strafe(move_scale * -1.0f);
   }
-  if (platform::api::input->keys[68]) { // D
+  if (platform::input::api->keys[68]) { // D
     camera.strafe(move_scale);
   }
 
-  if (platform::api::input->keys[32]) { // Space
+  if (platform::input::api->keys[32]) { // Space
     shader_with_lighting = my::program();
-    shader_with_lighting.vertex << platform::api::asset->retrieve("shaders/shader_with_lighting.vert");
-    shader_with_lighting.fragment << platform::api::asset->retrieve("shaders/shader_with_lighting.frag");
-    platform::api::graphics->compile(shader_with_lighting);
+    shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_with_lighting.vert");
+    shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_with_lighting.frag");
+    platform::graphics::api->compile(shader_with_lighting);
   }
 
 }
 
-void on_touch_press(float x, float y) {
+void main::on_touch_press(float x, float y) {
   input_x = x - (screen_width / 2);
   input_y = y - (screen_height / 2);
 
   tbuffer << "press: " << input_x << ", " << input_y << my::endl;
 
-  //platform::api::audio->play(sound);
+  //platform::audio::api->play(sound);
 }
 
-void on_touch_drag(float x, float y) {
+void main::on_touch_drag(float x, float y) {
   input_x = x - (screen_width / 2);
   input_y = y - (screen_height / 2);
 
@@ -335,39 +335,48 @@ void on_touch_drag(float x, float y) {
   //camera.rotate(0.1f, 0.1f);
 }
 
-void on_touch_release(float x, float y) {
+void main::on_touch_release(float x, float y) {
   //input_x = x;
   //input_y = y;
+  tbuffer << "release: " << input_x << ", " << input_y << my::endl;
 }
 
-void on_touch_zoom_in() {
+void main::on_touch_zoom_in() {
   camera.move(move_scale);
   tbuffer << "zoom in" << my::endl;
   input_z += 0.1f;
 }
 
-void on_touch_zoom_out() {
+void main::on_touch_zoom_out() {
   camera.move(move_scale * -1.0f);
   tbuffer << "zoom out" << my::endl;
   input_z -= 0.1f;
 }
 
-void on_touch_scale(float x, float y, float z) {
+void main::on_touch_scale(float x, float y, float z) {
   input_z += z;
   //camera.move(input_z >= 0 ? 1.0f : -1.0f);
 }
 
-void on_key_down(int key) {
+void main::on_key_down(int key) {
   tbuffer << "key down: " << key << my::endl;
 }
 
-void on_key_up(int key) {
+void main::on_key_up(int key) {
   tbuffer << "key up: " << key << my::endl;
-  //platform::api::audio->play(sound);
+  //platform::audio::api->play(sound);
   //camera.rotate(input_x, input_y);
 }
 
-void on_mouse_move(long int x, long int y) {
+void main::on_mouse_down(int button, long int x, long int y) {
+
+}
+
+void main::on_mouse_up(int button, long int x, long int y) {
+
+}
+
+void main::on_mouse_move(long int x, long int y) {
   mouse_x = x;
   mouse_y = y;
 }

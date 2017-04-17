@@ -30,15 +30,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "ApplicationTemplate.hpp"
+//#include "ApplicationTemplate.hpp"
 
 #include "mylo.hpp"
 
-platform::filesystem_interface *platform::api::filesystem = new winapi::filesystem();
-platform::graphics_interface *platform::api::graphics = new opengl::graphics();
-platform::audio_interface *platform::api::audio = new openal::audio();
-platform::asset_interface *platform::api::asset = new winapi::asset();
-platform::input_interface *platform::api::input = new generic::input();
+platform::controller_interface *platform::controller::api = new main();
+
+platform::filesystem_interface *platform::filesystem::api = new winapi::filesystem();
+platform::graphics_interface *platform::graphics::api = new opengl::graphics();
+platform::audio_interface *platform::audio::api = new openal::audio();
+platform::asset_interface *platform::asset::api = new winapi::asset();
+platform::input_interface *platform::input::api = new generic::input();
 
 #include <iostream>
 
@@ -248,7 +250,7 @@ bool Window::Resize(int w, int h) {
 
   glViewport(0, 0, width, height);
 
-  on_resize(width, height);
+  platform::controller::api->on_resize(width, height);
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
@@ -281,12 +283,12 @@ bool setupGraphics(int w, int h);
 void renderFrame();
 
 void OnInit() {
-  on_startup("C:\\Users\\codeneko\\Dropbox\\Development\\projects\\ApplicationTemplate\\assets\\");
+  platform::controller::api->on_startup("C:\\Users\\codeneko\\Dropbox\\Development\\projects\\ApplicationTemplate\\assets\\");
 }
 
 void OnTimer() {
-  on_proc();
-  on_draw();
+  platform::controller::api->on_proc();
+  platform::controller::api->on_draw();
   SwapBuffers(window->DC());
 }
 
@@ -303,7 +305,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     GetCursorPos(&p);
     ScreenToClient(hWnd, &p);
 
-    on_touch_drag((float)p.x, (float)p.y);
+    platform::controller::api->on_touch_drag((float)p.x, (float)p.y);
   }
 
 	switch (uMsg) {
@@ -425,37 +427,56 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 
     if (input.header.dwType == RIM_TYPEKEYBOARD && (input.data.keyboard.Flags == 0 || input.data.keyboard.Flags == 2))
     {
-      platform::api::input->key_down(input.data.keyboard.VKey);
+      platform::input::api->key_down(input.data.keyboard.VKey);
     }
     if (input.header.dwType == RIM_TYPEKEYBOARD && (input.data.keyboard.Flags == 1 || input.data.keyboard.Flags == 3))
     {
-      platform::api::input->key_up(input.data.keyboard.VKey);
+      platform::input::api->key_up(input.data.keyboard.VKey);
     }
 
-    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.ulButtons == 0)
-    {
-      GetCursorPos(&p);
-      ScreenToClient(hWnd, &p);
-      platform::api::input->mouse_move(p.x, p.y);
-    }
-    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0001)
-    {
-      GetCursorPos(&p);
-      ScreenToClient(hWnd, &p);
-      platform::api::input->touch_press((float)p.x, (float)p.y);
-      LBUTTONDOWN = true;
-    }
-    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0002)
-    {
-      LBUTTONDOWN = false;
-    }
-    if (input.header.dwType == RIM_TYPEMOUSE && input.data.mouse.usButtonFlags & 0x0400)
-    {
-      if (input.data.mouse.usButtonData == 0xFF88) { // 65416
-        platform::api::input->touch_zoom_in();
+    if (input.header.dwType == RIM_TYPEMOUSE) {
+      if (input.data.mouse.ulButtons == 0)
+      {
+        GetCursorPos(&p);
+        ScreenToClient(hWnd, &p);
+        platform::input::api->mouse_move(p.x, p.y);
       }
-      if (input.data.mouse.usButtonData == 0x0078) { // 120
-        platform::api::input->touch_zoom_out();
+      if (input.data.mouse.usButtonFlags & 0x0001)
+      {
+        platform::input::api->touch_press((float)p.x, (float)p.y);
+        platform::input::api->mouse_down(0, p.x, p.y);
+        LBUTTONDOWN = true;
+      }
+      if (input.data.mouse.usButtonFlags & 0x0002)
+      {
+        platform::input::api->touch_release((float)p.x, (float)p.y);
+        platform::input::api->mouse_up(0, p.x, p.y);
+        LBUTTONDOWN = false;
+      }
+      if (input.data.mouse.usButtonFlags & 0x0010)
+      {
+        platform::input::api->mouse_down(1, p.x, p.y);
+      }
+      if (input.data.mouse.usButtonFlags & 0x0020)
+      {
+        platform::input::api->mouse_up(1, p.x, p.y);
+      }
+      if (input.data.mouse.usButtonFlags & 0x0004)
+      {
+        platform::input::api->mouse_down(2, p.x, p.y);
+      }
+      if (input.data.mouse.usButtonFlags & 0x0008)
+      {
+        platform::input::api->mouse_up(2, p.x, p.y);
+      }
+      if (input.data.mouse.usButtonFlags & 0x0400)
+      {
+        if (input.data.mouse.usButtonData == 0xFF88) { // 65416
+          platform::input::api->touch_zoom_in();
+        }
+        if (input.data.mouse.usButtonData == 0x0078) { // 120
+          platform::input::api->touch_zoom_out();
+        }
       }
     }
 

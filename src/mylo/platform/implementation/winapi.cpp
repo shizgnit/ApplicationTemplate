@@ -48,7 +48,7 @@ my::buffer winapi::asset::retrieve(my::string request, my::string path) { DEBUG_
     my::map<my::string, int>::iterator it = search_paths.begin();
     for (; it != search_paths.end(); it++) {
       my::string path = my::substitute(it->first + "\\" + request, "/", "\\", true);
-      if (platform::api::filesystem->exists(path) == false) {
+      if (platform::filesystem::api->exists(path) == false) {
         continue;
       }
       data << my::file(path);

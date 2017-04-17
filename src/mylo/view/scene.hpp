@@ -35,19 +35,31 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __SCENE_HPP
 #define __SCENE_HPP
 
-__MYLO_NAMESPACE_BEGIN
-
-class gui {
-private:
-  my::list<my::widget> m_widgets;
-  bool visible;
-};
+__VIEW_NAMESPACE_BEGIN
 
 class scene {
+  void on_startup() {
+
+  }
+
+  void on_proc() {
+
+
+  }
+
+  void on_draw() {
+
+
+  }
+
+  void on_moust_up() {
+
+  }
+
 private:
-  my::map<my::string, gui> m_gui;
+  my::list<my::shared_ptr<view::widget>> widgets;
 };
 
-__MYLO_NAMESPACE_END
+__VIEW_NAMESPACE_END
 
 #endif

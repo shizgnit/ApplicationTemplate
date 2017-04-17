@@ -30,38 +30,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ================================================================================
 */
 
-#include "mylo.hpp"
+#ifndef __VIEW_HPP
+#define __VIEW_HPP
 
-#ifndef __GRAPHICS_INTERFACE_HPP
-#define __GRAPHICS_INTERFACE_HPP
-
-__PLATFORM_NAMESPACE_BEGIN
-
-class graphics_interface {
-  public: 
-    virtual void init(void) = 0;
-    virtual void clear(void) = 0;
-
-    virtual void compile(my::shader &shader, unsigned int type) = 0;
-    virtual void compile(my::program &program) = 0;
-    virtual void compile(my::object &object) = 0;
-    virtual void compile(my::objects &objects) = 0;
-    virtual void compile(my::font &font) = 0;
-
-    virtual void draw(my::object &object, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
-    virtual void draw(my::objects &objects, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
-    virtual void draw(my::string text, my::font &font, my::program &shader, const my::spatial::matrix &model, const my::spatial::matrix &view, const my::spatial::matrix &projection) = 0;
-};
-
-class graphics {
-public: static graphics_interface *api;
-};
-
-__PLATFORM_NAMESPACE_END
+#define __VIEW_NAMESPACE_BEGIN namespace view {
+#define __VIEW_NAMESPACE_END }
 
 #endif
-
-// Local Variables:
-// mode:C++
-// End:
 

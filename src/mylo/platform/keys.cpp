@@ -32,9 +32,31 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "mylo.hpp"
 
+platform::input_interface::metadata platform::input_interface::metadata_buttons[20] = {
+  { "", 0x00,	"" },
+  { "VK_LBUTTON", 0x01,	"Left mouse button" },
+  { "RI_MOUSE_LEFT_BUTTON_DOWN", 0x0001, "Left button changed to down." },
+  { "RI_MOUSE_LEFT_BUTTON_UP", 0x0002, "Left button changed to up." },
+  { "RI_MOUSE_MIDDLE_BUTTON_DOWN", 0x0010, "Middle button changed to down." },
+  { "RI_MOUSE_MIDDLE_BUTTON_UP", 0x0020, "Middle button changed to up." },
+  { "RI_MOUSE_RIGHT_BUTTON_DOWN", 0x0004, "Right button changed to down." },
+  { "RI_MOUSE_RIGHT_BUTTON_UP", 0x0008, "Right button changed to up." },
+  { "RI_MOUSE_BUTTON_1_DOWN", 0x0001, "RI_MOUSE_LEFT_BUTTON_DOWN" },
+  { "RI_MOUSE_BUTTON_1_UP", 0x0002, "RI_MOUSE_LEFT_BUTTON_UP" },
+  { "RI_MOUSE_BUTTON_2_DOWN", 0x0004, "RI_MOUSE_RIGHT_BUTTON_DOWN" },
+  { "RI_MOUSE_BUTTON_2_UP", 0x0008, "RI_MOUSE_RIGHT_BUTTON_UP" },
+  { "RI_MOUSE_BUTTON_3_DOWN", 0x0010, "RI_MOUSE_MIDDLE_BUTTON_DOWN" },
+  { "RI_MOUSE_BUTTON_3_UP", 0x0020, "RI_MOUSE_MIDDLE_BUTTON_UP" },
+  { "RI_MOUSE_BUTTON_4_DOWN", 0x0040, "XBUTTON1 changed to down." },
+  { "RI_MOUSE_BUTTON_4_UP", 0x0080, "XBUTTON1 changed to up." },
+  { "RI_MOUSE_BUTTON_5_DOWN", 0x100, "XBUTTON2 changed to down." },
+  { "RI_MOUSE_BUTTON_5_UP", 0x0200, "XBUTTON2 changed to up." },
+  { "RI_MOUSE_WHEEL", 0x0400, "Raw input comes from a mouse wheel. The wheel delta is stored in usButtonData." }
+};
+
 // https://msdn.microsoft.com/en-us/library/ms927178.aspx
 
-platform::input_interface::def_struct platform::input_interface::def[256] = {
+platform::input_interface::metadata platform::input_interface::metadata_keys[256] = {
   { "", 0x00,	"" },
   { "VK_LBUTTON", 0x01,	"Left mouse button" },
   { "VK_RBUTTON", 0x02,	"Right mouse button" },

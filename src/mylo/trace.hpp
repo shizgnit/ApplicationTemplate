@@ -196,7 +196,7 @@ namespace trace {
     buffer() : device("buffer"), maxlines(1024) {}
     void output(vector<string> content);
     
-    int maxlines;
+    unsigned int maxlines;
     list<string> contents;
   };
 }

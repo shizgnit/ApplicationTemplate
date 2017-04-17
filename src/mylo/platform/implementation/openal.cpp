@@ -62,7 +62,7 @@ void openal::audio::compile(my::audio &sound) {
 }
 
 void openal::audio::play(my::audio &sound) {
-  unsigned int selection;
+  int selection;
   for (selection = 0; selection < this->sources; selection++) {
     ALenum state;
     alGetSourcei(this->identifiers[selection], AL_SOURCE_STATE, &state);

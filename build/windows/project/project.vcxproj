@@ -89,6 +89,7 @@
       <AdditionalIncludeDirectories>C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\platform;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\mylo;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\png;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\linmath;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\glu\src\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src\third_party\glu\include\GL;C:\Users\codeneko\Dropbox\Development\dependencies\include;C:\Users\codeneko\Dropbox\Development\projects\ApplicationTemplate\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,6 +173,7 @@
     <ClCompile Include="..\..\..\src\mylo\utilities.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\button.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\controller.cpp" />
+    <ClCompile Include="..\..\..\src\mylo\view\resource.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\scene.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\text.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\widget.cpp" />
@@ -210,6 +212,7 @@
     <ClInclude Include="..\..\..\src\mylo\dto\object.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\primitives.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\program.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\dto\reader.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\shader.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\types\fnt.hpp" />
     <ClInclude Include="..\..\..\src\mylo\dto\types\frag.hpp" />
@@ -233,6 +236,7 @@
     <ClInclude Include="..\..\..\src\mylo\platform\implementation\winapi.hpp" />
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\asset.hpp" />
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\audio.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\platform\interfaces\controller.hpp" />
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\database.hpp" />
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\filesystem.hpp" />
     <ClInclude Include="..\..\..\src\mylo\platform\interfaces\graphics.hpp" />
@@ -254,8 +258,10 @@
     <ClInclude Include="..\..\..\src\mylo\vector.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\button.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\controller.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\resource.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\scene.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\text.hpp" />
+    <ClInclude Include="..\..\..\src\mylo\view\view.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\widget.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xml.hpp" />
     <ClInclude Include="..\..\..\src\mylo\xpath.hpp" />
