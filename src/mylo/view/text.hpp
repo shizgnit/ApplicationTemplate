@@ -51,8 +51,8 @@ public:
     m_font << platform::asset::api->retrieve(ttf);
     platform::graphics::api->compile(m_font);
 
-    m_shader.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
-    m_shader.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+    m_shader.vertex << platform::asset::api->retrieve("shaders/texture_shader.vert");
+    m_shader.fragment << platform::asset::api->retrieve("shaders/texture_shader.frag");
     platform::graphics::api->compile(m_shader);
 
     m_ready = true;

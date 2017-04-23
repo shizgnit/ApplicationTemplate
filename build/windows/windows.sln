@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ApplicationTemplate", "project\project.vcxproj", "{A0302457-0BF5-49D3-9085-8C58F48CB5BC}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -11,6 +11,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lua", "lua\lua.vcxproj", "{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{5CBCDD5E-3CB6-40B8-8B4D-56EA1C7AC6EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39BF8649-5C3E-40CC-9560-8EC9CEBC06BB} = {39BF8649-5C3E-40CC-9560-8EC9CEBC06BB}
+		{A0302457-0BF5-49D3-9085-8C58F48CB5BC} = {A0302457-0BF5-49D3-9085-8C58F48CB5BC}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

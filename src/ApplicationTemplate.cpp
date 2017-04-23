@@ -48,8 +48,8 @@ void main::on_startup(void *asset_manager) { DEBUG_SCOPE;
 
   DEBUG_TRACE << "Attempting to create the draw surface" << my::endl;
 
-  shader_basic.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
-  shader_basic.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+  shader_basic.vertex << platform::asset::api->retrieve("shaders/texture_shader.vert");
+  shader_basic.fragment << platform::asset::api->retrieve("shaders/texture_shader.frag");
   platform::graphics::api->compile(shader_basic);
 
   shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
@@ -306,10 +306,30 @@ void main::on_proc() {
   }
 
   if (platform::input::api->keys[32]) { // Space
-    shader_with_lighting = my::program();
-    shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_with_lighting.vert");
-    shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_with_lighting.frag");
-    platform::graphics::api->compile(shader_with_lighting);
+    static int which = 0;
+
+    switch (which) {
+    case(0):
+      shader_with_lighting = my::program();
+      shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_with_lighting.vert");
+      shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_with_lighting.frag");
+      platform::graphics::api->compile(shader_with_lighting);
+      which += 1;
+      break;
+    case(1):
+      shader_with_lighting = my::program();
+      shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
+      shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+      platform::graphics::api->compile(shader_with_lighting);
+      which += 1;
+      break;
+    case(2):
+      shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
+      shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.frag");
+      platform::graphics::api->compile(shader_with_lighting);
+      which = 0;
+      break;
+    };
   }
 
 }
