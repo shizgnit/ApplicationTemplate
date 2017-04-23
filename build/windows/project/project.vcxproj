@@ -172,8 +172,6 @@
     <ClCompile Include="..\..\..\src\mylo\trace.cpp" />
     <ClCompile Include="..\..\..\src\mylo\utilities.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\button.cpp" />
-    <ClCompile Include="..\..\..\src\mylo\view\controller.cpp" />
-    <ClCompile Include="..\..\..\src\mylo\view\resource.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\scene.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\text.cpp" />
     <ClCompile Include="..\..\..\src\mylo\view\widget.cpp" />
@@ -257,8 +255,6 @@
     <ClInclude Include="..\..\..\src\mylo\variant.hpp" />
     <ClInclude Include="..\..\..\src\mylo\vector.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\button.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\view\controller.hpp" />
-    <ClInclude Include="..\..\..\src\mylo\view\resource.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\scene.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\text.hpp" />
     <ClInclude Include="..\..\..\src\mylo\view\view.hpp" />
