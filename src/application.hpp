@@ -29,4 +29,7 @@ public:
   void on_mouse_move(long int x, long int y);
 };
 
+#define EXAMPLE_APPLICATION
+//#define WORDS_APPLICATION
+
 #endif

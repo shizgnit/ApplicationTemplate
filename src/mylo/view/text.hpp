@@ -58,7 +58,7 @@ public:
     m_ready = true;
   }
 
-  void draw() {
+  void draw(my::program &shader, my::spatial::matrix &pespective) {
     if(m_ready == false) {
       return;
     }
@@ -72,7 +72,7 @@ public:
     for (; it != buffer.end(); it++) {
       text.translate(0.0f, -30.0f, 0.0f);
       if (it->second.length()) {
-        platform::graphics::api->draw(it->second, m_font, m_shader, text, my::spatial::matrix(), my::spatial::matrix());
+        platform::graphics::api->draw(it->second, m_font, shader, text, my::spatial::matrix(), pespective);
       }
     }
   }

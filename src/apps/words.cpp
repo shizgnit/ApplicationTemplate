@@ -1,4 +1,6 @@
-#include "ApplicationTemplate.hpp"
+#include "application.hpp"
+
+#ifdef WORDS_APPLICATION
 
 static inline float deg_to_radf(float deg) {
   return deg * (float) M_PI / 180.0f;
@@ -400,3 +402,5 @@ void main::on_mouse_move(long int x, long int y) {
   mouse_x = x;
   mouse_y = y;
 }
+
+#endif

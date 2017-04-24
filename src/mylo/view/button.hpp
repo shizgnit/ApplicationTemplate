@@ -40,10 +40,27 @@ __VIEW_NAMESPACE_BEGIN
 class button : public view::widget {
 
 public:
-  void draw() {
-
+  button() {
   }
-  
+
+  void init(my::string source, int width, int height) {
+    attr.geometry.width = width;
+    attr.geometry.height = height;
+    gbackground = my::primitive::quad((float)attr.geometry.width, (float)attr.geometry.height);
+    my::image *img = new my::png;
+    *img << platform::asset::api->retrieve(source);
+    gbackground->xy_projection(img, 0, 0, attr.geometry.width, attr.geometry.height);
+    platform::graphics::api->compile(*gbackground);
+  }
+
+  void draw(my::program &shader, my::spatial::matrix &pespective) {
+    my::spatial::matrix local;
+    local.identity();
+    local.translate((float)attr.geometry.x, (float)attr.geometry.y, 0);
+    platform::graphics::api->draw(*gbackground, shader, local, my::spatial::matrix(), pespective);
+  }
+
+  my::shared_ptr<my::object> gbackground;
 };
 
 __VIEW_NAMESPACE_END

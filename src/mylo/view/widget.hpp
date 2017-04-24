@@ -40,18 +40,18 @@ __VIEW_NAMESPACE_BEGIN
 class widget {
 public:
   widget() {
-    memset(&prop, 0, sizeof(prop));
+    memset(&attr, 0, sizeof(attr));
   }
 
   void SetPosition(int x, int y, int z=0) {
-    prop.geometry.x = x;
-    prop.geometry.y = y;
-    prop.geometry.z = z;
+    attr.geometry.x = x;
+    attr.geometry.y = y;
+    attr.geometry.z = z;
   }
 
   void SetGeometry(int width, int height) {
-    prop.geometry.width = width;
-    prop.geometry.height = height;
+    attr.geometry.width = width;
+    attr.geometry.height = height;
   }
 
   virtual void on_draw() {};
@@ -62,7 +62,7 @@ public:
   virtual void on_click_down() {};
   virtual void on_click_up() {};
 
-private:
+protected:
   struct attributes {
     struct {
       int x;
@@ -73,7 +73,7 @@ private:
     } geometry;
     bool click_through;
     bool visible;
-  } prop;
+  } attr;
 };
 
 __VIEW_NAMESPACE_END

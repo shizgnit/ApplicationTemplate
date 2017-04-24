@@ -39,24 +39,27 @@ __VIEW_NAMESPACE_BEGIN
 
 class scene {
   void on_startup() {
-
+    m_shader_widgets = my::program();
+    m_shader_widgets.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
+    m_shader_widgets.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+    platform::graphics::api->compile(m_shader_widgets);
   }
 
   void on_proc() {
-
 
   }
 
   void on_draw() {
 
-
   }
 
-  void on_moust_up() {
+  void on_mouse_up() {
 
   }
 
 private:
+  my::program m_shader_widgets;
+
   my::list<my::shared_ptr<view::widget>> widgets;
 };
 

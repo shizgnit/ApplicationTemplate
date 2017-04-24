@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "platform/platform.hpp"
 #include "platform/interfaces/controller.hpp"
 
-#include "ApplicationTemplate.hpp"
+#include "application.hpp"
 
 #if defined __PLATFORM_WINDOWS
 #define __MYLO_STATIC 1
