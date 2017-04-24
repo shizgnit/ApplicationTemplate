@@ -28,5 +28,5 @@ void main()
    
    Light = clamp(Light, 0.0, 1.0);
   
-   gl_FragColor = gl_FragColor + texture2D(u_SurfaceTextureUnit, v_Texture) * vec4(texture2D(u_SurfaceTextureUnit, v_Texture).a) * Light;
+   gl_FragColor = texture2D(u_SurfaceTextureUnit, v_Texture) * vec4(texture2D(u_SurfaceTextureUnit, v_Texture).a) * Light;
 }

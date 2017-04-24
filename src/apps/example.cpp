@@ -320,8 +320,8 @@ void main::on_proc() {
       break;
     case(1):
       shader_with_lighting = my::program();
-      shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_basic.vert");
-      shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_basic.frag");
+      shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_shader.vert");
+      shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/texture_shader.frag");
       platform::graphics::api->compile(shader_with_lighting);
       which += 1;
       break;
@@ -361,6 +361,30 @@ void main::on_touch_release(float x, float y) {
   //input_x = x;
   //input_y = y;
   tbuffer << "release: " << input_x << ", " << input_y << my::endl;
+  static int which = 0;
+
+  switch (which) {
+  case(0):
+    shader_with_lighting = my::program();
+    shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/shader_with_lighting.vert");
+    shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/shader_with_lighting.frag");
+    platform::graphics::api->compile(shader_with_lighting);
+    which += 1;
+    break;
+  case(1):
+    shader_with_lighting = my::program();
+    shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_shader.vert");
+    shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/texture_shader.frag");
+    platform::graphics::api->compile(shader_with_lighting);
+    which += 1;
+    break;
+  case(2):
+    shader_with_lighting.vertex << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.vert");
+    shader_with_lighting.fragment << platform::asset::api->retrieve("shaders/texture_alpha_shader_toon_lighting.frag");
+    platform::graphics::api->compile(shader_with_lighting);
+    which = 0;
+    break;
+  };
 }
 
 void main::on_touch_zoom_in() {

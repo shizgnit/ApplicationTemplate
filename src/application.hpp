@@ -1,6 +1,9 @@
 
 #include "mylo.hpp"
 
+#define EXAMPLE_APPLICATION
+//#define WORDS_APPLICATION
+
 #ifndef __MAIN_HPP
 #define __MAIN_HPP
 
@@ -28,8 +31,5 @@ public:
   void on_mouse_up(int button, long int x, long int y);
   void on_mouse_move(long int x, long int y);
 };
-
-#define EXAMPLE_APPLICATION
-//#define WORDS_APPLICATION
 
 #endif
